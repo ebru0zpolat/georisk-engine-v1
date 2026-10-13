@@ -1,0 +1,56 @@
+---
+description: Binding CI, stub governance, and completion-honesty rules for GeoRisk Engine agents.
+alwaysApply: true
+---
+
+# CI, stubs, and completion honesty
+
+## Tests — NEVER weaken the suite
+
+- NEVER skip, delete, weaken, or rewrite a failing test solely to make CI green.
+- NEVER mark an issue "fixed" if tests were removed or softened instead of the product bug being fixed.
+- Prefer fixing the implementation. If a test is genuinely wrong, change it with an explicit rationale in the PR (what assertion was incorrect and why).
+
+## CI is the merge gate
+
+- Once GitHub Actions CI exists for this repo, **CI is the only source of truth** for pass/fail on a PR.
+- Do not claim "tests pass" / "ready to merge" from a local run alone when CI has not reported green (or when CI is red).
+- Local pytest remains useful for development iteration; it does not replace the Actions gate.
+
+## Stub governance
+
+- Every stub/synthetic/fallback used as a product input MUST be identifiable:
+  - name prefix `stub_` **or** field `synthetic=true` (or equivalent explicit flag on the artifact), **and**
+  - methodology / data `source` string containing `"synthetic calibration"` when values are not from a real calibrated source.
+- Every stub MUST be listed in root `STUBS.md` with a replacement plan and a **Severity** (`output-shaping` / `data-fallback` / `presentation`). An unlisted stub is a review fail.
+- Prefer failing open with labelled stubs over silent invented "production" numbers.
+- Regulated-buyer demos must not use the SHA-256 seeded `/v1/risk/score` path (`STUBS.md` #3). Demo only the five-layer pipeline with labelled synthetic curves.
+
+## Replay / verify context
+
+- Functions that replay, verify or audit past results must derive ALL computation context (catalogue id+version, methodology version, pack version, parameters) from the record being verified — never from current defaults. Silent fallback to a current default in a replay/verify path is a correctness bug, not a convenience.
+
+## Silent data dropping (named bug class)
+
+- **Silent row-dropping in aggregation paths** is a correctness bug in the same family as silent stubs and silent default fallbacks.
+- Never `continue` / skip rows in portfolio or batch aggregations without recording them in an explicit `excluded[]` (or equivalent) with a per-row reason.
+- Responses and UI must surface coverage ("Analyzed N of M …") — not hide exclusions in tooltips or omit them.
+- If zero rows are analyzable, fail with a clear 422 (or equivalent) that includes the exclusion list — do not crash or return an empty success that looks complete.
+
+## Rounding — round once at the output boundary
+
+- Round once, at the output boundary — intermediate values carry full precision. An intermediate `round()` in a computation path is a bug.
+- Money results (EAL, notional loss breakdown) round to cents only when emitted; ratios used mid-formula (`MDR`, `combined_MDR`, etc.) stay full precision.
+- Display-only fields may round at the same output boundary. Do not round mid-product / mid-sum and then continue computing.
+
+## Independent EAL verifier
+
+- The independent verifier (`tests/verification/independent_eal.py`) must **never** share computation code with the pipeline (`app/loss`, `app/services`).
+- It must not import those packages; formula changes are driven by `tests/verification/METHODOLOGY.md` (and the directive), not by copying pipeline source.
+- If the pipeline formula changes, update the methodology note **and** the verifier in the **same PR**.
+
+## Completion honesty
+
+- If you cannot fully implement what was asked (missing data, unclear spec, time/complexity), say so explicitly and propose the honest partial version.
+- Delivering a plausible-looking but non-functional implementation is the worst possible outcome.
+- Never mark a PR/task complete if requirements are stubbed or deferred without listing **what is real vs not** in the PR description.

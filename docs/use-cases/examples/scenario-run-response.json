@@ -1,0 +1,26 @@
+{
+  "scenario_id": "scen_8842_x",
+  "status": "completed",
+  "hazard_results": {
+    "flood": {
+      "severity_index": 0.72,
+      "affected_fraction": 0.15,
+      "return_periods": { "10y": 0.4, "50y": 0.65, "100y": 0.85 }
+    }
+  },
+  "shocks": {
+    "correlated_events": ["supply_chain_disruption", "energy_price_spike"],
+    "systemic_risk_score": 0.64
+  },
+  "propagation": {
+    "node": "facility_a",
+    "impact_path": [
+      { "tier": "direct", "target": "production_capacity", "loss": 0.2 },
+      { "tier": "supply_chain_tier1", "target": "logistics_hub_istanbul", "loss": 0.08 }
+    ]
+  },
+  "audit_context": {
+    "linked_audit_ids": ["AUD-2026-001"],
+    "disclaimer": "v1 Deterministic Engine - Results based on core baseline snapshot."
+  }
+}

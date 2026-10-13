@@ -1,0 +1,10 @@
+# GeoRisk Engine
+
+> GeoRisk Engine provides geospatial risk analysis and assessment tools.
+
+This site is built as a single-page application.
+
+## Blog
+
+- [Blog index](https://georiskengine.com/blog/): Notes on climate risk quantification, carbon pricing, CBAM, and auditable emissions data.
+- [CBAM'de Asıl Mesele Vergi Değil, Doğrulanabilirlik](https://georiskengine.com/blog/cbam-dogrulanabilir-karbon-verisi): Turkish-language post on the EU CBAM verification gap and why auditable emissions data is a competitive issue for exporters.

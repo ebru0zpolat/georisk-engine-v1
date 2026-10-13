@@ -1,0 +1,18 @@
+{
+  "map_id": "flood_hazard_map_fixture",
+  "version": "0.1",
+  "source": "SYNTHETIC-FIXTURE — plausibly-shaped return-period water levels for the Amsterdam pilot cells, NOT real NL LIWO / flood-extent values. Offline tests/demos only. Never present as a real flood surface.",
+  "datum": "NAP",
+  "cell_size_deg": 0.01,
+  "synthetic": true,
+  "populated": true,
+  "methodology_note": "Labelled synthetic return-period water levels (metres NAP) with the STRUCTURE of a real flood-hazard map: per 0.01-deg cell, rising with return period. Covers the two pilot cells (52.38,4.88 and 52.37,4.92). Replace with authentic NL LIWO / Country-Pack flood-extent water levels via scripts/vendor_flood_hazard_map.py. Never present these numbers as a real flood surface.",
+  "levels": [
+    {"cell_id": "52.38,4.88", "return_period_years": 10, "water_level_m": 0.5},
+    {"cell_id": "52.38,4.88", "return_period_years": 100, "water_level_m": 1.5},
+    {"cell_id": "52.38,4.88", "return_period_years": 1000, "water_level_m": 3.0},
+    {"cell_id": "52.37,4.92", "return_period_years": 10, "water_level_m": 0.4},
+    {"cell_id": "52.37,4.92", "return_period_years": 100, "water_level_m": 1.3},
+    {"cell_id": "52.37,4.92", "return_period_years": 1000, "water_level_m": 2.7}
+  ]
+}

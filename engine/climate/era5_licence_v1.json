@@ -1,0 +1,43 @@
+{
+  "allowlist_version": "era5-licence-v1",
+  "verified": true,
+  "verified_at": "2026-10-13",
+  "verified_by": "founder, from the CDS dataset page Terms of use and References (pasted into the WO-C05 session)",
+  "note": "ERA5 licence record for humid-heat-v1 (spec section 3.2). The licence name, its legal text and the citation and attribution requirements were retrieved from the CDS dataset page by the founder on 2026-10-13. Changing any entry requires new evidence recorded here.",
+  "evidence": {
+    "founder_statement": "2026-10-13: ERA5 is available free of charge under Creative Commons Attribution 4.0 for commercial, academic and personal use (founder, in the WO-C05 session).",
+    "announcement": "https://forum.ecmwf.int/t/cc-by-licence-to-replace-licence-to-use-copernicus-products-on-02-july-2025/13464",
+    "announcement_summary_as_reported": "ECMWF forum: the Licence to use Copernicus Products in the CDS, ADS and EWDS is replaced by CC-BY 4.0 on 2 July 2025. Reported by web search on 2026-10-13; the page itself was not reachable from the build environment.",
+    "dataset_page": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels",
+    "dataset_page_status": "Terms of use and References retrieved by the founder on 2026-10-13",
+    "cc_by_40": "https://creativecommons.org/licenses/by/4.0/",
+    "cds_citation_and_attribution": {
+      "retrieved_by": "founder (pasted from the CDS dataset page)",
+      "retrieved_on": "2026-10-13",
+      "page": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels",
+      "text_as_retrieved": "In addition to the requirements of the applicable license(s), users must: cite the CDS catalogue entry; provide clear and visible attribution to the Copernicus programme and attribute each data product used.",
+      "names_the_licence": false
+    },
+    "cds_terms_of_use": {
+      "retrieved_by": "founder (pasted from the CDS dataset page)",
+      "retrieved_on": "2026-10-13",
+      "page": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels",
+      "text_as_retrieved": "This dataset is released for use under the CC-BY licence. Highlights and key features of the licence are provided here. Full legal text is provided here.",
+      "legal_text_link": "https://creativecommons.org/licenses/by/4.0/legalcode.en"
+    }
+  },
+  "models": {
+    "ERA5": {
+      "licence": "CC BY 4.0",
+      "commercial_use": true,
+      "effective_from": "2025-07-02",
+      "dataset_ids": [
+        "reanalysis-era5-single-levels"
+      ],
+      "doi": "10.24381/cds.adbb2d47",
+      "catalogue_citation": "Copernicus Climate Change Service, Climate Data Store, (2023): ERA5 hourly data on single levels from 1940 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS). DOI: 10.24381/cds.adbb2d47 (Accessed on {accessed})",
+      "data_citation": "Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C., Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2023): ERA5 hourly data on single levels from 1940 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS), DOI: 10.24381/cds.adbb2d47 (Accessed on {accessed})",
+      "attribution": "Generated using or contains modified Copernicus Climate Change Service information. Neither the European Commission nor ECMWF is responsible for any use that may be made of the Copernicus information or data it contains."
+    }
+  }
+}

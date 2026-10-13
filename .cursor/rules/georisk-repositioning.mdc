@@ -1,0 +1,72 @@
+---
+description: GeoRisk Engine — binding product & architecture rules (repositioning v1.0, Aug 2026). Applies to ALL code, docs, UI copy and commit messages in this repo.
+alwaysApply: true
+---
+
+# GeoRisk Engine — Cursor Rules
+
+You are working on **GeoRisk Engine**: asset-level physical climate risk intelligence and financial impact assessment for regulated institutions, infrastructure owners and investors. Full directive: `GEORISK_ENGINE_REPOSITIONING.md` (read it before large tasks; these rules are the enforceable summary).
+
+## Product identity — NEVER violate
+
+- GeoRisk is a **decision and evidence engine**, not a map. Any feature whose only output is a hazard visualisation without financial translation must be rejected or extended.
+- NEVER build: emissions calculators, generic ESG reporting, engineering/hardware features (turbine design, cooling systems, materials), or country-specific standalone tools.
+- Elevator line for README/UI copy (verbatim): "From climate maps to financeable adaptation: converting location-level climate hazards into asset exposure, financial loss and investment priorities."
+
+## Architecture — Global Core + Country Packs
+
+- **NEVER hard-code country-specific logic, data sources, thresholds, damage curves, templates or language into `georisk-core`.** All of it lives in versioned Country Packs (`pack-tr`, `pack-nl`, `pack-<iso2>`) loaded at runtime.
+- Acceptance test for every PR touching core: "could a hypothetical third country be added with only a new `pack-<iso2>` directory?" If no → refactor before merge.
+- The Netherlands is a validation market, NOT the destination. NL-only design decisions are architecture bugs.
+- Prioritise hazard modules by market coverage: flood and extreme heat first (all 8 target markets), then wildfire/drought/storm; single-market hazards (e.g. subsidence) belong inside packs.
+
+## Pipeline contract — all five layers, always
+
+Every analysis MUST traverse:
+1. Hazard intelligence (multi-hazard, scenarios 2030/2050/2100, CMIP6/CORDEX)
+2. Asset exposure (geocoded location, value, type, use)
+3. Vulnerability (structure-specific fragility + adaptation capacity modifiers)
+4. Financial translation (Expected Annual Loss, value impairment, business interruption, credit impact)
+5. Adaptation evidence (measures → cost → risk reduction → residual risk → avoided loss)
+
+Encode as: `Hazard × Exposure × Vulnerability → Expected Loss → Adaptation Investment → Avoided Loss`.
+A result that stops at layer 1–2 is a map, not a product — do not ship it.
+
+## P0 vertical — the only one until it ships
+
+Real Estate, Mortgage & Commercial Collateral portfolios (50–500 assets design target).
+- Inputs: address/latlon, asset value, building type, use class (+optional: year, floors, insurance, adaptation measures, LTV context).
+- Outputs per asset AND portfolio: risk scores (versioned methodology), EAL absolute + %, 2030/2050 deltas, collateral sensitivity, insurability indicator, adaptation recommendations with avoided loss, residual risk, exportable evidence pack.
+- Do NOT build: municipal planning workspace (thin COP31 demo only), offshore wind / thermal modules (consortium-only, separate repo), premature scaling optimisations.
+
+## Audit trail — first-class feature, not logging
+
+- Every stored result references: input data versions, methodology version (semver), pack version, parameters, timestamp.
+- Hash-chained append-only log. NO blockchain anchoring.
+- Design test: a regulator/auditor must be able to reproduce any output number from the trail.
+- Methodology changes (e.g. a damage curve) = new methodology minor version; never silently mutate.
+- Evidence exports map to: ECB climate stress testing, EBA ESG guidelines, ESRS E1 physical risk (vulnerability-adjusted, hazard-alone insufficient), EU Taxonomy adaptation/DNSH.
+
+## Stack & conventions
+
+- Extend the existing Supabase backbone and graph intelligence layer (Phases 0–4). Do not rewrite them.
+- Code, API, docs, commit messages: English. Report templates localised per pack (TR/EN now, NL next).
+- Data provenance mandatory: every dataset entry carries source, licence, retrieval date, resolution. Reject unlicensed insurance/damage data.
+- Module naming: `georisk-core`, `pack-<iso2>`. NEVER use ozDNA/complyDNA/originDNA names in this repo — separate product families.
+
+## Timeline guardrails
+
+- Phase A hard deadline **31 Oct 2026**: five-layer pipeline end-to-end for one TR sample portfolio (Antalya OR İstanbul, not both), single-screen demo flow, versioned English methodology note, COP31 case study. No new workstreams in November 2026 (COP31 + scholarship application window).
+- Phase B (Dec 2026–Feb 2027): generic pack loader proven against BOTH pack-tr and pack-nl with the same pipeline; pack-parameterised demo; stub manifests for two future packs.
+- When asked to add scope outside the current phase, flag it and propose deferring instead of silently implementing.
+
+## Annex B initiatives (see directive §Annex B for full specs)
+
+- **Allowed to touch Phase A scope (only these two):** the `valuation_date` parameter on the pipeline (backtesting readiness — no lookahead leakage) and the adaptation-outcome schema fields (`measure_status`, `implemented_date`, `post_implementation_review`, consent/anonymisation flags). Implement these as part of normal pipeline/schema work.
+- Backtesting validation report and Model Validation Pack are Phase A/B deliverables; uncertainty attribution, protection-gap report and TSRS template are Phase C — refuse to start them before the P0 vertical ships end-to-end.
+- Golden portfolios: synthetic only (real geographies, fictional assets/values, never real customer/personal data); wire them into CI as regression fixtures — score drift beyond tolerance fails the build.
+- Every Annex B feature obeys the five-layer contract and the audit-trail reproducibility test; no exceptions.
+
+## When in doubt
+
+Ask: "does this help a bank understand what climate change costs their portfolio and what fixing it is worth?" If not, question the task before implementing.

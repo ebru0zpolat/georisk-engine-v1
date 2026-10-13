@@ -1,0 +1,22 @@
+{
+  "_comment": "EXAMPLE shape only — not real licences. Copy real entries into data_source_operational.json once a commercial-use licence and retention policy exist for a source. source_id must match a data_source_registry id (e.g. oras5_ocean, gee_viirs_ntl).",
+  "licences": [
+    {
+      "source_id": "oras5_ocean",
+      "licence_id": "cmems-commercial-2026",
+      "licensor": "Copernicus Marine Service",
+      "commercial_use": true,
+      "valid_from": "2026-01-01",
+      "valid_until": "2027-01-01",
+      "document_ref": "contracts/cmems-2026.pdf"
+    }
+  ],
+  "retentions": [
+    {
+      "source_id": "oras5_ocean",
+      "retention_days": 730,
+      "storage_location": "s3://georisk/oras5",
+      "policy_ref": "docs/retention-policy.md"
+    }
+  ]
+}

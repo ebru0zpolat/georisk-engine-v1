@@ -1,0 +1,18 @@
+{
+  "geography": ["TX"],
+  "start_date": "1978-01-01",
+  "cutoff": "2017-08-24",
+  "occupancy_types": ["RES1", "RES2", "RES3", "RES4"],
+  "include_zero_payments": true,
+  "denominator_field": "totalBuildingInsuranceCoverage",
+  "numerator_field": "buildingClaimPaymentAmount",
+  "exclude_missing_or_zero_coverage": true,
+  "outlier_policy": "retain_all_eligible_records",
+  "ratio_formula": "sum(buildingClaimPaymentAmount) / sum(totalBuildingInsuranceCoverage)",
+  "minimum_sample_size": 200,
+  "bootstrap_repetitions": 10000,
+  "bootstrap_seed": 20170825,
+  "estimand_id": "nfip_claim_conditional_building_payment_v1",
+  "excluded_event": "Hurricane Harvey",
+  "status": "precommitted_specification"
+}

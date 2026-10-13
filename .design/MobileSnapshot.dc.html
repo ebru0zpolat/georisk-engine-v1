@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #2ec990; text-decoration: none; }
+    a:hover { color: #5dcaa5; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #22304a; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; white-space: nowrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .pick { cursor: pointer; font-family: inherit; background: transparent; }
+    .pick:focus-visible { outline: 2px solid #2ec990; outline-offset: 2px; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: linear-gradient(180deg, #0d1a2e 0%, #0a1628 34%); color: #e6edf5; font-family: Inter, 'Segoe UI', sans-serif; display: flex; flex-direction: column; overflow: hidden;">
+
+  <!-- nav: no fake status bar, the OS draws its own above this -->
+  <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #22304a;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e6edf5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+    <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0;">
+      <span style="font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Antalya Kepez Depot</span>
+      <span class="mono" style="font-size: 11px; color: #9aa8ba;">TSKB-0034 · read-only</span>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px; padding: 12px 16px 16px; flex: 1;">
+
+    <!-- the banner survives on mobile -->
+    <div style="display: flex; gap: 9px; align-items: flex-start; padding: 9px 11px; border: 1px solid rgba(226,75,74,0.45); background: rgba(226,75,74,0.10); border-radius: 8px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e24b4a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span class="chip" style="color: #e24b4a; border-color: rgba(226,75,74,0.6); align-self: flex-start;">NOT_ELIGIBLE</span>
+        <span style="font-size: 12px; color: #9aa8ba; line-height: 1.4;">Demonstration output. Not for credit or pricing decisions.</span>
+      </div>
+    </div>
+
+    <!-- hero -->
+    <div style="border: 1px solid #22304a; border-radius: 12px; background: #131f33; padding: 14px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+        <span style="{{ bandStyle }}">{{ bandName }}</span>
+        <span class="chip" style="color: #ef9f27; border-color: rgba(239,159,39,0.6);">SYNTHETIC</span>
+      </div>
+      <p style="margin: 12px 0 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #9aa8ba;">Expected annual loss</p>
+      <p class="mono" style="margin: 4px 0 0; font-size: 30px; color: #2ec990; line-height: 1.1;">{{ eal }}</p>
+      <p style="margin: 5px 0 0; font-size: 12.5px; color: #9aa8ba;">{{ ealNote }}</p>
+    </div>
+
+    <!-- horizon: 44px targets -->
+    <div style="display: flex; gap: 6px;">
+      <sc-for list="{{ horizons }}" as="h" hint-placeholder-count="3">
+        <button class="pick" style="{{ h.style }}" onClick="{{ h.pick }}">{{ h.label }}</button>
+      </sc-for>
+    </div>
+
+    <!-- layer summary -->
+    <div style="border: 1px solid #22304a; border-radius: 12px; background: #131f33; padding: 4px 14px;">
+      <sc-for list="{{ layers }}" as="l" hint-placeholder-count="4">
+        <div style="{{ l.rowStyle }}">
+          <span style="font-size: 13px; color: #9aa8ba;">{{ l.label }}</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="mono" style="font-size: 13.5px;">{{ l.value }}</span>
+            <span style="{{ l.dotStyle }}"></span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- top drivers -->
+    <div style="border: 1px solid #22304a; border-radius: 12px; background: #131f33; padding: 14px;">
+      <p style="margin: 0 0 11px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #9aa8ba;">Top drivers</p>
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <sc-for list="{{ drivers }}" as="d" hint-placeholder-count="3">
+          <div style="display: grid; grid-template-columns: 96px 1fr 38px; align-items: center; gap: 9px; font-size: 12.5px;">
+            <span style="color: #9aa8ba;">{{ d.label }}</span>
+            <span style="height: 7px; background: #101a2b; border-radius: 999px; overflow: hidden; display: block;"><span style="{{ d.fillStyle }}"></span></span>
+            <span class="mono" style="text-align: right; font-size: 12px;">{{ d.value }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- evidence -->
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 10px 14px; border: 1px solid rgba(93,202,165,0.35); border-radius: 12px; background: rgba(93,202,165,0.06);">
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-size: 13px;">Evidence record</span>
+        <span class="mono" style="font-size: 11.5px; color: #9aa8ba;">aud_9f3c1ba7e204 · {{ scenario }}</span>
+      </div>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5dcaa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+    </div>
+
+    <p style="margin: 0; font-size: 11.5px; color: #9aa8ba; line-height: 1.45;">Bu görünüm salt-okunur. Düzeltme ve yeniden çalıştırma masaüstünde yapılır.</p>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const horizon = this.state.horizon ?? "today";
+
+    const BANDS = { 3: { name: "HIGH", color: "#e24b4a" }, 4: { name: "SEVERE", color: "#b3352f" } };
+    const H = {
+      today: { label: "Today", eal: "₺1,284,400", pct: "1.52% of asset value", hazard: "0.62", mdr: "0.148", band: 3, drivers: [0.78, 0.54, 0.44] },
+      "2030": { label: "2030", eal: "₺1,613,000", pct: "1.91% · +25.6% vs today", hazard: "0.71", mdr: "0.186", band: 3, drivers: [0.86, 0.63, 0.52] },
+      "2050": { label: "2050", eal: "₺2,241,000", pct: "2.65% · +74.5% vs today", hazard: "0.84", mdr: "0.258", band: 4, drivers: [0.94, 0.79, 0.67] },
+    };
+    const cur = H[horizon];
+    const band = BANDS[cur.band];
+
+    const pill =
+      "flex: 1; min-height: 44px; border-radius: 10px; font-size: 13.5px; font-family: inherit; cursor: pointer; background: transparent;";
+    const horizons = ["today", "2030", "2050"].map((k) => ({
+      label: H[k].label,
+      style:
+        pill +
+        (k === horizon
+          ? " border: 1px solid #2ec990; color: #e6edf5;"
+          : " border: 1px solid #22304a; color: #9aa8ba;"),
+      pick: () => this.setState({ horizon: k }),
+    }));
+
+    const rowBase =
+      "display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; padding: 8px 0;";
+    const GREEN = "width: 7px; height: 7px; border-radius: 999px; background: #5dcaa5;";
+    const GOLD = "width: 7px; height: 7px; border-radius: 999px; background: #2ec990;";
+    const BLUE = "width: 7px; height: 7px; border-radius: 999px; background: #5dcaa5;";
+
+    const layers = [
+      { label: "Hazard", value: cur.hazard, dotStyle: GREEN },
+      { label: "Vulnerability (MDR)", value: cur.mdr, dotStyle: GOLD },
+      { label: "Adaptation", value: "Perimeter barrier", dotStyle: BLUE },
+      { label: "Avoided loss", value: "₺892,000/yr", dotStyle: GOLD },
+    ].map((l, i, arr) => ({
+      ...l,
+      rowStyle: rowBase + (i === arr.length - 1 ? "" : " border-bottom: 1px solid #22304a;"),
+    }));
+
+    const DL = ["Pluvial flood", "Extreme heat", "Water stress"];
+    const drivers = DL.map((label, i) => {
+      const v = cur.drivers[i];
+      const color = v >= 0.7 ? "#e24b4a" : v >= 0.4 ? "#ef9f27" : "#5dcaa5";
+      return {
+        label,
+        value: v.toFixed(2),
+        fillStyle: "display: block; height: 100%; border-radius: 999px; width: " + Math.round(v * 100) + "%; background: " + color + ";",
+      };
+    });
+
+    return {
+      horizons,
+      layers,
+      drivers,
+      eal: cur.eal,
+      ealNote: cur.pct,
+      bandName: band.name,
+      bandStyle:
+        "display: inline-flex; align-items: center; padding: 7px 14px; border-radius: 999px; font-weight: 600; font-size: 12.5px; letter-spacing: 0.04em; color: #04231a; background: " +
+        band.color +
+        ";",
+      scenario: "SSP2-4.5 · " + horizon,
+    };
+  }
+}
+</script>
+</body>
+</html>

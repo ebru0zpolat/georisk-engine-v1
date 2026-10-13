@@ -1,0 +1,403 @@
+{
+  "schema_version": "1.0",
+  "purpose": "send gate \u2014 TSKB / Anadolu Sigorta first-call packet \u00a70",
+  "rehearsed_at": "2026-09-04T09:41:38+00:00",
+  "commit_sha": "ad2590da9b67638b2eb896872dbae1997aff0974",
+  "portfolio_id": "golden-antalya-v1",
+  "portfolio_source": "golden-antalya",
+  "valuation_date": "2021-07-01",
+  "max_assets": 50,
+  "coverage": {
+    "submitted_count": 100,
+    "analyzed_count": 50,
+    "excluded_count": 50,
+    "message": "Analyzed 50 of 100 assets (50 excluded: demo max_assets cap)"
+  },
+  "methodology": {
+    "document": "georisk-methodology-v0.4.0",
+    "document_path": "docs/methodology/GEORISK_ENGINE_METHODOLOGY.md",
+    "expected_loss": "expected-loss-v0.3",
+    "damage_curves": "stub_global_mdr-v0.2.0",
+    "adaptation_evidence": "adaptation-evidence-v0.1",
+    "pipeline": "five-layer-eal-v0.4",
+    "calibration_badge": "synthetic calibration v0.2"
+  },
+  "calibration_badge": "synthetic calibration v0.2",
+  "independent_verification": {
+    "verifier": "tests/verification/independent_eal.py::eal_from_trail",
+    "curves": "app/loss/curves/stub_global_mdr_v0.2.json",
+    "assets_verified": 50,
+    "failures": 0,
+    "assets": [
+      {
+        "asset_id": "ANT-G-000",
+        "eal_absolute": 3682612.2,
+        "trail_record_id": "atr_15af1a48bc7d43f2b93bbbdd59c7fc55",
+        "trail_record_hash": "0aab6ebfb4b67caca967f0dcce840875c8a217907a8e9a66e9d8b928daa259be",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-001",
+        "eal_absolute": 1619365.82,
+        "trail_record_id": "atr_c1caadda4dcc439b9fa0ef9f8996a44c",
+        "trail_record_hash": "86c6740cb32866a451aa60ac72dadbcc95ea28f78b2d6e78ab52b800fafd6f5f",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-002",
+        "eal_absolute": 797688.36,
+        "trail_record_id": "atr_eef8b38977b94c9f8d572a3f3c185fbe",
+        "trail_record_hash": "214f96ef8984b3628ebe95e2e7b1a945fad144603b1610bdfb700a850f4d93ce",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-003",
+        "eal_absolute": 5573270.59,
+        "trail_record_id": "atr_96d2db306b1d4911b84d16fb5d818711",
+        "trail_record_hash": "f574ced17584492160a5ef33809397f879709b86f081cfc3130ecd83be770445",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-004",
+        "eal_absolute": 4858401.71,
+        "trail_record_id": "atr_877b2e7da32a47a2bee5a6d208b5c84e",
+        "trail_record_hash": "f7173bad1ef41b71eb4e1f37af0df0766ff8f78f43cac637e2be4f43a7af989b",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-005",
+        "eal_absolute": 7146501.05,
+        "trail_record_id": "atr_a961b198074b47dca43b824dfe1e1a5d",
+        "trail_record_hash": "c7a183207e65109871d4ca11395305ffce5eab0e5a35690758e9c9513a89f954",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-006",
+        "eal_absolute": 1017694.59,
+        "trail_record_id": "atr_fb908555b49541bba9bd800cc785a48e",
+        "trail_record_hash": "de9acfcdb1fed524009c7a8918f51aa641eef493f12f939b859ae38eb75c64dd",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-007",
+        "eal_absolute": 1241994.89,
+        "trail_record_id": "atr_d06735f0739b45e2950f5b97f723ac51",
+        "trail_record_hash": "4661eabdcd3191c75c67bf361b1ec9fcd4d81f78889b65f1433244a77634d016",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-008",
+        "eal_absolute": 2520536.9,
+        "trail_record_id": "atr_7c13ecd866114b54bc2d8a1d9e8baf05",
+        "trail_record_hash": "8dceded1ed934f0d114f8cea21bde135192aa53c5e06ed6079cac5e21ab2d7e9",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-009",
+        "eal_absolute": 2758552.25,
+        "trail_record_id": "atr_a92a0401c6a940bd9eddbec19090b96d",
+        "trail_record_hash": "608fc8665e1b6fc6c85ea24bb316d0ae8f4245bb982b057524b98af76cd5b3a1",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-010",
+        "eal_absolute": 1355136.08,
+        "trail_record_id": "atr_0148f04871374f6fbf1013b86046d976",
+        "trail_record_hash": "0d6b5a85cf501ea250debacdbfef8481dc01c68a2c3752abcecfba4740778115",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-011",
+        "eal_absolute": 3988938.77,
+        "trail_record_id": "atr_126c4847648d48b3be374f33a0790407",
+        "trail_record_hash": "7c6633ba2530458e54697c4c0c7dca8aaf39a7b22c22726ff88b60832a1d0bb3",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-012",
+        "eal_absolute": 7032643.46,
+        "trail_record_id": "atr_5f94a7f844644a46900efa5f18ae5f36",
+        "trail_record_hash": "fde18f64c2309c94a36af01715a5d72f1e14bbcce3e15b9e36bf53ba736bd85c",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-013",
+        "eal_absolute": 466620.17,
+        "trail_record_id": "atr_2e1445fdfa4949dfaedfa0dae77129de",
+        "trail_record_hash": "4dff163523bff562235b00218fe3660ebe715e31397380531a98922614e71ac1",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-014",
+        "eal_absolute": 256729.5,
+        "trail_record_id": "atr_3d665fe0ec76475f8838983705b18e32",
+        "trail_record_hash": "0cb9f7da1df5489dd4b7c53c277bd8765526b07d7d1fbc91c874134c3be17794",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-015",
+        "eal_absolute": 1301587.25,
+        "trail_record_id": "atr_f7f48d54e5db4d86b70d2a96d251af58",
+        "trail_record_hash": "5a29382cd04b894c17737294ddf2de31901152e436bfe3124c941af1770240b4",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-016",
+        "eal_absolute": 2755066.83,
+        "trail_record_id": "atr_60320b44bf954c5f9b25300b88525f83",
+        "trail_record_hash": "65c9b837e9001f6da043f350746a78269939a4a7ffc1eb8295f096779ac56781",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-017",
+        "eal_absolute": 5603051.89,
+        "trail_record_id": "atr_d7516ca6f2694e4180feea50ab2185c5",
+        "trail_record_hash": "b9211795a96032e9e3d07e66fe9e4c1d8a0cd5df7e1af47b6358e46ad4cf0bc8",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-018",
+        "eal_absolute": 1074885.22,
+        "trail_record_id": "atr_798983791b0b47068c4de77a8d4eea9a",
+        "trail_record_hash": "064bec6f21e00b5ac2b46321fbc8b3af1505f66f4bd4af6536867340bb3d3570",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-019",
+        "eal_absolute": 478818.22,
+        "trail_record_id": "atr_f65938dc20a34b098b0bd736cd6dd214",
+        "trail_record_hash": "845ee26edbc9ace1f80cb667a027ba2925cdad2ae2483d5099694119d61aa110",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-020",
+        "eal_absolute": 882137.23,
+        "trail_record_id": "atr_67bc9f253e6544b595e928db04a04aae",
+        "trail_record_hash": "85d6db24d18f819425e8cb0eea49212563df519a46766b10cac290acf58712f4",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-021",
+        "eal_absolute": 8695711.17,
+        "trail_record_id": "atr_d59a621e12a446d4bf2aed890622fd14",
+        "trail_record_hash": "cce95d4a98fc76314ea1cb86b143c8563fa327088027c01e667bd8714c3dbbbf",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-022",
+        "eal_absolute": 2211308.27,
+        "trail_record_id": "atr_3a0ac401ef49473fbe5b18f164df8c34",
+        "trail_record_hash": "f9515e1fd7c26d291fad208de31ad5044f17786d7840c39f168d4e2609816f4b",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-023",
+        "eal_absolute": 4409118.65,
+        "trail_record_id": "atr_9d894244043743a783865bf94a3eb88a",
+        "trail_record_hash": "32be0f1e1e91a9f5ab5de58606c75dd1e7060dadfb6d15825cd14ed62b966adb",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-024",
+        "eal_absolute": 4769892.2,
+        "trail_record_id": "atr_c4ac88a363664d89ad837dae0dca99b4",
+        "trail_record_hash": "b36d772ae82c6423572ae4ff2a63fcdf33e2e62c8f051e80c35d238901835fd0",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-025",
+        "eal_absolute": 1772742.88,
+        "trail_record_id": "atr_a19ef5eae3ae4a40a8a34f78f2ecd432",
+        "trail_record_hash": "561730ac544ad04b1f65d175c0c854461c812b12768ba701b950f7e267ee8c87",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-026",
+        "eal_absolute": 1201622.66,
+        "trail_record_id": "atr_8a787cd39c8449cd8f9cb8627721159b",
+        "trail_record_hash": "891ebbcbf51c131db025be0bc718410b019595ca5744d2de1287890eedee45e8",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-027",
+        "eal_absolute": 3673482.02,
+        "trail_record_id": "atr_65238ec6f34e4c6eb4f67ffae4f0c7c1",
+        "trail_record_hash": "6754e327f3bc04ac77ebdc65f76f527e5c7152a53dccb161e7dab68644968e18",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-028",
+        "eal_absolute": 2944472.65,
+        "trail_record_id": "atr_a59958b2ff864d1aab69c88272b1965f",
+        "trail_record_hash": "6f0f307e18d76aa7eadfa4ec5005591383ba899ca91c75dc8139653fd0922e96",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-029",
+        "eal_absolute": 5151899.45,
+        "trail_record_id": "atr_1a031e90608c41f8b66944a86e50c28c",
+        "trail_record_hash": "aed08bdd28faca3e404544a7b3c6549a3c15f7bffa31a65a47faedddee7f718f",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-030",
+        "eal_absolute": 1925221.05,
+        "trail_record_id": "atr_9d22cad8785f46baad3bd80205a6a103",
+        "trail_record_hash": "99c22285ac2e9774e6bc6db0da8768bd28a7888bdac972c4a76d3ffe764050e7",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-031",
+        "eal_absolute": 348773.3,
+        "trail_record_id": "atr_d7e4d15da791452baa3b627403e4885c",
+        "trail_record_hash": "daee010a413b400dbdf73d6d1ea4ae13c97ba158e84cadf761716f87359a0ffc",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-032",
+        "eal_absolute": 551394.33,
+        "trail_record_id": "atr_fbd5362f11e6484581a9867baf3f80c2",
+        "trail_record_hash": "897451fb4a03c7f33ec2425cbb7696302928c0426855dfc9b1a5cb8ecc162d0f",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-033",
+        "eal_absolute": 4940301.1,
+        "trail_record_id": "atr_2060622fc6d548729b4265a93280a6c3",
+        "trail_record_hash": "44ca71a1f573df79f3449f58abd436fb8052bdaad5ed54f7692a6eadd8575082",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-034",
+        "eal_absolute": 1702933.04,
+        "trail_record_id": "atr_92950e20d9f04285a1296d4e7fb3adfe",
+        "trail_record_hash": "bb7ced9df4b2b5e616758ac24311c0b4e603ab025af9d1d93f4d5246e5da67c1",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-035",
+        "eal_absolute": 10001032.87,
+        "trail_record_id": "atr_dd0761e76a5041ae87c4926bcc4cb05b",
+        "trail_record_hash": "5faaa45f58818950d261ecdef82f87d7efbe2d6e880a97183beaec8174030d01",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-036",
+        "eal_absolute": 13192470.76,
+        "trail_record_id": "atr_605306b35f254dcbb5f9f9e04c8a1381",
+        "trail_record_hash": "d20f7469515d384336aef4906089e47c98a9ab3a42b2c3dba057e9028a3ddf49",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-037",
+        "eal_absolute": 1116210.68,
+        "trail_record_id": "atr_49fe9d5f1d054e9ab0a73d86d72abff9",
+        "trail_record_hash": "e1f0ed42893355fafb9fefe8210c89b5227544faa6434825b73567b905b2e6fa",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-038",
+        "eal_absolute": 684095.03,
+        "trail_record_id": "atr_b1b867e5d1bd4a2e99cca445e6077f10",
+        "trail_record_hash": "2e9acfcfa5ec861476db8c0d851c4dad9132c4b1e109e2eef766ac11dace0b58",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-039",
+        "eal_absolute": 3812549.47,
+        "trail_record_id": "atr_5eda873797a34830a0f0cdc65815fea3",
+        "trail_record_hash": "c9fa545006d5243b992f88b037e325b9ccc8a9f22772e5ebc37187cb4de22c20",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-040",
+        "eal_absolute": 9097429.0,
+        "trail_record_id": "atr_815384f3155c4d04862970dbeb6ba103",
+        "trail_record_hash": "a57619a37d930c5f95e42f553c5073a7136779e9feb4680ead46a1be5949723c",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-041",
+        "eal_absolute": 10037045.05,
+        "trail_record_id": "atr_d661435d128e44908541f1a16ca45bc4",
+        "trail_record_hash": "150e8a4cdec38160c5ee22fcd469befe0e9695418d0a4b676d94b9859217a322",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-042",
+        "eal_absolute": 896299.93,
+        "trail_record_id": "atr_23e7108ab22846cf857176e1a95957e7",
+        "trail_record_hash": "e258a1a9393afa8fd46706831420eed0e3fbbe93b6bf5541d4b8a6611d51e13e",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-043",
+        "eal_absolute": 1529479.48,
+        "trail_record_id": "atr_80ab04a4685f459f89e89ed9b74078bf",
+        "trail_record_hash": "64b9bce0e63d0c96a63bd8101f69dbc06e7f5e555af4f9dedfb126537a344607",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-044",
+        "eal_absolute": 1952836.8,
+        "trail_record_id": "atr_20977b0809384794879c1db14273e415",
+        "trail_record_hash": "a4c56f8b629b9c1ff78ad9c9e149145cd6a7b62ce96b2ddeb77584450d33f5a7",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-045",
+        "eal_absolute": 4525975.64,
+        "trail_record_id": "atr_1fde5d531a7a4fa1a466675947d0c217",
+        "trail_record_hash": "bfe491836af40bccf55e358780f995ac01350d38ca263ec5bca85b353251d9d8",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-046",
+        "eal_absolute": 758945.29,
+        "trail_record_id": "atr_846589261f1d4c4b84201a8ed0514c4f",
+        "trail_record_hash": "23402eb988e69b1c371fac1d702a0667a98037735dc25b309c4316c800f1a348",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-047",
+        "eal_absolute": 7524047.56,
+        "trail_record_id": "atr_eee77c0832954e66b37ddd9e8cdf93b8",
+        "trail_record_hash": "aa63376c1de2f26ebaa875efaea3bc15d795d61b6de8ef12696ecad7ae2e3b5c",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-048",
+        "eal_absolute": 3147264.29,
+        "trail_record_id": "atr_a425fbfce1234da19ada1a6f01a9fa9c",
+        "trail_record_hash": "fde71daeeb1e0d65e8dfb5bac86fc223fdf5f28739e7275cc480c3790a2bec7c",
+        "agreement": "PASS"
+      },
+      {
+        "asset_id": "ANT-G-049",
+        "eal_absolute": 1466321.83,
+        "trail_record_id": "atr_b58e5afca19943179be13bbee16ea5d7",
+        "trail_record_hash": "bf387a9f2c271aa1da8810376295d3eb2f8171b413af03376a225b699cd410e1",
+        "agreement": "PASS"
+      }
+    ]
+  },
+  "featured_verification": {
+    "asset_id": "ANT-G-036",
+    "agreement": "PASS",
+    "trail_record_hash": "d20f7469515d384336aef4906089e47c98a9ab3a42b2c3dba057e9028a3ddf49"
+  },
+  "release_manifest": {
+    "release_version": "georisk-engine-v0.1",
+    "decision": "demo_only",
+    "production_eligible": false
+  },
+  "artefacts_outside_repo": {
+    "trail_path": "/tmp/claude-0/-home-user-georisk-engine/2e6a6999-b8af-5632-8b16-3703ce0c1b77/scratchpad/rehearsal/audit_trail.jsonl",
+    "trail_sha256": "912f716a78dcc2b9d05563767bb51a049ad218ff8275d6fa179a3b1f16966cc9",
+    "pack_path": "/tmp/claude-0/-home-user-georisk-engine/2e6a6999-b8af-5632-8b16-3703ce0c1b77/scratchpad/rehearsal/pack.json",
+    "pack_sha256": "7d748daae5cb152ee0b5eae3b1f1187515370bde4ba49fbdadbf626636fae8d8",
+    "release_manifest_path": "/tmp/claude-0/-home-user-georisk-engine/2e6a6999-b8af-5632-8b16-3703ce0c1b77/scratchpad/rehearsal/release_manifest.json"
+  },
+  "trail_outside_repo": true,
+  "send_gate_satisfied": true
+}

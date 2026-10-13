@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #2ec990; text-decoration: none; }
+    a:hover { color: #5dcaa5; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #22304a; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; white-space: nowrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .pick { cursor: pointer; font-family: inherit; background: transparent; }
+    .pick:focus-visible { outline: 2px solid #2ec990; outline-offset: 2px; }
+    .kv { display: flex; flex-direction: column; gap: 4px; }
+    .kvk { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #9aa8ba; }
+  </style>
+</helmet>
+
+<div style="width: 1360px; min-height: 1280px; background: radial-gradient(ellipse 80% 50% at 10% -10%, rgba(46,201,144,0.12), transparent), linear-gradient(180deg, #0d1a2e 0%, #0a1628 40%); color: #e6edf5; font-family: Inter, 'Segoe UI', sans-serif; padding: 0 0 40px; display: flex; flex-direction: column;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 32px; height: 56px; border-bottom: 1px solid #22304a;">
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span style="font-weight: 600; letter-spacing: 0.02em; font-size: 16px;">GeoRisk Engine</span>
+      <div style="display: flex; gap: 18px; font-size: 13px; color: #9aa8ba;">
+        <span>Portfolios</span>
+        <span>Assets</span>
+        <span style="color: #e6edf5; border-bottom: 2px solid #2ec990; padding-bottom: 18px;">Evidence</span>
+        <span>Reports</span>
+      </div>
+    </div>
+    <span style="width: 28px; height: 28px; border-radius: 999px; background: rgba(46,201,144,0.18); border: 1px solid rgba(46,201,144,0.45); display: grid; place-items: center; font-size: 12px; color: #2ec990;">EÖ</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px; padding: 18px 32px 0;">
+
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #9aa8ba;">Evidence record</span>
+        <h1 class="mono" style="margin: 0; font-size: 26px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-weight: 500; letter-spacing: -0.01em;">aud_9f3c1ba7e204</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+          <span class="chip" style="color: #5dcaa5; border-color: rgba(93,202,165,0.6);">VERIFIED</span>
+          <span class="chip" style="color: #ef9f27; border-color: rgba(239,159,39,0.6);">SYNTHETIC</span>
+          <span class="chip" style="color: #e24b4a; border-color: rgba(226,75,74,0.6);">NOT_ELIGIBLE</span>
+          <span style="font-size: 12.5px; color: #9aa8ba;">Generated 2026-08-30 09:14Z &middot; retained until 2033-08-30</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <span style="display: inline-flex; align-items: center; gap: 6px; border: 1px solid #22304a; border-radius: 8px; padding: 9px 13px; font-size: 12.5px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e6edf5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path><path d="M12 15V3"></path></svg>
+          Evidence JSON
+        </span>
+        <span style="border: 1px solid #22304a; border-radius: 8px; padding: 9px 13px; font-size: 12.5px;">PDF report</span>
+        <span style="border: 1px solid #2ec990; background: #2ec990; color: #04231a; border-radius: 8px; padding: 9px 13px; font-size: 12.5px; font-weight: 600;">Back to result</span>
+      </div>
+    </div>
+
+    <!-- tabs -->
+    <div style="display: flex; gap: 8px; border-bottom: 1px solid #22304a;">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+        <button class="pick" style="{{ t.style }}" onClick="{{ t.pick }}">{{ t.label }}</button>
+      </sc-for>
+    </div>
+
+    <!-- produced -->
+    <sc-if value="{{ showProduced }}" hint-placeholder-val="{{ true }}">
+      <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px 20px;">
+        <h2 style="margin: 0 0 14px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">What produced this result</h2>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+          <div style="border: 1px solid #22304a; border-radius: 8px; background: #101a2b; padding: 13px;" class="kv"><span class="kvk">Model version</span><span class="mono" style="font-size: 15px;">risk-v0.9.2</span></div>
+          <div style="border: 1px solid #22304a; border-radius: 8px; background: #101a2b; padding: 13px;" class="kv"><span class="kvk">Methodology</span><span class="mono" style="font-size: 15px;">v0.3.1</span></div>
+          <div style="border: 1px solid #22304a; border-radius: 8px; background: #101a2b; padding: 13px;" class="kv"><span class="kvk">Country pack</span><span class="mono" style="font-size: 15px;">pack-tr v0.4</span></div>
+          <div style="border: 1px solid #22304a; border-radius: 8px; background: #101a2b; padding: 13px;" class="kv"><span class="kvk">Source commit</span><span class="mono" style="font-size: 15px;">36f84f4</span></div>
+        </div>
+
+        <h3 style="margin: 18px 0 10px; font-size: 14px; font-weight: 600;">Integrity</h3>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <sc-for list="{{ hashes }}" as="h" hint-placeholder-count="3">
+            <div style="display: grid; grid-template-columns: 150px 1fr 120px; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid #22304a; border-radius: 8px; background: #101a2b;">
+              <span style="font-size: 12.5px; color: #9aa8ba;">{{ h.label }}</span>
+              <button class="pick mono" style="{{ h.valueStyle }}" onClick="{{ h.copy }}" title="Kopyala">{{ h.value }}</button>
+              <span class="chip" style="{{ h.chipStyle }}">{{ h.badge }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin: 11px 0 0; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Bir hash'e tıklamak tam değeri panoya kopyalar. Zincir kırıksa bu bölüm sonucun üstünde bir sayfa bandına yükselir.</p>
+      </section>
+    </sc-if>
+
+    <!-- manifest -->
+    <sc-if value="{{ showManifest }}" hint-placeholder-val="{{ false }}">
+      <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px 20px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+          <h2 style="margin: 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">Source manifest</h2>
+          <span style="font-size: 12.5px; color: #9aa8ba;">6 sources &middot; 1 blocked &middot; satıra tıkla</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 118px 128px 160px 118px 128px; gap: 12px; padding: 9px 10px; border-bottom: 1px solid #22304a; font-size: 12px; color: #9aa8ba;">
+          <span>Source</span><span>Version</span><span>Retrieved</span><span>Licence</span><span>State</span><span>Used for</span>
+        </div>
+
+        <sc-for list="{{ sources }}" as="s" hint-placeholder-count="6">
+          <div style="{{ s.wrapStyle }}">
+            <button class="pick" style="{{ s.rowStyle }}" onClick="{{ s.toggle }}">
+              <span style="text-align: left;">{{ s.name }}</span>
+              <span class="mono" style="text-align: left; font-size: 12px;">{{ s.version }}</span>
+              <span class="mono" style="text-align: left; font-size: 12px;">{{ s.retrieved }}</span>
+              <span style="{{ s.licenceStyle }}">{{ s.licence }}</span>
+              <span class="chip" style="{{ s.chipStyle }}">{{ s.state }}</span>
+              <span style="text-align: left; color: #9aa8ba;">{{ s.usedFor }}</span>
+            </button>
+            <sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; padding: 14px; margin: 0 0 10px; border: 1px solid #22304a; border-radius: 8px; background: #0c1524;">
+                <div class="kv"><span class="kvk">Endpoint</span><span class="mono" style="font-size: 12px; word-break: break-all;">{{ s.endpoint }}</span></div>
+                <div class="kv"><span class="kvk">Spatial bounds</span><span class="mono" style="font-size: 12px;">{{ s.bounds }}</span></div>
+                <div class="kv"><span class="kvk">Payload hash</span><span class="mono" style="font-size: 12px; word-break: break-all;">{{ s.hash }}</span></div>
+                <div class="kv"><span class="kvk">Note</span><span style="font-size: 12px; color: #9aa8ba; line-height: 1.5;">{{ s.note }}</span></div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+
+        <p style="margin: 12px 0 0; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">A blocked source never reaches a conclusion. It is listed here so its absence is visible rather than invisible.</p>
+      </section>
+    </sc-if>
+
+    <!-- limitations -->
+    <sc-if value="{{ showLimits }}" hint-placeholder-val="{{ false }}">
+      <section style="background: #131f33; border: 1px solid rgba(226,75,74,0.4); border-radius: 12px; padding: 18px 20px 20px;">
+        <h2 style="margin: 0 0 4px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">What this record does not say</h2>
+        <p style="margin: 0 0 14px; color: #9aa8ba; font-size: 13.5px;">The limits are part of the evidence, not a footnote to it.</p>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+          <div style="border: 1px solid #22304a; border-radius: 8px; padding: 13px; background: #101a2b; display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-size: 13px; font-weight: 600;">Not a flood probability</span>
+            <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Elevation observation is terrain context. No hazard probability was derived from it.</span>
+          </div>
+          <div style="border: 1px solid #22304a; border-radius: 8px; padding: 13px; background: #101a2b; display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-size: 13px; font-weight: 600;">Not calibrated to observed loss</span>
+            <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Damage curves are labelled synthetic v0.4. No back-test against a real event has been completed.</span>
+          </div>
+          <div style="border: 1px solid #22304a; border-radius: 8px; padding: 13px; background: #101a2b; display: flex; flex-direction: column; gap: 7px;">
+            <span style="font-size: 13px; font-weight: 600;">Not a compliance determination</span>
+            <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Regulatory references are evidence pointers. They do not state that a disclosure obligation is met.</span>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":1360,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tab = this.state.tab ?? "produced";
+    const openSource = this.state.openSource ?? null;
+    const copied = this.state.copied ?? null;
+
+    const TABS = [
+      { id: "produced", label: "What produced it" },
+      { id: "manifest", label: "Source manifest" },
+      { id: "limits", label: "Limitations" },
+    ];
+
+    const tabs = TABS.map((t) => ({
+      label: t.label,
+      style:
+        "border: 0; border-bottom: 2px solid " +
+        (t.id === tab ? "#2ec990" : "transparent") +
+        "; color: " +
+        (t.id === tab ? "#e6edf5" : "#9aa8ba") +
+        "; padding: 9px 4px 10px; margin-bottom: -1px; font-size: 13.5px; cursor: pointer;",
+      pick: () => this.setState({ tab: t.id }),
+    }));
+
+    const HASHES = [
+      { id: "req", label: "Request hash", value: "sha256:4b1e9c0a7f2d8e63c5a1904bb7de32f0c8a4d15e6b7302fa9c1d4e88b0273a51", badge: "VERIFIED" },
+      { id: "res", label: "Response hash", value: "sha256:e07d2f918a4c6b35d18e0fa27c93b45106de8721fa3c0b9e64d5178acb2e930f", badge: "VERIFIED" },
+      { id: "prev", label: "Previous link", value: "aud_71ba0c4de118 · 2026-08-29 16:02Z", badge: "LINKED" },
+    ];
+
+    const hashes = HASHES.map((h) => ({
+      label: h.label,
+      value: h.value,
+      valueStyle:
+        "font-size: 12px; word-break: break-all; text-align: left; border: 0; padding: 0; cursor: pointer; color: " +
+        (copied === h.id ? "#5dcaa5" : "#e6edf5") +
+        ";",
+      badge: copied === h.id ? "copied" : h.badge,
+      chipStyle: "color: #5dcaa5; border-color: rgba(93,202,165,0.6); justify-self: end;",
+      copy: () => {
+        this.setState({ copied: h.id });
+        setTimeout(() => this.setState({ copied: null }), 1400);
+      },
+    }));
+
+    const LIVE = "color: #5dcaa5; border-color: rgba(93,202,165,0.6);";
+    const FIXTURE = "color: #ef9f27; border-color: rgba(239,159,39,0.28);";
+    const SYNTH = "color: #ef9f27; border-color: rgba(239,159,39,0.6);";
+    const WARN = "color: #e24b4a; border-color: rgba(226,75,74,0.28);";
+    const STOP = "color: #e24b4a; border-color: rgba(226,75,74,0.6);";
+
+    const SOURCES = [
+      { id: "era5", name: "Copernicus ERA5-Land", version: "2026.06", retrieved: "2026-08-30", licence: "Copernicus, verified", state: "LIVE", chipStyle: LIVE, usedFor: "Hazard", endpoint: "cds.climate.copernicus.eu/api/v2/resources/reanalysis-era5-land", bounds: "36.85,30.64 → 36.97,30.75", hash: "sha256:1c4a…9e02", note: "Hourly reanalysis aggregated to the asset radius." },
+      { id: "oras5", name: "CDS ORAS5 (Zarr)", version: "v5.1", retrieved: "2026-08-30", licence: "Copernicus, verified", state: "LIVE", chipStyle: LIVE, usedFor: "Hazard", endpoint: "zarr://cds-arco/oras5/v5.1", bounds: "36.80,30.55 → 37.05,30.85", hash: "sha256:7f21…b430", note: "Ocean state variables for coastal surge component." },
+      { id: "ahn", name: "AHN elevation (NL)", version: "AHN4", retrieved: "2026-08-24", licence: "Open data, verified", state: "FIXTURE", chipStyle: FIXTURE, usedFor: "Context only", endpoint: "fixture://ahn4/tiles", bounds: "n/a — fixture tile set", hash: "sha256:aa90…1d77", note: "Terrain context only. Never converted into a flood probability." },
+      { id: "packtr", name: "pack-tr damage curves", version: "v0.4", retrieved: "2026-08-30", licence: "Internal", state: "SYNTHETIC", chipStyle: SYNTH, usedFor: "Vulnerability", endpoint: "pack://tr/curves/commercial-warehouse", bounds: "n/a", hash: "sha256:5b03…c8fe", note: "Labelled synthetic. Not fitted to observed loss for this structure class." },
+      { id: "gee", name: "Google Earth Engine", version: "—", retrieved: "2026-08-30", licence: "Verified", state: "DEGRADED", chipStyle: WARN, usedFor: "Hazard", endpoint: "earthengine.googleapis.com/v1/projects/…", bounds: "36.85,30.64 → 36.97,30.75", hash: "sha256:e8c1…40ab", note: "Primary call timed out; the deterministic fallback supplied NDVI and soil moisture." },
+      { id: "aqueduct", name: "WRI Aqueduct flood", version: "4.0", retrieved: "—", licence: "Licence unreviewed", state: "BLOCKED", chipStyle: STOP, usedFor: "Not used", endpoint: "—", bounds: "—", hash: "—", note: "Licence review not completed, so the source is excluded from every conclusion on this record." },
+    ];
+
+    const sources = SOURCES.map((s) => {
+      const open = openSource === s.id;
+      return {
+        ...s,
+        open,
+        wrapStyle: "display: flex; flex-direction: column;",
+        rowStyle:
+          "display: grid; grid-template-columns: 1fr 118px 128px 160px 118px 128px; gap: 12px; align-items: center; padding: 11px 10px; border: 0; border-bottom: 1px solid #22304a; font-size: 12.5px; color: #e6edf5; cursor: pointer; text-align: left; background: " +
+          (s.state === "BLOCKED" ? "rgba(226,75,74,0.06)" : open ? "rgba(46,201,144,0.06)" : "transparent") +
+          ";",
+        licenceStyle: "text-align: left; color: " + (s.state === "BLOCKED" ? "#e24b4a" : "#e6edf5") + ";",
+        toggle: () => this.setState({ openSource: open ? null : s.id }),
+      };
+    });
+
+    return {
+      tabs,
+      hashes,
+      sources,
+      showProduced: tab === "produced",
+      showManifest: tab === "manifest",
+      showLimits: tab === "limits",
+    };
+  }
+}
+</script>
+</body>
+</html>

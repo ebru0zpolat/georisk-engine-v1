@@ -1,0 +1,39 @@
+{
+  "allowlist_version": "cmip6-model-licences-v1",
+  "verified": true,
+  "verified_at": "2026-08-08",
+  "verified_by": "PR #107 licence-gate closure",
+  "note": "Model-level CMIP6 licence terms are taken from the WCRP CMIP6_CVs source_id licence registry (authoritative over NetCDF global licence attributes per PCMDI Terms of Use 6.2). Only models listed here with commercial_use: true may pass the adapter licence gate. Adding a model requires a new allowlist evidence entry and a Decision Record bump.",
+  "evidence": {
+    "primary_registry": "https://wcrp-cmip.github.io/CMIP6_CVs/docs/CMIP6_source_id_licenses.html",
+    "terms_of_use": "https://pcmdi.llnl.gov/CMIP6/TermsOfUse/TermsOfUse6-2.html",
+    "cc_by_40": "https://creativecommons.org/licenses/by/4.0/",
+    "summary": "CC BY 4.0 permits commercial use with attribution. PCMDI ToU 6.2 (12 October 2022) states that as of October 2022 all CMIP6 modelling groups relaxed licences to CC BY 4.0 and that the CMIP6_CVs licence page supersedes NetCDF licence attributes. Citation and acknowledgement obligations in the ToU remain."
+  },
+  "models": {
+    "MPI-ESM1-2-HR": {
+      "licence": "CC BY 4.0",
+      "commercial_use": true,
+      "licence_history": "2017-10-03: initially published under CC BY-SA 4.0; 2022-06-16: relaxed to CC BY 4.0",
+      "institution_id": "MPI-M / DWD / DKRZ",
+      "source": "WCRP CMIP6_CVs source_id licenses (retrieved 2026-08-08)",
+      "evidence_urls": [
+        "https://wcrp-cmip.github.io/CMIP6_CVs/docs/CMIP6_source_id_licenses.html",
+        "https://www.wdc-climate.de/ui/cmip6?input=CMIP6.CMIP.MPI-M.MPI-ESM1-2-HR",
+        "https://pcmdi.llnl.gov/CMIP6/TermsOfUse/TermsOfUse6-2.html"
+      ]
+    },
+    "MPI-ESM1-2-LR": {
+      "licence": "CC BY 4.0",
+      "commercial_use": true,
+      "licence_history": "2019-07-10: initially published under CC BY-SA 4.0; 2022-06-16: relaxed to CC BY 4.0",
+      "institution_id": "MPI-M / AWI / DKRZ / DWD",
+      "source": "WCRP CMIP6_CVs source_id licenses (retrieved 2026-08-08)",
+      "evidence_urls": [
+        "https://wcrp-cmip.github.io/CMIP6_CVs/docs/CMIP6_source_id_licenses.html",
+        "https://www.wdc-climate.de/ui/cmip6?input=CMIP6.DCPP.MPI-M.MPI-ESM1-2-LR",
+        "https://pcmdi.llnl.gov/CMIP6/TermsOfUse/TermsOfUse6-2.html"
+      ]
+    }
+  }
+}

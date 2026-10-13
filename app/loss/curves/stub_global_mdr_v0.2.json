@@ -1,0 +1,257 @@
+{
+  "catalogue_id": "stub_global_mdr",
+  "version": "0.2.0",
+  "source": "synthetic calibration",
+  "synthetic": true,
+  "methodology_note": "Global default mean-damage-ratio power curves for Phase A. Active financial modules: flood, extreme heat, wildfire (climate) and earthquake (geophysical). v0.2.0 adds labelled synthetic wildfire and earthquake curves shipped together with their hazard modules; flood and extreme-heat curves are byte-identical to v0.1.1. Earthquake curves map a PGA-derived intensity index to structural damage and are NOT calibrated to any fragility study (HAZUS / TBDY); wildfire curves are NOT calibrated to WUI loss data. Roadmap hazard_ids (drought, storm) must not be emitted by the five-layer stub hazard path. Replace with Country Pack insurance/engineering tables; bump methodology minor when any active curve changes.",
+  "curves": [
+    {
+      "curve_id": "stub_mdr_hotel_flood",
+      "building_type": "hotel",
+      "use_class": "*",
+      "hazard_id": "flood",
+      "exponent": 1.35,
+      "scale": 0.85
+    },
+    {
+      "curve_id": "stub_mdr_apartment_flood",
+      "building_type": "apartment",
+      "use_class": "*",
+      "hazard_id": "flood",
+      "exponent": 1.45,
+      "scale": 0.75
+    },
+    {
+      "curve_id": "stub_mdr_office_flood",
+      "building_type": "office",
+      "use_class": "*",
+      "hazard_id": "flood",
+      "exponent": 1.5,
+      "scale": 0.7
+    },
+    {
+      "curve_id": "stub_mdr_retail_flood",
+      "building_type": "retail",
+      "use_class": "*",
+      "hazard_id": "flood",
+      "exponent": 1.4,
+      "scale": 0.78
+    },
+    {
+      "curve_id": "stub_mdr_industrial_flood",
+      "building_type": "industrial",
+      "use_class": "*",
+      "hazard_id": "flood",
+      "exponent": 1.25,
+      "scale": 0.9
+    },
+    {
+      "curve_id": "stub_mdr_residential_flood",
+      "building_type": "residential",
+      "use_class": "*",
+      "hazard_id": "flood",
+      "exponent": 1.45,
+      "scale": 0.72
+    },
+    {
+      "curve_id": "stub_mdr_default_flood",
+      "building_type": "*",
+      "use_class": "*",
+      "hazard_id": "flood",
+      "exponent": 1.4,
+      "scale": 0.75
+    },
+    {
+      "curve_id": "stub_mdr_hotel_extreme_heat",
+      "building_type": "hotel",
+      "use_class": "*",
+      "hazard_id": "extreme_heat",
+      "exponent": 1.35,
+      "scale": 0.5525
+    },
+    {
+      "curve_id": "stub_mdr_apartment_extreme_heat",
+      "building_type": "apartment",
+      "use_class": "*",
+      "hazard_id": "extreme_heat",
+      "exponent": 1.45,
+      "scale": 0.4875
+    },
+    {
+      "curve_id": "stub_mdr_office_extreme_heat",
+      "building_type": "office",
+      "use_class": "*",
+      "hazard_id": "extreme_heat",
+      "exponent": 1.5,
+      "scale": 0.455
+    },
+    {
+      "curve_id": "stub_mdr_retail_extreme_heat",
+      "building_type": "retail",
+      "use_class": "*",
+      "hazard_id": "extreme_heat",
+      "exponent": 1.4,
+      "scale": 0.507
+    },
+    {
+      "curve_id": "stub_mdr_industrial_extreme_heat",
+      "building_type": "industrial",
+      "use_class": "*",
+      "hazard_id": "extreme_heat",
+      "exponent": 1.25,
+      "scale": 0.585
+    },
+    {
+      "curve_id": "stub_mdr_residential_extreme_heat",
+      "building_type": "residential",
+      "use_class": "*",
+      "hazard_id": "extreme_heat",
+      "exponent": 1.45,
+      "scale": 0.468
+    },
+    {
+      "curve_id": "stub_mdr_default_extreme_heat",
+      "building_type": "*",
+      "use_class": "*",
+      "hazard_id": "extreme_heat",
+      "exponent": 1.4,
+      "scale": 0.4875
+    },
+    {
+      "curve_id": "stub_mdr_default_drought",
+      "building_type": "*",
+      "use_class": "*",
+      "hazard_id": "drought",
+      "exponent": 1.4,
+      "scale": 0.3
+    },
+    {
+      "curve_id": "stub_mdr_default_storm",
+      "building_type": "*",
+      "use_class": "*",
+      "hazard_id": "storm",
+      "exponent": 1.4,
+      "scale": 0.675
+    },
+    {
+      "curve_id": "stub_mdr_hotel_wildfire",
+      "building_type": "hotel",
+      "use_class": "*",
+      "hazard_id": "wildfire",
+      "exponent": 1.5,
+      "scale": 0.6
+    },
+    {
+      "curve_id": "stub_mdr_apartment_wildfire",
+      "building_type": "apartment",
+      "use_class": "*",
+      "hazard_id": "wildfire",
+      "exponent": 1.6,
+      "scale": 0.45
+    },
+    {
+      "curve_id": "stub_mdr_office_wildfire",
+      "building_type": "office",
+      "use_class": "*",
+      "hazard_id": "wildfire",
+      "exponent": 1.6,
+      "scale": 0.4
+    },
+    {
+      "curve_id": "stub_mdr_retail_wildfire",
+      "building_type": "retail",
+      "use_class": "*",
+      "hazard_id": "wildfire",
+      "exponent": 1.5,
+      "scale": 0.5
+    },
+    {
+      "curve_id": "stub_mdr_industrial_wildfire",
+      "building_type": "industrial",
+      "use_class": "*",
+      "hazard_id": "wildfire",
+      "exponent": 1.4,
+      "scale": 0.55
+    },
+    {
+      "curve_id": "stub_mdr_residential_wildfire",
+      "building_type": "residential",
+      "use_class": "*",
+      "hazard_id": "wildfire",
+      "exponent": 1.5,
+      "scale": 0.55
+    },
+    {
+      "curve_id": "stub_mdr_default_wildfire",
+      "building_type": "*",
+      "use_class": "*",
+      "hazard_id": "wildfire",
+      "exponent": 1.5,
+      "scale": 0.5
+    },
+    {
+      "curve_id": "stub_mdr_hotel_earthquake",
+      "building_type": "hotel",
+      "use_class": "*",
+      "hazard_id": "earthquake",
+      "exponent": 1.5,
+      "scale": 0.7
+    },
+    {
+      "curve_id": "stub_mdr_apartment_earthquake",
+      "building_type": "apartment",
+      "use_class": "*",
+      "hazard_id": "earthquake",
+      "exponent": 1.6,
+      "scale": 0.8
+    },
+    {
+      "curve_id": "stub_mdr_office_earthquake",
+      "building_type": "office",
+      "use_class": "*",
+      "hazard_id": "earthquake",
+      "exponent": 1.6,
+      "scale": 0.65
+    },
+    {
+      "curve_id": "stub_mdr_retail_earthquake",
+      "building_type": "retail",
+      "use_class": "*",
+      "hazard_id": "earthquake",
+      "exponent": 1.5,
+      "scale": 0.7
+    },
+    {
+      "curve_id": "stub_mdr_industrial_earthquake",
+      "building_type": "industrial",
+      "use_class": "*",
+      "hazard_id": "earthquake",
+      "exponent": 1.4,
+      "scale": 0.6
+    },
+    {
+      "curve_id": "stub_mdr_residential_earthquake",
+      "building_type": "residential",
+      "use_class": "*",
+      "hazard_id": "earthquake",
+      "exponent": 1.6,
+      "scale": 0.8
+    },
+    {
+      "curve_id": "stub_mdr_default_earthquake",
+      "building_type": "*",
+      "use_class": "*",
+      "hazard_id": "earthquake",
+      "exponent": 1.5,
+      "scale": 0.7
+    },
+    {
+      "curve_id": "stub_mdr_default_any",
+      "building_type": "*",
+      "use_class": "*",
+      "hazard_id": "*",
+      "exponent": 1.4,
+      "scale": 0.6
+    }
+  ]
+}

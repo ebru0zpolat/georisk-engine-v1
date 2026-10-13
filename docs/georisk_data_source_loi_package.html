@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeoRisk Engine — Data Source LOI Package</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --text: #e8edf4;
+      --muted: #9aa8bc;
+      --accent: #3d9cf5;
+      --active: #2ecc71;
+      --intent: #f39c12;
+      --planned: #95a5a6;
+      --border: #2a3548;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      margin: 0;
+      padding: 2rem 1.25rem 4rem;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    h2 { font-size: 1.2rem; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+    h3 { font-size: 1rem; color: var(--accent); margin-top: 1.25rem; }
+    p, li { color: var(--text); }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    th { background: #243044; }
+    code { background: #243044; padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.85em; }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-active { background: rgba(46, 204, 113, 0.2); color: var(--active); }
+    .badge-intent { background: rgba(243, 156, 18, 0.2); color: var(--intent); }
+    .badge-planned { background: rgba(149, 165, 166, 0.2); color: var(--planned); }
+    .tier-production { color: var(--accent); }
+    .tier-audit { color: #a78bfa; }
+    .tier-roadmap { color: var(--planned); }
+    .disclaimer { font-size: 0.85rem; color: var(--muted); border-left: 3px solid var(--intent); padding-left: 1rem; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>GeoRisk Engine — Data Source LOI Package</h1>
+    <p class="meta">
+      Version v1.0 · June 2026 · Internal / partner-facing draft<br />
+      Registry: <code>app/core/data_source_registry.py</code> · API: <code>GET /v1/data-sources</code>
+    </p>
+
+    <div class="card disclaimer">
+      <strong>Disclaimer.</strong> Satellite and climate-derived proxies support decision-grade risk intelligence.
+      They are <em>not</em> regulatory proof, certified emissions reporting, or ground-truth production measurements.
+      Mask policies and legal framing: <code>docs/turkiye/cco-audit-methodology.md</code>.
+    </div>
+
+    <h2>1. Letter of Intent — Data Partnership Posture</h2>
+    <p>
+      GeoRisk Engine intends to operate exclusively through <strong>official programmatic access</strong>
+      to public and licensed Earth observation products:
+    </p>
+    <ul>
+      <li><strong>Copernicus CDS</strong> — ORAS5 analysis-ready Zarr (ocean / climate context)</li>
+      <li><strong>Google Earth Engine</strong> — VIIRS, Sentinel-5P OFFL L3, Landsat Collection 2 Level-2</li>
+      <li><strong>NOAA / NASA / USGS / ESA</strong> — product terms respected via GEE and CDS gateways</li>
+    </ul>
+    <p>
+      Credentials (<code>ORAS5_ZARR_URL</code>, <code>GEE_PROJECT</code>) remain environment-scoped.
+      No secrets or project IDs are committed to the repository.
+    </p>
+
+    <h2>2. Integration Tiers</h2>
+    <table>
+      <thead>
+        <tr><th>Tier</th><th>Role</th><th>Count</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="tier-production">production</td><td>Risk API (<code>POST /v1/risk/score</code>)</td><td>3</td></tr>
+        <tr><td class="tier-audit">audit</td><td>Operational CCO / Primary Audit scripts</td><td>4</td></tr>
+        <tr><td class="tier-roadmap">roadmap</td><td>Agriculture NDVI + soil moisture (stub)</td><td>2</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Production Data Sources</h2>
+
+    <h3>ORAS5 Ocean Reanalysis <span class="badge badge-intent">intent</span></h3>
+    <div class="card">
+      <p><strong>Provider:</strong> Copernicus CDS / ECMWF ORAS5</p>
+      <p><strong>Connector:</strong> <code>app/connectors/cds_oras5.py</code></p>
+      <p><strong>Features:</strong> SST trend (°C/decade), SST anomaly z-score, sea-level trend (mm/year), ocean variability index</p>
+      <p><strong>Fallback:</strong> Deterministic stub when <code>ORAS5_ZARR_URL</code> is unset (CI-safe).</p>
+    </div>
+
+    <h3>VIIRS Night-Time Lights (GEE) <span class="badge badge-active">active</span></h3>
+    <div class="card">
+      <p><strong>Dataset:</strong> <code>NASA/VIIRS/002/VNP46A2</code></p>
+      <p><strong>Band:</strong> <code>Gap_Filled_DNB_BRDF_Corrected_NTL</code></p>
+      <p><strong>Connector:</strong> <code>app/connectors/gee.py</code></p>
+      <p><strong>Use:</strong> Industrial activity proxy vs configurable 30-year climatological baseline.</p>
+    </div>
+
+    <h3>Sentinel-5P OFFL L3 NO₂ (GEE) <span class="badge badge-active">active</span></h3>
+    <div class="card">
+      <p><strong>Dataset:</strong> <code>COPERNICUS/S5P/OFFL/L3_NO2</code></p>
+      <p><strong>Band:</strong> <code>tropospheric_NO2_column_number_density</code> (mol/m²)</p>
+      <p><strong>Standard:</strong> <code>docs/standards/cement-data-acceptance-and-processing.md</code></p>
+    </div>
+
+    <h2>4. Audit Pipeline Data Sources</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Product</th><th>Script</th><th>LOI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>audit_landsat_thermal</code></td>
+          <td>Landsat 8/9 C2 L2 — QA_PIXEL mask, ST_B10 → °C</td>
+          <td><code>scripts/landsat_thermal_audit.py</code></td>
+          <td><span class="badge badge-active">active</span></td>
+        </tr>
+        <tr>
+          <td><code>audit_s5p_no2</code></td>
+          <td>S5P OFFL L3 tropospheric NO₂</td>
+          <td><code>scripts/s5p_no2_audit.py</code></td>
+          <td><span class="badge badge-active">active</span></td>
+        </tr>
+        <tr>
+          <td><code>audit_s5p_co</code></td>
+          <td>S5P OFFL L3 CO</td>
+          <td><code>scripts/s5p_co_audit.py</code></td>
+          <td><span class="badge badge-active">active</span></td>
+        </tr>
+        <tr>
+          <td><code>audit_viirs_dnb</code></td>
+          <td>VIIRS DNB monthly — <code>avg_rad</code> + <code>cf_cvg</code></td>
+          <td><code>scripts/viirs_ntl_audit.py</code></td>
+          <td><span class="badge badge-active">active</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>5. Roadmap — Agriculture</h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Target</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>roadmap_ndvi</code></td>
+          <td>Landsat L2 SR / MODIS NDVI via GEE</td>
+          <td><span class="badge badge-planned">planned</span></td>
+        </tr>
+        <tr>
+          <td><code>roadmap_soil_moisture</code></td>
+          <td>ERA5-Land <code>swvl1</code> / optional SMAP</td>
+          <td><span class="badge badge-planned">planned</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Current stub: <code>app/scoring/agriculture_surface.py</code> — replaced when GEE layers wire in.</p>
+
+    <h2>6. Fallback &amp; Operations Policy</h2>
+    <ul>
+      <li><strong>ORAS5:</strong> stub features without Zarr URL</li>
+      <li><strong>GEE risk API:</strong> stub when <code>gee_enabled=false</code> or project unset</li>
+      <li><strong>Audit scripts:</strong> <code>AUDIT_USE_MOCK=true</code> for offline demos</li>
+      <li><strong>Quarterly archive:</strong> <code>data/archive/YYYY-Qn/MANIFEST.yml</code> references standards at seal time</li>
+    </ul>
+
+    <h2>7. Engineering Checklist</h2>
+    <ol>
+      <li>Register source in <code>app/core/data_source_registry.py</code></li>
+      <li>Import dataset constants in connector / audit script</li>
+      <li>Add acceptance doc under <code>docs/standards/</code> if sector-specific</li>
+      <li>Verify <code>GET /v1/data-sources</code> and pytest coverage</li>
+      <li>Update this package when LOI status changes</li>
+    </ol>
+
+    <h2>8. References</h2>
+    <ul>
+      <li><a href="georisk_data_source_loi_summary.md">Markdown summary</a></li>
+      <li><a href="standards/README.md">Standards index</a></li>
+      <li><a href="turkiye/cco-audit-methodology.md">CCO audit methodology</a></li>
+      <li><a href="turkiye/sector-extensions.md">Sector extensions (agriculture)</a></li>
+      <li><a href="business/investor-pitch.md">Investor pitch — data engine</a></li>
+    </ul>
+  </div>
+</body>
+</html>

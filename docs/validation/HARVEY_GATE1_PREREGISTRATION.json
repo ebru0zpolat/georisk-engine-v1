@@ -1,0 +1,23 @@
+{
+  "study_title": "Hurricane Harvey 2017 event-conditional building-loss validation",
+  "estimand_id": "nfip_claim_conditional_building_payment_v1",
+  "hazard_type": "flood",
+  "information_cutoff": "2017-08-24",
+  "observed_loss_dataset": "FEMA OpenFEMA NFIP Claims v3",
+  "baseline_name": "historical_coverage_ratio",
+  "baseline_params": {
+    "loss_to_coverage_ratio": null,
+    "source_sha256": null,
+    "training_event_excluded": "Hurricane Harvey",
+    "training_claim_date_before": "2017-01-01"
+  },
+  "primary_metric": "mae",
+  "success_rule": {
+    "type": "relative_improvement",
+    "min_fraction": 0.1
+  },
+  "frozen": false,
+  "freeze_timestamp": null,
+  "freeze_commit": null,
+  "preregistration_sha256": null
+}

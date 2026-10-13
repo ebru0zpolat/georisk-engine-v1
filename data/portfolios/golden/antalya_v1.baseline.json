@@ -1,0 +1,829 @@
+{
+  "portfolio_id": "golden-antalya-v1",
+  "valuation_date": "2021-07-01",
+  "asset_count": 100,
+  "methodology": {
+    "document": "georisk-methodology-v0.4.0",
+    "five_layer": "five-layer-eal-v0.4",
+    "expected_loss": "expected-loss-v0.3",
+    "damage_curves": "stub_global_mdr-v0.2.0",
+    "adaptation_evidence": "adaptation-evidence-v0.1",
+    "pipeline_contract": "five-layer-eal-v0.4"
+  },
+  "aggregates": {
+    "eal_sum": 356386770.3,
+    "eal_mean": 3563867.7,
+    "risk_score_mean": 33.5504,
+    "recommended_measure_counts": {
+      "cool-roof-v1": 100
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "ANT-G-000",
+      "eal_absolute": 3682612.2,
+      "risk_score": 32.9057,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-001",
+      "eal_absolute": 1619365.82,
+      "risk_score": 44.5817,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-002",
+      "eal_absolute": 797688.36,
+      "risk_score": 37.5303,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-003",
+      "eal_absolute": 5573270.59,
+      "risk_score": 35.3248,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-004",
+      "eal_absolute": 4858401.71,
+      "risk_score": 41.2234,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-005",
+      "eal_absolute": 7146501.05,
+      "risk_score": 25.1773,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-006",
+      "eal_absolute": 1017694.59,
+      "risk_score": 24.8124,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-007",
+      "eal_absolute": 1241994.89,
+      "risk_score": 33.6065,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-008",
+      "eal_absolute": 2520536.9,
+      "risk_score": 37.752,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-009",
+      "eal_absolute": 2758552.25,
+      "risk_score": 31.6892,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-010",
+      "eal_absolute": 1355136.08,
+      "risk_score": 22.8526,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-011",
+      "eal_absolute": 3988938.77,
+      "risk_score": 34.8478,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-012",
+      "eal_absolute": 7032643.46,
+      "risk_score": 50.2531,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-013",
+      "eal_absolute": 466620.17,
+      "risk_score": 16.8685,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-014",
+      "eal_absolute": 256729.5,
+      "risk_score": 16.6954,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-015",
+      "eal_absolute": 1301587.25,
+      "risk_score": 17.1313,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-016",
+      "eal_absolute": 2755066.83,
+      "risk_score": 23.7629,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-017",
+      "eal_absolute": 5603051.89,
+      "risk_score": 54.4885,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-018",
+      "eal_absolute": 1074885.22,
+      "risk_score": 44.9003,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-019",
+      "eal_absolute": 478818.22,
+      "risk_score": 14.6064,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-020",
+      "eal_absolute": 882137.23,
+      "risk_score": 27.8743,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-021",
+      "eal_absolute": 8695711.17,
+      "risk_score": 52.216,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-022",
+      "eal_absolute": 2211308.27,
+      "risk_score": 39.2075,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-023",
+      "eal_absolute": 4409118.65,
+      "risk_score": 36.5436,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-024",
+      "eal_absolute": 4769892.2,
+      "risk_score": 33.1239,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-025",
+      "eal_absolute": 1772742.88,
+      "risk_score": 38.6487,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-026",
+      "eal_absolute": 1201622.66,
+      "risk_score": 22.9094,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-027",
+      "eal_absolute": 3673482.02,
+      "risk_score": 16.4799,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-028",
+      "eal_absolute": 2944472.65,
+      "risk_score": 50.6471,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-029",
+      "eal_absolute": 5151899.45,
+      "risk_score": 22.6244,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-030",
+      "eal_absolute": 1925221.05,
+      "risk_score": 35.0236,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-031",
+      "eal_absolute": 348773.3,
+      "risk_score": 20.1478,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-032",
+      "eal_absolute": 551394.33,
+      "risk_score": 15.339,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-033",
+      "eal_absolute": 4940301.1,
+      "risk_score": 18.8193,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-034",
+      "eal_absolute": 1702933.04,
+      "risk_score": 36.6552,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-035",
+      "eal_absolute": 10001032.87,
+      "risk_score": 46.6642,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-036",
+      "eal_absolute": 13192470.76,
+      "risk_score": 59.0193,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-037",
+      "eal_absolute": 1116210.68,
+      "risk_score": 37.21,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-038",
+      "eal_absolute": 684095.03,
+      "risk_score": 31.7144,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-039",
+      "eal_absolute": 3812549.47,
+      "risk_score": 34.3183,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-040",
+      "eal_absolute": 9097429.0,
+      "risk_score": 46.6018,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-041",
+      "eal_absolute": 10037045.05,
+      "risk_score": 41.7296,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-042",
+      "eal_absolute": 896299.93,
+      "risk_score": 27.6761,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-043",
+      "eal_absolute": 1529479.48,
+      "risk_score": 49.1155,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-044",
+      "eal_absolute": 1952836.8,
+      "risk_score": 23.7324,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-045",
+      "eal_absolute": 4525975.64,
+      "risk_score": 35.8942,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-046",
+      "eal_absolute": 758945.29,
+      "risk_score": 33.2609,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-047",
+      "eal_absolute": 7524047.56,
+      "risk_score": 26.9083,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-048",
+      "eal_absolute": 3147264.29,
+      "risk_score": 22.0659,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-049",
+      "eal_absolute": 1466321.83,
+      "risk_score": 30.7522,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-050",
+      "eal_absolute": 1028860.3,
+      "risk_score": 32.6034,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-051",
+      "eal_absolute": 7217179.27,
+      "risk_score": 41.6541,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-052",
+      "eal_absolute": 7694978.55,
+      "risk_score": 44.8764,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-053",
+      "eal_absolute": 3532194.84,
+      "risk_score": 29.6318,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-054",
+      "eal_absolute": 630387.1,
+      "risk_score": 32.8338,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-055",
+      "eal_absolute": 968523.57,
+      "risk_score": 48.0031,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-056",
+      "eal_absolute": 217631.74,
+      "risk_score": 8.3078,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-057",
+      "eal_absolute": 9205633.74,
+      "risk_score": 53.2971,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-058",
+      "eal_absolute": 893057.14,
+      "risk_score": 27.0013,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-059",
+      "eal_absolute": 6074484.56,
+      "risk_score": 25.1691,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-060",
+      "eal_absolute": 4760421.09,
+      "risk_score": 32.6214,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-061",
+      "eal_absolute": 1916399.85,
+      "risk_score": 32.4374,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-062",
+      "eal_absolute": 924039.52,
+      "risk_score": 16.826,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-063",
+      "eal_absolute": 8654120.96,
+      "risk_score": 22.024,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-064",
+      "eal_absolute": 2133500.45,
+      "risk_score": 24.2566,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-065",
+      "eal_absolute": 8036491.39,
+      "risk_score": 25.8558,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-066",
+      "eal_absolute": 1160868.59,
+      "risk_score": 33.7452,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-067",
+      "eal_absolute": 540587.49,
+      "risk_score": 29.5798,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-068",
+      "eal_absolute": 593337.63,
+      "risk_score": 11.7135,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-069",
+      "eal_absolute": 11378064.25,
+      "risk_score": 50.2906,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-070",
+      "eal_absolute": 1410338.13,
+      "risk_score": 39.1354,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-071",
+      "eal_absolute": 3246664.85,
+      "risk_score": 35.766,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-072",
+      "eal_absolute": 3036313.49,
+      "risk_score": 36.5663,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-073",
+      "eal_absolute": 1003169.78,
+      "risk_score": 23.8447,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-074",
+      "eal_absolute": 2165335.55,
+      "risk_score": 29.2783,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-075",
+      "eal_absolute": 6230202.36,
+      "risk_score": 26.7368,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-076",
+      "eal_absolute": 5717775.35,
+      "risk_score": 32.3973,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-077",
+      "eal_absolute": 4869952.81,
+      "risk_score": 27.2667,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-078",
+      "eal_absolute": 1099539.29,
+      "risk_score": 28.6112,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-079",
+      "eal_absolute": 1020328.3,
+      "risk_score": 36.6526,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-080",
+      "eal_absolute": 546804.96,
+      "risk_score": 21.2257,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-081",
+      "eal_absolute": 5739828.47,
+      "risk_score": 38.3685,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-082",
+      "eal_absolute": 736675.56,
+      "risk_score": 49.7144,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-083",
+      "eal_absolute": 12165094.18,
+      "risk_score": 56.376,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-084",
+      "eal_absolute": 3392256.89,
+      "risk_score": 50.0765,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-085",
+      "eal_absolute": 582428.83,
+      "risk_score": 29.8961,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-086",
+      "eal_absolute": 887574.94,
+      "risk_score": 35.447,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-087",
+      "eal_absolute": 6481895.97,
+      "risk_score": 47.361,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-088",
+      "eal_absolute": 11207361.97,
+      "risk_score": 49.2781,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-089",
+      "eal_absolute": 9412901.58,
+      "risk_score": 49.5501,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-090",
+      "eal_absolute": 276942.08,
+      "risk_score": 7.3824,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-091",
+      "eal_absolute": 1508073.39,
+      "risk_score": 33.1677,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-092",
+      "eal_absolute": 2716555.3,
+      "risk_score": 37.2637,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-093",
+      "eal_absolute": 4483317.8,
+      "risk_score": 55.5332,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-094",
+      "eal_absolute": 1893698.79,
+      "risk_score": 27.8822,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-095",
+      "eal_absolute": 10010798.48,
+      "risk_score": 47.744,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-096",
+      "eal_absolute": 2749817.85,
+      "risk_score": 31.6854,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-097",
+      "eal_absolute": 1601840.3,
+      "risk_score": 34.2083,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-098",
+      "eal_absolute": 353617.25,
+      "risk_score": 30.5924,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "ANT-G-099",
+      "eal_absolute": 1825794.34,
+      "risk_score": 29.3711,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    }
+  ],
+  "tolerances": {
+    "eal_sum_rel": 0.0,
+    "eal_mean_rel": 0.0,
+    "risk_score_mean_abs": 0.0,
+    "per_asset_eal_abs": 0.0
+  }
+}

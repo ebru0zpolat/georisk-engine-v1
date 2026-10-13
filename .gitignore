@@ -1,0 +1,55 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# JetBrains / VS Code
+.idea/
+.vscode/
+!.vscode/extensions.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Node
+node_modules/
+
+# Logs and caches
+*.log
+.npm-cache/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+georisk-demo.pdf
+
+# Generated sealed reports (local)
+reports/output/
+
+# Crawl4AI ops output (scripts/crawl_loi_targets.py) — see docs/ops/CRAWL4AI_RECIPES.md
+data/crawl/*
+!data/crawl/.gitkeep
+
+# File-backed financial audit trail (runtime append-only JSONL)
+data/audit_trail/
+
+# Local independent-verifier output (CI uploads as artifact; sample lives under docs/)
+/verification_report.md
+
+# Vercel CLI local link metadata
+.vercel

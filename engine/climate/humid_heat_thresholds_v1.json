@@ -1,0 +1,30 @@
+{
+  "method_version": "humid-heat-v1",
+  "spec": "docs/specs/humid-heat-indicator-v1.md §7.3",
+  "thresholds": [
+    {
+      "value_c": 28.0,
+      "role": "diagnostic",
+      "source": "Diagnostic step for distribution shape",
+      "does_not_mean": "Any physiological or regulatory boundary"
+    },
+    {
+      "value_c": 31.0,
+      "role": "primary",
+      "source": "Laboratory-measured compensability limit for young, healthy adults, reported at about 30-31 C (Vecellio et al.)",
+      "does_not_mean": "A limit for the elderly or the working population, which is lower"
+    },
+    {
+      "value_c": 33.0,
+      "role": "diagnostic",
+      "source": "Diagnostic step for distribution shape",
+      "does_not_mean": "Any physiological or regulatory boundary"
+    },
+    {
+      "value_c": 35.0,
+      "role": "diagnostic",
+      "source": "Theoretical upper limit of human heat dissipation (Sherwood & Huber 2010; used by Raymond et al. 2020)",
+      "does_not_mean": "A safe level below it"
+    }
+  ]
+}

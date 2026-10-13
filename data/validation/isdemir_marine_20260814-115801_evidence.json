@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "validation_id": "ISD-MARINE-20260814-115801",
+  "case_id": "isdemir_marine_context",
+  "subject": "İsdemir (Payas / İskenderun Bay) marine context — ORAS5",
+  "mode": "offline",
+  "georisk_version": "georisk-engine-v0.1",
+  "generated_at": "2026-08-14T11:58:01.060175+00:00",
+  "request": {
+    "latitude": 36.7333,
+    "longitude": 36.2,
+    "start_date": "1991-01-01",
+    "end_date": "2020-12-31",
+    "data_access": "cds-arco-zarr",
+    "auth": "bearer-header"
+  },
+  "grid_selection": null,
+  "series": null,
+  "features": {
+    "sst_trend_c_per_decade": 0.21,
+    "sst_anomaly_zscore": 1.4,
+    "sea_level_trend_mm_per_year": 3.1,
+    "ocean_variability_index": 0.58
+  },
+  "ocean_risk_score": 85,
+  "checksums": {
+    "features_sha256": "bd994d7c98f4fe803f4e1bd97bfb9283879dd13dfcefa4b0bcb879deeff05d5b",
+    "record_sha256": "18a049c52fda1bc21d358b89713faaa1cf6ad58ae18ff0f4518109efecd7e39a"
+  }
+}

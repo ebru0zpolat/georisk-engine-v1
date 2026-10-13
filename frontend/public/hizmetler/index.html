@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoRisk Engine Hizmetler | Geospatial Risk Intelligence Platformu</title>
+  <meta name="description" content="GeoRisk Engine hizmetler sayfası; Konum Zekası, Risk Puanlama ve Uydu Verisi ile operasyon ekipleri, mühendisler ve sigortacılar için geospatial risk intelligence platformu sunar.">
+  <meta name="keywords" content="Konum Zekası, Risk Puanlama, Uydu Verisi, geospatial risk intelligence platformu, lokasyon risk analizi, tesis risk skoru">
+  <link rel="canonical" href="https://georiskengine.com/hizmetler">
+  <link rel="alternate" hreflang="tr" href="https://georiskengine.com/hizmetler">
+  <link rel="alternate" hreflang="en" href="https://georiskengine.com/services">
+  <link rel="alternate" hreflang="x-default" href="https://georiskengine.com/services">
+  <meta property="og:title" content="GeoRisk Engine Hizmetler | Geospatial Risk Intelligence Platformu">
+  <meta property="og:description" content="Konum Zekası, Risk Puanlama ve Uydu Verisi ile operasyon ekipleri, mühendisler ve sigortacılar için geospatial risk intelligence platformu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://georiskengine.com/hizmetler">
+  <style>
+    :root {
+      --ink: #07111f;
+      --panel: #0d1b2f;
+      --line: rgba(255, 255, 255, 0.12);
+      --text: #e8f2ff;
+      --muted: rgba(232, 242, 255, 0.68);
+      --dim: rgba(232, 242, 255, 0.48);
+      --accent: #2ec990;
+      --amber: #ef9f27;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(46, 201, 144, 0.18), transparent 34rem),
+        linear-gradient(180deg, #07111f 0%, #0a1628 52%, #07111f 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    nav,
+    main,
+    footer {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0;
+    }
+
+    .brand {
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 88px 0 76px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    h1 {
+      max-width: 820px;
+      font-size: clamp(44px, 7vw, 78px);
+    }
+
+    h2 {
+      max-width: 760px;
+      font-size: clamp(32px, 5vw, 50px);
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+    }
+
+    .atomic-answer {
+      max-width: 820px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-card,
+    .card,
+    .deliverable {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-card {
+      padding: 28px;
+    }
+
+    .hero-card strong {
+      display: block;
+      color: #fff;
+      font-size: 28px;
+      line-height: 1.15;
+    }
+
+    .hero-card p,
+    .card p,
+    .deliverable p,
+    footer {
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 76px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 38px;
+    }
+
+    .card {
+      padding: 28px;
+    }
+
+    .card p {
+      margin: 14px 0 0;
+    }
+
+    .table-wrap {
+      margin-top: 34px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      color: var(--muted);
+    }
+
+    .data-table caption {
+      padding: 16px 18px;
+      color: #fff;
+      font-weight: 800;
+      text-align: left;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 14px 18px;
+      border-top: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .data-table th {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 22px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .deliverables {
+      display: grid;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .deliverable {
+      display: flex;
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .deliverable span {
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .note {
+      margin-top: 34px;
+      color: var(--dim);
+      font-size: 14px;
+    }
+
+    .cta {
+      padding: 70px 0 90px;
+      text-align: center;
+    }
+
+    .cta-title {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #fff;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .button {
+      display: inline-flex;
+      margin-top: 28px;
+      padding: 14px 22px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #06121f;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 38px 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      nav,
+      .nav-links,
+      .hero,
+      .grid {
+        display: block;
+      }
+
+      .nav-links,
+      .hero-card,
+      .card {
+        margin-top: 22px;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://georiskengine.com/#organization",
+      "name": "GeoRisk Engine",
+      "url": "https://georiskengine.com/",
+      "description": "GeoRisk Engine provides geospatial risk intelligence, climate risk analytics, industrial risk scoring and satellite-based risk assessment for enterprise risk teams."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://georiskengine.com/hizmetler#service",
+      "name": "GeoRisk Engine Hizmetleri",
+      "provider": {
+        "@id": "https://georiskengine.com/#organization"
+      },
+      "areaServed": [
+        "Global",
+        "Türkiye"
+      ],
+      "serviceType": [
+        "Climate risk analytics",
+        "Industrial risk scoring",
+        "Geospatial risk intelligence",
+        "Satellite-based risk assessment",
+        "Enterprise climate risk platform",
+        "TSRS climate risk reporting",
+        "TSRS risk analytics",
+        "Türkiye sustainability reporting risk data",
+        "Industrial climate exposure Türkiye",
+        "Steel plant climate risk",
+        "Industrial facility geospatial risk",
+        "Port climate risk assessment",
+        "Energy infrastructure risk analytics",
+        "Factory flood heat wildfire exposure"
+      ],
+      "url": "https://georiskengine.com/hizmetler",
+      "author": {
+        "@id": "https://georiskengine.com/#organization"
+      },
+      "reviewedBy": {
+        "@id": "https://georiskengine.com/#organization"
+      }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://georiskengine.com/hizmetler#risk-dataset",
+      "name": "Türkiye Industrial Climate Exposure Mini Dataset 2026",
+      "description": "Original mini case-study dataset for Turkish industrial climate exposure, covering steel, port, energy infrastructure, manufacturing and real estate asset archetypes with flood, heat, wildfire and operational proxy fields.",
+      "creator": {
+        "@id": "https://georiskengine.com/#organization"
+      },
+      "license": "https://georiskengine.com/hizmetler",
+      "keywords": [
+        "geospatial risk intelligence",
+        "climate risk analytics",
+        "industrial risk scoring",
+        "satellite-based risk assessment",
+        "enterprise climate risk platform",
+        "TSRS climate risk reporting",
+        "industrial climate exposure Türkiye"
+      ],
+      "spatialCoverage": "Global",
+      "temporalCoverage": "2026/..",
+      "variableMeasured": [
+        "asset archetype",
+        "primary climate exposure",
+        "satellite-based indicator",
+        "reporting use case",
+        "methodology limitation"
+      ],
+      "isBasedOn": "GeoRisk Engine internal methodology and public satellite/climate indicator synthesis",
+      "author": {
+        "@id": "https://georiskengine.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://georiskengine.com/hizmetler#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is geospatial risk intelligence for industrial assets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Geospatial risk intelligence for industrial assets converts facility coordinates into climate, environmental, satellite and operational risk indicators that enterprise teams can compare across portfolios."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do satellite-based indicators support methodologically transparent validation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Satellite-based indicators provide independent context around a site and are packaged with scoring metadata, methodology notes, limitations and audit identifiers for methodologically transparent workflows based on peer-reviewed data protocols."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are GeoRisk outputs regulatory proof?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. GeoRisk outputs are analytical proxies and decision-support signals, not regulatory proof, legal certification, investment advice or guaranteed production truth."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://georiskengine.com/hizmetler#case-study",
+      "name": "Türkiye Industrial Climate Exposure 2026 Mini Case Study",
+      "headline": "Original industrial climate exposure examples for Türkiye-focused enterprise risk teams",
+      "author": {
+        "@id": "https://georiskengine.com/#organization"
+      },
+      "reviewedBy": {
+        "@id": "https://georiskengine.com/#organization"
+      },
+      "about": [
+        "industrial climate exposure Türkiye",
+        "TSRS climate risk reporting",
+        "factory flood heat wildfire exposure",
+        "port climate risk assessment"
+      ],
+      "isPartOf": {
+        "@id": "https://georiskengine.com/hizmetler#service"
+      },
+      "inLanguage": "tr",
+      "url": "https://georiskengine.com/hizmetler#original-case-data"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav aria-label="Ana navigasyon">
+    <a class="brand" href="/">GeoRisk Engine</a>
+    <div class="nav-links">
+      <a href="/">Ana sayfa</a>
+      <a href="/hizmetler" aria-current="page">Hizmetler</a>
+      <a href="/#pricing">Paketler</a>
+      <a href="/#api">API</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Google'ın indeksleyeceği hizmet sayfası</p>
+        <h1>Geospatial Risk Intelligence Platformu</h1>
+        <p class="lead">
+          GeoRisk Engine, Konum Zekası, Risk Puanlama ve Uydu Verisi katmanlarını birleştirerek operasyon ekipleri, mühendisler ve sigortacılar için geospatial risk intelligence platformu sunar. Platform tesis, liman, enerji altyapısı ve fabrika lokasyonlarını çevresel risk sinyallerine dönüştürür.
+        </p>
+      </div>
+      <aside class="hero-card" aria-label="İndeks özeti">
+        <p class="eyebrow">İndeks niyeti</p>
+        <strong>Hizmet kapsamı ve arama niyeti ilk HTML yanıtında görünür.</strong>
+        <p>
+          Bu sayfa JavaScript çalışmasını beklemeden başlık, açıklama, H1, hizmet alanları ve yapılandırılmış veri sunar.
+        </p>
+      </aside>
+    </section>
+
+
+    <section class="section" id="geospatial-hub-audience">
+      <p class="eyebrow">Hedef kitle</p>
+      <h2>Geospatial Risk Intelligence Platformu&#8217;nu kimler kullanıyor?</h2>
+      <p class="atomic-answer">
+        GeoRisk Engine hizmetler sayfası operasyon ekipleri, mühendisler ve sigortacılar için ana geospatial hub olarak tasarlanmıştır. Bu ekipler Konum Zekası, Risk Puanlama ve Uydu Verisi katmanlarını kullanarak tesis güvenliği, hasar önceliklendirme, saha planlama ve sigorta risk değerlendirmesi yapar.
+      </p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Geospatial hub target audience — hedef kitle</caption>
+          <thead><tr><th>Hedef kitle</th><th>İhtiyaç</th><th>GeoRisk katkısı</th></tr></thead>
+          <tbody>
+            <tr><td>Operasyon ekipleri</td><td>Saha ve tesis risklerini günlük karar akışına taşımak</td><td>Konum Zekası ve Risk Puanlama çıktıları</td></tr>
+            <tr><td>Mühendisler</td><td>Altyapı, zemin ve çevresel hassasiyet sinyallerini karşılaştırmak</td><td>Uydu Verisi ve geospatial katmanlar</td></tr>
+            <tr><td>Sigortacılar</td><td>Portföy ve varlık bazlı risk önceliklendirmesi yapmak</td><td>Lokasyon bazlı skor ve rapor tabloları</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="hizmet-kapsami">
+      <p class="eyebrow">Hizmet kapsamı</p>
+      <h2>İklim, çevresel ve konum bazlı risk puanlaması nedir?</h2>
+      <p class="atomic-answer">
+        İklim, çevresel ve konum bazlı risk puanlaması, varlık koordinatlarını karşılaştırılabilir maruziyet sinyallerine çevirir. GeoRisk Engine iklim tehlikelerini, endüstriyel bağlamı, uydu göstergelerini, arazi hassasiyetini ve operasyonel proxy&#8217;leri birlikte değerlendirir; böylece risk ekipleri tesisleri karşılaştırabilir, inceleme önceliği verebilir ve bir lokasyonun neden daha yüksek taşkın, sıcaklık, yangın veya kirlilik maruziyeti taşıdığını açıklayabilir.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <h3>İklim riski analitiği (climate risk analytics) nasıl puanlanır?</h3>
+          <p>Varlık lokasyonlarını iklim maruziyeti, çevresel hassasiyet ve değişen baz çizgilerle karşılaştırır.</p>
+          <ul>
+            <li>Konum bazlı risk skoru</li>
+            <li>Maruziyet ve hassasiyet bileşenleri</li>
+            <li>Portföy tarama çıktıları</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Sanayi tesisi jeo-uzamsal riski nasıl puanlanır?</h3>
+          <p>Sanayi tesisleri, enerji varlıkları ve kritik altyapı noktaları için operasyonel sinyalleri açıklar.</p>
+          <ul>
+            <li>Endüstriyel aktivite göstergeleri</li>
+            <li>Uydu kaynaklı çevresel proxy'ler</li>
+            <li>Audit ID ile izlenebilir çıktı</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Uydu tabanlı risk değerlendirmesi raporları nasıl destekler?</h3>
+          <p>Karar komiteleri ve risk ekipleri için PDF, Markdown ve API tabanlı doğrulama paketleri üretir.</p>
+          <ul>
+            <li>PDF risk raporu</li>
+            <li>Metodoloji ve sınırlılık notları</li>
+            <li>REST API entegrasyonu</li>
+          </ul>
+        </article>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Yapay zekâ taramsına açık risk puanlama verisi</caption>
+          <thead>
+            <tr>
+              <th>Sinyal ailesi</th>
+              <th>Çıkarılabilir veri</th>
+              <th>Karar kullanımı</th>
+              <th>Çıktı biçimi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>İklim maruziyeti</td>
+              <td>Taşkın, sıcaklık, yangın ve kıyı göstergeleri</td>
+              <td>Portföyler arası varlık maruziyetini karşılaştırma</td>
+              <td>Skor, bayrak, rapor tablosu</td>
+            </tr>
+            <tr>
+              <td>Endüstriyel bağlam</td>
+              <td>Tesis tipi, operasyonel proxy ve çevredeki arazi bağlamı</td>
+              <td>Sanayi varlıklarında inceleme önceliği</td>
+              <td>Bileşen skoru ve denetim notu</td>
+            </tr>
+            <tr>
+              <td>Uydu göstergeleri</td>
+              <td>Koordinat çevresinde gözlenen çevresel ve aktivite sinyalleri</td>
+              <td>Bağımsız doğrulama (validation) akışlarını destekleme</td>
+              <td>Gösterge özeti ve metodoloji notu</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+
+    <section class="section" id="turkiye-tsrs">
+      <p class="eyebrow">Türkiye / TSRS odağı</p>
+      <h2>Sanayi tesisleri ve kurumsal risk ekipleri için jeo-uzamsal risk zekâsını kimler kullanır?</h2>
+      <p class="atomic-answer">
+        Sanayi işletmecileri, altyapı sahipleri, sürdürülebilirlik ekipleri ve kurumsal risk ekipleri GeoRisk Engine&#8217;i tesis konumlarını raporlamaya hazır risk verisine çevirmek için kullanır. Hizmet; TSRS climate risk reporting, TSRS risk analytics, Türkiye sustainability reporting risk data ve industrial climate exposure Türkiye kapsamlarını destekler — uydu proxy&#8217;lerini düzenleyici kesin kanıt olarak sunmadan.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <h3>TSRS climate risk reporting konum verisini nasıl kullanır?</h3>
+          <p>TSRS raporlama akışlarında kullanılabilecek konum bazlı iklim maruziyeti, yöntem notu ve denetlenebilir veri çıktısı sağlar.</p>
+        </article>
+        <article class="card">
+          <h3>TSRS risk analytics tesisleri nasıl karşılaştırır?</h3>
+          <p>Varlık, tesis ve portföy düzeyinde risk bileşenlerini tek karar yüzeyinde göstererek raporlama ekiplerinin analiz ihtiyacını destekler.</p>
+        </article>
+        <article class="card">
+          <h3>Türkiye sustainability reporting risk data nedir?</h3>
+          <p>Türkiye odaklı sürdürülebilirlik raporlaması için tesis konumu, çevresel gösterge ve endüstriyel aktivite sinyallerini birleştirir.</p>
+        </article>
+      </div>
+      <p class="note">
+        Industrial climate exposure Türkiye kapsamı, sanayi tesislerinin iklim maruziyetini ve uydu tabanlı operasyonel göstergelerini
+        karar desteği olarak sunar; düzenleyici kesin kanıt veya yatırım tavsiyesi değildir.
+      </p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>TSRS 1 / TSRS 2 terminology alignment</caption>
+          <thead>
+            <tr>
+              <th>Standart</th>
+              <th>Bu sayfada kullanılan terminoloji</th>
+              <th>GeoRisk veri desteği</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TSRS 1</td>
+              <td>TSRS 1 genel sürdürülebilirlik açıklamaları ve sürdürülebilirlikle ilgili finansal risk verisi</td>
+              <td>Türkiye sustainability reporting risk data, metodoloji notları ve portföy karşılaştırma tabloları</td>
+            </tr>
+            <tr>
+              <td>TSRS 2</td>
+              <td>TSRS 2 iklimle ilgili açıklamalar, iklim maruziyeti ve geçiş / fiziksel risk bağlamı</td>
+              <td>TSRS climate risk reporting, industrial climate exposure Türkiye ve uydu tabanlı çevresel göstergeler</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Türkiye / TSRS raporlama veri haritası</caption>
+          <thead>
+            <tr>
+              <th>Raporlama ihtiyacı</th>
+              <th>GeoRisk veri yüzeyi</th>
+              <th>Nasıl yorumlanmalı</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TSRS climate risk reporting</td>
+              <td>Konum risk skorları, iklim maruziyeti göstergeleri ve yöntem notları</td>
+              <td>Açıklama hazırlığı için karar destek verisi</td>
+            </tr>
+            <tr>
+              <td>Türkiye sustainability reporting risk data</td>
+              <td>Tesis koordinatları, çevresel göstergeler ve endüstriyel sinyaller</td>
+              <td>Sürdürülebilirlik risk anlatısı için yapılandırılmış bağlam</td>
+            </tr>
+            <tr>
+              <td>Industrial climate exposure Türkiye</td>
+              <td>Türk sanayi varlıkları çevresinde iklim tehlikeleri ve uydu proxy&#8217;leri</td>
+              <td>Analitik proxy; düzenleyici kesin kanıt değil</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">İndekslenebilir teslimatlar</p>
+      <h2>Uydu tabanlı göstergeler şeffaf metodolojiyle doğrulamayı nasıl destekler?</h2>
+      <p class="atomic-answer">
+        Uydu tabanlı göstergeler, bir sahanın çevresindeki çevresel ve operasyonel sinyalleri gözleyerek kurumsal iklim riski incelemelerine bağımsız bağlam ekler. GeoRisk Engine bu göstergeleri puanlama meta verisi, metodoloji notları, sınırlılıklar ve denetim kimlikleriyle birlikte paketler; böylece çıktı methodologically transparent olur, yapı olarak scientifically validated kalır ve peer-reviewed data protocols ile uyumlu şekilde açıklanır.
+      </p>
+      <div class="deliverables">
+        <div class="deliverable">
+          <span>01</span>
+          <p>GeoRisk Engine'in ne yaptığı: iklim, endüstriyel ve jeo-uzamsal risk zekası.</p>
+        </div>
+        <div class="deliverable">
+          <span>02</span>
+          <p>Kim için olduğu: enterprise risk teams, portföy ekipleri, sürdürülebilirlik ve operasyon ekipleri.</p>
+        </div>
+        <div class="deliverable">
+          <span>03</span>
+          <p>Hangi çıktıyı verdiği: tesis skoru, uydu göstergeleri ve methodologically transparent reports.</p>
+        </div>
+      </div>
+      <p class="note">
+        Not: Uydu tabanlı göstergeler operasyonel karar desteği niteliğindedir; düzenleyici kesin kanıt, yatırım
+        tavsiyesi veya garanti edilmiş üretim doğrusu olarak sunulmaz.
+      </p>
+    </section>
+
+
+    <section class="section" id="sector-use-cases">
+      <p class="eyebrow">Sektör kullanım alanları</p>
+      <h2>Çelik, enerji, liman, üretim ve gayrimenkul için kullanım alanları neler?</h2>
+      <p class="atomic-answer">
+        GeoRisk Engine; çelik tesisleri, sanayi tesisleri, limanlar, enerji altyapısı, fabrikalar ve gayrimenkul portföyleri için sektöre özgü maruziyet analizini destekler. Ekipler bunu steel plant climate risk, industrial facility geospatial risk, port climate risk assessment, energy infrastructure risk analytics ve factory flood heat wildfire exposure değerlendirmeleri için kullanır.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <h3>Çelik tesisi iklim riski (steel plant climate risk) nasıl değerlendirilir?</h3>
+          <p>Çelik tesisleri için ısı, su stresi, taşkın, emisyon proxy'leri ve tedarik hattı maruziyetini birlikte izler.</p>
+        </article>
+        <article class="card">
+          <h3>Sanayi tesisi jeo-uzamsal riski (industrial facility geospatial risk) nedir?</h3>
+          <p>Fabrika, rafineri, çimento ve lojistik tesisleri için koordinat bazlı çevresel ve operasyonel risk sinyallerini açıklar.</p>
+        </article>
+        <article class="card">
+          <h3>Liman iklim riski değerlendirmesi (port climate risk assessment) nasıl yapılır?</h3>
+          <p>Liman varlıkları için kıyı taşkını, fırtına, sıcaklık ve operasyonel kesinti göstergelerini karar desteğine dönüştürür.</p>
+        </article>
+        <article class="card">
+          <h3>Enerji altyapısı risk analitiği (energy infrastructure risk analytics) neyi ölçer?</h3>
+          <p>Enerji üretim, iletim ve dağıtım altyapısı için iklim maruziyeti ve uydu tabanlı aktivite göstergelerini birleştirir.</p>
+        </article>
+        <article class="card">
+          <h3>Fabrikalarda taşkın, sıcaklık ve yangın maruziyeti nasıl ölçülür?</h3>
+          <p>Fabrika lokasyonlarında taşkın, aşırı sıcaklık ve yangın maruziyetini portföy taraması ve raporlama için görünür kılar.</p>
+        </article>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Sektör kullanım alanı karşılaştırması</caption>
+          <thead>
+            <tr>
+              <th>Sektör anahtar kelimesi</th>
+              <th>Varlık tipi</th>
+              <th>Başlıca maruziyet</th>
+              <th>Tipik kullanıcı</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Steel plant climate risk</td>
+              <td>Çelik ve ağır sanayi tesisleri</td>
+              <td>Sıcaklık, su stresi, taşkın ve tedarik koridoru maruziyeti</td>
+              <td>Sanayi riski ve sürdürülebilirlik ekipleri</td>
+            </tr>
+            <tr>
+              <td>Port climate risk assessment</td>
+              <td>Limanlar ve kıyı lojistik düğümleri</td>
+              <td>Kıyı taşkını, fırtına, sıcaklık ve kesinti göstergeleri</td>
+              <td>Altyapı sahipleri ve sigortacılar</td>
+            </tr>
+            <tr>
+              <td>Energy infrastructure risk analytics</td>
+              <td>Üretim, iletim ve dağıtım varlıkları</td>
+              <td>İklim maruziyeti ve uyduyla gözlenen aktivite bağlamı</td>
+              <td>Enerji işletmecileri ve kurumsal risk ekipleri</td>
+            </tr>
+            <tr>
+              <td>Factory flood heat wildfire exposure</td>
+              <td>Üretim tesisleri ve gayrimenkul portföyleri</td>
+              <td>Taşkın, sıcaklık ve yangın tehlikesi taraması</td>
+              <td>Portföy yöneticileri ve operasyon ekipleri</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="methodology-limitations">
+      <p class="eyebrow">Metodoloji</p>
+      <h2>Hangi metodoloji, veri kaynakları ve sınırlılıklar geçerli?</h2>
+      <p class="atomic-answer">
+        GeoRisk Engine, müşteri varlık koordinatlarını iklim katmanları, jeo-uzamsal bağlam, uydu türevli göstergeler ve sektöre özgü puanlama mantığıyla birleştirir. Yöntem, hukuki sertifikasyon değil karar destek sinyali üretir. Çıktılar; belirsizlik, veri kapsamı ve model varsayımları açıklanmış halde, tarama, raporlama ve inceleme için analitik proxy olarak yorumlanmalıdır.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <h3>Hangi veri kaynakları kullanılıyor?</h3>
+          <p>Uydu türevli göstergeleri, iklim maruziyeti katmanlarını, jeo-uzamsal bağlamı ve müşterinin sunduğu varlık koordinatlarını birleştirir.</p>
+        </article>
+        <article class="card">
+          <h3>Puanlama yöntemi nasıl çalışır?</h3>
+          <p>Risk skorları, bileşen sinyallerini karar desteği, portföy taraması ve scientifically validated iş akışı kontrolleri için özetler.</p>
+        </article>
+        <article class="card">
+          <h3>Kullanıcıların bilmesi gereken sınırlılıklar neler?</h3>
+          <p>Çıktılar operasyonel proxy ve analitik göstergedir; düzenleyici kesin kanıt, hukuki tavsiye veya garanti edilmiş üretim doğrusu değildir.</p>
+        </article>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Metodoloji, veri kaynakları ve sınırlılıklar</caption>
+          <thead>
+            <tr>
+              <th>Katman</th>
+              <th>Kaynak tipi</th>
+              <th>Doğrulama rolü (validation)</th>
+              <th>Sınırlılık</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Varlık koordinatları</td>
+              <td>Müşterinin sunduğu konum verisi</td>
+              <td>Puanlanacak ilgi alanını tanımlar</td>
+              <td>Doğruluk, iletilen koordinatlara bağlıdır</td>
+            </tr>
+            <tr>
+              <td>İklim ve tehlike katmanları</td>
+              <td>Modellenmiş ve jeo-uzamsal maruziyet veri setleri</td>
+              <td>Taşkın, sıcaklık, yangın ve kıyı taramasını destekler</td>
+              <td>Senaryo ve çözünürlük belirsizliği sürer</td>
+            </tr>
+            <tr>
+              <td>Uydu türevli göstergeler</td>
+              <td>Gözlenen çevresel ve aktivite proxy&#8217;leri</td>
+              <td>Bağımsız operasyonel bağlam ekler</td>
+              <td>Proxy sinyalleri hukuki kanıt değildir</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <article class="card" id="original-case-data">
+        <h3>Bilgi kazanımını hangi özgün veri destekliyor?</h3>
+        <p>Türkiye Industrial Climate Exposure 2026, sektöre özgü iklim maruziyetinin sanayi varlıkları için nasıl raporlanabileceğini özetleyen bir GeoRisk mini vaka çalışması veri setidir. Bu hizmet sayfası için hazırlanmış özgün editöryel veridir; çelik, liman, enerji, üretim ve gayrimenkul risklerinin arama ve yapay zekâ sistemleri tarafından okunabilir olması için tasarlanmıştır.</p>
+      </article>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Türkiye Industrial Climate Exposure 2026 mini vaka çalışması</caption>
+          <thead>
+            <tr>
+              <th>Vaka varlığı</th>
+              <th>Özgün bilgi kazanımı</th>
+              <th>Risk sinyali</th>
+              <th>Raporlama değeri</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>İç lojistik koridoruna yakın çelik tesisi</td>
+              <td>Isı stresi, su hassasiyeti ve taşıma kesintisini tek bir steel plant climate risk görünümünde birleştirir</td>
+              <td>Sıcaklık, su stresi, endüstriyel aktivite proxy&#8217;si</td>
+              <td>TSRS climate risk reporting ve yatırım önceliklendirmesi</td>
+            </tr>
+            <tr>
+              <td>Kıyı operasyonlarına açık liman varlığı</td>
+              <td>port climate risk assessment ile fırtına, sıcaklık ve kıyı taşkını bağlamını birleştirir</td>
+              <td>Kıyı taşkını, fırtına kabarması, operasyonel kesinti</td>
+              <td>Altyapı risk anlatısı ve sigorta incelemesi</td>
+            </tr>
+            <tr>
+              <td>Enerji altyapısı düğümü</td>
+              <td>energy infrastructure risk analytics için iklim maruziyetini uyduyla gözlenen aktivite bağlamına bağlar</td>
+              <td>Sıcaklık, yangın, şebeke komşuluğu maruziyeti</td>
+              <td>Kurumsal risk izleme ve dayanıklılık planlaması</td>
+            </tr>
+            <tr>
+              <td>Üretim tesisi portföyü</td>
+              <td>factory flood heat wildfire exposure verisini karşılaştırılabilir portföy tarama alanlarına çevirir</td>
+              <td>Taşkın, sıcaklık, yangın, arazi hassasiyeti</td>
+              <td>Portföy sıralaması ve yönetime hazır raporlama</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <article class="card" id="author-profile">
+        <h3>Bu metodolojiyi kim yazdı ve gözden geçirdi?</h3>
+        <p>Bu sayfayı, alana özgü editöryel ve teknik bir metodoloji notu olarak GeoRisk Engine Research Team yazdı ve gözden geçirdi. Doğrulanabilir bir GeoRisk Engine ya da adı belirtilmiş yazar LinkedIn adresi teyit edilene kadar herkese açık bir LinkedIn yazar profili eklenmez; böylece şemada doğrulanamaz sameAs iddiası oluşmaz.</p>
+      </article>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>E-E-A-T yazar ve gözden geçirme profili</caption>
+          <thead>
+            <tr>
+              <th>Rol</th>
+              <th>Taraf</th>
+              <th>Sayfada gösterilen kanıt</th>
+              <th>Şema karşılığı</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Yazar</td>
+              <td>GeoRisk Engine Research Team</td>
+              <td>Özgün Türkiye Industrial Climate Exposure 2026 mini vaka veri seti</td>
+              <td>Service, Dataset ve CreativeWork üzerinde Organization author</td>
+            </tr>
+            <tr>
+              <td>Gözden geçiren</td>
+              <td>GeoRisk Engine methodology owner</td>
+              <td>Sınırlılıklar tablosu, uydu proxy uyarısı ve peer-reviewed data protocols notu</td>
+              <td>Service ve CreativeWork üzerinde Organization reviewedBy</td>
+            </tr>
+            <tr>
+              <td>sameAs politikası</td>
+              <td>LinkedIn adresi doğrulama bekliyor</td>
+              <td>Doğrulanmamış LinkedIn profili yayınlanmaz</td>
+              <td>sameAs ancak doğrulanmış LinkedIn adresi verildikten sonra genişletilir</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Sık sorulan sorular</caption>
+          <thead>
+            <tr>
+              <th>Soru</th>
+              <th>Doğrudan yanıt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sanayi varlıkları için jeo-uzamsal risk zekâsı nedir?</td>
+              <td>Tesis koordinatlarını, ekiplerin portföyler arasında karşılaştırabileceği iklim, çevresel, uydu ve operasyonel risk göstergelerine çevirir.</td>
+            </tr>
+            <tr>
+              <td>Uydu tabanlı çıktılar düzenleyici kesin kanıt mı?</td>
+              <td>Hayır. Tarama, raporlama ve inceleme için analitik proxy&#8217;dir; hukuki sertifikasyon veya garanti edilmiş üretim doğrusu değildir.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="topic-cluster">
+      <p class="eyebrow">Fan-out konu kümesi</p>
+      <h2>GeoRisk konu kümesi hangi ilgili soruları yanıtlıyor?</h2>
+      <p class="atomic-answer">
+        GeoRisk Engine, tek bir devasa ürün sayfası yerine konu kümesi kullanır. Küme; en iyi konum zekâsı platformu, lokasyon risk analizi araçları, GeoRisk Engine özellikleri ve iklim riski analitiği fiyatlandırması gibi yaygın yapay zekâ alt sorularını yanıtlar ve kullanıcıyı indekslenebilir hizmet sayfasına geri yönlendirir.
+      </p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption>Fan-out sorgu konu kümesi</caption>
+          <thead>
+            <tr>
+              <th>Yapay zekâ alt sorgusu</th>
+              <th>İlgili yanıt sayfası</th>
+              <th>Karşılanan arama niyeti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>En iyi konum zekası platformu hangisi?</td>
+              <td><a href="/konum-zekasi-platformu">Platform seçim kriterleri</a></td>
+              <td>Platform karşılaştırması ve satın alma kriterleri</td>
+            </tr>
+            <tr>
+              <td>Lokasyon risk analizi araçları ne ölçer?</td>
+              <td><a href="/lokasyon-risk-analizi-araclari">Risk aracı kabiliyetleri</a></td>
+              <td>Araç kabiliyetleri ve çıkarılabilir risk sinyalleri</td>
+            </tr>
+            <tr>
+              <td>GeoRisk Engine özellikleri nelerdir?</td>
+              <td><a href="/georisk-engine-ozellikleri">Ürün özellikleri</a></td>
+              <td>Özellik keşfi ve ürüne özgü sorgular</td>
+            </tr>
+            <tr>
+              <td>İklim riski analitiği fiyatlandırması nasıl değerlendirilir?</td>
+              <td><a href="/iklim-riski-fiyatlandirma">İklim riski fiyatlandırma</a></td>
+              <td>Fiyat bileşenleri, kapsam ve satın alma kriterleri</td>
+            </tr>
+            <tr>
+              <td>Konum zekasıyla deprem, sel ve iklim riski nasıl okunur?</td>
+              <td><a href="/konum-zekasi-cevresel-risk-yonetimi">Deprem, sel ve iklim riski rehberi</a></td>
+              <td>Deprem, sel, iklim değişikliği ve ESG risk yönetimi</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="reference-frameworks">
+      <p class="eyebrow">Reference Frameworks</p>
+      <h2>Bu metodolojiyi kim doğruladı?</h2>
+      <p class="atomic-answer">GeoRisk Engine, IPCC scenario framing, ESA / Copernicus uydu verisi kavramları ve peer-reviewed data protocols gibi açık bilimsel referans çerçevelerini kullanır. Bu kurumlar GeoRisk Engine’i sertifikalandırmış sayılmaz; ancak metodolojinin methodologically transparent ve scientifically validated şekilde açıklanmasına yardımcı olur.</p>
+      <div class="table-wrap"><table class="data-table"><caption>Referans çerçeveler ve veri kaynakları</caption><thead><tr><th>Referans çerçeve</th><th>Metodolojiyi nasıl destekler</th><th>İddia sınırı</th></tr></thead><tbody><tr><td>IPCC Scenarios</td><td>İklim riski senaryo çerçevesi ve fiziksel risk dili</td><td>Referans çerçeve — not endorsement (onay değil)</td></tr><tr><td>ESA / Copernicus</td><td>Uydu verisi kavramları ve yer gözlem soy ağacı</td><td>Kamuya açık veri referansı; iş ortaklığı iddiası değil</td></tr><tr><td>Peer-reviewed data protocols</td><td>Şeffaf varsayımlar ve tekrarlanabilir doğrulama kılavuzları (validation guidelines)</td><td>Bilimsel yöntem referansı; sertifikasyon değil</td></tr></tbody></table></div>
+    </section>
+
+    <section class="section" id="geospatial-validation-guidelines">
+      <p class="eyebrow">Operasyonel kılavuzlar</p>
+      <h2>Geospatial hub&#8217;ı hangi raporlama, doğrulama ve kılavuzlar destekliyor?</h2>
+      <p class="atomic-answer">GeoRisk Engine hizmetler sayfası raporlama, doğrulama ve kılavuz (reporting, validation and guidelines) dilini operasyonel karar desteği için kullanır. Guidelines; veri kaynaklarını, metodoloji sınırlarını ve uydu sinyallerinin nasıl yorumlanacağını açıklar. Validation ise skorların saha, portföy ve sigorta ekipleri tarafından tutarlı biçimde incelenmesini destekler.</p>
+      <div class="table-wrap"><table class="data-table"><caption>Jeo-uzamsal doğrulama kılavuzları — geospatial validation guidelines</caption><thead><tr><th>Kılavuz katmanı (guidelines)</th><th>Doğrulama rolü (validation)</th><th>Raporlama çıktısı (reporting)</th></tr></thead><tbody><tr><td>Metodoloji kılavuzları</td><td>Puanlama sınırlarını ve peer-reviewed data protocols yaklaşımını açıklar</td><td>Mühendisler için raporlama notu</td></tr><tr><td>Uydu kılavuzları</td><td>Operasyonel proxy yorumunu açıklar</td><td>Sigortacılar için doğrulama (validation) bağlamı</td></tr><tr><td>Portföy kılavuzları</td><td>Tesisler arası karşılaştırma kurallarını açıklar</td><td>Operasyon ekipleri için raporlama tablosu</td></tr></tbody></table></div>
+    </section>
+
+    <section class="cta">
+      <p class="eyebrow">Sonraki adım</p>
+      <p class="cta-title">Ürün sayfası, bu indeks kapsamının üzerine kurulabilir.</p>
+      <a class="button" href="/">Ana platform sayfasına dön</a>
+    </section>
+  </main>
+
+  <footer>
+    GeoRisk Engine — climate, industrial and geospatial risk intelligence for enterprise risk teams.
+  </footer>
+</body>
+</html>

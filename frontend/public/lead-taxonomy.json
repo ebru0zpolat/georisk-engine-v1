@@ -1,0 +1,71 @@
+{
+  "version": "1",
+  "inquiry_categories": [
+    {
+      "id": "sales_demo",
+      "label": "Sales / demo",
+      "routing_email": "info@georiskengine.com"
+    },
+    {
+      "id": "enterprise_licensing",
+      "label": "Enterprise / data licensing",
+      "routing_email": "info@georiskengine.com"
+    },
+    {
+      "id": "api_support",
+      "label": "Technical / API support",
+      "routing_email": "info@georiskengine.com"
+    },
+    {
+      "id": "partnership",
+      "label": "Partnerships",
+      "routing_email": "info@georiskengine.com"
+    },
+    {
+      "id": "research_press",
+      "label": "Research / press",
+      "routing_email": "info@georiskengine.com"
+    },
+    {
+      "id": "general_inquiry",
+      "label": "General inquiry",
+      "routing_email": "info@georiskengine.com"
+    }
+  ],
+  "lead_sources": [
+    "contact_page_direct",
+    "homepage_header",
+    "homepage_header_cta",
+    "homepage_hero",
+    "homepage_api",
+    "homepage_industry",
+    "homepage_pricing",
+    "homepage_get_started",
+    "homepage_footer",
+    "hizmetler_page"
+  ],
+  "lead_timelines": [
+    "exploring",
+    "pilot_planning",
+    "active_pilot",
+    "production_rollout"
+  ],
+  "company_size_bands": [
+    "1_50",
+    "51_250",
+    "251_1000",
+    "1001_plus"
+  ],
+  "asset_scale_bands": [
+    "1_10",
+    "11_100",
+    "101_500",
+    "501_2000",
+    "2001_plus"
+  ],
+  "engagement_stages": [
+    "evaluate",
+    "pilot",
+    "scale"
+  ]
+}

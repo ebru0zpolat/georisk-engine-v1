@@ -1,0 +1,17 @@
+{
+  "asset_id": "00000000-0000-4000-8000-000000000001",
+  "scenario_config": {
+    "model": "CMIP6",
+    "pathway": "SSP5-8.5",
+    "target_year": 2050,
+    "hazards": ["flood", "drought", "wildfire"]
+  },
+  "parameters": {
+    "return_period": [10, 50, 100],
+    "spatial_resolution": "100m"
+  },
+  "metadata": {
+    "client_context": "tsrs-compliance-audit",
+    "workflow_id": "deerflow-skill-exec-001"
+  }
+}

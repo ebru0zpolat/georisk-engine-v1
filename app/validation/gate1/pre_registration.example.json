@@ -1,0 +1,15 @@
+{
+  "study_title": "PLACEHOLDER — Gate 1 heat/flood loss validation",
+  "estimand_id": null,
+  "hazard_type": "heat",
+  "information_cutoff": "2019-06-30",
+  "observed_loss_dataset": "PLACEHOLDER — licensed observed-loss dataset name",
+  "baseline_name": "value_fraction",
+  "baseline_params": { "fraction": 0.02 },
+  "primary_metric": "rmse",
+  "success_rule": { "type": "relative_improvement", "min_fraction": 0.15 },
+  "frozen": false,
+  "freeze_timestamp": null,
+  "freeze_commit": null,
+  "preregistration_sha256": null
+}

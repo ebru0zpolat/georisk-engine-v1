@@ -1,0 +1,93 @@
+.risk-tiles-page {
+  position: fixed;
+  inset: 0;
+  background: #0b0e14;
+  color: #e8ecf3;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.risk-tiles-map {
+  position: absolute;
+  inset: 0;
+}
+
+.risk-tiles-panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  background: rgba(13, 17, 26, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+  max-width: 320px;
+  backdrop-filter: blur(8px);
+}
+
+.risk-tiles-panel h1 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.risk-tiles-subtitle {
+  margin: 0 0 12px;
+  font-size: 0.75rem;
+  color: #8b94a6;
+  word-break: break-all;
+}
+
+.risk-tiles-switcher {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.risk-tiles-switcher button {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: #c6cdd9;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.risk-tiles-switcher button:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.risk-tiles-switcher button.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.risk-tiles-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: #8b94a6;
+}
+
+.risk-tiles-legend .swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.risk-tiles-legend .swatch.low {
+  background: rgb(56, 224, 150);
+}
+
+.risk-tiles-legend .swatch.medium {
+  background: rgb(240, 196, 70);
+}
+
+.risk-tiles-legend .swatch.high {
+  background: rgb(240, 96, 70);
+}

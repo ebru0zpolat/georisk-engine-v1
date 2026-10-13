@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoRisk — Commercial Proof of Demand Epic Creator</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #0F1923; color: #E8F4F0; min-height: 100vh; padding: 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+  .header { margin-bottom: 2rem; }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #2DD4BF; margin-bottom: 8px; }
+  .title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; color: #E8F4F0; margin-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #6B8A82; }
+  .meta-strip { display: flex; gap: 12px; margin: 1.5rem 0; flex-wrap: wrap; }
+  .meta-pill { font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 0.5px solid #1D9E75; color: #2DD4BF; background: rgba(29,158,117,0.1); }
+  .phase-group { margin-bottom: 1.5rem; }
+  .phase-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #6B8A82; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 0.5px solid #1a2d26; }
+  .issue-row { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: #131f29; border: 0.5px solid #1a2d26; border-radius: 8px; margin-bottom: 6px; transition: border-color 0.2s; }
+  .issue-row.creating { border-color: #F59E0B; }
+  .issue-row.done { border-color: #1D9E75; }
+  .issue-row.error { border-color: #E24B4A; }
+  .issue-num { font-size: 11px; font-weight: 500; color: #6B8A82; min-width: 28px; padding-top: 1px; }
+  .issue-body { flex: 1; }
+  .issue-title { font-size: 14px; color: #E8F4F0; margin-bottom: 3px; }
+  .issue-desc { font-size: 12px; color: #6B8A82; line-height: 1.5; }
+  .issue-status { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; min-width: 110px; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #1a2d26; transition: background 0.3s; }
+  .status-dot.creating { background: #F59E0B; animation: pulse 1s infinite; }
+  .status-dot.done { background: #1D9E75; }
+  .status-dot.error { background: #E24B4A; }
+  .issue-id { font-size: 11px; color: #2DD4BF; font-family: 'Space Grotesk', monospace; }
+  .issue-link { font-size: 11px; color: #2DD4BF; text-decoration: none; }
+  .issue-link:hover { text-decoration: underline; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  .action-area { margin: 2rem 0 1rem; }
+  .create-btn { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 500; padding: 12px 28px; background: #1D9E75; color: #E8F4F0; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s, transform 0.1s; }
+  .create-btn:hover { background: #2DD4BF; color: #0F1923; }
+  .create-btn:active { transform: scale(0.98); }
+  .create-btn:disabled { background: #1a2d26; color: #6B8A82; cursor: not-allowed; }
+  .progress-wrap { margin: 1.5rem 0; display: none; }
+  .progress-track { height: 4px; background: #1a2d26; border-radius: 2px; overflow: hidden; margin-bottom: 8px; }
+  .progress-fill { height: 100%; background: #1D9E75; border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+  .progress-text { font-size: 12px; color: #6B8A82; }
+  .result-banner { margin-top: 1.5rem; padding: 14px 18px; border-radius: 8px; font-size: 14px; display: none; }
+  .result-banner.success { background: rgba(29,158,117,0.12); border: 0.5px solid #1D9E75; color: #2DD4BF; }
+  .result-banner.error { background: rgba(226,75,74,0.1); border: 0.5px solid #E24B4A; color: #F09595; }
+  .epic-ref { font-family: 'Space Grotesk', monospace; font-weight: 500; }
+  .footer-note { margin-top: 2rem; font-size: 12px; color: #3a5a50; line-height: 1.6; }
+  .config-row { display: flex; gap: 10px; margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap; }
+  .config-label { font-size: 13px; color: #6B8A82; min-width: 80px; }
+  .config-val { font-size: 13px; color: #E8F4F0; background: #131f29; border: 0.5px solid #1a2d26; border-radius: 6px; padding: 6px 12px; font-family: 'Space Grotesk', monospace; }
+  .cli-note { margin-top: 1rem; padding: 12px 14px; border-radius: 8px; background: rgba(45,212,191,0.08); border: 0.5px solid #1D9E75; font-size: 12px; color: #6B8A82; line-height: 1.6; }
+  .cli-note code { color: #2DD4BF; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="eyebrow">GeoRisk Engine · Linear Epic Creator</div>
+    <h1 class="title">Commercial Proof of Demand</h1>
+    <p class="subtitle">Creates 1 epic + 10 child issues directly in your Linear workspace</p>
+  </div>
+
+  <div class="config-row">
+    <span class="config-label">Team</span>
+    <span class="config-val">Georiskengine</span>
+    <span class="config-val" style="margin-left:8px">Project: Emission Module MVP</span>
+  </div>
+
+  <div class="meta-strip">
+    <span class="meta-pill">10 issues</span>
+    <span class="meta-pill">3 phases</span>
+    <span class="meta-pill">Goal: first MRR + investor traction</span>
+    <span class="meta-pill">Live: GEO-178 … GEO-187</span>
+  </div>
+
+  <div class="phase-group">
+    <div class="phase-label">Phase 1 — Commercial readiness</div>
+    <div class="issue-row done" id="row-1">
+      <div class="issue-num">#1</div>
+      <div class="issue-body">
+        <div class="issue-title">Prepare pilot package v1</div>
+        <div class="issue-desc">One-pager, slide deck, and demo environment ready for prospect calls. Define scope, deliverables, and success criteria for pilot clients.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-1"></div><span class="issue-id" id="id-1"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-178/prepare-pilot-package-v1" target="_blank">GEO-178</a></span></div>
+    </div>
+    <div class="issue-row done" id="row-2">
+      <div class="issue-num">#2</div>
+      <div class="issue-body">
+        <div class="issue-title">Pilot pricing sheet</div>
+        <div class="issue-desc">Define pilot pricing tiers, value metrics, and conversion path to annual contract. Include risk-free pilot terms to reduce friction.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-2"></div><span class="issue-id" id="id-2"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-179/pilot-pricing-sheet" target="_blank">GEO-179</a></span></div>
+    </div>
+    <div class="issue-row done" id="row-3">
+      <div class="issue-num">#3</div>
+      <div class="issue-body">
+        <div class="issue-title">Pilot agreement template</div>
+        <div class="issue-desc">Legal template for pilot agreements: data usage, IP ownership, confidentiality, conversion clauses. Reviewed by counsel.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-3"></div><span class="issue-id" id="id-3"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-180/pilot-agreement-template" target="_blank">GEO-180</a></span></div>
+    </div>
+  </div>
+
+  <div class="phase-group">
+    <div class="phase-label">Phase 2 — Pipeline build</div>
+    <div class="issue-row done" id="row-4">
+      <div class="issue-num">#4</div>
+      <div class="issue-body">
+        <div class="issue-title">First 50 target accounts</div>
+        <div class="issue-desc">Research and qualify 50 ICP accounts: asset managers, insurance firms, infrastructure funds, ESG teams. Score by urgency, access, and deal size.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-4"></div><span class="issue-id" id="id-4"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-181/first-50-target-accounts" target="_blank">GEO-181</a></span></div>
+    </div>
+    <div class="issue-row done" id="row-5">
+      <div class="issue-num">#5</div>
+      <div class="issue-body">
+        <div class="issue-title">Outreach sequence</div>
+        <div class="issue-desc">Build 5-touch outreach sequence per channel (LinkedIn, email, warm intro). Personalize by segment. Set up tracking in CRM.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-5"></div><span class="issue-id" id="id-5"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-182/outreach-sequence" target="_blank">GEO-182</a></span></div>
+    </div>
+    <div class="issue-row done" id="row-6">
+      <div class="issue-num">#6</div>
+      <div class="issue-body">
+        <div class="issue-title">20 discovery calls</div>
+        <div class="issue-desc">Complete 20 structured discovery calls. Capture pain points, current workflows, budget signals, and decision-maker map. Synthesize findings into ICP refinement.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-6"></div><span class="issue-id" id="id-6"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-183/20-discovery-calls" target="_blank">GEO-183</a></span></div>
+    </div>
+  </div>
+
+  <div class="phase-group">
+    <div class="phase-label">Phase 3 — Revenue validation</div>
+    <div class="issue-row done" id="row-7">
+      <div class="issue-num">#7</div>
+      <div class="issue-body">
+        <div class="issue-title">5 pilot negotiations</div>
+        <div class="issue-desc">Advance 5 qualified accounts into formal pilot negotiation. Align on scope, pricing, integration requirements, and timeline.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-7"></div><span class="issue-id" id="id-7"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-184/5-pilot-negotiations" target="_blank">GEO-184</a></span></div>
+    </div>
+    <div class="issue-row done" id="row-8">
+      <div class="issue-num">#8</div>
+      <div class="issue-body">
+        <div class="issue-title">3 signed pilot agreements</div>
+        <div class="issue-desc">Close and countersign 3 paid pilot agreements. Document use case, asset class, and geography for each. This is the key investor milestone.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-8"></div><span class="issue-id" id="id-8"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-185/3-signed-pilot-agreements" target="_blank">GEO-185</a></span></div>
+    </div>
+    <div class="issue-row done" id="row-9">
+      <div class="issue-num">#9</div>
+      <div class="issue-body">
+        <div class="issue-title">First monthly recurring revenue</div>
+        <div class="issue-desc">Record first payment from a pilot client. Establish MRR baseline. Document ARR run-rate, CAC, and payback assumptions for investor narrative.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-9"></div><span class="issue-id" id="id-9"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-186/first-monthly-recurring-revenue" target="_blank">GEO-186</a></span></div>
+    </div>
+    <div class="issue-row done" id="row-10">
+      <div class="issue-num">#10</div>
+      <div class="issue-body">
+        <div class="issue-title">Investor traction dashboard</div>
+        <div class="issue-desc">Build live dashboard showing pipeline metrics, MRR, pilot status, and discovery call outcomes. Embed in investor update cadence.</div>
+      </div>
+      <div class="issue-status"><div class="status-dot done" id="dot-10"></div><span class="issue-id" id="id-10"><a class="issue-link" href="https://linear.app/georiskengine/issue/GEO-187/investor-traction-dashboard" target="_blank">GEO-187</a></span></div>
+    </div>
+  </div>
+
+  <div class="action-area">
+    <button class="create-btn" id="createBtn" disabled>
+      Created ✓ (GEO-178 … GEO-187)
+    </button>
+  </div>
+
+  <div class="cli-note">
+    <strong>Repo note.</strong> The in-browser button relied on Anthropic API + Linear MCP and does not run from a static file.
+    Issues were provisioned via Linear GraphQL API. Epic:
+    <a class="issue-link" href="https://linear.app/georiskengine/project/commercial-proof-of-demand-3e7e2740604f" target="_blank">Commercial Proof of Demand</a>.
+    To recreate programmatically, use <code>LINEAR_KEY</code> + team id <code>e2b00f7a-e2d4-445c-a172-9bf1a032e35c</code>.
+  </div>
+
+  <div class="footer-note">
+    Issues live under team <strong>Georiskengine</strong>, project
+    <a class="issue-link" href="https://linear.app/georiskengine/project/commercial-proof-of-demand-3e7e2740604f" target="_blank">Commercial Proof of Demand</a>.
+    Related platform project: <strong>GeoRisk Engine — Risk Operations Platform (Emission Module MVP)</strong>.
+  </div>
+</div>
+</body>
+</html>

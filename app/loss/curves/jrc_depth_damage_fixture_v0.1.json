@@ -1,0 +1,58 @@
+{
+  "catalogue_id": "jrc_depth_damage_fixture",
+  "version": "0.1",
+  "source": "SYNTHETIC-FIXTURE — JRC-shaped monotonic curves, NOT JRC values. For offline tests/demos only.",
+  "synthetic": true,
+  "populated": true,
+  "methodology_note": "Labelled synthetic fixture with the STRUCTURE of JRC depth-damage curves (depth_m -> damage_ratio, monotonic, saturating at 1.0), so the depth-damage engine runs offline. Replace with authentic JRC values via scripts/vendor_jrc_depth_damage.py (catalogue_id jrc_global_depth_damage). Never present these numbers as JRC/real.",
+  "curves": [
+    {
+      "curve_id": "fixture_residential_flood",
+      "occupancy": "residential",
+      "continent": "*",
+      "hazard_id": "flood",
+      "points": [
+        {"depth_m": 0.0, "damage_ratio": 0.0},
+        {"depth_m": 0.5, "damage_ratio": 0.25},
+        {"depth_m": 1.0, "damage_ratio": 0.40},
+        {"depth_m": 2.0, "damage_ratio": 0.60},
+        {"depth_m": 3.0, "damage_ratio": 0.75},
+        {"depth_m": 4.0, "damage_ratio": 0.85},
+        {"depth_m": 5.0, "damage_ratio": 0.92},
+        {"depth_m": 6.0, "damage_ratio": 1.0}
+      ]
+    },
+    {
+      "curve_id": "fixture_commercial_flood",
+      "occupancy": "commercial",
+      "continent": "*",
+      "hazard_id": "flood",
+      "points": [
+        {"depth_m": 0.0, "damage_ratio": 0.0},
+        {"depth_m": 0.5, "damage_ratio": 0.15},
+        {"depth_m": 1.0, "damage_ratio": 0.30},
+        {"depth_m": 2.0, "damage_ratio": 0.50},
+        {"depth_m": 3.0, "damage_ratio": 0.65},
+        {"depth_m": 4.0, "damage_ratio": 0.78},
+        {"depth_m": 5.0, "damage_ratio": 0.88},
+        {"depth_m": 6.0, "damage_ratio": 1.0}
+      ]
+    },
+    {
+      "curve_id": "fixture_industrial_flood",
+      "occupancy": "industrial",
+      "continent": "*",
+      "hazard_id": "flood",
+      "points": [
+        {"depth_m": 0.0, "damage_ratio": 0.0},
+        {"depth_m": 0.5, "damage_ratio": 0.12},
+        {"depth_m": 1.0, "damage_ratio": 0.24},
+        {"depth_m": 2.0, "damage_ratio": 0.42},
+        {"depth_m": 3.0, "damage_ratio": 0.58},
+        {"depth_m": 4.0, "damage_ratio": 0.72},
+        {"depth_m": 5.0, "damage_ratio": 0.84},
+        {"depth_m": 6.0, "damage_ratio": 1.0}
+      ]
+    }
+  ]
+}

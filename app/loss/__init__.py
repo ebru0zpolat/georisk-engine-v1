@@ -1,0 +1,53 @@
+"""Financial translation — Expected Annual Loss and versioned damage curves."""
+
+from app.loss.damage_curves import (
+    DAMAGE_CURVES_VERSION,
+    DamageCurve,
+    DamageCurveCatalogue,
+    damage_curves_version,
+    load_catalogue,
+    load_catalogue_by_id_version,
+    load_catalogue_from_path,
+    mean_damage_ratio,
+)
+from app.loss.expected_loss import (
+    EXPECTED_LOSS_METHODOLOGY_VERSION,
+    EXPECTED_LOSS_METHODOLOGY_V0_2,
+    FORMULAS,
+    ExpectedLossAssetInput,
+    ExpectedLossFinancialTranslation,
+    ExpectedLossResult,
+    HazardScenarioIntensities,
+    attribution_shares,
+    combined_mdr,
+    compute_expected_loss,
+    formula_for_version,
+    hazard_weights,
+    intensity_sum,
+    recompute_eal_from_trail_record,
+)
+
+__all__ = [
+    "DAMAGE_CURVES_VERSION",
+    "EXPECTED_LOSS_METHODOLOGY_VERSION",
+    "EXPECTED_LOSS_METHODOLOGY_V0_2",
+    "FORMULAS",
+    "DamageCurve",
+    "DamageCurveCatalogue",
+    "ExpectedLossAssetInput",
+    "ExpectedLossFinancialTranslation",
+    "ExpectedLossResult",
+    "HazardScenarioIntensities",
+    "attribution_shares",
+    "combined_mdr",
+    "compute_expected_loss",
+    "damage_curves_version",
+    "formula_for_version",
+    "hazard_weights",
+    "intensity_sum",
+    "load_catalogue",
+    "load_catalogue_by_id_version",
+    "load_catalogue_from_path",
+    "mean_damage_ratio",
+    "recompute_eal_from_trail_record",
+]

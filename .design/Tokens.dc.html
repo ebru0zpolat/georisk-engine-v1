@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #2ec990; text-decoration: none; }
+    a:hover { color: #5dcaa5; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #22304a; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; white-space: nowrap; }
+    .sw { border-radius: 8px; border: 1px solid #22304a; padding: 10px 11px; display: flex; flex-direction: column; gap: 8px; }
+    .swname { font-size: 12px; color: #e6edf5; }
+    .swhex { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; color: #9aa8ba; }
+  </style>
+</helmet>
+
+<div style="width: 1360px; min-height: 1300px; background: linear-gradient(180deg, #0d1a2e 0%, #0a1628 40%); color: #e6edf5; font-family: Inter, 'Segoe UI', sans-serif; padding: 30px 32px 40px; display: flex; flex-direction: column; gap: 18px;">
+
+  <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; border-bottom: 1px solid #22304a; padding-bottom: 14px;">
+    <div>
+      <span style="font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #2ec990;">P0-5</span>
+      <h1 style="margin: 6px 0 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 28px;">Design tokens</h1>
+    </div>
+    <p style="margin: 0; max-width: 540px; font-size: 13.5px; color: #9aa8ba; line-height: 1.55;">Değerler <span class="mono" style="font-size: 12px;">index.css</span> token ölçeğinden alındı — dördüncü hue açılmadı. Dört ayrı sayfa CSS'i bu tek sete taşınır.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+
+    <!-- surfaces -->
+    <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px;">
+      <h2 style="margin: 0 0 13px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 17px;">Surface &amp; ink</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+        <div class="sw" style="background: #0a1628;"><span style="height: 26px; border-radius: 4px; background: #0a1628; border: 1px solid #22304a;"></span><span class="swname">bg</span><span class="swhex">#0a1628</span></div>
+        <div class="sw" style="background: #131f33;"><span style="height: 26px; border-radius: 4px; background: #131f33; border: 1px solid #22304a;"></span><span class="swname">panel</span><span class="swhex">#131f33</span></div>
+        <div class="sw" style="background: #101a2b;"><span style="height: 26px; border-radius: 4px; background: rgba(0,0,0,0.35); border: 1px solid #22304a;"></span><span class="swname">inset</span><span class="swhex">rgba(0,0,0,.18)</span></div>
+        <div class="sw"><span style="height: 26px; border-radius: 4px; background: #e6edf5;"></span><span class="swname">ink</span><span class="swhex">#e6edf5</span></div>
+        <div class="sw"><span style="height: 26px; border-radius: 4px; background: #9aa8ba;"></span><span class="swname">muted</span><span class="swhex">#9aa8ba</span></div>
+        <div class="sw"><span style="height: 26px; border-radius: 4px; background: #2ec990;"></span><span class="swname">accent</span><span class="swhex">#2ec990</span></div>
+      </div>
+      <p style="margin: 12px 0 0; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Çizgi tek değerdir: <span class="mono" style="font-size: 12px;">#22304a</span>. Panel radius 12px, kontrol radius 8px, chip radius 4px.</p>
+    </section>
+
+    <!-- risk bands -->
+    <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px;">
+      <h2 style="margin: 0 0 4px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 17px;">Risk band scale</h2>
+      <p style="margin: 0 0 13px; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Hue <em style="font-style: normal; color: #e6edf5;">ve</em> açıklık birlikte değişir; band her yerde metin etiketiyle çıkar.</p>
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <div style="display: grid; grid-template-columns: 34px 1fr 118px 78px; align-items: center; gap: 10px;"><span class="mono" style="font-size: 12px; color: #9aa8ba;">1</span><span style="height: 26px; border-radius: 6px; background: #5dcaa5;"></span><span style="font-size: 12.5px;">LOW</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">#5dcaa5</span></div>
+        <div style="display: grid; grid-template-columns: 34px 1fr 118px 78px; align-items: center; gap: 10px;"><span class="mono" style="font-size: 12px; color: #9aa8ba;">2</span><span style="height: 26px; border-radius: 6px; background: #ef9f27;"></span><span style="font-size: 12.5px;">MODERATE</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">#ef9f27</span></div>
+        <div style="display: grid; grid-template-columns: 34px 1fr 118px 78px; align-items: center; gap: 10px;"><span class="mono" style="font-size: 12px; color: #9aa8ba;">3</span><span style="height: 26px; border-radius: 6px; background: #e24b4a;"></span><span style="font-size: 12.5px;">HIGH</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">#e24b4a</span></div>
+        <div style="display: grid; grid-template-columns: 34px 1fr 118px 78px; align-items: center; gap: 10px;"><span class="mono" style="font-size: 12px; color: #9aa8ba;">4</span><span style="height: 26px; border-radius: 6px; background: #b3352f;"></span><span style="font-size: 12.5px;">SEVERE</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">#b3352f</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; margin-top: 12px;">
+        <span style="font-size: 11.5px; color: #9aa8ba;">Gri tonda ayrım:</span>
+        <span style="display: flex; height: 14px; width: 190px; border-radius: 4px; overflow: hidden;"><span style="flex: 1; background: #8e8e8e;"></span><span style="flex: 1; background: #a5a5a5;"></span><span style="flex: 1; background: #8a8a8a;"></span><span style="flex: 1; background: #767676;"></span></span>
+        <span style="font-size: 11.5px; color: #e24b4a;">HIGH ve SEVERE gri tonda yakın &rarr; etiket zorunlu</span>
+      </div>
+    </section>
+
+    <!-- type -->
+    <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px;">
+      <h2 style="margin: 0 0 13px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 17px;">Type ramp</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: grid; grid-template-columns: 1fr 210px; align-items: baseline; gap: 12px; border-bottom: 1px solid #22304a; padding-bottom: 10px;"><span style="font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 26px;">Portfolio upload</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">Inter 800 &middot; 26/1.2 &middot; -0.02em</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 210px; align-items: baseline; gap: 12px; border-bottom: 1px solid #22304a; padding-bottom: 10px;"><span style="font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">Expected loss</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">Inter 800 &middot; 19/1.3 &middot; -0.02em</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 210px; align-items: baseline; gap: 12px; border-bottom: 1px solid #22304a; padding-bottom: 10px;"><span style="font-size: 14px;">Gövde metni — açıklama satırları ve yardım metni.</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">Inter 400 &middot; 14/1.5</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 210px; align-items: baseline; gap: 12px; border-bottom: 1px solid #22304a; padding-bottom: 10px;"><span style="font-size: 12.5px; color: #9aa8ba;">İkincil / tablo metni</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">Inter 400 &middot; 12.5/1.5</span></div>
+        <div style="display: grid; grid-template-columns: 1fr 210px; align-items: baseline; gap: 12px;"><span class="mono" style="font-size: 17px;">₺1,284,400</span><span class="mono" style="font-size: 11.5px; color: #9aa8ba;">mono &middot; tabular-nums</span></div>
+      </div>
+      <p style="margin: 12px 0 0; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Her sayı, kimlik ve hash monospace ve <span class="mono" style="font-size: 12px;">tabular-nums</span>. İstisna yok — tablo hizası buna bağlı.</p>
+    </section>
+
+    <!-- numbers -->
+    <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px;">
+      <h2 style="margin: 0 0 13px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 17px;">Number formats</h2>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12.5px;">
+        <div style="display: grid; grid-template-columns: 176px 1fr; gap: 12px; align-items: baseline;"><span style="color: #9aa8ba;">Para (tam)</span><span class="mono">₺1,284,400</span></div>
+        <div style="display: grid; grid-template-columns: 176px 1fr; gap: 12px; align-items: baseline;"><span style="color: #9aa8ba;">Para (portföy toplamı)</span><span class="mono">₺112.4M</span></div>
+        <div style="display: grid; grid-template-columns: 176px 1fr; gap: 12px; align-items: baseline;"><span style="color: #9aa8ba;">Varlık değerine oran</span><span class="mono">1.52%</span></div>
+        <div style="display: grid; grid-template-columns: 176px 1fr; gap: 12px; align-items: baseline;"><span style="color: #9aa8ba;">Skor / MDR</span><span class="mono">0.148</span></div>
+        <div style="display: grid; grid-template-columns: 176px 1fr; gap: 12px; align-items: baseline;"><span style="color: #9aa8ba;">Horizon deltası</span><span class="mono" style="color: #e24b4a;">+25.6% vs today</span></div>
+        <div style="display: grid; grid-template-columns: 176px 1fr; gap: 12px; align-items: baseline;"><span style="color: #9aa8ba;">Belirsizlik aralığı</span><span class="mono">₺1.28M <span style="color: #9aa8ba;">(0.94 &ndash; 1.71M)</span></span></div>
+        <div style="display: grid; grid-template-columns: 176px 1fr; gap: 12px; align-items: baseline;"><span style="color: #9aa8ba;">Hash (kısaltma)</span><span class="mono">sha256:4b1e9c0a…73a51</span></div>
+        <div style="display: grid; grid-template-columns: 176px 1fr; gap: 12px; align-items: baseline;"><span style="color: #9aa8ba;">Zaman</span><span class="mono">2026-08-30 09:14Z</span></div>
+      </div>
+      <p style="margin: 12px 0 0; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Para birimi simgesi her zaman değere yapışık; görüntü para birimi sayfa başında bir kez ilan edilir.</p>
+    </section>
+
+  </div>
+
+  <!-- states -->
+  <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px;">
+    <h2 style="margin: 0 0 4px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 17px;">State patterns</h2>
+    <p style="margin: 0 0 14px; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Kısmi başarı ve degraded, hata değildir — ayrı görsel dil taşırlar. Bu ayrım MVP'de en çok karıştırılan yer.</p>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px;">
+
+      <div style="border: 1px dashed #3b4d68; border-radius: 8px; background: #101a2b; padding: 14px; display: flex; flex-direction: column; gap: 8px; min-height: 128px;">
+        <span class="chip" style="color: #9aa8ba; align-self: flex-start;">empty</span>
+        <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Kesikli kenarlık, tek eylem çağrısı, açıklama tek cümle.</span>
+      </div>
+
+      <div style="border: 1px solid #22304a; border-radius: 8px; background: #101a2b; padding: 14px; display: flex; flex-direction: column; gap: 8px; min-height: 128px;">
+        <span class="chip" style="color: #9aa8ba; align-self: flex-start;">loading</span>
+        <span style="height: 9px; border-radius: 999px; background: #101a2b;"></span>
+        <span style="height: 9px; width: 72%; border-radius: 999px; background: #101a2b;"></span>
+        <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">İskelet; spinner değil. Yerleşim zıplamaz.</span>
+      </div>
+
+      <div style="border: 1px solid rgba(226,75,74,0.45); border-radius: 8px; background: rgba(226,75,74,0.10); padding: 14px; display: flex; flex-direction: column; gap: 8px; min-height: 128px;">
+        <span class="chip" style="color: #e24b4a; border-color: rgba(226,75,74,0.6); align-self: flex-start;">error</span>
+        <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Sonuç <em style="font-style: normal; color: #e6edf5;">yok</em>. Ne olduğu + tek düzeltme yolu.</span>
+      </div>
+
+      <div style="border: 1px solid rgba(46,201,144,0.55); border-radius: 8px; background: rgba(46,201,144,0.10); padding: 14px; display: flex; flex-direction: column; gap: 8px; min-height: 128px;">
+        <span class="chip" style="color: #ef9f27; border-color: rgba(239,159,39,0.6); align-self: flex-start;">partial-success</span>
+        <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Sonuç <em style="font-style: normal; color: #e6edf5;">var</em>, kapsamı dar. Kapsam rakamı tıklanabilir.</span>
+      </div>
+
+      <div style="border: 1px solid rgba(226,75,74,0.5); border-radius: 8px; background: rgba(226,75,74,0.08); padding: 14px; display: flex; flex-direction: column; gap: 8px; min-height: 128px;">
+        <span class="chip" style="color: #e24b4a; border-color: rgba(226,75,74,0.28); align-self: flex-start;">DEGRADED</span>
+        <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Sonuç tam, kaynağı yedek. Hangi katmanın etkilendiği yazılır.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- a11y -->
+  <section style="background: #131f33; border: 1px solid rgba(93,202,165,0.35); border-radius: 12px; padding: 18px 20px;">
+    <h2 style="margin: 0 0 12px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 17px;">Erişilebilirlik tabanı</h2>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; font-size: 12.5px; line-height: 1.55;">
+      <span><span style="color: #5dcaa5;">&mdash;</span> Gövde metni kontrastı en az 4.5:1; <span class="mono" style="font-size: 11.5px;">#9aa8ba</span> zemin <span class="mono" style="font-size: 11.5px;">#131f33</span> üzerinde 6.4:1.</span>
+      <span><span style="color: #5dcaa5;">&mdash;</span> Odak halkası 2px <span class="mono" style="font-size: 11.5px;">#2ec990</span>, 2px offset — hiçbir yerde kaldırılmaz.</span>
+      <span><span style="color: #5dcaa5;">&mdash;</span> Dokunma hedefi 44px; masaüstü kontrol yüksekliği 36px.</span>
+      <span><span style="color: #5dcaa5;">&mdash;</span> Kapsam bandı ve triyaj tablosu klavye ile ulaşılabilir; sayı bir bağlantıdır.</span>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+</body>
+</html>

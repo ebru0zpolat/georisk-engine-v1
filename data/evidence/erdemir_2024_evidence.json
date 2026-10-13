@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0",
+  "case_id": "erdemir_2024",
+  "subject_tr": "Ereğli Demir ve Çelik Fab. (Erdemir) — TSRS 2025 doğrulama",
+  "georisk_version": "georisk-engine-v0.1",
+  "generated_at": "2025-05-03T00:00:00Z",
+  "records": [
+    {
+      "validation_id": "ERD-2024-PROD-001",
+      "reported_metric": {
+        "field": "crude_steel_production_ton",
+        "value": 8089587.0,
+        "unit": "ton",
+        "source": "Erdemir TSRS 2025, Üretim Tablosu",
+        "assurance": "limited"
+      },
+      "georisk_signal": {
+        "type": "satellite_thermal_production_proxy",
+        "value": 8350000.0,
+        "unit": "ton",
+        "source": "Sentinel-5P / VIIRS thermal index (Ereğli + İskenderun)",
+        "source_version": "S5P-OFFL-L3 / VNP46A2 2024",
+        "confidence": 0.58
+      },
+      "methodology": {
+        "method": "Thermal activity → sectoral production estimate",
+        "formula": "thermal_index → BOF production estimate",
+        "threshold": "±15% green; 15–40% amber; >40% red",
+        "notes_tr": "İki tesisin termal aktivite indeksinden üretim tahmini; proxy doğası gereği orta güven."
+      },
+      "divergence_pct": -3.12,
+      "flag": "green",
+      "explanation": "Üretim proxy'si raporlanan tonajın ±15% bandında; yönsel tutarlı.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-INT-001",
+      "reported_metric": {
+        "field": "scope_1_2_emission_intensity_2025",
+        "value": 2.198,
+        "unit": "tCO2e/ton",
+        "source": "Erdemir TSRS 2025, İklim Bölümü",
+        "assurance": "limited"
+      },
+      "georisk_signal": {
+        "type": "sectoral_emission_intensity_proxy",
+        "value": 2.1,
+        "unit": "tCO2e/ton",
+        "source": "World Steel 2024 BOF intensity benchmark",
+        "source_version": "World Steel 2024",
+        "confidence": 0.72
+      },
+      "methodology": {
+        "method": "Emission intensity divergence",
+        "formula": "(reported - benchmark) / benchmark",
+        "threshold": "±15% green; 2024→2025 ölçüm esası değiştiği için yıl trendi okunamaz → karşılaştırılabilirlik boşluğu, amber",
+        "notes_tr": "2025 yoğunluğu benchmark'a göre tek yıl olarak değerlendirilir. 2024 ve 2025 rakamları farklı ölçüm esasıyla raporlandığı için 2024→2025 değişimi 'kötüleşme' veya 'iyileşme' olarak yorumlanamaz; trend ancak şirket yeniden ifade edilmiş (restated) 2024 rakamı açıklarsa kurulabilir."
+      },
+      "divergence_pct": 4.67,
+      "flag": "amber",
+      "explanation": "Yoğunluk benchmark'ın +4.7% üzerinde; ±15% bandında ama 2024→2025 ölçüm esası değiştiği için yıl trendi doğrulanamıyor, karşılaştırılabilirlik boşluğu nedeniyle amber.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-INT-002",
+      "reported_metric": {
+        "field": "scope_1_2_emission_intensity_2024",
+        "value": 2.131,
+        "unit": "tCO2e/ton",
+        "source": "Erdemir TSRS 2025, İklim Bölümü (2024 karşılaştırma)",
+        "assurance": "limited"
+      },
+      "georisk_signal": {
+        "type": "sectoral_emission_intensity_proxy",
+        "value": 2.1,
+        "unit": "tCO2e/ton",
+        "source": "World Steel 2024 BOF intensity benchmark",
+        "source_version": "World Steel 2024",
+        "confidence": 0.72
+      },
+      "methodology": {
+        "method": "Emission intensity divergence (prior-year figure, different measurement basis)",
+        "formula": "(reported - benchmark) / benchmark",
+        "threshold": "±15% green; 2025 ile aynı esasta olmadığı için trend tabanı olarak kullanılamaz → karşılaştırılabilirlik boşluğu, amber",
+        "notes_tr": "2024 yoğunluğu benchmark'a yakın (+1.5%). Bu rakam 2025 raporundaki karşılaştırma sütunundan alınmıştır ve 2025 ile aynı ölçüm esasında değildir; 2025 için trend tabanı olarak kullanılmaz."
+      },
+      "divergence_pct": 1.48,
+      "flag": "amber",
+      "explanation": "2024 yoğunluğu benchmark'ın +1.5% üzerinde; 2025 ile ölçüm esası farklı olduğundan trend tabanı olarak kullanılamaz, karşılaştırılabilirlik boşluğu nedeniyle amber.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-SCOPE2-001",
+      "reported_metric": {
+        "field": "scope_2_implied_grid_emission_factor",
+        "value": 0.42,
+        "unit": "tCO2e/MWh",
+        "source": "Erdemir TSRS 2025, Kapsam 2 dipnotundan türetildi",
+        "assurance": "limited"
+      },
+      "georisk_signal": {
+        "type": "grid_emission_factor_crosscheck",
+        "value": 0.44,
+        "unit": "tCO2e/MWh",
+        "source": "TEİAŞ / IEA Turkey grid emission factor",
+        "source_version": "IEA Turkey 2024",
+        "confidence": 0.65
+      },
+      "methodology": {
+        "method": "Grid factor × tüketilen elektrik çapraz kontrol",
+        "formula": "grid_factor × consumed_electricity",
+        "threshold": "±15% green; 15–40% amber; >40% red",
+        "notes_tr": "Raporlanan örtük şebeke faktörü ulusal IEA/TEİAŞ faktörüyle tutarlı."
+      },
+      "divergence_pct": -4.55,
+      "flag": "green",
+      "explanation": "Örtük şebeke faktörü ulusal faktörün -4.5% altında; ±15% bandında, green.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-WATER-001",
+      "reported_metric": {
+        "field": "water_stress_exposure_consolidated_pct",
+        "value": 56.0,
+        "unit": "%",
+        "source": "Erdemir TSRS 2025, Su Stresi (WRI Aqueduct'a geçiş)",
+        "assurance": "limited"
+      },
+      "georisk_signal": {
+        "type": "wri_aqueduct_water_stress_consolidated",
+        "value": 58.5,
+        "unit": "%",
+        "source": "WRI Aqueduct su stresi katmanı (Ereğli + İskenderun, ağırlıklı)",
+        "source_version": "WRI Aqueduct 4.0",
+        "confidence": 0.8
+      },
+      "methodology": {
+        "method": "Lokasyon bazlı su stresi (WRI Aqueduct — şirketle aynı metodoloji)",
+        "formula": "weighted(Ereğli, İskenderun) Aqueduct stress",
+        "threshold": "±15% green; metodoloji uyumu güveni artırır",
+        "notes_tr": "Erdemir 2025'te WRI Aqueduct metodolojisine geçti; doğrudan karşılaştırma yapılabilir. 2024 verisi eski Türkiye yönetmeliğiyle ölçülmüş olabilir → yıl karşılaştırmasında metodoloji notu."
+      },
+      "divergence_pct": -4.27,
+      "flag": "green",
+      "explanation": "Konsolide su stresi Aqueduct sinyaliyle ±15% içinde; aynı metodoloji, yüksek güven, green.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-WATER-002",
+      "reported_metric": {
+        "field": "water_stress_eregli_pct",
+        "value": null,
+        "unit": "%",
+        "source": "Erdemir TSRS 2025 — yalnızca konsolide oran açıklanmış",
+        "assurance": "none"
+      },
+      "georisk_signal": {
+        "type": "wri_aqueduct_water_stress_eregli",
+        "value": 30.0,
+        "unit": "%",
+        "source": "WRI Aqueduct (Ereğli / Karadeniz)",
+        "source_version": "WRI Aqueduct 4.0",
+        "confidence": 0.78
+      },
+      "methodology": {
+        "method": "Lokasyon bazlı ayrıştırma (Ereğli)",
+        "formula": "Aqueduct stress @ Ereğli",
+        "threshold": "veri kaynağı boşluğu → amber",
+        "notes_tr": "Ereğli düşük-orta su stresi bölgesi; şirket konsolide oran arkasındaki driver'ı açıklamıyor."
+      },
+      "divergence_pct": null,
+      "flag": "amber",
+      "explanation": "GeoRisk Ereğli için düşük-orta stres üretiyor; şirket lokasyon ayrıştırması açıklamadığı için karşılaştırılabilir raporlanan değer yok (veri boşluğu), amber.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-WATER-003",
+      "reported_metric": {
+        "field": "water_stress_iskenderun_pct",
+        "value": null,
+        "unit": "%",
+        "source": "Erdemir TSRS 2025 — yalnızca konsolide oran açıklanmış",
+        "assurance": "none"
+      },
+      "georisk_signal": {
+        "type": "wri_aqueduct_water_stress_iskenderun",
+        "value": 82.0,
+        "unit": "%",
+        "source": "WRI Aqueduct (İskenderun / Doğu Akdeniz, Hatay)",
+        "source_version": "WRI Aqueduct 4.0",
+        "confidence": 0.78
+      },
+      "methodology": {
+        "method": "Lokasyon bazlı ayrıştırma (İskenderun)",
+        "formula": "Aqueduct stress @ İskenderun",
+        "threshold": "veri kaynağı boşluğu → amber",
+        "notes_tr": "İskenderun yüksek su stresi bölgesi; konsolide %56'nın driver'ı İskenderun ağırlığıdır."
+      },
+      "divergence_pct": null,
+      "flag": "amber",
+      "explanation": "İskenderun yüksek stres bölgesi ve konsolide oranın asıl sürücüsü; şirket ayrıştırma açıklamadığı için karşılaştırılabilir değer yok, amber (validation value: driver şeffaflığı).",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-CBAM-001",
+      "reported_metric": {
+        "field": "cbam_ebitda_impact_mid_pct",
+        "value": 2.0,
+        "unit": "%",
+        "source": "Erdemir TSRS 2025, Bölüm 4.1.1 (SKDM Etki Modeli, orta vade)",
+        "assurance": "none"
+      },
+      "georisk_signal": {
+        "type": "cbam_proxy_ebitda_ratio",
+        "value": 2.15,
+        "unit": "%",
+        "source": "GeoRisk CBAM proxy / EBITDA (ETS €65/ton orta senaryo)",
+        "source_version": "EU CBAM Phase 1 + EU ETS 2025-Q1",
+        "confidence": 0.6
+      },
+      "methodology": {
+        "method": "CBAM proxy FAVÖK etkisi divergence",
+        "formula": "CBAM_proxy_exposure / EBITDA",
+        "threshold": "bant içinde tutarlı → green; >20% sapma → amber; yönsel tutarsızlık → red",
+        "notes_tr": "GeoRisk proxy oranı Erdemir'in %1,6–2,4 bandının içinde (orta vade %2,0'a yakın)."
+      },
+      "divergence_pct": -6.98,
+      "flag": "green",
+      "explanation": "GeoRisk FAVÖK etki oranı (%2,15) Erdemir'in raporlanan bandının içinde; +7.5% sapma, green.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-CBAM-002",
+      "reported_metric": {
+        "field": "cbam_absolute_exposure_eur",
+        "value": null,
+        "unit": "EUR",
+        "source": "Erdemir TSRS 2025 — mutlak SKDM maruziyeti açıklanmadı (yalnızca FAVÖK %)",
+        "assurance": "none"
+      },
+      "georisk_signal": {
+        "type": "cbam_proxy_exposure_eur",
+        "value": 393315720.0,
+        "unit": "EUR",
+        "source": "GeoRisk CBAM proxy (8.089.587 × (2.198−1.45) × ETS), orta senaryo €65/ton",
+        "source_version": "EU CBAM Phase 1 + EU ETS 2025-Q1",
+        "confidence": 0.6
+      },
+      "methodology": {
+        "method": "CBAM proxy mutlak maruziyet",
+        "formula": "tonnage × (intensity − free_allocation) × ETS_price",
+        "threshold": "karşılaştırılabilir raporlanan değer yok → amber",
+        "notes_tr": "Senaryo bandı €303M (€50) – €394M (€65) – €485M (€80). Şirket mutlak maruziyeti açıklamadığı için doğrudan kıyas yapılamaz."
+      },
+      "divergence_pct": null,
+      "flag": "amber",
+      "explanation": "GeoRisk ~€394M mutlak maruziyet üretiyor; şirket yalnızca FAVÖK % açıkladığı için mutlak değerde karşılaştırma boşluğu, amber.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    },
+    {
+      "validation_id": "ERD-2024-FUEL-001",
+      "reported_metric": {
+        "field": "fuel_mix_coal_share_pct",
+        "value": 88.0,
+        "unit": "%",
+        "source": "Erdemir TSRS 2025, Enerji Karması (kömür %88 / gaz %12)",
+        "assurance": "limited"
+      },
+      "georisk_signal": {
+        "type": "geospatial_fuel_infrastructure_plausibility",
+        "value": 86.0,
+        "unit": "%",
+        "source": "Geospatial yakıt altyapısı varlığı (kömür terminali + tesis topolojisi)",
+        "source_version": "GeoRisk fuel infra layer 2024",
+        "confidence": 0.5
+      },
+      "methodology": {
+        "method": "Yakıt mix plausibility",
+        "formula": "infra-derived coal share vs reported",
+        "threshold": "±15% green; 15–40% amber; >40% red",
+        "notes_tr": "BOF ağırlıklı tesiste yüksek kömür payı altyapı varlığıyla makul; düşük güvenli proxy."
+      },
+      "divergence_pct": 2.33,
+      "flag": "green",
+      "explanation": "Altyapı bazlı kömür payı (%86) raporlanan %88 ile ±15% içinde; makul, green.",
+      "georisk_version": "georisk-engine-v0.1",
+      "generated_at": "2025-05-03T00:00:00Z"
+    }
+  ]
+}

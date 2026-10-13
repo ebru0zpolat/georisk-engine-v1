@@ -1,0 +1,5 @@
+# Dev / ops only — NOT installed in production API or CI
+-r requirements.txt
+
+# Web crawl ops (scripts/crawl_loi_targets.py) — run crawl4ai-setup after install
+crawl4ai>=0.9.0

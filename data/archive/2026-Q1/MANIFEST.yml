@@ -1,0 +1,42 @@
+# GeoRisk Engine — quarterly archive manifest (reference-only; no large binaries by default)
+archive_id: "2026-Q1"
+schema_version: 1
+status: frozen_reference
+description_tr: >
+  2026 ilk çeyrek için metodoloji ve standart metinlerinin repo içi referansları.
+  Ham uydu kübü veya büyük raster arşivleri bu manifest ile sözleşmeli nesne deposuna
+  bağlanır; isteğe bağlı sha256 satırları eklenebilir.
+frozen_policy_tr: "data/archive/2026-Q1 altındaki dosyalar yeniden yazılmaz; düzeltme yeni commit + politikaya tabidir."
+
+methodology_refs:
+  - path: docs/turkiye/cco-audit-methodology.md
+  - path: docs/turkiye/whitepaper-operational-verification-public.md
+  - path: docs/turkiye/georisk-sealed-index-closed-loop-publishing.md
+  - path: docs/turkiye/sectors-skdm-primary-priorities.md
+  - path: docs/turkiye/golden-standard-subscription-and-analytics.md
+
+standards_refs:
+  - path: docs/standards/README.md
+  - path: docs/standards/cement-data-acceptance-and-processing.md
+  - path: docs/standards/transformer-data-acceptance-and-processing.md
+
+product_hubs:
+  - id: cement_operational_audit
+    scripts:
+      - scripts/run_integrated_audit.py
+      - scripts/audit_dashboard.py
+    docs:
+      - docs/turkiye/templates/cimsa_afyon_operational_verification_report.md
+  - id: transformer_primary_audit
+    scripts:
+      - scripts/transformer_audit.py
+    docs:
+      - docs/turkiye/transformers/transformer-audit-methodology.md
+      - docs/turkiye/transformers/primary_audit_facilities.geojson
+
+optional_sealed_mirror:
+  description_tr: >
+    Mühürlü Markdown/PDF çıktıları varsayılan olarak docs/turkiye/transformers/sealed_reports/
+    ve reports/output/ altında üretilir. QOR kapanışında arşive kopyalanması kurumsal karardır.
+  suggested_paths:
+    - docs/turkiye/transformers/sealed_reports/

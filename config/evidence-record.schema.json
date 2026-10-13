@@ -1,0 +1,336 @@
+{
+  "$defs": {
+    "ActionClass": {
+      "enum": [
+        "AUTO-PASS",
+        "AUTO-BLOCK",
+        "FOUNDER-DECISION"
+      ],
+      "title": "ActionClass",
+      "type": "string"
+    },
+    "Blocker": {
+      "additionalProperties": false,
+      "properties": {
+        "blocker_id": {
+          "pattern": "^blk_[0-9a-f]{16}$",
+          "title": "Blocker Id",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "evidence_version": {
+          "title": "Evidence Version",
+          "type": "string"
+        },
+        "first_seen": {
+          "format": "date-time",
+          "title": "First Seen",
+          "type": "string"
+        },
+        "history": {
+          "items": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "title": "History",
+          "type": "array"
+        },
+        "last_seen": {
+          "format": "date-time",
+          "title": "Last Seen",
+          "type": "string"
+        },
+        "material": {
+          "default": true,
+          "title": "Material",
+          "type": "boolean"
+        },
+        "occurrences": {
+          "minimum": 1,
+          "title": "Occurrences",
+          "type": "integer"
+        },
+        "resource": {
+          "title": "Resource",
+          "type": "string"
+        },
+        "status": {
+          "default": "open",
+          "enum": [
+            "open",
+            "resolved"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        },
+        "workflow_id": {
+          "title": "Workflow Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "blocker_id",
+        "workflow_id",
+        "category",
+        "resource",
+        "evidence_version",
+        "summary",
+        "first_seen",
+        "last_seen",
+        "occurrences",
+        "history"
+      ],
+      "title": "Blocker",
+      "type": "object"
+    },
+    "CheckResult": {
+      "additionalProperties": false,
+      "properties": {
+        "commit_sha": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Commit Sha",
+          "type": "string"
+        },
+        "evidence_kind": {
+          "enum": [
+            "local",
+            "ci",
+            "deployment",
+            "external"
+          ],
+          "title": "Evidence Kind",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "pass",
+            "fail",
+            "skip",
+            "unavailable"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "state",
+        "source",
+        "evidence_kind",
+        "commit_sha"
+      ],
+      "title": "CheckResult",
+      "type": "object"
+    },
+    "Classification": {
+      "additionalProperties": false,
+      "properties": {
+        "action_class": {
+          "$ref": "#/$defs/ActionClass"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "action_class",
+        "reasons"
+      ],
+      "title": "Classification",
+      "type": "object"
+    },
+    "DiffStatistics": {
+      "additionalProperties": false,
+      "properties": {
+        "additions": {
+          "minimum": 0,
+          "title": "Additions",
+          "type": "integer"
+        },
+        "deletions": {
+          "minimum": 0,
+          "title": "Deletions",
+          "type": "integer"
+        },
+        "files": {
+          "minimum": 0,
+          "title": "Files",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "files",
+        "additions",
+        "deletions"
+      ],
+      "title": "DiffStatistics",
+      "type": "object"
+    },
+    "ReadinessSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "commercially_validated": {
+          "default": false,
+          "title": "Commercially Validated",
+          "type": "boolean"
+        },
+        "controlled_pilot_eligible": {
+          "default": false,
+          "title": "Controlled Pilot Eligible",
+          "type": "boolean"
+        },
+        "data_source_operational": {
+          "default": false,
+          "title": "Data Source Operational",
+          "type": "boolean"
+        },
+        "licence_verification_status": {
+          "default": "unchanged",
+          "title": "Licence Verification Status",
+          "type": "string"
+        },
+        "model_validated_for_use_case": {
+          "default": false,
+          "title": "Model Validated For Use Case",
+          "type": "boolean"
+        },
+        "platform_operational": {
+          "default": false,
+          "title": "Platform Operational",
+          "type": "boolean"
+        },
+        "production_eligible": {
+          "default": false,
+          "title": "Production Eligible",
+          "type": "boolean"
+        },
+        "runtime_live_verified": {
+          "default": false,
+          "title": "Runtime Live Verified",
+          "type": "boolean"
+        },
+        "scientific_validation_status": {
+          "default": "unchanged",
+          "title": "Scientific Validation Status",
+          "type": "string"
+        }
+      },
+      "title": "ReadinessSnapshot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blockers": {
+      "items": {
+        "$ref": "#/$defs/Blocker"
+      },
+      "title": "Blockers",
+      "type": "array"
+    },
+    "branch": {
+      "title": "Branch",
+      "type": "string"
+    },
+    "changed_paths": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Changed Paths",
+      "type": "array"
+    },
+    "checks_observed": {
+      "items": {
+        "$ref": "#/$defs/CheckResult"
+      },
+      "title": "Checks Observed",
+      "type": "array"
+    },
+    "checks_required": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Checks Required",
+      "type": "array"
+    },
+    "classification": {
+      "$ref": "#/$defs/Classification"
+    },
+    "commit_sha": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Commit Sha",
+      "type": "string"
+    },
+    "diff": {
+      "$ref": "#/$defs/DiffStatistics"
+    },
+    "evidence_kind": {
+      "enum": [
+        "local",
+        "ci",
+        "deployment",
+        "external"
+      ],
+      "title": "Evidence Kind",
+      "type": "string"
+    },
+    "evidence_timestamp": {
+      "format": "date-time",
+      "title": "Evidence Timestamp",
+      "type": "string"
+    },
+    "readiness": {
+      "$ref": "#/$defs/ReadinessSnapshot"
+    },
+    "repository": {
+      "title": "Repository",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "repository",
+    "branch",
+    "commit_sha",
+    "changed_paths",
+    "diff",
+    "classification",
+    "checks_required",
+    "checks_observed",
+    "evidence_timestamp",
+    "evidence_kind",
+    "blockers",
+    "readiness"
+  ],
+  "title": "EvidenceRecord",
+  "type": "object"
+}

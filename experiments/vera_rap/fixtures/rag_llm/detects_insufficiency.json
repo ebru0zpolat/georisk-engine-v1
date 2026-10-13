@@ -1,0 +1,240 @@
+{
+  "default": null,
+  "generator_id": "rag-insufficiency-aware",
+  "generator_version": "1",
+  "responses": {
+    "A-valid-evidence-complete": {
+      "abstain": false,
+      "blockers": [],
+      "cited_evidence_ids": [
+        "E1"
+      ],
+      "conclusion": "CONCLUDE",
+      "confidence": 0.9,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "material_claims": [
+        "C2"
+      ],
+      "missing_evidence": [],
+      "next_action": null
+    },
+    "B-missing-evidence": {
+      "abstain": false,
+      "blockers": [
+        "MISSING_EVIDENCE"
+      ],
+      "cited_evidence_ids": [
+        "E1"
+      ],
+      "conclusion": "REPLAN",
+      "confidence": null,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "material_claims": [],
+      "missing_evidence": [
+        "E2"
+      ],
+      "next_action": "RETRIEVE_EVIDENCE"
+    },
+    "C-stale-evidence": {
+      "abstain": false,
+      "blockers": [
+        "STALE_EVIDENCE"
+      ],
+      "cited_evidence_ids": [
+        "E1"
+      ],
+      "conclusion": "BLOCK",
+      "confidence": null,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "material_claims": [],
+      "missing_evidence": [
+        "E1 (refreshed)"
+      ],
+      "next_action": "REFRESH_STALE_EVIDENCE"
+    },
+    "D-explicit-contradiction": {
+      "abstain": false,
+      "blockers": [
+        "UNRESOLVED_CONTRADICTION"
+      ],
+      "branches_preserved": true,
+      "cited_evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "conclusion": "CONTRADICTION_PENDING",
+      "confidence": null,
+      "constraints_violated": [],
+      "contradiction_detected": true,
+      "contradiction_ids": [
+        "X-water-level"
+      ],
+      "marked_resolved": [],
+      "material_claims": [],
+      "missing_evidence": [],
+      "next_action": "REQUEST_INDEPENDENT_EVIDENCE",
+      "resolution_basis": null
+    },
+    "E-excessive-uncertainty": {
+      "abstain": false,
+      "blockers": [
+        "EXCESSIVE_UNCERTAINTY"
+      ],
+      "cited_evidence_ids": [
+        "E1"
+      ],
+      "conclusion": "BLOCK",
+      "confidence": 0.5,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "gate_results": {
+        "confidence-90": false
+      },
+      "material_claims": [],
+      "missing_evidence": [],
+      "next_action": "REQUEST_INDEPENDENT_EVIDENCE"
+    },
+    "F-invalid-transformation": {
+      "abstain": false,
+      "blockers": [
+        "MISSING_TRANSFORMATION"
+      ],
+      "cited_evidence_ids": [
+        "E1"
+      ],
+      "conclusion": "BLOCK",
+      "confidence": null,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "material_claims": [],
+      "missing_evidence": [],
+      "next_action": "VERIFY_TRANSFORMATION"
+    },
+    "G-corrupted-fingerprint": {
+      "abstain": false,
+      "blockers": [
+        "REJECTED_EVIDENCE"
+      ],
+      "cited_evidence_ids": [],
+      "conclusion": "BLOCK",
+      "confidence": null,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "material_claims": [],
+      "missing_evidence": [
+        "E1 (verified copy)"
+      ],
+      "next_action": "REQUEST_INDEPENDENT_EVIDENCE"
+    },
+    "H-unsupported-inference": {
+      "abstain": false,
+      "blockers": [
+        "INVALID_CLAIM_STATE"
+      ],
+      "cited_evidence_ids": [
+        "E1"
+      ],
+      "conclusion": "BLOCK",
+      "confidence": null,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "material_claims": [],
+      "missing_evidence": [],
+      "next_action": "RECOMPUTE_SUPPORT"
+    },
+    "I-constraint-violation": {
+      "abstain": false,
+      "blockers": [
+        "CONSTRAINT_VIOLATED"
+      ],
+      "cited_evidence_ids": [
+        "E1"
+      ],
+      "conclusion": "BLOCK",
+      "confidence": null,
+      "constraints_violated": [
+        "K-REG"
+      ],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "material_claims": [],
+      "missing_evidence": [],
+      "next_action": "REEVALUATE_CONSTRAINT"
+    },
+    "J-replanning-required": {
+      "abstain": false,
+      "blockers": [
+        "MISSING_EVIDENCE"
+      ],
+      "cited_evidence_ids": [
+        "E1",
+        "E2"
+      ],
+      "conclusion": "CONCLUDE",
+      "confidence": 0.9,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "initial_conclusion": "REPLAN",
+      "material_claims": [
+        "C2"
+      ],
+      "missing_evidence": [],
+      "next_action": "RETRIEVE_EVIDENCE"
+    },
+    "K-no-admissible-path": {
+      "abstain": true,
+      "blockers": [
+        "NO_ADMISSIBLE_RESOLUTION_PATH"
+      ],
+      "branches_preserved": true,
+      "cited_evidence_ids": [
+        "E1",
+        "E4"
+      ],
+      "conclusion": "ABSTAIN",
+      "confidence": null,
+      "constraints_violated": [],
+      "contradiction_detected": true,
+      "contradiction_ids": [
+        "X-irresolvable"
+      ],
+      "material_claims": [],
+      "missing_evidence": [],
+      "next_action": null
+    },
+    "L-duplicate-sources": {
+      "abstain": false,
+      "blockers": [
+        "EXCESSIVE_UNCERTAINTY"
+      ],
+      "cited_evidence_ids": [
+        "E1",
+        "E2"
+      ],
+      "conclusion": "BLOCK",
+      "confidence": 0.6,
+      "constraints_violated": [],
+      "contradiction_detected": false,
+      "contradiction_ids": [],
+      "gate_results": {
+        "confidence-90": false
+      },
+      "material_claims": [],
+      "missing_evidence": [],
+      "next_action": "REQUEST_INDEPENDENT_EVIDENCE"
+    }
+  }
+}

@@ -1,0 +1,474 @@
+{
+  "version": 1,
+  "status": "documented_not_operational",
+  "canonical_roadmap": "docs/00-master/FOUNDER_AUTOMATION_OPERATING_ROADMAP.md",
+  "execution_classes": [
+    "AUTO-PASS",
+    "AUTO-BLOCK",
+    "FOUNDER-DECISION"
+  ],
+  "defaults": {
+    "unknown_action": "AUTO-BLOCK",
+    "max_retries": 2,
+    "timeout_minutes": 30,
+    "notification": "weekly_digest_only",
+    "blocker_deduplication": "workflow_id:resource:failure_class",
+    "no_founder_response": "defer_without_gate_change",
+    "action_class": "AUTO-BLOCK"
+  },
+  "founder_budget": {
+    "digest_day": "Friday",
+    "max_decisions": 3,
+    "max_material_blockers": 3,
+    "max_repository_minutes": 60
+  },
+  "urgent_notifications": [
+    "credible_security_compromise",
+    "unintended_public_disclosure",
+    "customer_impacting_production_failure",
+    "cost_anomaly_above_configured_threshold",
+    "external_deadline_within_48_hours"
+  ],
+  "auto_merge": {
+    "max_files": 10,
+    "max_diff_lines": 400,
+    "allowed_resources": [
+      "docs/**/*.md",
+      "tests/**",
+      "frontend/src/**/*.test.*",
+      "fixtures/**",
+      "generated/**"
+    ],
+    "required_checks": [
+      "exact_head_ci",
+      "changed_behaviour_tests",
+      "dependency_security_policy"
+    ],
+    "prohibited_resources": [
+      "**/*auth*",
+      "**/*credential*",
+      "**/*lock*",
+      "**/*readiness*",
+      "**/*secret*",
+      "**/*security-exception*",
+      ".github/workflows/**",
+      "Procfile",
+      "alembic/**",
+      "app/automation/**",
+      "app/hazards/**",
+      "app/loss/**",
+      "app/schemas/release_manifest.py",
+      "app/scoring/**",
+      "app/services/release_manifest.py",
+      "config/*.schema.json",
+      "config/automation-policy.schema.json",
+      "config/automation-policy.yml",
+      "docs/04-investor/**",
+      "docs/compliance/**",
+      "docs/legal/**",
+      "docs/methodology/**",
+      "frontend/package-lock.json",
+      "frontend/package.json",
+      "frontend/vercel.json",
+      "migrations/**",
+      "pyproject.toml",
+      "requirements-dev.txt",
+      "requirements.txt",
+      "scripts/founder_ops.py",
+      "tests/automation/**"
+    ],
+    "prohibited_boundaries": [
+      "branch_or_repository_policy",
+      "approving_gate",
+      "security_gate_or_exception",
+      "release_or_readiness_manifest",
+      "authentication_or_authorization",
+      "secret_or_deployment_credential",
+      "database_migration",
+      "customer_data_handling",
+      "scientific_formula_or_hazard_methodology",
+      "pricing_contract_legal_or_regulatory_claim",
+      "controlled_pilot_or_production_eligibility"
+    ]
+  },
+  "workflows": [
+    {
+      "id": "repository_reconciliation",
+      "action_class": "AUTO-PASS",
+      "trigger": "schedule: Friday 15:00 UTC; event: default-branch merge; command: local dry-run",
+      "allowed_resources": [
+        "github_issues",
+        "linear_projection",
+        "roadmap_status",
+        "evidence_ledger"
+      ],
+      "required_checks": [
+        "exact_head_identity",
+        "evidence_links",
+        "protected_issue_guard",
+        "deduplication"
+      ],
+      "maximum_retries": 2,
+      "timeout_minutes": 20,
+      "concurrency_rule": "cancel older run; one repository reconciliation",
+      "rollback_or_safe_stop": "write no status when validation fails; retain dry-run diff",
+      "evidence_artifact": "reconciliation/<commit_sha>/manifest.json",
+      "notification_policy": "weekly_digest_only",
+      "prohibited_actions": [
+        "close_protected_issue",
+        "rewrite_scientific_evidence",
+        "claim_readiness"
+      ],
+      "circuit_breaker_condition": "three consecutive ledger or API consistency failures",
+      "depends_on": []
+    },
+    {
+      "id": "founder_digest",
+      "action_class": "AUTO-PASS",
+      "trigger": "schedule: Friday after reconciliation; command: local dry-run",
+      "allowed_resources": [
+        "evidence_ledger",
+        "deduplicated_blockers",
+        "decision_queue",
+        "deadlines",
+        "exception_register"
+      ],
+      "required_checks": [
+        "three_decision_cap",
+        "three_blocker_cap",
+        "decision_field_completeness",
+        "no_duplicate_notice"
+      ],
+      "maximum_retries": 1,
+      "timeout_minutes": 10,
+      "concurrency_rule": "one digest per ISO week",
+      "rollback_or_safe_stop": "retain draft artifact; do not send malformed digest",
+      "evidence_artifact": "digests/<iso_week>/<commit_sha>.md",
+      "notification_policy": "weekly_digest_only",
+      "prohibited_actions": [
+        "infer_consent",
+        "send_external_draft",
+        "change_gate"
+      ],
+      "circuit_breaker_condition": "two consecutive malformed or duplicate digests",
+      "depends_on": [
+        "repository_reconciliation"
+      ]
+    },
+    {
+      "id": "low_risk_auto_merge",
+      "action_class": "AUTO-PASS",
+      "trigger": "event: bot pull request labeled auto-pass-candidate",
+      "allowed_resources": [
+        "auto_merge_allowlist"
+      ],
+      "required_checks": [
+        "exact_head_ci",
+        "changed_behaviour_tests",
+        "dependency_security_policy",
+        "protected_path_check",
+        "diff_limit",
+        "gate_self_change_check"
+      ],
+      "maximum_retries": 1,
+      "timeout_minutes": 30,
+      "concurrency_rule": "one merge per target branch; rebase invalidates approval evidence",
+      "rollback_or_safe_stop": "do not merge; revert automatically only under pre-approved reversible policy",
+      "evidence_artifact": "auto-merge/<commit_sha>/decision.json",
+      "notification_policy": "weekly_digest_only",
+      "prohibited_actions": [
+        "protected_resource_change",
+        "gate_self_modification",
+        "readiness_promotion"
+      ],
+      "circuit_breaker_condition": "one unintended merge or three consecutive post-merge failures",
+      "depends_on": []
+    },
+    {
+      "id": "content_publication",
+      "action_class": "AUTO-PASS",
+      "trigger": "schedule: weekly approved-evidence harvest",
+      "allowed_resources": [
+        "allowlisted_public_content",
+        "claims_ledger",
+        "sitemap",
+        "rss",
+        "llms_txt",
+        "structured_metadata"
+      ],
+      "required_checks": [
+        "B1_provenance",
+        "B2_claim_policy",
+        "B3_licence_privacy",
+        "B4_schema_links",
+        "B5_build_accessibility",
+        "B6_exact_head_security",
+        "B7_deployment_smoke"
+      ],
+      "maximum_retries": 2,
+      "timeout_minutes": 30,
+      "concurrency_rule": "one run per locale; production deploy serialized",
+      "rollback_or_safe_stop": "skip prohibited topic; rollback failed deploy to last verified artifact",
+      "evidence_artifact": "content/<commit_sha>/publication-manifest.json",
+      "notification_policy": "weekly_digest_only",
+      "prohibited_actions": [
+        "unsupported_legal_conclusion",
+        "confidential_data",
+        "endorsement_claim",
+        "readiness_claim",
+        "unverifiable_figure"
+      ],
+      "circuit_breaker_condition": "three consecutive failures for lane or topic family",
+      "depends_on": []
+    },
+    {
+      "id": "source_provenance_monitor",
+      "action_class": "AUTO-PASS",
+      "trigger": "schedule: weekly; event: approved-source manifest change",
+      "allowed_resources": [
+        "approved_source_endpoints",
+        "provenance_manifests",
+        "licence_metadata",
+        "connector_contracts"
+      ],
+      "required_checks": [
+        "source_identity",
+        "freshness",
+        "licence_state",
+        "contract_test",
+        "synthetic_live_distinction"
+      ],
+      "maximum_retries": 2,
+      "timeout_minutes": 20,
+      "concurrency_rule": "one run per source; sources independent",
+      "rollback_or_safe_stop": "mark affected evidence unavailable; never fall back silently",
+      "evidence_artifact": "sources/<source_id>/<timestamp>/manifest.json",
+      "notification_policy": "weekly_digest_only",
+      "prohibited_actions": [
+        "mark_verified_from_transport_only",
+        "change_licence_status_without_evidence",
+        "promote_synthetic_output"
+      ],
+      "circuit_breaker_condition": "source change or three consecutive source failures",
+      "depends_on": []
+    },
+    {
+      "id": "pilot_evidence_pack",
+      "action_class": "AUTO-PASS",
+      "trigger": "schedule: weekly; event: named release candidate",
+      "allowed_resources": [
+        "read_only_readiness_manifest",
+        "evidence_ledger",
+        "pilot_evidence_pack"
+      ],
+      "required_checks": [
+        "acceptance_reconciliation",
+        "formula_version",
+        "provenance",
+        "reproducibility",
+        "exact_release_smoke"
+      ],
+      "maximum_retries": 1,
+      "timeout_minutes": 30,
+      "concurrency_rule": "one run per release SHA",
+      "rollback_or_safe_stop": "emit incomplete pack and AUTO-BLOCK; leave eligibility unchanged",
+      "evidence_artifact": "pilot/<release_sha>/evidence-pack.json",
+      "notification_policy": "weekly_digest_only",
+      "prohibited_actions": [
+        "change_eligibility",
+        "infer_scientific_validation",
+        "infer_regulatory_compliance"
+      ],
+      "circuit_breaker_condition": "manifest contradiction or evidence integrity failure",
+      "depends_on": [
+        "source_provenance_monitor"
+      ]
+    },
+    {
+      "id": "turkiye_research",
+      "action_class": "AUTO-PASS",
+      "trigger": "schedule: weekly; event: demonstrator commit",
+      "allowed_resources": [
+        "public_primary_sources",
+        "source_archive",
+        "internal_research",
+        "draft_outreach",
+        "turkiye_demonstrator"
+      ],
+      "required_checks": [
+        "source_archive_integrity",
+        "claim_validation",
+        "build_checks",
+        "no_nl_dependency_change"
+      ],
+      "maximum_retries": 2,
+      "timeout_minutes": 20,
+      "concurrency_rule": "isolated queue and quota; never blocks Netherlands lane",
+      "rollback_or_safe_stop": "retain internal draft; stop external/action claim",
+      "evidence_artifact": "turkiye/<commit_sha>/monitor-manifest.json",
+      "notification_policy": "weekly_digest_only",
+      "prohibited_actions": [
+        "contact_institution",
+        "submit_application",
+        "commit_demonstrator",
+        "name_partner",
+        "accept_funding",
+        "alignment_claim",
+        "alter_nl_priority_or_readiness"
+      ],
+      "circuit_breaker_condition": "source integrity failure or attempted Netherlands override",
+      "depends_on": []
+    },
+    {
+      "id": "application_draft_batch",
+      "action_class": "AUTO-PASS",
+      "trigger": "schedule: weekly opportunity reconciliation",
+      "allowed_resources": [
+        "interview_briefs",
+        "agendas",
+        "followup_drafts",
+        "evidence_tables",
+        "application_drafts",
+        "proposal_drafts",
+        "loi_drafts",
+        "discovery_summaries"
+      ],
+      "required_checks": [
+        "evidence_links",
+        "representation_placeholders",
+        "confidential_boundary",
+        "external_send_disabled"
+      ],
+      "maximum_retries": 1,
+      "timeout_minutes": 15,
+      "concurrency_rule": "one batch per ISO week",
+      "rollback_or_safe_stop": "retain internal draft; do not send",
+      "evidence_artifact": "applications/<iso_week>/<commit_sha>/batch-manifest.json",
+      "notification_policy": "weekly_digest_only",
+      "prohibited_actions": [
+        "impersonate_founder",
+        "send",
+        "sign",
+        "choose_terms",
+        "use_unapproved_customer_data"
+      ],
+      "circuit_breaker_condition": "any attempted external send or confidential-boundary failure",
+      "depends_on": []
+    },
+    {
+      "id": "automation_health",
+      "action_class": "AUTO-PASS",
+      "trigger": "schedule: after scheduled workflows and before Friday digest",
+      "allowed_resources": [
+        "workflow_evidence",
+        "cost_metrics",
+        "security_findings",
+        "exception_expiry"
+      ],
+      "required_checks": [
+        "artifact_integrity",
+        "stale_run_detection",
+        "retry_budget",
+        "circuit_state"
+      ],
+      "maximum_retries": 1,
+      "timeout_minutes": 10,
+      "concurrency_rule": "one aggregate run per ISO week",
+      "rollback_or_safe_stop": "report unknown as blocked; never synthesize health",
+      "evidence_artifact": "health/<iso_week>/<commit_sha>.json",
+      "notification_policy": "weekly digest; urgent router only for enumerated conditions",
+      "prohibited_actions": [
+        "suppress_urgent_event",
+        "claim_operational_without_run_evidence"
+      ],
+      "circuit_breaker_condition": "missing evidence from two consecutive expected schedules",
+      "depends_on": [
+        "repository_reconciliation"
+      ]
+    }
+  ],
+  "schema_version": "1.0",
+  "policy_id": "georisk-founder-automation",
+  "valid_trigger_prefixes": [
+    "schedule:",
+    "event:",
+    "command:"
+  ],
+  "limits": {
+    "timeout_minutes": {
+      "minimum": 1,
+      "maximum": 60
+    },
+    "maximum_retries": {
+      "minimum": 0,
+      "maximum": 3
+    }
+  },
+  "protected_resources": [
+    "**/*credential*",
+    "**/*lock*",
+    "**/*readiness*",
+    "**/*secret*",
+    "**/*security-exception*",
+    ".github/workflows/**",
+    "Procfile",
+    "alembic/**",
+    "app/automation/**",
+    "app/hazards/**",
+    "app/loss/**",
+    "app/schemas/release_manifest.py",
+    "app/scoring/**",
+    "app/services/release_manifest.py",
+    "config/*.schema.json",
+    "config/automation-policy.yml",
+    "docs/04-investor/**",
+    "docs/compliance/**",
+    "docs/legal/**",
+    "docs/methodology/**",
+    "frontend/package-lock.json",
+    "frontend/package.json",
+    "frontend/vercel.json",
+    "migrations/**",
+    "pyproject.toml",
+    "requirements-dev.txt",
+    "requirements.txt",
+    "scripts/founder_ops.py",
+    "tests/automation/**"
+  ],
+  "digest_horizons": {
+    "external_deadline_days": 14,
+    "exception_expiry_days": 30
+  },
+  "artifact_retention_days": 30,
+  "phase2": {
+    "bootstrap_required": true,
+    "trusted_automation_actors": [
+      "georisk-automation[bot]"
+    ],
+    "required_pr_checks": [
+      "pytest",
+      "frontend",
+      "verify-eal",
+      "founder-operations-phase-1",
+      "dependency-security"
+    ],
+    "circuit_breaker_marker": "<!-- georisk-automation:circuit-breaker:global -->",
+    "digest_issue_marker": "<!-- georisk-automation:founder-digest:canonical -->",
+    "istanbul_digest_cron": "0 6 * * 5",
+    "dependency_policy": {
+      "maximum_high": 0,
+      "maximum_critical": 0,
+      "audit_evidence_required": true,
+      "exceptions_must_be_independently_approved_scoped_and_expiring": true
+    },
+    "trusted_issue_creators": [
+      "github-actions[bot]"
+    ],
+    "trusted_issue_label": "georisk-automation-state",
+    "github_pagination": {
+      "maximum_pages": 10,
+      "maximum_items": 1000,
+      "page_size": 100
+    }
+  }
+}

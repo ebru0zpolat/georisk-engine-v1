@@ -1,0 +1,18 @@
+{
+  "endpoint": "https://www.fema.gov/api/open/v3/NfipClaims",
+  "data_version": "v3",
+  "schema_sha256": null,
+  "query_parameters": {},
+  "retrieval_timestamp": null,
+  "raw_response_sha256": [],
+  "terms_archive_sha256": null,
+  "commercial_use_assessment": null,
+  "assessed_by": null,
+  "licence_status": "pending",
+  "retention_policy": null,
+  "access_restrictions": null,
+  "field_mapping": {
+    "amountPaidOnBuildingClaim": "buildingClaimPaymentAmount",
+    "totalBuildingInsuranceCoverage": "totalBuildingInsuranceCoverage"
+  }
+}

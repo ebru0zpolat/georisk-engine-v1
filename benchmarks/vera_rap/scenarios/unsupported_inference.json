@@ -1,0 +1,181 @@
+[
+  {
+    "case": {
+      "case_id": "H-unsupported-inference",
+      "description": "A plausible loss conclusion is requested as SUPPORTED but nothing in the evidence establishes it.",
+      "expected_abstention": false,
+      "expected_blockers": [
+        "INVALID_CLAIM_STATE"
+      ],
+      "expected_permissions": [
+        "EXPECTED_BLOCK"
+      ],
+      "expected_trace_properties": {
+        "required_events": [
+          "TRANSITION_EVALUATED"
+        ]
+      },
+      "initial_artifacts": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "constraint_ids": [],
+            "contradicting_evidence_ids": [],
+            "epistemic_state": "OBSERVED",
+            "parent_claim_ids": [],
+            "predicate": "observes",
+            "subject": "site-1",
+            "supporting_evidence_ids": [
+              "E1"
+            ],
+            "value": "water_level=1.8"
+          },
+          {
+            "claim_id": "C2",
+            "constraint_ids": [
+              "K1"
+            ],
+            "contradicting_evidence_ids": [],
+            "epistemic_state": "INFERRED",
+            "parent_claim_ids": [
+              "C1"
+            ],
+            "predicate": "infers",
+            "subject": "site-1",
+            "supporting_evidence_ids": [],
+            "value": "expected_loss=2.5M"
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_id": "K1",
+            "constraint_type": "data_integrity",
+            "description": "integrity check",
+            "required": true,
+            "status": "SATISFIED"
+          }
+        ],
+        "contradictions": [],
+        "evaluation_time": "2026-03-01T00:00:00Z",
+        "evidence": [
+          {
+            "content": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "content_hash": "14cf7a0863ac5b78726515e67c2f355def0d1786506db67fe90e4d316717305b",
+            "evidence_id": "E1",
+            "measurement": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "retrieval_mechanism": "benchmark-fixture",
+            "retrieved_at": "2026-01-01T00:00:00Z",
+            "source_id": "gauge-network",
+            "transformation_ids": [],
+            "upstream_evidence_ids": [],
+            "verification_status": "VERIFIED"
+          }
+        ],
+        "transformations": [],
+        "transitions": [
+          {
+            "requirements": [
+              {
+                "mandatory": true,
+                "parameters": {},
+                "requirement_id": "R-support",
+                "requirement_type": "SUPPORT_COMPLETE",
+                "subject_id": "C2"
+              },
+              {
+                "mandatory": true,
+                "parameters": {
+                  "allowed_states": [
+                    "SUPPORTED"
+                  ]
+                },
+                "requirement_id": "R-state",
+                "requirement_type": "CLAIM_STATE",
+                "subject_id": "C2"
+              }
+            ],
+            "source_state": {
+              "claim_ids": [
+                "C1"
+              ],
+              "evidence_ids": [
+                "E1"
+              ],
+              "level": 0,
+              "state_id": "T1-source",
+              "state_type": "OBSERVATION"
+            },
+            "target_state": {
+              "claim_ids": [
+                "C2"
+              ],
+              "evidence_ids": [],
+              "level": 1,
+              "state_id": "T1-target",
+              "state_type": "CONDITION"
+            },
+            "transition_id": "T1",
+            "transition_type": "benchmark_abstraction"
+          }
+        ],
+        "uncertainty": {
+          "rules": [],
+          "thresholds": []
+        }
+      },
+      "metadata": {
+        "plausible_conclusion": "expected_loss=2.5M"
+      },
+      "scenario_type": "UNSUPPORTED_INFERENCE",
+      "target": {
+        "material_claim_id": "C2",
+        "target_type": "TRANSITION_PERMISSION",
+        "transition_id": "T1"
+      }
+    },
+    "reference": {
+      "admissible_evidence_ids": [
+        "E1"
+      ],
+      "allowed_claim_ids": [],
+      "case_id": "H-unsupported-inference",
+      "expected_contradiction_ids": [],
+      "expected_permission": "EXPECTED_BLOCK",
+      "forbidden_claim_ids": [
+        "C2"
+      ],
+      "max_plans_before_progress": 1,
+      "progress_expected_after_execution": false,
+      "required_abstention": false,
+      "required_blocker_types": [
+        "INVALID_CLAIM_STATE"
+      ],
+      "required_constraint_behavior": "NONE",
+      "required_evidence_ids": [
+        "E1"
+      ],
+      "required_provenance_refs": [
+        "E1"
+      ],
+      "required_replanning": true,
+      "required_trace_events": [
+        "EVIDENCE_REGISTERED",
+        "CLAIM_DECLARED",
+        "SUPPORT_EVALUATED",
+        "TRANSITION_EVALUATED",
+        "PLAN_CREATED"
+      ],
+      "uncertainty_expectation": null
+    }
+  }
+]

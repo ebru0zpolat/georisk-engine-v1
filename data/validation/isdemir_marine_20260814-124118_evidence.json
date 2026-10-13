@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "validation_id": "ISD-MARINE-20260814-124118",
+  "case_id": "isdemir_marine_context",
+  "subject": "İsdemir (Payas / İskenderun Bay) marine context — ORAS5",
+  "mode": "live",
+  "georisk_version": "georisk-engine-v0.1",
+  "generated_at": "2026-08-14T12:41:18.402984+00:00",
+  "request": {
+    "latitude": 36.7333,
+    "longitude": 36.2,
+    "start_date": "1991-01-01",
+    "end_date": "2020-12-31",
+    "data_access": "cds-arco-zarr",
+    "auth": "bearer-header",
+    "store_urls": [
+      "https://arco.datastores.ecmwf.int/cadl-arco-geo-001/arco/reanalysis_oras5/consolidated/geoChunked.zarr",
+      "https://arco.datastores.ecmwf.int/cadl-arco-geo-001/arco/reanalysis_oras5/operational/geoChunked.zarr"
+    ],
+    "variables": [
+      "sosstsst",
+      "sossheig"
+    ],
+    "product_types": [
+      "consolidated",
+      "operational"
+    ]
+  },
+  "expected_grid_selection": {
+    "selected_latitude_index": 507,
+    "selected_longitude_index": 865,
+    "selected_cell": {
+      "latitude": 36.75,
+      "longitude": 36.25
+    },
+    "snap_distance_km": 4.8268
+  },
+  "grid_selection": {
+    "https://arco.datastores.ecmwf.int/cadl-arco-geo-001/arco/reanalysis_oras5/consolidated/geoChunked.zarr": {
+      "selected_latitude_index": 507,
+      "selected_longitude_index": 865,
+      "selected_cell": {
+        "latitude": 36.75,
+        "longitude": 36.25
+      },
+      "snap_distance_km": 4.8268
+    },
+    "https://arco.datastores.ecmwf.int/cadl-arco-geo-001/arco/reanalysis_oras5/operational/geoChunked.zarr": {
+      "selected_latitude_index": 507,
+      "selected_longitude_index": 865,
+      "selected_cell": {
+        "latitude": 36.75,
+        "longitude": 36.25
+      },
+      "snap_distance_km": 4.8268
+    }
+  },
+  "series": {
+    "sst": {
+      "count": 0,
+      "first": null,
+      "last": null,
+      "min": null,
+      "max": null,
+      "quality": {
+        "expected_months": 360,
+        "available": 0,
+        "retention": 0.0,
+        "loss_pathway": "missing_months_dropped; empty series yields zero features",
+        "homogeneity": {
+          "max_jump": 0.0,
+          "jump_count_gt_3sigma": 0
+        },
+        "scaling": {
+          "unit_range_sane": null
+        }
+      },
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "sea_surface_height": {
+      "count": 0,
+      "first": null,
+      "last": null,
+      "min": null,
+      "max": null,
+      "quality": {
+        "expected_months": 360,
+        "available": 0,
+        "retention": 0.0,
+        "loss_pathway": "missing_months_dropped; empty series yields zero features",
+        "homogeneity": {
+          "max_jump": 0.0,
+          "jump_count_gt_3sigma": 0
+        },
+        "scaling": {
+          "unit_range_sane": null
+        }
+      },
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "rounding_note": "series values rounded to 6 decimal places for stable checksums"
+  },
+  "features": {
+    "sst_trend_c_per_decade": 0.0,
+    "sst_anomaly_zscore": 0.0,
+    "sea_level_trend_mm_per_year": 0.0,
+    "ocean_variability_index": 0.0
+  },
+  "ocean_risk_score": 30,
+  "checksums": {
+    "series_sha256": "34fcd7314ac32b1479aabee8c895515793150bca8b60d9f21826ffc823c2f1d6",
+    "features_sha256": "8a47c99e6f2d376cd5b3fad435165294831d348ad701932f2c0c24d0f83b0890",
+    "record_sha256": "8eac6bb18a749ea28468bb0d78cfb5af3f9c0a8ce6af1cb24b7c5967da7139ad"
+  }
+}

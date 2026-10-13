@@ -1,0 +1,288 @@
+.snapshot-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: inherit;
+  color: #0f172a;
+}
+
+.snapshot-state {
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.snapshot-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 16px;
+}
+
+.snapshot-header-main h1 {
+  margin: 0 0 4px;
+  font-size: 1.75rem;
+}
+
+.snapshot-header-meta {
+  display: flex;
+  gap: 8px;
+  color: #475569;
+  margin: 0 0 4px;
+}
+
+.snapshot-header-sector {
+  text-transform: capitalize;
+}
+
+.snapshot-header-generated {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.snapshot-badge {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.snapshot-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.snapshot-metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.snapshot-metric-label {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.snapshot-metric-value {
+  font-size: 1.8rem;
+}
+
+.snapshot-metric-note {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.snapshot-dimensions h2,
+.snapshot-signals h2,
+.snapshot-timeline h2,
+.snapshot-verdict h2 {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+}
+
+.snapshot-dimension-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.snapshot-dimension-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 80px;
+  align-items: center;
+  gap: 12px;
+}
+
+.snapshot-dimension-label {
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.snapshot-dimension-track {
+  height: 10px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.snapshot-dimension-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.snapshot-dimension-value {
+  font-size: 0.85rem;
+  text-align: right;
+  color: #475569;
+}
+
+.snapshot-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.snapshot-signals ul {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.snapshot-timeline ol {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.snapshot-timeline-date {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: block;
+}
+
+.snapshot-timeline-status {
+  font-weight: 600;
+  text-transform: capitalize;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.snapshot-timeline-trigger {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.snapshot-timeline p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.snapshot-timeline-empty {
+  color: #94a3b8;
+}
+
+.snapshot-verdict {
+  border-left: 6px solid;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-radius: 0 12px 12px 0;
+}
+
+.snapshot-verdict p {
+  margin: 0;
+}
+
+.snapshot-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 16px;
+}
+
+.snapshot-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.snapshot-footer-brand .brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.snapshot-footer .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.snapshot-footer .button.primary {
+  background: #0f172a;
+  color: #fff;
+}
+
+.snapshot-footer .button.ghost {
+  background: transparent;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.snapshot-footer-actions {
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .snapshot-metric-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .snapshot-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .snapshot-dimension-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .snapshot-dimension-value {
+    text-align: left;
+  }
+}
+
+@media print {
+  .snapshot-page {
+    max-width: none;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .snapshot-footer-actions {
+    display: none;
+  }
+
+  .snapshot-page {
+    page-break-inside: avoid;
+  }
+}

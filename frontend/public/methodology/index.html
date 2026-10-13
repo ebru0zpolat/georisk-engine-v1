@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology v0.4.0 | GeoRisk Engine</title>
+  <meta name="description" content="GeoRisk Engine Preliminary Methodology and Validation Plan — Synthetic Calibration v0.4.0, Phase A scenario-loss proxy for flood, extreme heat, wildfire and earthquake. Public summary aligned to georisk-methodology-v0.4.0.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://georiskengine.com/methodology">
+  <link rel="alternate" hreflang="en" href="https://georiskengine.com/methodology#en">
+  <link rel="alternate" hreflang="tr" href="https://georiskengine.com/methodology#tr">
+  <meta property="og:title" content="Methodology v0.4.0 | GeoRisk Engine">
+  <meta property="og:description" content="Preliminary methodology and validation plan: Phase A scenario-loss proxy, synthetic calibration, flood, extreme heat, wildfire and earthquake.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://georiskengine.com/methodology">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050608;
+      --surface: #090c10;
+      --line: #1e2a35;
+      --text: #c8d8e8;
+      --muted: #8295a3;
+      --soft: #9aabb7;
+      --accent: #00e5b4;
+      --warn: #ff9a71;
+      --warn-border: rgba(255,107,53,.35);
+      --warn-bg: rgba(255,107,53,.06);
+      --display: "Syne", sans-serif;
+      --body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      --mono: "DM Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    html {
+      scroll-padding-top: 80px;
+      overflow-x: clip;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      line-height: 1.7;
+      overflow-x: clip;
+    }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    a:hover { color: #6ff0d0; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 64px;
+      padding: 0 40px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,6,8,.92);
+      backdrop-filter: blur(16px);
+    }
+    .brand {
+      color: #fff;
+      font: 800 16px var(--display);
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 22px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #6d8190;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] { color: var(--accent); }
+    .lang-switch {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .lang-switch a {
+      padding: 6px 12px;
+      color: #6d8190;
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .lang-switch a:hover,
+    .lang-switch a.is-active {
+      background: rgba(0,229,180,.08);
+      color: var(--accent);
+    }
+    .wrap { width: min(920px, calc(100% - 64px)); margin: 0 auto; }
+    .hero { padding: 88px 0 48px; }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 18px;
+      max-width: min(18ch, 100%);
+      color: #fff;
+      font: 800 clamp(36px, 6vw, 64px)/1.05 var(--display);
+      letter-spacing: -.04em;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .lead {
+      max-width: 68ch;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+    .status {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+    .status span {
+      padding: 18px 16px;
+      border-right: 1px solid var(--line);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+    .status span:last-child { border-right: 0; }
+    .status strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #fff;
+      font-family: var(--body);
+      font-size: 13px;
+    }
+    .approval {
+      padding: 20px 22px;
+      border: 1px solid rgba(0,229,180,.28);
+      background: rgba(0,229,180,.05);
+      color: var(--soft);
+      font-size: 15px;
+    }
+    .approval strong { color: #fff; }
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      padding: 18px 0 8px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 36px 0 0;
+    }
+    .toc a {
+      color: #6d8190;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .toc a:hover { color: var(--accent); }
+    section { padding: 56px 0; border-top: 1px solid var(--line); }
+    section:first-of-type { border-top: 0; }
+    h2 {
+      margin: 0 0 18px;
+      color: #fff;
+      font: 700 clamp(26px, 3.5vw, 34px)/1.15 var(--display);
+      letter-spacing: -.03em;
+    }
+    h3 {
+      margin: 28px 0 10px;
+      color: #fff;
+      font: 700 20px/1.25 var(--display);
+      letter-spacing: -.02em;
+    }
+    p, li { color: var(--soft); font-size: 15px; }
+    p { margin: 0 0 14px; }
+    ol.chain, ul.limits {
+      margin: 0 0 18px;
+      padding-left: 1.25rem;
+    }
+    ol.chain li, ul.limits li { margin-bottom: 10px; }
+    .formula {
+      margin: 20px 0;
+      padding: 18px 20px;
+      overflow-x: auto;
+      border: 1px solid #2d3f50;
+      background: #0e1318;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .callout {
+      margin: 22px 0;
+      padding: 4px 0 4px 18px;
+      border-left: 2px solid var(--accent);
+      color: var(--soft);
+    }
+    .callout strong { color: #fff; }
+    .warning {
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      border: 1px solid var(--warn-border);
+      background: var(--warn-bg);
+      color: var(--warn);
+      font-size: 14px;
+    }
+    .checklist {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border: 1px solid var(--line);
+    }
+    .checklist li {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      padding: 14px 16px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:first-child { border-top: 0; }
+    .checklist span {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+    .refs { margin: 0; padding-left: 1.25rem; }
+    .refs li { margin-bottom: 12px; font-size: 14px; }
+    .refs a { word-break: break-word; }
+    .roadmap-wrap {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .roadmap {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      table-layout: fixed;
+    }
+    .roadmap th, .roadmap td {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      color: var(--soft);
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .roadmap th {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: var(--surface);
+    }
+    .roadmap td:first-child {
+      color: #fff;
+      font-family: var(--mono);
+      white-space: nowrap;
+    }
+    footer {
+      padding: 48px 0 72px;
+      border-top: 1px solid var(--line);
+      color: #6d8190;
+      font-size: 13px;
+    }
+    footer strong { color: #fff; }
+    footer p { color: #6d8190; font-size: 13px; }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .lang-block[hidden] { display: none !important; }
+    /* Sticky nav offset for in-page anchors */
+    #status,
+    #approval,
+    #en,
+    #tr,
+    #checklist,
+    #roadmap,
+    #notes,
+    #sources,
+    #note-1,
+    #note-2,
+    #note-3,
+    #note-4,
+    #note-5,
+    .lang-block,
+    section[id],
+    [id^="note-"] {
+      scroll-margin-top: 80px;
+    }
+    .en-only-badge {
+      display: none;
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    html[lang="tr"] .en-only-badge { display: block; }
+    html[lang="tr"] .i18n-en { display: none !important; }
+    html[lang="en"] .i18n-tr { display: none !important; }
+    @media (max-width: 820px) {
+      html { scroll-padding-top: 68px; }
+      nav {
+        padding: 0 12px;
+        gap: 8px;
+        min-height: 52px;
+      }
+      .nav-links {
+        gap: 8px;
+        flex-wrap: nowrap;
+        flex-shrink: 0;
+      }
+      .nav-links a:not(.keep-mobile) { display: none; }
+      .lang-switch a { padding: 6px 8px; }
+      .brand {
+        font-size: 13px;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .wrap { width: min(100% - 32px, 920px); }
+      .status { grid-template-columns: 1fr 1fr; }
+      .status span:nth-child(2) { border-right: 0; }
+      .status span:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .hero { padding-top: 56px; }
+      section { padding: 40px 0; }
+      .footer-row { flex-direction: column; }
+      .roadmap td:first-child { white-space: normal; }
+      #status,
+      #approval,
+      #en,
+      #tr,
+      #checklist,
+      #roadmap,
+      #notes,
+      #sources,
+      #note-1,
+      #note-2,
+      #note-3,
+      #note-4,
+      #note-5,
+      .lang-block,
+      section[id],
+      [id^="note-"] {
+        scroll-margin-top: 68px;
+      }
+    }
+    @media (max-width: 390px) {
+      nav { padding: 0 10px; gap: 6px; }
+      .nav-links { gap: 6px; }
+      .nav-links a.keep-mobile { font-size: 10px; letter-spacing: .06em; }
+      .lang-switch a { padding: 5px 7px; font-size: 10px; }
+      .brand { font-size: 12px; max-width: 38vw; }
+      h1 { font-size: clamp(30px, 8vw, 36px); }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "GeoRisk Engine Preliminary Methodology and Validation Plan v0.4.0",
+    "datePublished": "2026-08-01",
+    "dateModified": "2026-08-06",
+    "version": "georisk-methodology-v0.4.0",
+    "inLanguage": ["en", "tr"],
+    "author": { "@type": "Organization", "name": "GeoRisk Engine" },
+    "publisher": { "@type": "Organization", "name": "GeoRisk Engine", "url": "https://georiskengine.com" },
+    "description": "Public preliminary methodology summary for Phase A scenario-loss proxy under synthetic calibration. Active modules: flood, extreme heat, wildfire and earthquake (all on synthetic calibration; earthquake is a geophysical, non-climate peril).",
+    "url": "https://georiskengine.com/methodology",
+    "isBasedOn": "https://github.com/ebru0zpolat/georisk-engine/blob/main/docs/methodology/GEORISK_ENGINE_METHODOLOGY.md"
+  }
+  </script>
+</head>
+<body>
+  <nav aria-label="Methodology navigation">
+    <a class="brand" href="/">GeoRisk Engine</a>
+    <div class="nav-links">
+      <a href="#status" class="keep-mobile">Status</a>
+      <a href="#en">English</a>
+      <a href="#tr">Türkçe</a>
+      <a href="#checklist">Checklist</a>
+      <a href="#notes">Notes</a>
+      <a href="/demo" class="keep-mobile">Demo</a>
+      <div class="lang-switch" role="group" aria-label="Language" id="lang-switch">
+        <a href="#en" id="btn-en" class="is-active keep-mobile">EN</a>
+        <a href="#tr" id="btn-tr" class="keep-mobile">TR</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="hero" id="status">
+      <p class="eyebrow">georisk-methodology-v0.4.0 · September 2026</p>
+      <h1>Preliminary methodology and validation plan.</h1>
+      <p class="lead">
+        Canonical public summary for GeoRisk Engine Phase A. The technical Markdown specification remains normative.
+        Formula <code>expected-loss-v0.3</code> is unchanged in v0.4.0, which brings wildfire and earthquake modules into scope together with labelled synthetic curves; meaning, assumptions and limitations are made explicit here.
+      </p>
+      <div class="status" aria-label="Methodology status">
+        <span><strong>Version</strong> georisk-methodology-v0.4.0</span>
+        <span><strong>Published</strong> August 2026</span>
+        <span><strong>Active modules</strong> Flood · extreme heat</span>
+        <span><strong>Output</strong> Phase A scenario-loss proxy</span>
+      </div>
+      <div class="approval" id="approval">
+        <strong>External positioning (v0.4.0).</strong>
+        GeoRisk Engine v0.4.0 is a synthetically calibrated physical-risk methodology prototype designed for pilot testing, covering flood, extreme heat and wildfire as climate perils and earthquake as a geophysical peril. Its current Phase A output is a scenario-loss proxy rather than fully probability-weighted EAL. It produces decision-support indicators and reproducible calculation records; its loss estimates have not yet been validated against sufficient real-world loss data.
+      </div>
+      <nav class="toc" aria-label="On this page">
+        <a href="#en">English</a>
+        <a href="#tr">Türkçe</a>
+        <a class="i18n-en" href="#checklist">Evidence checklist</a>
+        <a class="i18n-tr" href="#checklist">Kanıt kontrol listesi</a>
+        <a class="i18n-en" href="#roadmap">Roadmap</a>
+        <a class="i18n-tr" href="#roadmap">Yol haritası</a>
+        <a class="i18n-en" href="#notes">Regulatory notes</a>
+        <a class="i18n-tr" href="#notes">Düzenleyici notlar</a>
+        <a class="i18n-en" href="#sources">Technical source</a>
+        <a class="i18n-tr" href="#sources">Teknik kaynak</a>
+      </nav>
+    </header>
+
+    <!-- ===================== ENGLISH ===================== -->
+    <div id="en" class="lang-block" lang="en">
+      <section>
+        <h2>Preliminary Methodology and Validation Plan — Asset-Level Physical Climate Risk and Financial Impact Assessment</h2>
+        <p><strong>Synthetic Calibration v0.4.0 — Phase A Scenario-Loss Proxy</strong></p>
+
+        <h3>What GeoRisk Engine is intended to support</h3>
+        <p>GeoRisk Engine is a decision-support engine intended to translate physical climate hazards into financial risk metrics that can inform lending, collateral, investment and adaptation-planning processes. It goes beyond hazard mapping by combining asset-level hazard, exposure and vulnerability data.</p>
+        <p>The current v0.4.0 release is a synthetically calibrated methodology prototype for flood, extreme-heat, wildfire and earthquake modules; the earthquake module is a geophysical, non-climate peril held stationary across climate horizons. The Phase A output is a scenario-loss proxy, not a fully probability-weighted Expected Annual Loss (EAL). Its outputs are not validated loss estimates and must not be used as the sole basis for automated lending or investment decisions.</p>
+
+        <h3>Five-layer analysis chain</h3>
+        <ol class="chain">
+          <li><strong>Hazard:</strong> Hazard type, intensity, annual occurrence or exceedance probability, climate scenario and time horizon.</li>
+          <li><strong>Exposure:</strong> Geolocation, asset value, construction/use class and the applicable valuation date.</li>
+          <li><strong>Vulnerability:</strong> Hazard- and asset-class-specific damage or financial-impact functions.</li>
+          <li><strong>Financial translation:</strong> In Phase A, application of a scenario damage ratio to a defined value base, with direct physical damage and operational effects tracked through separate loss channels. Probability-weighted annualisation is not implemented in the current release.</li>
+          <li><strong>Adaptation assessment:</strong> Baseline risk, post-measure residual risk, avoided expected loss, adaptation cost and prioritisation indicators.</li>
+        </ol>
+        <div class="callout">
+          Hazard × Exposure × Vulnerability → Phase A Scenario-Loss Proxy → Adaptation Scenario → Residual Risk and Avoided Loss
+        </div>
+
+        <h3>Phase A loss proxy and target EAL approach</h3>
+        <p>In v0.4.0, the Phase A output displayed under the “EAL” label is a <strong>scenario-loss proxy</strong> produced by applying the combined damage ratio to a defined value base for the selected scenario. The current calculation does not include an exceedance-probability curve, return-period conversion or <code>∫ loss dF</code> integration. It must therefore not be treated as equivalent to fully probability-weighted EAL used in actuarial or catastrophe-risk modelling.</p>
+        <p>In the target methodology, genuine EAL will be defined as <code>EAL = Σ pᵢ Lᵢ</code>, or an equivalent loss-distribution integral, where sufficient event-probability data exist. That transition will not be represented as complete until hazard-specific return periods, scenario weights, direct-damage/business-interruption treatment, value caps and calibration evidence are documented and validated.</p>
+
+        <h3>Multi-hazard treatment</h3>
+        <div class="formula" aria-label="Multi-hazard combination rule">combined MDR = 1 − Π(1 − MDR<sub>h</sub>)</div>
+        <p>The v0.4.0 expression <code>1 − Π(1 − MDR)</code> is a <strong>provisional combination rule</strong> applicable only to compatible, explicitly defined damage ratios measured against the same financial value base. It does not establish hazard independence and is not a general solution for correlation, concurrent or cascading events, or different loss channels.</p>
+        <p>Flood-related physical damage will not be mechanically combined on the same MDR basis with extreme-heat effects such as energy cost, productivity, downtime or reduced equipment life. Those effects will be calculated separately and aggregated only after dependency and double-counting controls.</p>
+        <p>The extreme-heat financial channel currently uses the same <code>MDR × value</code> placeholder path as flood. Calibrated business-interruption or productivity modelling is not implemented.</p>
+
+        <h3>Reproducibility and calculation checking</h3>
+        <p>Each calculation record is intended to retain methodology, data and damage/impact-curve versions, parameters, valuation date, timestamp and input references. Historical outputs can then be replayed under the version and parameters with which they were produced.</p>
+        <p>A replay test demonstrates that the same inputs and versions reproduce the stored result within a documented rounding policy and numerical tolerance. It <strong>does not, by itself, demonstrate model accuracy or agreement with observed losses</strong>. In the product demo, the replay result is labelled <strong>Recomputed EAL</strong> — a calculation-replay label only, not a validation verdict.</p>
+        <p>A separately implemented calculation checker recalculates sampled outputs against a reference specification. Code-isolated recompute is not the same as independent model validation. The term “independent model validation” will be reserved for a review of data, assumptions, performance, limitations and governance by a person, function or third party independent from model development.</p>
+
+        <h3>Validation plan</h3>
+        <div class="callout">
+          Pre-event model inputs → observed hazard intensity → observed damage/financial impact → predicted loss → error and calibration metrics
+        </div>
+        <p>The initial event study for the flood module is the 2021 Western Black Sea floods. A suitable historical dataset linking heat or heat stress to energy demand, operational disruption, productivity or equipment performance will be selected for the extreme-heat module. The wildfire and earthquake modules shipped in v0.4.0 on synthetic intensities and curves; the 2021 Manavgat wildfires and the 2023 Kahramanmaraş earthquakes are backtest candidates only once real fire-danger and seismic-hazard data with calibrated curves are in place, and neither is presented as a product backtest today.</p>
+        <p>Subject to sample adequacy, candidate performance measures include MAE, RMSE, MAPE/SMAPE, bias, calibration error and prediction-interval coverage. Applicable metrics will be fixed in the model specification based on the loss distribution and data quality.</p>
+
+        <h3>Regulatory relevance</h3>
+        <p>The outputs are intended to support selected physical-risk assessment and evidence needs relevant to ECB/EBA supervisory expectations, ESRS E1, EU Taxonomy climate-adaptation/DNSH assessment and Türkiye’s TSRS 2.<sup><a href="#notes">1–5</a></sup></p>
+        <p class="warning">This positioning does not, by itself, constitute regulatory compliance, reporting sufficiency or supervisory acceptance. Institution-specific materiality, governance, scenario analysis, data controls, credit-risk transmission, disclosure and assurance requirements remain applicable.</p>
+
+        <h3>Use and limitations</h3>
+        <ul class="limits">
+          <li>Damage/impact curves are synthetically calibrated and have not yet been calibrated against real customer loss data.</li>
+          <li>Sample portfolios contain no real customer data.</li>
+          <li>All outputs must be labelled “Methodology v0.4.0 - Synthetic Calibration / Phase A Scenario-Loss Proxy”.</li>
+          <li>Outputs must not substitute for a credit decision, property valuation, insurance pricing, engineering safety assessment or regulatory filing.</li>
+          <li>Asset-level results must not imply spurious precision; data quality and model uncertainty should accompany the output.</li>
+          <li>A calibrated v1.0 will be released only after design-partner pilots and documented performance thresholds have been completed.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ===================== TURKISH ===================== -->
+    <div id="tr" class="lang-block" lang="tr" hidden>
+      <section>
+        <h2>Ön Metodoloji ve Doğrulama Planı — Varlık Bazlı Fiziksel İklim Riski ve Finansal Etki Değerlendirmesi</h2>
+        <p><strong>Sentetik Kalibrasyon v0.4.0 — Phase A Senaryo Kayıp Proxysi</strong></p>
+
+        <h3>GeoRisk Engine neyi destekler?</h3>
+        <p>GeoRisk Engine, fiziksel iklim tehlikelerini kredi, teminat, yatırım ve uyum planlama süreçlerinde kullanılabilecek finansal risk göstergelerine dönüştürmeyi amaçlayan bir karar destek motorudur. Sistem, yalnızca tehlikeyi harita üzerinde göstermenin ötesine geçerek varlık bazında tehlike, maruziyet ve kırılganlık verilerini bir araya getirir.</p>
+        <p>Mevcut v0.4.0 sürümü; sel, aşırı sıcaklık, orman yangını ve deprem modülleri için sentetik olarak kalibre edilmiş bir metodoloji prototipidir. Deprem modülü iklim dışı, jeofiziksel bir tehlikedir ve iklim senaryo ufuklarında sabit tutulur. Phase A çıktısı, olasılık ağırlıklı gerçek Beklenen Yıllık Kayıp (EAL) değil, belirli senaryo girdileri altında üretilen bir hasar/kayıp proxysidir. Üretilen sonuçlar doğrulanmış kayıp tahminleri değildir ve otomatik kredi veya yatırım kararlarının yegâne dayanağı olarak kullanılmamalıdır.</p>
+
+        <h3>Beş katmanlı analiz zinciri</h3>
+        <ol class="chain">
+          <li><strong>Tehlike:</strong> Tehlike türü, şiddeti, gerçekleşme/aşılma olasılığı, iklim senaryosu ve zaman ufku.</li>
+          <li><strong>Maruziyet:</strong> Coğrafi konum, varlık değeri, yapı/kullanım sınıfı ve ilgili finansal değerleme tarihi.</li>
+          <li><strong>Kırılganlık:</strong> Tehlike ve varlık sınıfına özgü hasar veya finansal etki fonksiyonları.</li>
+          <li><strong>Finansal çeviri:</strong> Phase A’da senaryo bazlı hasar oranının tanımlı değer tabanına uygulanması; doğrudan hasar ile operasyonel etkilerin ayrı kayıp kanallarında izlenmesi. Olasılık ağırlıklı yıllıklaştırma mevcut sürümde uygulanmamaktadır.</li>
+          <li><strong>Uyum yatırımı değerlendirmesi:</strong> Önlem öncesi risk, önlem sonrası artık risk, önlenen beklenen kayıp, yatırım maliyeti ve önceliklendirme göstergeleri.</li>
+        </ol>
+        <div class="callout">
+          Tehlike × Maruziyet × Kırılganlık → Phase A Senaryo Kayıp Proxysi → Uyum Senaryosu → Artık Risk ve Önlenen Kayıp
+        </div>
+
+        <h3>Phase A kayıp proxysi ve hedef EAL yaklaşımı</h3>
+        <p>v0.4.0’da “EAL” etiketiyle gösterilen Phase A çıktı, mevcut senaryo için birleşik hasar oranının tanımlı değer tabanına uygulanmasıyla üretilen bir <strong>senaryo kayıp proxysidir</strong>. Mevcut hesaplama; aşılma olasılığı eğrisi, return-period dönüşümü veya <code>∫ loss dF</code> entegrasyonu içermez. Bu nedenle çıktı, aktüeryal veya katastrofik risk modellemesindeki tam olasılık ağırlıklı EAL ile eşdeğer kabul edilmemelidir.</p>
+        <p>Hedef metodolojide gerçek EAL, yeterli olay-olasılık verisi mevcut olduğunda <code>EAL = Σ pᵢ Lᵢ</code> veya eşdeğer bir kayıp-dağılımı entegrasyonu ile tanımlanacaktır. Bu geçiş; tehlike bazında return period, senaryo ağırlıkları, doğrudan hasar/iş kesintisi ayrımı, değer tavanları ve kalibrasyon kanıtı tamamlanmadan uygulanmış sayılmayacaktır.</p>
+
+        <h3>Çoklu tehlike yaklaşımı</h3>
+        <div class="formula" aria-label="Çoklu tehlike birleşim kuralı">combined MDR = 1 − Π(1 − MDR<sub>h</sub>)</div>
+        <p>v0.4.0’da kullanılan <code>1 − Π(1 − MDR)</code> ifadesi yalnızca aynı finansal değer tabanına uygulanan, uyumlu ve açıkça tanımlanmış hasar oranları için <strong>geçici bir birleşim kuralıdır</strong>. Bu yaklaşım tehlikelerin bağımsız olduğunu kanıtlamaz ve korelasyon, eşzamanlılık, ardışık olaylar veya farklı kayıp kanalları için genel bir çözüm değildir.</p>
+        <p>Sel kaynaklı fiziksel varlık hasarı ile aşırı sıcaklıktan doğan enerji maliyeti, üretkenlik kaybı, iş kesintisi veya ekipman ömrü etkileri aynı MDR tabanında otomatik olarak birleştirilmeyecektir. Bu etkiler ayrı hesaplanacak; yalnızca çifte sayım ve bağımlılık kontrollerinden sonra portföy düzeyinde toplulaştırılacaktır.</p>
+        <p>Aşırı sıcaklık finansal kanalı şu an sel ile aynı <code>MDR × value</code> yer tutucu yolunu kullanır. Kalibre edilmiş iş kesintisi veya üretkenlik modellemesi uygulanmamıştır.</p>
+
+        <h3>Yeniden üretilebilirlik ve hesap kontrolü</h3>
+        <p>Her hesaplama kaydı; metodoloji, veri ve hasar/etki eğrisi versiyonlarını, parametreleri, değerleme tarihini, zaman damgasını ve girdi referanslarını içerecek şekilde saklanır. Geçmiş sonuçlar, üretildikleri sürüm ve parametrelerle yeniden oynatılabilir.</p>
+        <p>Yeniden oynatma testi, aynı girdiler ve sürümler altında sonucun belgelenmiş yuvarlama politikası ve sayısal tolerans içinde tekrar üretildiğini gösterir. Bu test <strong>model doğruluğunu veya gözlenen kayıplarla uyumu tek başına kanıtlamaz</strong>. Ürün demosunda yeniden oynatma sonucu yalnızca hesap yeniden üretimi etiketi olarak <strong>Recomputed EAL</strong> ile gösterilir; doğrulama hükmü değildir.</p>
+        <p>Üretim motorundan ayrı uygulanmış bir hesap kontrol modülü, örneklenen sonuçları referans spesifikasyona göre yeniden hesaplar. Kod olarak izole yeniden hesaplama, bağımsız model doğrulaması değildir. “Bağımsız model doğrulaması” ifadesi ancak veri, varsayım, performans, sınırlamalar ve yönetişim kontrolleri motoru geliştiren fonksiyondan bağımsız bir kişi/fonksiyon veya üçüncü tarafça değerlendirildikten sonra kullanılacaktır.</p>
+
+        <h3>Doğrulama planı</h3>
+        <div class="callout">
+          Olay öncesi model girdileri → gözlenen tehlike şiddeti → gözlenen hasar/finansal etki → tahmin edilen kayıp → hata ve kalibrasyon metrikleri
+        </div>
+        <p>İlk olay çalışması, sel modülü için 2021 Batı Karadeniz selleridir. Aşırı sıcaklık modülü için sıcaklık/ısı stresi ile enerji tüketimi, operasyon kesintisi, üretkenlik veya ekipman performansını ilişkilendirebilen uygun bir tarihsel veri seti ayrıca seçilecektir. Manavgat yangınları, yangın modülü kapsamı ve veri modeli geliştirilmedikçe aktif modül backtest’i olarak kullanılmayacaktır.</p>
+        <p>Başlıca performans ölçütleri; örneklem yeterliliğine bağlı olarak MAE, RMSE, MAPE/SMAPE, bias, calibration error ve tahmin aralığı kapsam oranını içerecektir. Uygulanabilir metrikler kayıp dağılımı ve veri kalitesi dikkate alınarak model spesifikasyonunda sabitlenecektir.</p>
+
+        <h3>Düzenleyici kullanım alanı</h3>
+        <p>Çıktılar; ECB/EBA gözetim beklentileri, ESRS E1, AB Taksonomisi iklim değişikliğine uyum/DNSH değerlendirmeleri ve TSRS 2 ile ilgili <strong>seçilmiş fiziksel risk analizi ve kanıt ihtiyaçlarını desteklemek</strong> üzere tasarlanmaktadır.<sup><a href="#notes">1–5</a></sup></p>
+        <p class="warning">Bu hizalama, tek başına mevzuata uyum, raporlama yeterliliği veya düzenleyici kabul anlamına gelmez. Kuruma özgü önemlilik değerlendirmesi, yönetişim, senaryo analizi, veri kontrolleri, kredi riski aktarımı, açıklama kapsamı ve bağımsız güvence gereklilikleri ayrıca uygulanmalıdır.</p>
+
+        <h3>Şeffaflık beyanı ve kullanım sınırlamaları</h3>
+        <ul class="limits">
+          <li>Hasar/etki eğrileri sentetik kalibrasyonludur ve henüz gerçek müşteri kayıp verisiyle kalibre edilmemiştir.</li>
+          <li>Örnek portföyler gerçek müşteri verisi içermez.</li>
+          <li>Sonuçlar “Metodoloji v0.4.0 - Sentetik Kalibrasyon / Phase A Scenario-Loss Proxy” olarak etiketlenmelidir.</li>
+          <li>Çıktılar kredi kararı, gayrimenkul değerlemesi, sigorta fiyatlaması, mühendislik güvenlik değerlendirmesi veya düzenleyici rapor yerine kullanılmamalıdır.</li>
+          <li>Varlık düzeyi kesinlik izlenimi verilmemeli; veri kalitesi ve model belirsizliği sonuçla birlikte raporlanmalıdır.</li>
+          <li>Kalibre edilmiş v1.0, tasarım ortaklarıyla yürütülecek pilotlar ve belgelenmiş performans eşikleri tamamlandıktan sonra yayımlanacaktır.</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ===================== SHARED (EN + TR) ===================== -->
+    <section id="checklist">
+      <h2 class="i18n-en">Evidence gaps before v1.0 / bank pilot</h2>
+      <h2 class="i18n-tr">v1.0 / banka pilotu öncesi kanıt boşlukları</h2>
+      <p class="i18n-en">Minimum topics to add or close before calling a release bank-pilot ready (methodology note §12):</p>
+      <p class="i18n-tr">Bir sürümün banka-pilota hazır sayılmasından önce eklenmesi veya kapatılması gereken asgari konular (metodoloji notu §12):</p>
+      <ol class="checklist">
+        <li><span>01</span><span class="i18n-en">Data sources, licences, and citations</span><span class="i18n-tr">Veri kaynakları, lisanslar ve atıflar</span></li>
+        <li><span>02</span><span class="i18n-en">Spatial resolution and geocoding tolerance</span><span class="i18n-tr">Mekânsal çözünürlük ve geocoding toleransı</span></li>
+        <li><span>03</span><span class="i18n-en">NGFS / SSP / RCP scenario selection</span><span class="i18n-tr">NGFS / SSP / RCP senaryo seçimi</span></li>
+        <li><span>04</span><span class="i18n-en">Historical baseline period</span><span class="i18n-tr">Tarihsel baz dönem</span></li>
+        <li><span>05</span><span class="i18n-en">Return periods and event probabilities</span><span class="i18n-tr">Return period’lar ve olay olasılıkları</span></li>
+        <li><span>06</span><span class="i18n-en">Damage-curve sources and calibration</span><span class="i18n-tr">Hasar eğrisi kaynakları ve kalibrasyon</span></li>
+        <li><span>07</span><span class="i18n-en">Classical annualised EAL under a probability measure</span><span class="i18n-tr">Olasılık ölçüsü altında klasik yıllıklaştırılmış EAL</span></li>
+        <li><span>08</span><span class="i18n-en">Inter-hazard dependence estimation</span><span class="i18n-tr">Tehlikeler arası bağımlılık tahmini</span></li>
+        <li><span>09</span><span class="i18n-en">Uncertainty intervals and sensitivity analysis</span><span class="i18n-tr">Belirsizlik aralıkları ve duyarlılık analizi</span></li>
+        <li><span>10</span><span class="i18n-en">Backtesting sample and error metrics</span><span class="i18n-tr">Backtesting örneklemi ve hata metrikleri</span></li>
+        <li><span>11</span><span class="i18n-en">Organisational model-change approval</span><span class="i18n-tr">Kurumsal model değişikliği onayı</span></li>
+        <li><span>12</span><span class="i18n-en">Override, exception, and data-quality controls</span><span class="i18n-tr">Override, istisna ve veri kalitesi kontrolleri</span></li>
+        <li><span>13</span><span class="i18n-en">Asset damage to PD / LGD / collateral translation</span><span class="i18n-tr">Varlık hasarının PD / LGD / teminat çevirisi</span></li>
+        <li><span>14</span><span class="i18n-en">Intended-use and misuse controls</span><span class="i18n-tr">Amaçlanan kullanım ve kötüye kullanım kontrolleri</span></li>
+      </ol>
+    </section>
+
+    <section id="roadmap">
+      <h2 class="i18n-en">Release roadmap (themes)</h2>
+      <h2 class="i18n-tr">Sürüm yol haritası (temalar)</h2>
+      <p class="i18n-en">Brief themes only — not a project plan. Full technical workstreams live in the normative methodology and product directive.</p>
+      <p class="i18n-tr">Yalnızca kısa temalar — proje planı değildir. Tam teknik iş akışları normatif metodolojide ve ürün direktifinde yer alır.</p>
+      <div class="roadmap-wrap">
+        <table class="roadmap">
+          <thead>
+            <tr>
+              <th class="i18n-en">Release</th><th class="i18n-en">Objective</th>
+              <th class="i18n-tr">Sürüm</th><th class="i18n-tr">Hedef</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>v0.4.0</td>
+              <td class="i18n-en">Wildfire and earthquake modules brought into scope with labelled synthetic curves; earthquake stationary across horizons</td>
+              <td class="i18n-tr">Orman yangını ve deprem modülleri etiketli sentetik eğrilerle kapsama alındı; deprem iklim ufuklarında sabit</td>
+            </tr>
+            <tr>
+              <td>v0.3.1</td>
+              <td class="i18n-en">Correct public positioning and evidence level</td>
+              <td class="i18n-tr">Kamuya açık konumlandırmayı ve kanıt düzeyini düzeltmek (bu sayfa)</td>
+            </tr>
+            <tr>
+              <td>v0.4</td>
+              <td class="i18n-en">Freeze methodology specification (hazard-specific EAL, loss channels, versioning)</td>
+              <td class="i18n-tr">Metodoloji spesifikasyonunu dondurmak (tehlike bazlı EAL, kayıp kanalları, sürümleme)</td>
+            </tr>
+            <tr>
+              <td>v0.5</td>
+              <td class="i18n-en">Establish technical verification (tests, replay tolerances, checker coverage)</td>
+              <td class="i18n-tr">Teknik doğrulamayı kurmak (testler, replay toleransları, checker kapsamı)</td>
+            </tr>
+            <tr>
+              <td>v0.6</td>
+              <td class="i18n-en">Complete historical-event dataset design (flood and heat)</td>
+              <td class="i18n-tr">Tarihsel olay veri seti tasarımını tamamlamak (sel ve sıcaklık)</td>
+            </tr>
+            <tr>
+              <td>v0.7</td>
+              <td class="i18n-en">Pilot with design partners under data-governance controls</td>
+              <td class="i18n-tr">Veri yönetişimi kontrolleri altında tasarım ortaklarıyla pilot</td>
+            </tr>
+            <tr>
+              <td>v0.8</td>
+              <td class="i18n-en">Calibrate, benchmark, and produce uncertainty bands</td>
+              <td class="i18n-tr">Kalibre etmek, benchmark yapmak ve belirsizlik bantları üretmek</td>
+            </tr>
+            <tr>
+              <td>v0.9</td>
+              <td class="i18n-en">Independent challenge and remediation</td>
+              <td class="i18n-tr">Bağımsız challenge ve iyileştirme</td>
+            </tr>
+            <tr>
+              <td>v1.0</td>
+              <td class="i18n-en">Controlled production release after thresholds and governance</td>
+              <td class="i18n-tr">Eşikler ve yönetişim sonrası kontrollü üretim sürümü</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="notes">
+      <h2 class="i18n-en">Regulatory reference notes</h2>
+      <h2 class="i18n-tr">Düzenleyici referans notları</h2>
+      <p class="i18n-en">Use these references as context for <strong>selected evidence support</strong>, not as a claim that the product satisfies the complete framework:</p>
+      <p class="i18n-tr">Bu referansları ürünün çerçeveyi bütünüyle karşıladığı iddiası olarak değil, <strong>seçilmiş kanıt desteği</strong> bağlamı olarak kullanın:</p>
+      <p class="en-only-badge">Aşağıdaki resmi belge başlıkları İngilizce bırakılmıştır.</p>
+      <ol class="refs">
+        <li id="note-1"><strong>EBA Guidelines on the management of ESG risks</strong>
+          <span class="i18n-en"> — institution-wide governance, identification, measurement, management and monitoring expectations:</span>
+          <span class="i18n-tr"> — kurum genelinde yönetişim, tanımlama, ölçüm, yönetim ve izleme beklentileri:</span>
+          <a href="https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/sustainable-finance/guidelines-management-esg-risks" rel="noopener noreferrer">eba.europa.eu</a></li>
+        <li id="note-2"><strong>Commission Delegated Regulation (EU) 2023/2772 — ESRS, including ESRS E1</strong>: <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2772" rel="noopener noreferrer">eur-lex.europa.eu</a></li>
+        <li id="note-3"><strong>ECB economy-wide climate stress test methodology/context</strong>: <a href="https://www.ecb.europa.eu/pub/pdf/scpops/ecb.op281~05a7735b1c.en.pdf" rel="noopener noreferrer">ecb.europa.eu (PDF)</a></li>
+        <li id="note-4"><strong>EU Taxonomy Climate Delegated Act — climate adaptation and DNSH technical screening criteria</strong>: <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32021R2139" rel="noopener noreferrer">eur-lex.europa.eu</a></li>
+        <li id="note-5"><strong>Türkiye Sustainability Reporting Standards (TSRS)</strong>
+          <span class="i18n-en"> — cite the current KGK publication/version applicable at the document’s publication date:</span>
+          <span class="i18n-tr"> — belgenin yayımlanma tarihinde geçerli KGK yayını/sürümünü atıf gösterin:</span>
+          <a href="https://www.kgk.gov.tr" rel="noopener noreferrer">kgk.gov.tr</a></li>
+      </ol>
+    </section>
+
+    <section id="sources">
+      <h2 class="i18n-en">Canonical sources</h2>
+      <h2 class="i18n-tr">Kanonik kaynaklar</h2>
+      <p class="i18n-en"><strong>This HTML page</strong> is the canonical public summary for v0.4.0.</p>
+      <p class="i18n-tr"><strong>Bu HTML sayfa</strong>, v0.4.0 için kanonik kamuya açık özetten oluşur.</p>
+      <p class="i18n-en"><strong>Normative technical specification:</strong>
+        <a href="https://github.com/ebru0zpolat/georisk-engine/blob/main/docs/methodology/GEORISK_ENGINE_METHODOLOGY.md">docs/methodology/GEORISK_ENGINE_METHODOLOGY.md</a>
+        ·
+        <a href="https://raw.githubusercontent.com/ebru0zpolat/georisk-engine/main/docs/methodology/GEORISK_ENGINE_METHODOLOGY.md">raw Markdown</a>
+      </p>
+      <p class="i18n-tr"><strong>Normatif teknik spesifikasyon:</strong>
+        <a href="https://github.com/ebru0zpolat/georisk-engine/blob/main/docs/methodology/GEORISK_ENGINE_METHODOLOGY.md">docs/methodology/GEORISK_ENGINE_METHODOLOGY.md</a>
+        ·
+        <a href="https://raw.githubusercontent.com/ebru0zpolat/georisk-engine/main/docs/methodology/GEORISK_ENGINE_METHODOLOGY.md">ham Markdown</a>
+      </p>
+      <p class="i18n-en">Layer-4 formula detail: <a href="https://github.com/ebru0zpolat/georisk-engine/blob/main/app/loss/METHODOLOGY.md">app/loss/METHODOLOGY.md</a>. Publication hierarchy: <a href="https://github.com/ebru0zpolat/georisk-engine/blob/main/docs/methodology/PUBLICATION.md">docs/methodology/PUBLICATION.md</a>.</p>
+      <p class="i18n-tr">Katman-4 formül detayı: <a href="https://github.com/ebru0zpolat/georisk-engine/blob/main/app/loss/METHODOLOGY.md">app/loss/METHODOLOGY.md</a>. Yayın hiyerarşisi: <a href="https://github.com/ebru0zpolat/georisk-engine/blob/main/docs/methodology/PUBLICATION.md">docs/methodology/PUBLICATION.md</a>.</p>
+      <p class="i18n-en">Any PDF snapshot should be generated from the approved source and must not become an independently edited source of truth.</p>
+      <p class="i18n-tr">Herhangi bir PDF anlık görüntüsü onaylı kaynaktan üretilmeli ve bağımsız biçimde düzenlenen bir gerçeklik kaynağı haline gelmemelidir.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div>
+        <strong>GeoRisk Engine · Methodology v0.4.0</strong>
+        <p>August 2026 · Synthetic calibration · Phase A scenario-loss proxy · Flood &amp; extreme heat</p>
+      </div>
+      <div>
+        <a href="https://github.com/ebru0zpolat/georisk-engine/blob/main/docs/methodology/GEORISK_ENGINE_METHODOLOGY.md">Read the technical methodology →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var en = document.getElementById("en");
+      var tr = document.getElementById("tr");
+      var btnEn = document.getElementById("btn-en");
+      var btnTr = document.getElementById("btn-tr");
+      function show(lang) {
+        var isTr = lang === "tr";
+        en.hidden = isTr;
+        tr.hidden = !isTr;
+        btnEn.classList.toggle("is-active", !isTr);
+        btnTr.classList.toggle("is-active", isTr);
+        document.documentElement.lang = isTr ? "tr" : "en";
+      }
+      function fromHash() {
+        var h = (location.hash || "#en").replace("#", "");
+        if (h === "tr" || h.indexOf("tr") === 0) show("tr");
+        else if (h === "en" || !h || h === "status" || h === "approval") show("en");
+        else if (["checklist", "roadmap", "notes", "sources"].indexOf(h) >= 0) {
+          /* keep current language for shared sections */
+        } else show("en");
+      }
+      btnEn.addEventListener("click", function () { show("en"); });
+      btnTr.addEventListener("click", function () { show("tr"); });
+      window.addEventListener("hashchange", fromHash);
+      fromHash();
+    })();
+  </script>
+</body>
+</html>

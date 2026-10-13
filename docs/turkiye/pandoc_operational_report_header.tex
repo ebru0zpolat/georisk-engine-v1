@@ -1,0 +1,13 @@
+% Included by pandoc (--include-in-header). Fancy header/footer on all pages (including plain).
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small GeoRisk Engine - Operasyonel Şeffaflık Raporu}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[C]{\small \thepage}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[C]{\small GeoRisk Engine - Operasyonel Şeffaflık Raporu}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \fancyfoot[C]{\small \thepage}%
+}

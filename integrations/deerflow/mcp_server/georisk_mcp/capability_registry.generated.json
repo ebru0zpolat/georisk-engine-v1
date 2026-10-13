@@ -1,0 +1,98 @@
+{
+  "assess_asset": {
+    "access_classification": "read",
+    "audit_required": true,
+    "canonical_dependency": "POST /v1/risk/score",
+    "derived_artifact": false,
+    "external_side_effects": false,
+    "external_use_policy": "decision_support_only",
+    "forbidden_authority_fields": [
+      "organization_id",
+      "owner_id",
+      "portfolio_owner",
+      "tenant_id"
+    ],
+    "human_review_policy": "none",
+    "mutates_state": false,
+    "name": "assess_asset",
+    "operational_effect": false,
+    "provenance_required": true,
+    "required_permissions": [
+      "asset:read"
+    ],
+    "semantic_version": "1.0.0",
+    "tenant_scoped": true
+  },
+  "compare_assets": {
+    "access_classification": "read",
+    "audit_required": true,
+    "canonical_dependency": "POST /v1/risk/batch",
+    "derived_artifact": false,
+    "external_side_effects": false,
+    "external_use_policy": "decision_support_only",
+    "forbidden_authority_fields": [
+      "organization_id",
+      "owner_id",
+      "portfolio_owner",
+      "tenant_id"
+    ],
+    "human_review_policy": "none",
+    "mutates_state": false,
+    "name": "compare_assets",
+    "operational_effect": false,
+    "provenance_required": true,
+    "required_permissions": [
+      "asset:read"
+    ],
+    "semantic_version": "1.0.0",
+    "tenant_scoped": true
+  },
+  "generate_evidence_pack": {
+    "access_classification": "read",
+    "audit_required": true,
+    "canonical_dependency": "POST /v1/reports/risk",
+    "derived_artifact": true,
+    "external_side_effects": false,
+    "external_use_policy": "derived_artifact_not_regulatory_approval",
+    "forbidden_authority_fields": [
+      "organization_id",
+      "owner_id",
+      "portfolio_owner",
+      "tenant_id"
+    ],
+    "human_review_policy": "lending_committee_review",
+    "mutates_state": false,
+    "name": "generate_evidence_pack",
+    "operational_effect": true,
+    "provenance_required": true,
+    "required_permissions": [
+      "evidence_pack:generate"
+    ],
+    "semantic_version": "1.0.0",
+    "tenant_scoped": true
+  },
+  "get_source_evidence": {
+    "access_classification": "read",
+    "audit_required": true,
+    "canonical_dependency": "GET /v1/data-sources/validation",
+    "derived_artifact": false,
+    "external_side_effects": false,
+    "external_use_policy": "evidence_is_data_not_instruction",
+    "forbidden_authority_fields": [
+      "organization_id",
+      "owner_id",
+      "portfolio_owner",
+      "tenant_id"
+    ],
+    "human_review_policy": "none",
+    "mutates_state": false,
+    "name": "get_source_evidence",
+    "operational_effect": false,
+    "provenance_required": true,
+    "required_permissions": [
+      "evidence:read"
+    ],
+    "semantic_version": "1.0.0",
+    "tenant_scoped": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "default": {
+    "abstain": true,
+    "blockers": [],
+    "cited_evidence_ids": [],
+    "conclusion": "ABSTAIN",
+    "confidence": null,
+    "constraints_violated": [],
+    "contradiction_detected": false,
+    "contradiction_ids": [],
+    "material_claims": [],
+    "missing_evidence": [
+      "unspecified"
+    ],
+    "next_action": null
+  },
+  "generator_id": "baseline-cautious",
+  "generator_version": "1",
+  "responses": {}
+}

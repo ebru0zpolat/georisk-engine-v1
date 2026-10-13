@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">0stanbul Marmara Bölgesi sismik risk younluk haritas1 analizi - GeoRisk Engine</title>
+  <desc id="desc">GeoRisk Engine için haz1rlanm1_ soyut Marmara Bölgesi sismik risk younluk haritas1 görseli.</desc>
+  <rect width="960" height="540" fill="#07111f"/>
+  <path d="M80 310 C190 260 280 292 382 255 C492 216 615 228 740 188 C812 165 872 152 920 132" fill="none" stroke="#2ec990" stroke-width="8" opacity="0.85"/>
+  <path d="M52 368 C168 334 252 352 360 318 C508 272 630 296 778 252 C835 235 890 220 930 208" fill="none" stroke="#5dcaa5" stroke-width="3" opacity="0.5"/>
+  <circle cx="515" cy="245" r="138" fill="#e24b4a" opacity="0.16"/>
+  <circle cx="515" cy="245" r="92" fill="#ef9f27" opacity="0.22"/>
+  <circle cx="515" cy="245" r="42" fill="#e24b4a" opacity="0.65"/>
+  <circle cx="396" cy="281" r="76" fill="#ef9f27" opacity="0.18"/>
+  <circle cx="690" cy="206" r="92" fill="#e24b4a" opacity="0.12"/>
+  <g stroke="#e8f2ff" stroke-opacity="0.09" stroke-width="1">
+    <path d="M0 90 H960"/><path d="M0 180 H960"/><path d="M0 270 H960"/><path d="M0 360 H960"/><path d="M0 450 H960"/>
+    <path d="M120 0 V540"/><path d="M240 0 V540"/><path d="M360 0 V540"/><path d="M480 0 V540"/><path d="M600 0 V540"/><path d="M720 0 V540"/><path d="M840 0 V540"/>
+  </g>
+  <text x="44" y="72" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="28" font-weight="700">Marmara seismic exposure density</text>
+  <text x="44" y="108" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="18">Illustrative location intelligence layer for environmental risk screening</text>
+  <g transform="translate(44 430)">
+    <rect width="300" height="70" rx="14" fill="#0d1b2f" stroke="#2ec990" stroke-opacity="0.45"/>
+    <circle cx="28" cy="35" r="8" fill="#e24b4a"/><text x="48" y="40" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="15">High intensity proxy</text>
+    <circle cx="182" cy="35" r="8" fill="#ef9f27"/><text x="202" y="40" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="15">Medium</text>
+  </g>
+</svg>

@@ -1,0 +1,141 @@
+{
+  "$defs": {
+    "ArtifactFile": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "ArtifactFile",
+      "type": "object"
+    },
+    "CheckResult": {
+      "additionalProperties": false,
+      "properties": {
+        "commit_sha": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Commit Sha",
+          "type": "string"
+        },
+        "evidence_kind": {
+          "enum": [
+            "local",
+            "ci",
+            "deployment",
+            "external"
+          ],
+          "title": "Evidence Kind",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "pass",
+            "fail",
+            "skip",
+            "unavailable"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "state",
+        "source",
+        "evidence_kind",
+        "commit_sha"
+      ],
+      "title": "CheckResult",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_type": {
+      "enum": [
+        "founder_digest",
+        "pr_classification"
+      ],
+      "title": "Artifact Type",
+      "type": "string"
+    },
+    "checks_observed": {
+      "items": {
+        "$ref": "#/$defs/CheckResult"
+      },
+      "title": "Checks Observed",
+      "type": "array"
+    },
+    "commit_sha": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Commit Sha",
+      "type": "string"
+    },
+    "evidence_kind": {
+      "const": "ci",
+      "default": "ci",
+      "title": "Evidence Kind",
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "$ref": "#/$defs/ArtifactFile"
+      },
+      "title": "Files",
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "title": "Generated At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "workflow_run_id": {
+      "minLength": 1,
+      "title": "Workflow Run Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "commit_sha",
+    "workflow_run_id",
+    "generated_at",
+    "artifact_type",
+    "checks_observed",
+    "files"
+  ],
+  "title": "ArtifactManifest",
+  "type": "object"
+}

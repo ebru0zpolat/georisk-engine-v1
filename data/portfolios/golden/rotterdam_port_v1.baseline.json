@@ -1,0 +1,836 @@
+{
+  "portfolio_id": "golden-rotterdam-port-v1",
+  "valuation_date": "2021-07-01",
+  "currency": "EUR",
+  "market": "NL-Rotterdam-port",
+  "asset_count": 100,
+  "methodology": {
+    "document": "georisk-methodology-v0.4.0",
+    "five_layer": "five-layer-eal-v0.4",
+    "expected_loss": "expected-loss-v0.3",
+    "damage_curves": "stub_global_mdr-v0.2.0",
+    "adaptation_evidence": "adaptation-evidence-v0.1",
+    "pipeline_contract": "five-layer-eal-v0.4"
+  },
+  "honesty": {
+    "synthetic": true,
+    "pack_nl_calibrated": false,
+    "same_stub_pipeline_as": "golden-antalya-v1"
+  },
+  "aggregates": {
+    "eal_sum": 600136154.12,
+    "eal_mean": 6001361.54,
+    "risk_score_mean": 31.6194,
+    "recommended_measure_counts": {
+      "cool-roof-v1": 100
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "RTM-G-000",
+      "eal_absolute": 13117594.2,
+      "risk_score": 33.8306,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-001",
+      "eal_absolute": 1806597.65,
+      "risk_score": 22.008,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-002",
+      "eal_absolute": 2319972.83,
+      "risk_score": 29.41,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-003",
+      "eal_absolute": 11553801.41,
+      "risk_score": 36.3214,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-004",
+      "eal_absolute": 4097958.91,
+      "risk_score": 24.06,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-005",
+      "eal_absolute": 2035271.8,
+      "risk_score": 31.8982,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-006",
+      "eal_absolute": 2413346.42,
+      "risk_score": 27.1505,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-007",
+      "eal_absolute": 4997081.86,
+      "risk_score": 38.6651,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-008",
+      "eal_absolute": 3315435.93,
+      "risk_score": 22.8717,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-009",
+      "eal_absolute": 1359786.79,
+      "risk_score": 31.425,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-010",
+      "eal_absolute": 14563800.64,
+      "risk_score": 41.3877,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-011",
+      "eal_absolute": 3904899.67,
+      "risk_score": 19.7667,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-012",
+      "eal_absolute": 17489294.08,
+      "risk_score": 42.442,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-013",
+      "eal_absolute": 5100611.16,
+      "risk_score": 30.7857,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-014",
+      "eal_absolute": 2441183.86,
+      "risk_score": 38.1595,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-015",
+      "eal_absolute": 3352928.65,
+      "risk_score": 31.083,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-016",
+      "eal_absolute": 4546658.74,
+      "risk_score": 28.2343,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-017",
+      "eal_absolute": 7741016.09,
+      "risk_score": 38.0931,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-018",
+      "eal_absolute": 4636693.33,
+      "risk_score": 48.0068,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-019",
+      "eal_absolute": 17563985.65,
+      "risk_score": 53.9214,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-020",
+      "eal_absolute": 9312814.63,
+      "risk_score": 40.584,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-021",
+      "eal_absolute": 1209236.77,
+      "risk_score": 14.8892,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-022",
+      "eal_absolute": 4410392.07,
+      "risk_score": 15.7644,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-023",
+      "eal_absolute": 704270.97,
+      "risk_score": 15.3641,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-024",
+      "eal_absolute": 7403656.93,
+      "risk_score": 32.8209,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-025",
+      "eal_absolute": 3627339.72,
+      "risk_score": 24.4037,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-026",
+      "eal_absolute": 4388438.49,
+      "risk_score": 28.9166,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-027",
+      "eal_absolute": 3517245.71,
+      "risk_score": 16.6964,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-028",
+      "eal_absolute": 9064284.43,
+      "risk_score": 51.3711,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-029",
+      "eal_absolute": 3352602.37,
+      "risk_score": 29.7488,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-030",
+      "eal_absolute": 424349.07,
+      "risk_score": 23.4442,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-031",
+      "eal_absolute": 1994147.96,
+      "risk_score": 26.5658,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-032",
+      "eal_absolute": 6045860.32,
+      "risk_score": 31.7995,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-033",
+      "eal_absolute": 1010804.1,
+      "risk_score": 34.2967,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-034",
+      "eal_absolute": 23905391.33,
+      "risk_score": 32.4661,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-035",
+      "eal_absolute": 503693.78,
+      "risk_score": 10.9088,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-036",
+      "eal_absolute": 6223175.17,
+      "risk_score": 37.6093,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-037",
+      "eal_absolute": 2028680.6,
+      "risk_score": 14.8408,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-038",
+      "eal_absolute": 3681328.52,
+      "risk_score": 31.5042,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-039",
+      "eal_absolute": 6081125.23,
+      "risk_score": 29.1695,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-040",
+      "eal_absolute": 4803022.36,
+      "risk_score": 26.3178,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-041",
+      "eal_absolute": 6552690.59,
+      "risk_score": 29.7526,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-042",
+      "eal_absolute": 1771664.04,
+      "risk_score": 17.8386,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-043",
+      "eal_absolute": 2643047.25,
+      "risk_score": 13.6198,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-044",
+      "eal_absolute": 1683379.16,
+      "risk_score": 18.6361,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-045",
+      "eal_absolute": 2496545.7,
+      "risk_score": 33.2067,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-046",
+      "eal_absolute": 16702581.2,
+      "risk_score": 38.7303,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-047",
+      "eal_absolute": 10433205.14,
+      "risk_score": 46.6503,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-048",
+      "eal_absolute": 11676360.9,
+      "risk_score": 58.6637,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-049",
+      "eal_absolute": 2665127.19,
+      "risk_score": 25.4846,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-050",
+      "eal_absolute": 6145722.41,
+      "risk_score": 30.2628,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-051",
+      "eal_absolute": 3918701.0,
+      "risk_score": 42.198,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-052",
+      "eal_absolute": 3184504.78,
+      "risk_score": 24.677,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-053",
+      "eal_absolute": 2292417.98,
+      "risk_score": 16.2098,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-054",
+      "eal_absolute": 2614492.4,
+      "risk_score": 18.0897,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-055",
+      "eal_absolute": 4565024.36,
+      "risk_score": 33.2309,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-056",
+      "eal_absolute": 5044768.57,
+      "risk_score": 22.1774,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-057",
+      "eal_absolute": 1061281.93,
+      "risk_score": 35.8051,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-058",
+      "eal_absolute": 15509604.22,
+      "risk_score": 23.6035,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-059",
+      "eal_absolute": 9359330.2,
+      "risk_score": 61.0195,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-060",
+      "eal_absolute": 6935252.74,
+      "risk_score": 10.7996,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-061",
+      "eal_absolute": 2841929.02,
+      "risk_score": 27.2155,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-062",
+      "eal_absolute": 959430.2,
+      "risk_score": 23.2317,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-063",
+      "eal_absolute": 8975280.2,
+      "risk_score": 37.7701,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-064",
+      "eal_absolute": 3711529.36,
+      "risk_score": 36.3151,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-065",
+      "eal_absolute": 10428166.21,
+      "risk_score": 44.3642,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-066",
+      "eal_absolute": 2687183.35,
+      "risk_score": 22.3896,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-067",
+      "eal_absolute": 10791196.03,
+      "risk_score": 30.9091,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-068",
+      "eal_absolute": 2739448.76,
+      "risk_score": 19.6613,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-069",
+      "eal_absolute": 1468396.07,
+      "risk_score": 22.2752,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-070",
+      "eal_absolute": 25578487.2,
+      "risk_score": 44.6691,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-071",
+      "eal_absolute": 1890711.92,
+      "risk_score": 23.6201,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-072",
+      "eal_absolute": 17520345.44,
+      "risk_score": 62.9549,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-073",
+      "eal_absolute": 6233258.25,
+      "risk_score": 35.0747,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-074",
+      "eal_absolute": 3298171.3,
+      "risk_score": 26.276,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-075",
+      "eal_absolute": 3680027.04,
+      "risk_score": 25.76,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-076",
+      "eal_absolute": 5324187.52,
+      "risk_score": 38.5789,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-077",
+      "eal_absolute": 9168509.74,
+      "risk_score": 39.6444,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-078",
+      "eal_absolute": 838901.85,
+      "risk_score": 34.9751,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-079",
+      "eal_absolute": 3393788.68,
+      "risk_score": 41.9629,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-080",
+      "eal_absolute": 3557312.54,
+      "risk_score": 26.4061,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-081",
+      "eal_absolute": 3011522.94,
+      "risk_score": 32.0741,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-082",
+      "eal_absolute": 3572099.04,
+      "risk_score": 20.8846,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-083",
+      "eal_absolute": 2050182.75,
+      "risk_score": 21.1332,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-084",
+      "eal_absolute": 13565724.63,
+      "risk_score": 32.5458,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-085",
+      "eal_absolute": 6880019.22,
+      "risk_score": 39.0951,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-086",
+      "eal_absolute": 12558693.88,
+      "risk_score": 53.7518,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-087",
+      "eal_absolute": 12545776.64,
+      "risk_score": 40.9858,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-088",
+      "eal_absolute": 3140058.98,
+      "risk_score": 56.6533,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-089",
+      "eal_absolute": 7229797.7,
+      "risk_score": 41.3381,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-090",
+      "eal_absolute": 1601203.73,
+      "risk_score": 32.9568,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-091",
+      "eal_absolute": 6448430.78,
+      "risk_score": 21.4457,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-092",
+      "eal_absolute": 2495432.33,
+      "risk_score": 18.4911,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-093",
+      "eal_absolute": 716674.87,
+      "risk_score": 26.269,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-094",
+      "eal_absolute": 8965458.39,
+      "risk_score": 29.5818,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-095",
+      "eal_absolute": 4777095.67,
+      "risk_score": 33.4846,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-096",
+      "eal_absolute": 11172100.76,
+      "risk_score": 41.0358,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-097",
+      "eal_absolute": 8269410.49,
+      "risk_score": 38.18,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-098",
+      "eal_absolute": 2865006.48,
+      "risk_score": 43.4473,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    },
+    {
+      "asset_id": "RTM-G-099",
+      "eal_absolute": 13879722.2,
+      "risk_score": 34.8686,
+      "recommended_measure_id": "cool-roof-v1",
+      "scenario_eal_2030": null,
+      "scenario_eal_2050": null
+    }
+  ],
+  "tolerances": {
+    "eal_sum_rel": 0.0,
+    "eal_mean_rel": 0.0,
+    "risk_score_mean_abs": 0.0,
+    "per_asset_eal_abs": 0.0
+  }
+}

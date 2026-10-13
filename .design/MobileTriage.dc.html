@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #2ec990; text-decoration: none; }
+    a:hover { color: #5dcaa5; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #22304a; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; white-space: nowrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .pick { cursor: pointer; font-family: inherit; background: transparent; }
+    .pick:focus-visible { outline: 2px solid #2ec990; outline-offset: 2px; }
+    .pick:disabled { cursor: not-allowed; }
+  </style>
+</helmet>
+
+<div style="width: 390px; height: 844px; background: linear-gradient(180deg, #0d1a2e 0%, #0a1628 34%); color: #e6edf5; font-family: Inter, 'Segoe UI', sans-serif; display: flex; flex-direction: column; overflow: hidden;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #22304a;">
+    <div style="display: flex; flex-direction: column; gap: 1px;">
+      <span style="font-size: 15px; font-weight: 600;">Field triage</span>
+      <span class="mono" style="font-size: 11px; color: #9aa8ba;">TSKB_CRE_2026Q1</span>
+    </div>
+    <span class="chip" style="{{ syncChipStyle }}">{{ syncLabel }}</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px; padding: 12px 16px 16px; flex: 1;">
+
+    <!-- progress -->
+    <div style="display: flex; flex-direction: column; gap: 7px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;">
+        <span style="font-size: 12.5px; color: #9aa8ba;">Geocode failures assigned to you</span>
+        <span class="mono" style="font-size: 12.5px;">{{ progressLabel }}</span>
+      </div>
+      <span style="height: 6px; border-radius: 999px; background: #101a2b; overflow: hidden; display: block;"><span style="{{ progressFill }}"></span></span>
+    </div>
+
+    <!-- current asset -->
+    <div style="border: 1px solid #22304a; border-radius: 12px; background: #131f33; padding: 14px; display: flex; flex-direction: column; gap: 9px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+        <span class="mono" style="font-size: 14px;">{{ asset.id }}</span>
+        <span class="chip" style="color: #e24b4a; border-color: rgba(226,75,74,0.28);">geocode-failed</span>
+      </div>
+      <span style="font-size: 13.5px; line-height: 1.45;">{{ asset.address }}</span>
+      <span style="font-size: 12px; color: #9aa8ba; line-height: 1.45;">{{ asset.reason }}</span>
+    </div>
+
+    <!-- map -->
+    <div style="{{ mapStyle }}">
+      <svg width="100%" height="100%" viewBox="0 0 358 150" preserveAspectRatio="none" style="position: absolute; inset: 0;">
+        <path d="M0 112 C 60 98, 110 122, 178 110 S 300 92, 358 102 L358 150 L0 150 Z" fill="#172c4a" opacity="0.9"></path>
+        <path d="M0 92 C 70 78, 130 100, 190 88 S 300 70, 358 80" fill="none" stroke="rgba(93,202,165,0.45)" stroke-width="1.1"></path>
+      </svg>
+      <sc-if value="{{ hasFix }}" hint-placeholder-val="{{ false }}">
+        <span style="position: absolute; left: 50%; top: 46%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 999px; background: #5dcaa5; border: 2px solid #0a1628;"></span>
+      </sc-if>
+      <span style="{{ mapNoteStyle }}">{{ mapNote }}</span>
+    </div>
+
+    <!-- coordinate capture -->
+    <div style="border: 1px solid #22304a; border-radius: 12px; background: #131f33; padding: 14px; display: flex; flex-direction: column; gap: 11px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;">
+        <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #9aa8ba;">Coordinate</span>
+        <span style="{{ accuracyStyle }}">{{ accuracyLabel }}</span>
+      </div>
+      <span class="mono" style="{{ coordStyle }}">{{ coordLabel }}</span>
+      <button class="pick" style="{{ locateStyle }}" onClick="{{ locate }}" disabled="{{ locateDisabled }}">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="{{ locateIconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path></svg>
+        {{ locateLabel }}
+      </button>
+    </div>
+
+    <!-- photo -->
+    <button class="pick" style="{{ photoStyle }}" onClick="{{ togglePhoto }}">
+      <span style="display: flex; align-items: center; gap: 10px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{ photoIconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+        {{ photoLabel }}
+      </span>
+      <span style="{{ photoThumbStyle }}"></span>
+    </button>
+
+    <!-- confirm -->
+    <button class="pick" style="{{ confirmStyle }}" onClick="{{ confirm }}" disabled="{{ confirmDisabled }}">{{ confirmLabel }}</button>
+
+    <p style="margin: 0; font-size: 11.5px; color: #9aa8ba; line-height: 1.45;">{{ footnote }}</p>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const QUEUE = [
+      { id: "TSKB-0142", address: "Organize San. Blg. 4. Cd. No: 17, Kepez / Antalya", reason: "Adres çözümlenemedi — sokak seviyesinde eşleşme yok.", lat: "36.90814", lon: "30.69557" },
+      { id: "TSKB-0181", address: "Merkez Mah., Muratpaşa / Antalya", reason: "Belirsiz — 3 aday konum bulundu.", lat: "36.88402", lon: "30.70931" },
+      { id: "TSKB-0203", address: "Serbest Bölge 2. Etap, Konyaaltı / Antalya", reason: "Adres çözümlenemedi — posta kodu eşleşmiyor.", lat: "36.85977", lon: "30.62148" },
+    ];
+
+    const TOTAL = 18;
+    const idx = this.state.idx ?? 0;
+    const fixed = this.state.fixed ?? 0;
+    const step = this.state.step ?? "idle";
+    const photo = this.state.photo ?? false;
+
+    const asset = QUEUE[idx % QUEUE.length];
+    const hasFix = step === "located" || step === "saved";
+    const done = fixed >= TOTAL;
+
+    const pct = Math.round((fixed / TOTAL) * 100);
+
+    const btn =
+      "min-height: 48px; width: 100%; border-radius: 10px; font-size: 14px; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 9px; cursor: pointer;";
+
+    const locating = step === "locating";
+    const saved = step === "saved";
+
+    return {
+      asset,
+      hasFix,
+
+      syncLabel: "queued · 3 offline",
+      syncChipStyle: "color: #e24b4a; border-color: rgba(226,75,74,0.28);",
+
+      progressLabel: fixed + " / " + TOTAL + " fixed",
+      progressFill: "display: block; height: 100%; border-radius: 999px; background: #5dcaa5; width: " + pct + "%;",
+
+      mapStyle:
+        "position: relative; height: 150px; border-radius: 12px; overflow: hidden; border: 1px solid " +
+        (hasFix ? "rgba(93,202,165,0.4)" : "#22304a") +
+        "; background: linear-gradient(160deg, #0f1c30 0%, #132340 55%, #1a2c4d 100%);",
+      mapNote: hasFix ? "Konum yakalandı" : "Henüz koordinat yok",
+      mapNoteStyle:
+        "position: absolute; left: 10px; bottom: 10px; padding: 5px 9px; border-radius: 6px; font-size: 11.5px; background: rgba(15,20,25,0.82); border: 1px solid #22304a; color: " +
+        (hasFix ? "#5dcaa5" : "#9aa8ba") +
+        ";",
+
+      coordLabel: locating ? "aranıyor…" : hasFix ? asset.lat + ", " + asset.lon : "— , —",
+      coordStyle: "font-size: 17px; color: " + (hasFix ? "#e6edf5" : "#9aa8ba") + ";",
+      accuracyLabel: hasFix ? "±4 m" : locating ? "GPS" : "not set",
+      accuracyStyle:
+        "font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11.5px; color: " + (hasFix ? "#5dcaa5" : "#9aa8ba") + ";",
+
+      locateLabel: locating ? "Konum alınıyor…" : hasFix ? "Yeniden ölç" : "Bulunduğum konumu kullan",
+      locateDisabled: locating,
+      locateIconColor: hasFix ? "#9aa8ba" : "#04231a",
+      locateStyle:
+        btn +
+        (hasFix || locating
+          ? " border: 1px solid #22304a; background: transparent; color: #9aa8ba;"
+          : " border: 1px solid #2ec990; background: #2ec990; color: #04231a; font-weight: 600;"),
+
+      photoLabel: photo ? "1 fotoğraf eklendi" : "Fotoğraf ekle",
+      photoIconColor: photo ? "#5dcaa5" : "#9aa8ba",
+      photoStyle:
+        "min-height: 56px; width: 100%; border-radius: 12px; padding: 0 14px; font-size: 13.5px; font-family: inherit; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #131f33; color: " +
+        (photo ? "#e6edf5" : "#9aa8ba") +
+        "; border: 1px solid " +
+        (photo ? "rgba(93,202,165,0.35)" : "#22304a") +
+        ";",
+      photoThumbStyle: photo
+        ? "width: 34px; height: 34px; border-radius: 6px; background: linear-gradient(140deg, #1d2f4a, #405a68); border: 1px solid #3b4d68;"
+        : "width: 34px; height: 34px; border-radius: 6px; border: 1px dashed #3b4d68;",
+
+      confirmLabel: saved ? "Kaydedildi" : done ? "Kuyruk tamamlandı" : "Onayla ve sıradakine geç",
+      confirmDisabled: !hasFix || saved || done,
+      confirmStyle:
+        btn +
+        (saved
+          ? " border: 1px solid rgba(93,202,165,0.5); background: rgba(93,202,165,0.12); color: #5dcaa5; font-weight: 600;"
+          : hasFix && !done
+          ? " border: 1px solid #2ec990; background: #2ec990; color: #04231a; font-weight: 600;"
+          : " border: 1px solid #22304a; background: transparent; color: #9aa8ba; opacity: 0.55;"),
+
+      footnote: done
+        ? "Kuyruk bitti. Düzeltmeler bağlantı gelince senkronlanır; yeniden çalıştırma masaüstünde tetiklenir."
+        : "Düzeltme cihazda kuyruğa alınır ve bağlantı gelince senkronlanır. Analiz yeniden çalıştırılmaz — bu karar masaüstünde verilir.",
+
+      locate: () => {
+        this.setState({ step: "locating" });
+        setTimeout(() => this.setState({ step: "located" }), 900);
+      },
+      togglePhoto: () => this.setState({ photo: !photo }),
+      confirm: () => {
+        this.setState({ step: "saved" });
+        setTimeout(
+          () => this.setState({ step: "idle", photo: false, fixed: fixed + 1, idx: idx + 1 }),
+          800
+        );
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

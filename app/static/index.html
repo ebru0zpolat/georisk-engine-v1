@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeoRisk Engine Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">GeoRisk Engine</p>
+      <h1>Location risk intelligence</h1>
+      <p>Run a demo asset assessment, review component scores, and download a report.</p>
+    </section>
+
+    <section class="card">
+      <h2>Demo assessment</h2>
+      <div class="controls">
+        <select id="asset-select" aria-label="Demo asset"></select>
+        <button id="run-button" type="button">Run assessment</button>
+        <a id="download-link" class="download hidden" href="#">Download PDF</a>
+      </div>
+      <p id="status" class="muted">Loading demo assets...</p>
+    </section>
+
+    <section id="results" class="grid hidden" aria-live="polite">
+      <article class="card">
+        <p class="eyebrow">Overall score</p>
+        <div id="score" class="score">--</div>
+        <p id="band" class="band">--</p>
+        <p id="headline" class="muted"></p>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">Asset</p>
+        <h2 id="asset-name">--</h2>
+        <p id="asset-meta" class="muted"></p>
+      </article>
+
+      <article class="card wide">
+        <h2>Component Scores</h2>
+        <div id="components" class="components"></div>
+      </article>
+
+      <article class="card">
+        <h2>Key Flags</h2>
+        <ul id="flags" class="list"></ul>
+      </article>
+
+      <article class="card">
+        <h2>Interpretation</h2>
+        <p id="interpretation" class="muted"></p>
+      </article>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

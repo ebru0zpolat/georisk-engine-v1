@@ -1,0 +1,177 @@
+[
+  {
+    "case": {
+      "case_id": "G-corrupted-fingerprint",
+      "description": "A plausible source whose declared content hash does not match its content.",
+      "expected_abstention": false,
+      "expected_blockers": [
+        "REJECTED_EVIDENCE"
+      ],
+      "expected_permissions": [
+        "EXPECTED_BLOCK",
+        "EXPECTED_ABSTAIN"
+      ],
+      "expected_trace_properties": {
+        "required_events": [
+          "EVIDENCE_REJECTED"
+        ]
+      },
+      "initial_artifacts": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "constraint_ids": [],
+            "contradicting_evidence_ids": [],
+            "epistemic_state": "OBSERVED",
+            "parent_claim_ids": [],
+            "predicate": "observes",
+            "subject": "site-1",
+            "supporting_evidence_ids": [
+              "E1"
+            ],
+            "value": "water_level=1.8"
+          },
+          {
+            "claim_id": "C2",
+            "constraint_ids": [
+              "K1"
+            ],
+            "contradicting_evidence_ids": [],
+            "epistemic_state": "INFERRED",
+            "parent_claim_ids": [
+              "C1"
+            ],
+            "predicate": "abstracts",
+            "subject": "site-1",
+            "supporting_evidence_ids": [],
+            "value": "flood_condition"
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_id": "K1",
+            "constraint_type": "data_integrity",
+            "description": "integrity check",
+            "required": true,
+            "status": "SATISFIED"
+          }
+        ],
+        "contradictions": [],
+        "evaluation_time": "2026-03-01T00:00:00Z",
+        "evidence": [
+          {
+            "content": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "content_hash": "94c09080b629d72e04a6ae19317d3b38934fbb9c52bafe76e9986a26f4c544b5",
+            "evidence_id": "E1",
+            "measurement": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "retrieval_mechanism": "benchmark-fixture",
+            "retrieved_at": "2026-01-01T00:00:00Z",
+            "source_id": "gauge-network",
+            "transformation_ids": [],
+            "upstream_evidence_ids": [],
+            "verification_status": "VERIFIED"
+          }
+        ],
+        "transformations": [],
+        "transitions": [
+          {
+            "requirements": [
+              {
+                "mandatory": true,
+                "parameters": {},
+                "requirement_id": "R-support",
+                "requirement_type": "SUPPORT_COMPLETE",
+                "subject_id": "C2"
+              },
+              {
+                "mandatory": true,
+                "parameters": {},
+                "requirement_id": "R-evidence",
+                "requirement_type": "EVIDENCE_VERIFIED",
+                "subject_id": "E1"
+              }
+            ],
+            "source_state": {
+              "claim_ids": [
+                "C1"
+              ],
+              "evidence_ids": [
+                "E1"
+              ],
+              "level": 0,
+              "state_id": "T1-source",
+              "state_type": "OBSERVATION"
+            },
+            "target_state": {
+              "claim_ids": [
+                "C2"
+              ],
+              "evidence_ids": [],
+              "level": 1,
+              "state_id": "T1-target",
+              "state_type": "CONDITION"
+            },
+            "transition_id": "T1",
+            "transition_type": "benchmark_abstraction"
+          }
+        ],
+        "uncertainty": {
+          "rules": [],
+          "thresholds": []
+        }
+      },
+      "metadata": {
+        "perturbation": "valid_looking_source_wrong_fingerprint"
+      },
+      "scenario_type": "CORRUPTED_SOURCE",
+      "target": {
+        "material_claim_id": "C2",
+        "target_type": "TRANSITION_PERMISSION",
+        "transition_id": "T1"
+      }
+    },
+    "reference": {
+      "admissible_evidence_ids": [],
+      "allowed_claim_ids": [],
+      "case_id": "G-corrupted-fingerprint",
+      "expected_contradiction_ids": [],
+      "expected_permission": "EXPECTED_BLOCK",
+      "forbidden_claim_ids": [
+        "C2"
+      ],
+      "max_plans_before_progress": 1,
+      "progress_expected_after_execution": false,
+      "required_abstention": false,
+      "required_blocker_types": [
+        "REJECTED_EVIDENCE"
+      ],
+      "required_constraint_behavior": "NONE",
+      "required_evidence_ids": [
+        "E1"
+      ],
+      "required_provenance_refs": [
+        "E1"
+      ],
+      "required_replanning": true,
+      "required_trace_events": [
+        "EVIDENCE_REGISTERED",
+        "CLAIM_DECLARED",
+        "SUPPORT_EVALUATED",
+        "TRANSITION_EVALUATED",
+        "EVIDENCE_REJECTED",
+        "PLAN_CREATED"
+      ],
+      "uncertainty_expectation": null
+    }
+  }
+]

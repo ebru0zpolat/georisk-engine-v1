@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #2ec990; text-decoration: none; }
+    a:hover { color: #5dcaa5; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #22304a; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; white-space: nowrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .th { text-align: left; padding: 9px 10px; border-bottom: 1px solid #22304a; color: #9aa8ba; font-weight: 500; font-size: 12px; }
+    .td { text-align: left; padding: 11px 10px; font-size: 12.5px; vertical-align: top; line-height: 1.5; }
+    .pick { cursor: pointer; font-family: inherit; background: transparent; }
+    .pick:focus-visible { outline: 2px solid #2ec990; outline-offset: 2px; }
+  </style>
+</helmet>
+
+<div style="width: 1360px; min-height: 1200px; background: linear-gradient(180deg, #0d1a2e 0%, #0a1628 40%); color: #e6edf5; font-family: Inter, 'Segoe UI', sans-serif; padding: 30px 32px 40px; display: flex; flex-direction: column; gap: 20px;">
+
+  <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; border-bottom: 1px solid #22304a; padding-bottom: 14px;">
+    <div>
+      <span style="font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #2ec990;">P0-1</span>
+      <h1 style="margin: 6px 0 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 28px;">Trust &amp; claim chips</h1>
+    </div>
+    <p style="margin: 0; max-width: 520px; font-size: 13.5px; color: #9aa8ba; line-height: 1.55;">Aşağıdaki tablodan bir durum seç — üstteki üç ölçekte nasıl göründüğünü canlı gösterir. Ekranda kaynağı belirsiz tek bir sayı kalmaz.</p>
+  </div>
+
+  <!-- live preview -->
+  <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 20px 22px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+      <h2 style="margin: 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 18px;">Anatomy &amp; placement</h2>
+      <span style="font-size: 12.5px; color: #9aa8ba;">Seçili durum: <span class="mono" style="color: #e6edf5;">{{ sel.id }}</span></span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 330px 1fr; gap: 28px; align-items: start; margin-top: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start;">
+        <span style="{{ sel.hugeStyle }}">
+          <span style="{{ sel.hugeDotStyle }}"></span>{{ sel.id }}
+        </span>
+        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: #9aa8ba;">
+          <span><span class="mono" style="color: #2ec990;">1.</span> 8px durum noktası — renk körlüğünde tek ayırt edici değil, metinle birlikte okunur</span>
+          <span><span class="mono" style="color: #2ec990;">2.</span> Durum adı: 11px tabular, kod ile birebir aynı string</span>
+          <span><span class="mono" style="color: #2ec990;">3.</span> 1px kenarlık, radius 4px, padding 3px 8px (satır içi ölçek)</span>
+          <span><span class="mono" style="color: #2ec990;">4.</span> Zemin: durum renginin %8–10 alfası, yalnızca vurgulu bağlamda</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="{{ valueScaleStyle }}">
+          <p style="margin: 0 0 8px; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: #9aa8ba;">Satır içi ölçek &middot; değerin yanında {{ valueScaleNote }}</p>
+          <div style="display: flex; align-items: baseline; gap: 9px;"><span class="mono" style="font-size: 19px;">₺1,284,400</span><span class="chip" style="{{ sel.chipStyle }}">{{ sel.id }}</span></div>
+        </div>
+        <div style="{{ sectionScaleStyle }}">
+          <p style="margin: 0 0 8px; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: #9aa8ba;">Bölüm ölçeği &middot; başlıkla aynı hizada {{ sectionScaleNote }}</p>
+          <div style="display: flex; align-items: center; gap: 10px;"><span style="font-family: Inter, 'Segoe UI', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -0.02em;">3. Expected loss</span><span class="chip" style="{{ sel.chipStyle }}">{{ sel.id }}</span></div>
+        </div>
+        <div style="{{ pageScaleStyle }}">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="{{ sel.color }}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+          <div>
+            <p style="margin: 0 0 6px; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: #9aa8ba;">Sayfa ölçeği &middot; kapatılamaz {{ pageScaleNote }}</p>
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"><span class="chip" style="{{ sel.chipStyle }}">{{ sel.id }}</span><strong style="font-size: 13px;">{{ sel.bannerCopy }}</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- dictionary -->
+  <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 20px 22px;">
+    <h2 style="margin: 0 0 14px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 18px;">State dictionary</h2>
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th class="th" style="width: 190px;">Chip</th>
+          <th class="th" style="width: 96px;">Aile</th>
+          <th class="th" style="width: 96px;">Eksen</th>
+          <th class="th" style="width: 190px;">API karşılığı</th>
+          <th class="th">Anlamı</th>
+          <th class="th" style="width: 150px;">Ölçek</th>
+          <th class="th" style="width: 92px;">Renk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <sc-for list="{{ states }}" as="s" hint-placeholder-count="9">
+          <tr style="{{ s.rowStyle }}" onClick="{{ s.pick }}">
+            <td class="td"><span class="chip" style="{{ s.chipStyle }}">{{ s.id }}</span></td>
+            <td class="td" style="color: #9aa8ba;">{{ s.family }}</td>
+            <td class="td" style="color: #9aa8ba;">{{ s.axis }}</td>
+            <td class="td mono" style="font-size: 11.5px;">{{ s.api }}</td>
+            <td class="td">{{ s.meaning }}</td>
+            <td class="td" style="color: #9aa8ba;">{{ s.scale }}</td>
+            <td class="td mono" style="font-size: 11.5px;">{{ s.color }}</td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+  </section>
+
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+    <section style="background: #131f33; border: 1px solid rgba(93,202,165,0.35); border-radius: 12px; padding: 18px 20px;">
+      <h2 style="margin: 0 0 12px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 17px;">Kurallar</h2>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 1.55;">
+        <span><span style="color: #5dcaa5;">&mdash;</span> İki eksen, iki yuva: kaynak chip'i solda, türetme chip'i sağda. Bir değer aynı anda LIVE ve STALE olabilir.</span>
+        <span><span style="color: #5dcaa5;">&mdash;</span> Bölüm chip'i, o bölümdeki <em style="font-style: normal; color: #e6edf5;">en zayıf</em> değerin durumudur.</span>
+        <span><span style="color: #5dcaa5;">&mdash;</span> Sayfa bandı hiçbir koşulda kapatılamaz ve yazdırma/PDF çıktısında da görünür.</span>
+        <span><span style="color: #5dcaa5;">&mdash;</span> Chip metni koddaki string ile birebir aynıdır — çeviri tooltip'e girer, chip'e girmez.</span>
+        <span><span style="color: #5dcaa5;">&mdash;</span> STALE her zaman yaş eki taşır (STALE · 14d) — kap farkı küçültülmüş ekran görüntüsünde kayboluyor.</span>
+      </div>
+    </section>
+    <section style="background: #131f33; border: 1px solid rgba(226,75,74,0.4); border-radius: 12px; padding: 18px 20px;">
+      <h2 style="margin: 0 0 12px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 17px;">Yapılmayacaklar</h2>
+      <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 1.55;">
+        <span><span style="color: #e24b4a;">&times;</span> Chip'i tooltip arkasına saklamak — durum her zaman görünür metindir.</span>
+        <span><span style="color: #e24b4a;">&times;</span> Sentetik değeri "tahmin" veya "modelled" gibi yumuşatılmış bir kelimeyle etiketlemek.</span>
+        <span><span style="color: #e24b4a;">&times;</span> Yalnız renkle durum anlatmak; ad olmadan chip yoktur.</span>
+        <span><span style="color: #e24b4a;">&times;</span> Sayfa bandını rapor/PDF çıktısından düşürmek.</span>
+        <span><span style="color: #e24b4a;">&times;</span> İki ekseni tek yuvaya sıkıştırmak; yeni durum eklemek (önce claim-control testi güncellenir).</span>
+      </div>
+    </section>
+  </div>
+
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":1360,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const TEAL4 = "#2ec990", TEAL3 = "#5dcaa5";
+    const AMBER = "#ef9f27", RED = "#e24b4a";
+    const N_LIGHT = "#c3cedb", N_MID = "#9aa8ba";
+
+    const STATES = [
+      { id: "VERIFIED", family: "teal", api: "licence_verified = true", meaning: "Kaynak doğrulandı, lisansı incelendi.", scale: "Değer", color: TEAL4, alpha: "rgba(46,201,144,0.6)", axis: "kaynak", bannerCopy: "Every source on this page has been licence-reviewed." },
+      { id: "LIVE", family: "teal", api: 'data_mode = "live"', meaning: "Gerçek connector yanıtı, bu çalıştırmada alındı.", scale: "Değer", color: TEAL3, alpha: "rgba(93,202,165,0.6)", axis: "kaynak", bannerCopy: "All inputs on this page came from live sources." },
+      { id: "FIXTURE", family: "amber", api: 'data_mode = "stub"', meaning: "Deterministik test verisi. Tekrarlanabilir, gerçek değil.", scale: "Değer", color: AMBER, alpha: "rgba(239,159,39,0.28)", axis: "kaynak", bannerCopy: "Deterministic fixture run — reproducible, not real data." },
+      { id: "SYNTHETIC", family: "amber", api: "calibration.method", meaning: "Etiketli sentetik hasar eğrisi.", scale: "Değer + bölüm", color: AMBER, alpha: "rgba(239,159,39,0.6)", axis: "kaynak", bannerCopy: "Damage curves are labelled synthetic v0.4." },
+      { id: "DEGRADED", family: "kırmızı", api: "connector fallback", meaning: "Birincil kaynak düştü; sonuç yedek yolla üretildi.", scale: "Değer + coverage", color: RED, alpha: "rgba(226,75,74,0.28)", axis: "kaynak", bannerCopy: "One or more sources fell back — see the coverage panel." },
+      { id: "NOT_ELIGIBLE", family: "kırmızı", api: "production_eligible = false", meaning: "Karar amaçlı kullanılamaz.", scale: "Sayfa bandı", color: RED, alpha: "rgba(226,75,74,0.6)", axis: "kaynak", bannerCopy: "Demonstration output. Not for credit, pricing or disclosure decisions." },
+      { id: "MODELLED", family: "nötr", api: "value.origin = model", meaning: "Bir modelden çıktı, ölçüm değil.", scale: "Değer", color: N_LIGHT, alpha: "rgba(195,206,219,0.4)", axis: "türetme", bannerCopy: "Values on this page are model output, not measurements." },
+      { id: "DERIVED", family: "nötr", api: "value.origin = computed", meaning: "Başka değerlerden hesaplandı.", scale: "Değer", color: N_MID, alpha: "rgba(154,168,186,0.4)", axis: "türetme", bannerCopy: "Values on this page are computed from other values." },
+      { id: "STALE · 14d", family: "nötr", api: "value.run_id != current", meaning: "Güncel çalıştırmadan gelmiyor. Yaş metin eki olarak taşınır.", scale: "Değer", color: N_MID, alpha: "rgba(154,168,186,0.4)", axis: "türetme", stale: true, bannerCopy: "Some values on this page are older than the current run." },
+    ];
+
+    const selId = this.state.selected ?? "SYNTHETIC";
+    const sel = STATES.find((s) => s.id === selId) ?? STATES[2];
+
+    const chipStyleFor = (s) =>
+      "color: " + s.color + "; border-color: " + (s.stale ? "#3b4d68" : s.alpha) + ";" +
+      (s.stale ? " background: #101a2b;" : "");
+
+    const states = STATES.map((s) => ({
+      ...s,
+      chipStyle: chipStyleFor(s),
+      rowStyle:
+        "cursor: pointer; border-bottom: 1px solid #22304a; " +
+        (s.id === selId ? "background: rgba(46,201,144,0.08); box-shadow: inset 2px 0 0 #2ec990;" : ""),
+      pick: () => this.setState({ selected: s.id }),
+    }));
+
+    // which placement scales this state actually appears at
+    const atValue = sel.scale.indexOf("Değer") === 0;
+    const atSection = sel.scale.indexOf("bölüm") > -1;
+    const atPage = sel.scale === "Sayfa bandı";
+    const atManifest = sel.scale === "Manifest satırı";
+
+    const live = "border: 1px solid #22304a; border-radius: 8px; background: #101a2b; padding: 14px;";
+    const off = "border: 1px dashed #22304a; border-radius: 8px; background: #101a2b; padding: 14px; opacity: 0.4;";
+    const note = (on) => (on ? "" : "— bu durum burada görünmez");
+
+    return {
+      states,
+      sel: {
+        id: sel.id,
+        color: sel.color,
+        chipStyle: chipStyleFor(sel),
+        bannerCopy: sel.bannerCopy,
+        hugeStyle:
+          "display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 17px; color: " +
+          sel.color +
+          "; border: 1.5px solid " +
+          (sel.stale ? "#3b4d68" : sel.alpha) +
+          "; background: " +
+          (sel.stale ? "#101a2b" : sel.alpha.replace(/0\.\d+\)$/, "0.10)")) +
+          ";",
+        hugeDotStyle: "width: 8px; height: 8px; border-radius: 999px; background: " + sel.color + ";",
+      },
+      valueScaleStyle: atValue ? live : off,
+      valueScaleNote: note(atValue),
+      sectionScaleStyle: atSection || atManifest ? live : off,
+      sectionScaleNote: atManifest ? "(manifest satırında)" : note(atSection),
+      pageScaleStyle:
+        (atPage
+          ? "border: 1px solid " + sel.alpha + "; background: rgba(226,75,74,0.10);"
+          : "border: 1px dashed #22304a; background: #101a2b; opacity: 0.4;") +
+        " border-radius: 8px; padding: 14px; display: flex; gap: 11px; align-items: flex-start;",
+      pageScaleNote: note(atPage),
+    };
+  }
+}
+</script>
+</body>
+</html>

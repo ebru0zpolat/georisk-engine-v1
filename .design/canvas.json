@@ -1,0 +1,106 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1360,
+      "h": 1280,
+      "title": "P0-3 · Portfolio upload & triage",
+      "is_interactive": true
+    },
+    {
+      "file": "AssetDetail.dc.html",
+      "x": 1460,
+      "y": 0,
+      "w": 1360,
+      "h": 1280,
+      "title": "P0-4 · Asset detail drill-down",
+      "is_interactive": true
+    },
+    {
+      "file": "EvidenceViewer.dc.html",
+      "x": 2920,
+      "y": 0,
+      "w": 1360,
+      "h": 1280,
+      "title": "P0-2 · Evidence / audit viewer",
+      "is_interactive": true
+    },
+    {
+      "file": "TrustChips.dc.html",
+      "x": 0,
+      "y": 1440,
+      "w": 1360,
+      "h": 1200,
+      "title": "P0-1 · Trust & claim chips",
+      "is_interactive": true
+    },
+    {
+      "file": "Tokens.dc.html",
+      "x": 1460,
+      "y": 1440,
+      "w": 1360,
+      "h": 1300,
+      "title": "P0-5 · Design tokens"
+    },
+    {
+      "file": "MobileSnapshot.dc.html",
+      "x": 0,
+      "y": 2900,
+      "w": 390,
+      "h": 844,
+      "title": "Mobile · asset snapshot (read-only)",
+      "is_interactive": true
+    },
+    {
+      "file": "MobileTriage.dc.html",
+      "x": 490,
+      "y": 2900,
+      "w": 390,
+      "h": 844,
+      "title": "Mobile · field triage",
+      "is_interactive": true
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-try",
+      "x": 2920,
+      "y": 1440,
+      "w": 400,
+      "text": "Deneme akışı — P0-3:\n1. Confirm mapping (Run kilidi açılır)\n2. Run analysis\n3. Üstteki 1–5 rayında katmanlar arasında gez\n4. Show the 33 → filtre chip'leri\n5. Re-run with fixes → 109/120, geriye yalnız düzeltilemeyenler kalır"
+    },
+    {
+      "id": "note-try2",
+      "x": 2920,
+      "y": 1760,
+      "w": 400,
+      "text": "P0-4: Horizon (Today/2030/2050) ve Adaptation anahtarı şelaleyi, bandı, sürücüleri ve haritayı birlikte değiştirir.\n\nP0-2: sekmeler, manifest satırlarını açma, hash'e tıklayıp kopyalama.\n\nP0-1: tablodan durum seç, üç ölçekte canlı görünsün."
+    },
+    {
+      "id": "note-limits",
+      "x": 2920,
+      "y": 2080,
+      "w": 400,
+      "text": "Sınırlar:\n— Artboard'lar birbirine bağlanamaz; ekranlar arası gezinme yok, her prototip kendi içinde çalışır.\n— Tüm sayılar örnek veridir, motor çıktısı değil.\n— P0-5 token sayfası bilinçli olarak statiktir."
+    },
+    {
+      "id": "note-brief",
+      "x": 3360,
+      "y": 1440,
+      "w": 380,
+      "text": "Görsel dil portfolio-demo.css'ten birebir alındı:\nIBM Plex Sans / Serif, DM Mono rozet,\naccent #c4a35a, panel #171e26, zemin #0f1419,\nçizgi rgba(232,238,244,.12), radius 12/8/4.\n\nYeni olan tek şey risk bandı skalası."
+    },
+    {
+      "id": "note-mobile",
+      "x": 980,
+      "y": 2900,
+      "w": 400,
+      "text": "Mobil, 390×844 — native uygulama değil, responsive web hedefi.\n\nSnapshot: salt-okunur; horizon anahtarı EAL, band ve sürücüleri değiştirir. not-production-eligible bandı mobilde de kapatılamaz.\n\nField triage: konum yakala → fotoğraf → onayla → sıradaki. Düzeltme cihazda kuyruğa alınır; yeniden çalıştırma masaüstünde kalır.\n\nOS'un kendi durum çubuğu ve klavyesi çizilmedi — gerçek cihazda üstte kendisi render eder."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

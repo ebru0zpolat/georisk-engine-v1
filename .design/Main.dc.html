@@ -1,0 +1,466 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #2ec990; text-decoration: none; }
+    a:hover { color: #5dcaa5; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #22304a; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; white-space: nowrap; }
+    .th { text-align: left; padding: 9px 10px; border-bottom: 1px solid #22304a; color: #9aa8ba; font-weight: 500; font-size: 12px; }
+    .td { text-align: left; padding: 10px; border-bottom: 1px solid #22304a; font-size: 13px; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .btn { border-radius: 8px; padding: 9px 14px; font-size: 13px; cursor: pointer; font-family: inherit; border: 1px solid #22304a; background: transparent; color: #e6edf5; }
+    .btn:hover { border-color: #3b4d68; }
+    .btn.primary { background: #2ec990; border-color: #2ec990; color: #04231a; font-weight: 600; }
+    .btn.primary:hover { background: #5dcaa5; border-color: #5dcaa5; }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn:focus-visible, .pick:focus-visible { outline: 2px solid #2ec990; outline-offset: 2px; }
+    .pick { cursor: pointer; font-family: inherit; background: transparent; }
+    .skel { border-radius: 999px; background: #101a2b; }
+  </style>
+</helmet>
+
+<div style="width: 1360px; min-height: 1280px; background: radial-gradient(ellipse 80% 50% at 10% -10%, rgba(46,201,144,0.12), transparent), linear-gradient(180deg, #0d1a2e 0%, #0a1628 40%); color: #e6edf5; font-family: Inter, 'Segoe UI', sans-serif; padding: 0 0 40px; display: flex; flex-direction: column;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 32px; height: 56px; border-bottom: 1px solid #22304a;">
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span style="font-weight: 600; letter-spacing: 0.02em; font-size: 16px;">GeoRisk Engine</span>
+      <div style="display: flex; gap: 18px; font-size: 13px; color: #9aa8ba;">
+        <span style="color: #e6edf5; border-bottom: 2px solid #2ec990; padding-bottom: 18px;">Portfolios</span>
+        <span>Assets</span>
+        <span>Evidence</span>
+        <span>Reports</span>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span class="chip" style="color: #9aa8ba;">pack-tr v0.4 &middot; pack-nl v0.2</span>
+      <span style="width: 28px; height: 28px; border-radius: 999px; background: rgba(46,201,144,0.18); border: 1px solid rgba(46,201,144,0.45); display: grid; place-items: center; font-size: 12px; color: #2ec990;">EÖ</span>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 18px; padding: 20px 32px 0; max-width: 1296px;">
+
+    <div style="display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border: 1px solid rgba(226,75,74,0.45); background: rgba(226,75,74,0.10); border-radius: 8px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e24b4a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <span class="chip" style="color: #e24b4a; border-color: rgba(226,75,74,0.6); background: rgba(226,75,74,0.10);">NOT_ELIGIBLE</span>
+          <span class="chip" style="color: #e24b4a; border-color: rgba(226,75,74,0.6); background: rgba(226,75,74,0.10);">NOT_VALIDATED</span>
+          <strong style="font-size: 13px; font-weight: 600;">Demonstration output. Not for credit, pricing or disclosure decisions.</strong>
+        </div>
+        <span style="font-size: 12.5px; color: #9aa8ba; line-height: 1.45;">Damage curves are labelled synthetic v0.x. No calibration against observed loss has been completed for this use case.</span>
+      </div>
+    </div>
+
+    <!-- five-layer rail — clickable once results exist -->
+    <ol style="list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0;">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+        <li>
+          <button class="pick" style="{{ s.style }}" onClick="{{ s.pick }}" disabled="{{ s.locked }}">
+            <span style="{{ s.numStyle }}">{{ s.num }}</span>{{ s.label }}
+          </button>
+        </li>
+      </sc-for>
+    </ol>
+
+    <!-- upload panel -->
+    <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 20px 22px 22px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+        <h1 style="margin: 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 26px;">Portfolio upload</h1>
+        <span class="mono" style="font-size: 12px; color: #9aa8ba;">TSKB_CRE_2026Q1.csv &middot; 120 rows &middot; 41 KB</span>
+      </div>
+      <p style="margin: 9px 0 18px; color: #9aa8ba; font-size: 14px; line-height: 1.5; max-width: 620px;">Every row is either analysed or explained. Nothing is dropped silently.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;">
+
+        <div style="border: 1px solid #22304a; border-radius: 8px; padding: 14px; background: #101a2b; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5dcaa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+            <span style="font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #9aa8ba;">1 &middot; File</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <span style="font-size: 12px; color: #9aa8ba;">Valuation date</span>
+            <div style="background: #101a2b; border: 1px solid #22304a; border-radius: 8px; padding: 9px 11px; font-size: 13px;">2026-01-01</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <span style="font-size: 12px; color: #9aa8ba;">Display currency</span>
+            <div style="background: #101a2b; border: 1px solid #22304a; border-radius: 8px; padding: 9px 11px; font-size: 13px;">TRY</div>
+          </div>
+          <span style="font-size: 11.5px; color: #9aa8ba; line-height: 1.45;">Limits: 500 rows &middot; 10 MB &middot; CSV / XLSX</span>
+        </div>
+
+        <div style="{{ mapPanelStyle }}">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="{{ mapNumStyle }}" class="mono">2</span>
+            <span style="{{ mapTitleStyle }}">2 &middot; Column mapping</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <div style="display: grid; grid-template-columns: 1fr 14px 1fr; align-items: center; gap: 6px; font-size: 12.5px;"><span class="mono" style="color: #9aa8ba;">lat</span><span style="color: #5dcaa5;">&rarr;</span><span>latitude</span></div>
+            <div style="display: grid; grid-template-columns: 1fr 14px 1fr; align-items: center; gap: 6px; font-size: 12.5px;"><span class="mono" style="color: #9aa8ba;">lon</span><span style="color: #5dcaa5;">&rarr;</span><span>longitude</span></div>
+            <div style="display: grid; grid-template-columns: 1fr 14px 1fr; align-items: center; gap: 6px; font-size: 12.5px;"><span class="mono" style="color: #9aa8ba;">teminat_deger</span><span style="color: #5dcaa5;">&rarr;</span><span>asset_value</span></div>
+            <div style="display: grid; grid-template-columns: 1fr 14px 1fr; align-items: center; gap: 6px; font-size: 12.5px;"><span class="mono" style="color: #9aa8ba;">yapi_tipi</span><span style="{{ mapArrowStyle }}">&rarr;</span><span style="{{ mapTargetStyle }}">{{ mapTargetLabel }}</span></div>
+            <div style="display: grid; grid-template-columns: 1fr 14px 1fr; align-items: center; gap: 6px; font-size: 12.5px;"><span class="mono" style="color: #9aa8ba;">notlar</span><span style="color: #9aa8ba;">&rarr;</span><span style="color: #9aa8ba;">— ignored</span></div>
+          </div>
+          <sc-if value="{{ mapPending }}" hint-placeholder-val="{{ true }}">
+            <button class="btn pick" style="align-self: flex-start; padding: 6px 11px; font-size: 12px; border-color: rgba(46,201,144,0.55); color: #2ec990;" onClick="{{ confirmMapping }}">Confirm mapping</button>
+          </sc-if>
+          <span style="{{ mapNoteStyle }}">{{ mapNote }}</span>
+        </div>
+
+        <div style="border: 1px solid #22304a; border-radius: 8px; padding: 14px; background: #101a2b; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 16px; height: 16px; border-radius: 50%; border: 1px solid #3b4d68; display: grid; place-items: center; font-size: 10px; color: #9aa8ba;" class="mono">3</span>
+            <span style="font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #9aa8ba;">3 &middot; Row validation</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 13px;"><span>Valid rows</span><span class="mono" style="color: #5dcaa5;">{{ analysed }}</span></div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 13px;"><span>Needs attention</span><span class="mono" style="color: #e24b4a;">{{ excluded }}</span></div>
+            <div style="height: 6px; border-radius: 999px; background: #101a2b; overflow: hidden; display: flex;">
+              <span style="{{ barOkStyle }}"></span>
+              <span style="{{ barWarnStyle }}"></span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 2px;">
+            <button class="btn primary pick" onClick="{{ run }}" disabled="{{ runDisabled }}">{{ runLabel }}</button>
+            <button class="btn pick" onClick="{{ reset }}">Reset</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- running -->
+    <sc-if value="{{ isRunning }}" hint-placeholder-val="{{ false }}">
+      <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 20px 22px;" aria-busy="true">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+          <span class="chip" style="color: #9aa8ba;">RUNNING</span>
+          <span style="font-size: 13px; color: #9aa8ba;">Scoring {{ analysed }} assets across 5 layers…</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px;">
+          <span class="skel" style="height: 11px; display: block;"></span>
+          <span class="skel" style="height: 11px; width: 78%; display: block;"></span>
+          <span class="skel" style="height: 11px; width: 54%; display: block;"></span>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- results -->
+    <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px; border: 1px solid rgba(46,201,144,0.55); background: rgba(46,201,144,0.10); border-radius: 8px;">
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <strong style="font-size: 14px; font-weight: 600;">{{ coverageHeadline }}</strong>
+            <span style="font-size: 12.5px; color: #9aa8ba;">Portfolio EAL covers <span style="color: #2ec990;">analysed assets only</span> — excluded assets contribute nothing to any total on this page.</span>
+          </div>
+          <button class="pick" style="display: inline-flex; align-items: center; gap: 6px; border: 0; border-bottom: 1px solid rgba(46,201,144,0.6); color: #2ec990; font-size: 13px; padding: 0 0 2px;" onClick="{{ toggleTriage }}">{{ triageLabel }}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2ec990" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+          </button>
+        </div>
+
+        <!-- active step block -->
+        <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px 20px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <h2 style="margin: 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">{{ block.title }}</h2>
+            <span style="{{ block.chipStyle }}" class="chip">{{ block.chip }}</span>
+          </div>
+          <p style="margin: 8px 0 14px; color: #9aa8ba; font-size: 13.5px; line-height: 1.5;">{{ block.lead }}</p>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+            <sc-for list="{{ block.metrics }}" as="m" hint-placeholder-count="4">
+              <div style="border: 1px solid #22304a; border-radius: 8px; background: #101a2b; padding: 13px;">
+                <p style="margin: 0; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: #9aa8ba;">{{ m.label }}</p>
+                <p style="{{ m.valueStyle }}">{{ m.value }}</p>
+                <p style="margin: 4px 0 0; font-size: 12px; color: #9aa8ba;">{{ m.note }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+
+        <!-- triage -->
+        <sc-if value="{{ triageOpen }}" hint-placeholder-val="{{ true }}">
+          <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px 20px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+              <h2 style="margin: 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">Excluded asset triage</h2>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn pick">Export CSV</button>
+                <button class="btn primary pick" onClick="{{ rerun }}" disabled="{{ rerunDisabled }}">{{ rerunLabel }}</button>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 12px;">
+              <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+                <button class="pick" style="{{ f.style }}" onClick="{{ f.pick }}">{{ f.label }}</button>
+              </sc-for>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th class="th" style="width: 62px;">Row</th>
+                  <th class="th" style="width: 150px;">Asset id</th>
+                  <th class="th">Reason</th>
+                  <th class="th" style="width: 210px;">Offending value</th>
+                  <th class="th" style="width: 190px;">Fix</th>
+                </tr>
+              </thead>
+              <tbody>
+                <sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
+                  <tr>
+                    <td class="td mono" style="color: #9aa8ba;">{{ r.row }}</td>
+                    <td class="td mono">{{ r.id }}</td>
+                    <td class="td"><span class="chip" style="{{ r.chipStyle }}">{{ r.kindLabel }}</span> <span style="color: #9aa8ba;">{{ r.reason }}</span></td>
+                    <td class="td mono" style="font-size: 12px; color: #9aa8ba;">{{ r.offending }}</td>
+                    <td class="td"><span style="{{ r.fixStyle }}">{{ r.fix }}</span></td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+            <p style="margin: 12px 0 0; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">{{ triageFootnote }}</p>
+          </section>
+        </sc-if>
+
+      </div>
+    </sc-if>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":1360,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phase = this.state.phase ?? "setup";
+    const mapped = this.state.mapped ?? false;
+    const fixed = this.state.fixed ?? false;
+    const triageOpen = this.state.triageOpen ?? false;
+    const filter = this.state.filter ?? "all";
+    const step = this.state.step ?? "upload";
+
+    const TOTAL = 120;
+    const analysed = fixed ? 109 : 87;
+    const excluded = TOTAL - analysed;
+
+    const KINDS = fixed
+      ? [
+          { id: "pack", label: "No country pack", count: 9 },
+          { id: "coord", label: "Invalid coordinate", count: 2 },
+        ]
+      : [
+          { id: "geocode", label: "Geocode failed", count: 18 },
+          { id: "pack", label: "No country pack", count: 9 },
+          { id: "value", label: "Missing value", count: 4 },
+          { id: "coord", label: "Invalid coordinate", count: 2 },
+        ];
+
+    const WARN = "color: #e24b4a; border-color: rgba(226,75,74,0.28);";
+    const STOP = "color: #e24b4a; border-color: rgba(226,75,74,0.6);";
+
+    const ALL_ROWS = [
+      { row: 14, id: "TSKB-0142", kind: "geocode", kindLabel: "geocode-failed", reason: "Address not resolvable", offending: '"Organize San. Blg. 4. Cd."', fix: "Enter coordinates", fixable: true },
+      { row: 27, id: "TSKB-0155", kind: "pack", kindLabel: "no-country-pack", reason: "Country outside packs", offending: 'country = "BG"', fix: "Not fixable — no pack", fixable: false },
+      { row: 31, id: "TSKB-0159", kind: "value", kindLabel: "missing-value", reason: "asset_value empty", offending: 'teminat_deger = ""', fix: "Enter value", fixable: true },
+      { row: 48, id: "TSKB-0176", kind: "coord", kindLabel: "invalid-coordinate", reason: "Latitude out of range", offending: "lat = 91.4", fix: "Correct coordinate", fixable: true },
+      { row: 53, id: "TSKB-0181", kind: "geocode", kindLabel: "geocode-failed", reason: "Ambiguous — 3 candidates", offending: '"Merkez Mah., Antalya"', fix: "Pick a candidate", fixable: true },
+      { row: 62, id: "TSKB-0190", kind: "pack", kindLabel: "no-country-pack", reason: "Country outside packs", offending: 'country = "GR"', fix: "Not fixable — no pack", fixable: false },
+      { row: 71, id: "TSKB-0199", kind: "value", kindLabel: "missing-value", reason: "asset_value not numeric", offending: 'teminat_deger = "n/a"', fix: "Enter value", fixable: true },
+      { row: 88, id: "TSKB-0216", kind: "coord", kindLabel: "invalid-coordinate", reason: "Coordinates transposed", offending: "lat = 30.69, lon = 36.90", fix: "Correct coordinate", fixable: true },
+    ];
+
+    const liveKinds = KINDS.map((k) => k.id);
+    const pool = ALL_ROWS.filter((r) => liveKinds.includes(r.kind));
+    const rows = (filter === "all" ? pool : pool.filter((r) => r.kind === filter)).map((r) => ({
+      ...r,
+      chipStyle: r.kind === "pack" || r.kind === "coord" ? STOP : WARN,
+      fixStyle: r.fixable ? "color: #2ec990;" : "color: #9aa8ba;",
+    }));
+
+    const filterChip = (active) =>
+      active
+        ? "padding: 6px 11px; border: 1px solid #2ec990; border-radius: 999px; font-size: 12.5px; color: #e6edf5;"
+        : "padding: 6px 11px; border: 1px solid #22304a; border-radius: 999px; font-size: 12.5px; color: #9aa8ba;";
+
+    const filters = [{ id: "all", label: "All " + excluded, count: excluded }]
+      .concat(KINDS.map((k) => ({ id: k.id, label: k.label + " " + k.count, count: k.count })))
+      .map((f) => ({
+        label: f.label,
+        style: filterChip(f.id === filter),
+        pick: () => this.setState({ filter: f.id }),
+      }));
+
+    const SCEN = fixed
+      ? { value: "₺7.9B", eal: "₺98.7M", mean: "₺905,500", y2030: "₺124.0M", y2050: "₺172.6M", avoided: "₺52.4M", residual: "₺46.3M", avgAvoided: "₺480,700", capex: "₺31.2M", measures: 16 }
+      : { value: "₺6.2B", eal: "₺78.4M", mean: "₺901,150", y2030: "₺98.5M", y2050: "₺137.2M", avoided: "₺41.2M", residual: "₺37.2M", avgAvoided: "₺473,560", capex: "₺24.6M", measures: 12 };
+
+    const GOLD = "margin: 6px 0 0; font-size: 20px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; color: #2ec990;";
+    const PLAIN = "margin: 6px 0 0; font-size: 20px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums;";
+    const GREEN = "margin: 6px 0 0; font-size: 20px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; color: #5dcaa5;";
+
+    const SYNTH = "color: #ef9f27; border-color: rgba(239,159,39,0.6);";
+    const LIVE = "color: #5dcaa5; border-color: rgba(93,202,165,0.6);";
+    const FIXTURE = "color: #ef9f27; border-color: rgba(239,159,39,0.28);";
+
+    const BLOCKS = {
+      upload: {
+        title: "1. Upload",
+        chip: "VERIFIED",
+        chipStyle: LIVE,
+        lead: "Rows parsed, mapped and validated. Only analysed assets enter any total below.",
+        metrics: [
+          { label: "Portfolio", value: "TSKB_CRE_2026Q1", note: "CSV upload", valueStyle: "margin: 6px 0 0; font-size: 15px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace;" },
+          { label: "Analysed assets", value: analysed + " / " + TOTAL, note: excluded + " excluded", valueStyle: PLAIN },
+          { label: "Valuation date", value: "2026-01-01", note: "As entered", valueStyle: PLAIN },
+          { label: "Analysed value", value: SCEN.value, note: "TRY, analysed only", valueStyle: PLAIN },
+        ],
+      },
+      hazard: {
+        title: "2. Hazard",
+        chip: "DEGRADED",
+        chipStyle: WARN,
+        lead: "Multi-hazard composite, SSP2-4.5. One connector fell back — the affected layer is named on each asset.",
+        metrics: [
+          { label: "Mean composite intensity", value: "0.58", note: "0–1 scale", valueStyle: PLAIN },
+          { label: "Dominant hazard", value: "Pluvial flood", note: "61 of " + analysed + " assets", valueStyle: "margin: 6px 0 0; font-size: 17px;" },
+          { label: "Assets above 0.7", value: "23", note: "band 3 and above", valueStyle: PLAIN },
+          { label: "Live sources", value: "4 of 5", note: "GEE degraded", valueStyle: PLAIN },
+        ],
+      },
+      loss: {
+        title: "3. Expected loss",
+        chip: "SYNTHETIC",
+        chipStyle: SYNTH,
+        lead: "Expected annual loss from the pack-tr damage curves. Labelled synthetic — not calibrated against observed loss.",
+        metrics: [
+          { label: "EAL (analysed only)", value: SCEN.eal, note: "1.27% of analysed value", valueStyle: GOLD },
+          { label: "EAL mean / asset", value: SCEN.mean, note: "per analysed asset", valueStyle: PLAIN },
+          { label: "2030 EAL sum", value: SCEN.y2030, note: "+25.6% vs today", valueStyle: PLAIN },
+          { label: "2050 EAL sum", value: SCEN.y2050, note: "+74.5% vs today", valueStyle: PLAIN },
+        ],
+      },
+      adaptation: {
+        title: "4. Adaptation",
+        chip: "FIXTURE",
+        chipStyle: FIXTURE,
+        lead: "Measures drawn from the country pack, ranked by avoided loss per unit of CAPEX.",
+        metrics: [
+          { label: "Top recommendation", value: "Perimeter barrier", note: SCEN.measures + " assets", valueStyle: "margin: 6px 0 0; font-size: 17px;" },
+          { label: "Measures proposed", value: String(SCEN.measures), note: "3 measure types", valueStyle: PLAIN },
+          { label: "CAPEX total", value: SCEN.capex, note: "25-year life", valueStyle: PLAIN },
+          { label: "Median payback", value: "2.4 yr", note: "undiscounted", valueStyle: PLAIN },
+        ],
+      },
+      avoided: {
+        title: "5. Avoided loss",
+        chip: "SYNTHETIC",
+        chipStyle: SYNTH,
+        lead: "What the proposed measures remove from expected annual loss, and what remains after them.",
+        metrics: [
+          { label: "Avoided loss (sum)", value: SCEN.avoided, note: "per year", valueStyle: GREEN },
+          { label: "Residual EAL (sum)", value: SCEN.residual, note: "after measures", valueStyle: PLAIN },
+          { label: "Avoided loss (mean)", value: SCEN.avgAvoided, note: "per treated asset", valueStyle: PLAIN },
+          { label: "Verification", value: "agree", note: "recomputed EAL matches", valueStyle: GREEN },
+        ],
+      },
+    };
+
+    const STEP_DEFS = [
+      { id: "upload", num: "1", label: "Upload" },
+      { id: "hazard", num: "2", label: "Hazard" },
+      { id: "loss", num: "3", label: "Expected loss" },
+      { id: "adaptation", num: "4", label: "Adaptation" },
+      { id: "avoided", num: "5", label: "Avoided loss" },
+    ];
+
+    const hasResults = phase === "results";
+    const railBase =
+      "display: flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; font-size: 13px; font-family: inherit; background: transparent;";
+
+    const steps = STEP_DEFS.map((s) => {
+      const active = hasResults && s.id === step;
+      return {
+        num: s.num,
+        label: s.label,
+        locked: !hasResults,
+        style:
+          railBase +
+          (active
+            ? " border: 1px solid #2ec990; color: #e6edf5; cursor: pointer;"
+            : hasResults
+            ? " border: 1px solid #22304a; color: #9aa8ba; cursor: pointer;"
+            : " border: 1px solid #22304a; color: #9aa8ba; opacity: 0.55; cursor: not-allowed;"),
+        numStyle:
+          "width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; font-size: 11px; background: " +
+          (active ? "rgba(46,201,144,0.22)" : "#101a2b") +
+          ";",
+        pick: () => this.setState({ step: s.id }),
+      };
+    });
+
+    const okPct = Math.round((analysed / TOTAL) * 1000) / 10;
+    const mapPending = !mapped;
+
+    return {
+      analysed: String(analysed),
+      excluded: String(excluded),
+      isRunning: phase === "running",
+      hasResults,
+      triageOpen,
+      rows,
+      filters,
+      steps,
+      block: BLOCKS[step] ?? BLOCKS.upload,
+
+      barOkStyle: "width: " + okPct + "%; background: #5dcaa5;",
+      barWarnStyle: "width: " + (100 - okPct) + "%; background: #e24b4a;",
+
+      mapPending,
+      mapPanelStyle:
+        "border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 10px; " +
+        (mapPending
+          ? "border: 1px solid rgba(46,201,144,0.45); background: rgba(46,201,144,0.06);"
+          : "border: 1px solid #22304a; background: #101a2b;"),
+      mapNumStyle:
+        "width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; " +
+        (mapPending ? "border: 1px solid #2ec990; color: #2ec990;" : "border: 1px solid rgba(93,202,165,0.6); color: #5dcaa5;"),
+      mapTitleStyle:
+        "font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: " + (mapPending ? "#2ec990" : "#9aa8ba") + ";",
+      mapArrowStyle: "color: " + (mapPending ? "#2ec990" : "#5dcaa5") + ";",
+      mapTargetStyle: "color: " + (mapPending ? "#2ec990" : "#e6edf5") + ";",
+      mapTargetLabel: mapPending ? "structure_type ?" : "structure_type",
+      mapNote: mapPending ? "1 mapping needs confirmation before the run." : "All 4 mappings confirmed.",
+      mapNoteStyle: "font-size: 11.5px; line-height: 1.45; color: " + (mapPending ? "#2ec990" : "#5dcaa5") + ";",
+
+      runDisabled: mapPending || phase === "running",
+      runLabel: phase === "running" ? "Running…" : hasResults ? "Run again" : "Run analysis",
+      coverageHeadline: analysed + " of " + TOTAL + " assets analysed &middot; " + excluded + " excluded",
+      triageLabel: triageOpen ? "Hide the " + excluded : "Show the " + excluded,
+      rerunDisabled: fixed,
+      rerunLabel: fixed ? "22 rows fixed" : "Re-run with fixes",
+      triageFootnote: fixed
+        ? "The remaining " + excluded + " rows are not fixable from here: no country pack covers them, or the coordinate is unusable. The earlier run keeps its own audit_id."
+        : "Showing " + rows.length + " of " + excluded + ". Fixes are applied to a new run; the previous run keeps its own audit_id and stays readable.",
+
+      confirmMapping: () => this.setState({ mapped: true }),
+      run: () => {
+        this.setState({ phase: "running" });
+        setTimeout(() => this.setState({ phase: "results", step: "upload" }), 900);
+      },
+      rerun: () => {
+        this.setState({ phase: "running" });
+        setTimeout(() => this.setState({ phase: "results", fixed: true, filter: "all" }), 900);
+      },
+      toggleTriage: () => this.setState({ triageOpen: !triageOpen }),
+      reset: () =>
+        this.setState({ phase: "setup", mapped: false, fixed: false, triageOpen: false, filter: "all", step: "upload" }),
+    };
+  }
+}
+</script>
+</body>
+</html>

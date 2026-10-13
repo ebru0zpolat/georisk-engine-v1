@@ -1,0 +1,2213 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "portfolio_id": "golden-antalya-v1",
+    "market": "TR-Antalya",
+    "synthetic": true,
+    "disclaimer": "Fictional assets on real geographies for demo/CI only. No real customer or personal data.",
+    "valuation_date": "2021-07-01",
+    "asset_count": 100
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.700174,
+          36.880384
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-000",
+        "address": "Synthetic Kaleici parcel 000, Antalya",
+        "asset_value": 7417333.92,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2015,
+        "floors": 5,
+        "insurance_coverage": 4988151.23,
+        "ltv": 0.45,
+        "loan_id": "SYN-LN-000"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.714398,
+          36.891888
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-001",
+        "address": "Synthetic Muratpasa parcel 001, Antalya",
+        "asset_value": 2967566.55,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2013,
+        "floors": 13,
+        "insurance_coverage": 1337515.64,
+        "ltv": 0.46,
+        "loan_id": "SYN-LN-001"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.642027,
+          36.857731
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-002",
+        "address": "Synthetic Konyaalti parcel 002, Antalya",
+        "asset_value": 1673173.07,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2013,
+        "floors": 11,
+        "insurance_coverage": 2107217.12,
+        "ltv": 0.47,
+        "loan_id": "SYN-LN-002"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.618943,
+          36.854107
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-003",
+        "address": "Synthetic Konyaalti Beach parcel 003, Antalya",
+        "asset_value": 9949018.22,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1997,
+        "floors": 3,
+        "insurance_coverage": 3037183.13,
+        "ltv": 0.48,
+        "loan_id": "SYN-LN-003"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.783077,
+          36.849086
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-004",
+        "address": "Synthetic Lara parcel 004, Antalya",
+        "asset_value": 9033916.18,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2016,
+        "floors": 2,
+        "insurance_coverage": 5516995.82,
+        "ltv": 0.49,
+        "loan_id": "SYN-LN-004"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.828624,
+          36.853402
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-005",
+        "address": "Synthetic Kundu parcel 005, Antalya",
+        "asset_value": 15593863.29,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1997,
+        "floors": 4,
+        "insurance_coverage": 2654444.58,
+        "ltv": 0.5,
+        "loan_id": "SYN-LN-005"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.720948,
+          36.928275
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-006",
+        "address": "Synthetic Kepez parcel 006, Antalya",
+        "asset_value": 3399477.1,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2013,
+        "floors": 4,
+        "insurance_coverage": 1307627.72,
+        "ltv": 0.51,
+        "loan_id": "SYN-LN-006"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.844125,
+          36.950089
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-007",
+        "address": "Synthetic Aksu parcel 007, Antalya",
+        "asset_value": 2214289.39,
+        "building_type": "retail",
+        "use_class": "commercial",
+        "construction_year": 1993,
+        "floors": 6,
+        "insurance_coverage": 815933.05,
+        "ltv": 0.52,
+        "loan_id": "SYN-LN-007"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.593872,
+          37.027108
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-008",
+        "address": "Synthetic Dosemealti parcel 008, Antalya",
+        "asset_value": 5709944.31,
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2010,
+        "floors": 5,
+        "insurance_coverage": 2582033.8,
+        "ltv": 0.53,
+        "loan_id": "SYN-LN-008"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.061429,
+          36.856207
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-009",
+        "address": "Synthetic Belek parcel 009, Antalya",
+        "asset_value": 5555574.61,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2011,
+        "floors": 10,
+        "insurance_coverage": 8074009.56,
+        "ltv": 0.54,
+        "loan_id": "SYN-LN-009"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.096362,
+          36.924612
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-010",
+        "address": "Synthetic Serik parcel 010, Antalya",
+        "asset_value": 4460355.91,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2004,
+        "floors": 7,
+        "insurance_coverage": 647330.34,
+        "ltv": 0.55,
+        "loan_id": "SYN-LN-010"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.293304,
+          36.782023
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-011",
+        "address": "Synthetic Manavgat West parcel 011, Antalya",
+        "asset_value": 6735564.4,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1987,
+        "floors": 4,
+        "insurance_coverage": 8485711.9,
+        "ltv": 0.56,
+        "loan_id": "SYN-LN-011"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.699877,
+          36.88413
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-012",
+        "address": "Synthetic Kaleici parcel 012, Antalya",
+        "asset_value": 10776806.3,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1993,
+        "floors": 3,
+        "insurance_coverage": 5431223.86,
+        "ltv": 0.57,
+        "loan_id": "SYN-LN-012"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.717018,
+          36.88871
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-013",
+        "address": "Synthetic Muratpasa parcel 013, Antalya",
+        "asset_value": 2240349.09,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2020,
+        "floors": 9,
+        "insurance_coverage": 2562408.55,
+        "ltv": 0.58,
+        "loan_id": "SYN-LN-013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.630322,
+          36.855064
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-014",
+        "address": "Synthetic Konyaalti parcel 014, Antalya",
+        "asset_value": 1062883.41,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2006,
+        "floors": 9,
+        "insurance_coverage": 2531259.73,
+        "ltv": 0.59,
+        "loan_id": "SYN-LN-014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.616082,
+          36.84882
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-015",
+        "address": "Synthetic Konyaalti Beach parcel 015, Antalya",
+        "asset_value": 5207907.39,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2020,
+        "floors": 2,
+        "insurance_coverage": 3802573.99,
+        "ltv": 0.6,
+        "loan_id": "SYN-LN-015"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.789914,
+          36.845617
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-016",
+        "address": "Synthetic Lara parcel 016, Antalya",
+        "asset_value": 5922777.31,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2012,
+        "floors": 2,
+        "insurance_coverage": 7422979.56,
+        "ltv": 0.61,
+        "loan_id": "SYN-LN-016"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.824772,
+          36.844638
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-017",
+        "address": "Synthetic Kundu parcel 017, Antalya",
+        "asset_value": 7734794.02,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1985,
+        "floors": 12,
+        "insurance_coverage": 4387945.79,
+        "ltv": 0.62,
+        "loan_id": "SYN-LN-017"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.726524,
+          36.920387
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-018",
+        "address": "Synthetic Kepez parcel 018, Antalya",
+        "asset_value": 1594479.55,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1986,
+        "floors": 12,
+        "insurance_coverage": 507424.71,
+        "ltv": 0.63,
+        "loan_id": "SYN-LN-018"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.84636,
+          36.952863
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-019",
+        "address": "Synthetic Aksu parcel 019, Antalya",
+        "asset_value": 2660330.22,
+        "building_type": "retail",
+        "use_class": "commercial",
+        "construction_year": 2009,
+        "floors": 10,
+        "insurance_coverage": 569010.1,
+        "ltv": 0.64,
+        "loan_id": "SYN-LN-019"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.597114,
+          37.017079
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-020",
+        "address": "Synthetic Dosemealti parcel 020, Antalya",
+        "asset_value": 2732818.2,
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2007,
+        "floors": 12,
+        "insurance_coverage": 2192594.08,
+        "ltv": 0.65,
+        "loan_id": "SYN-LN-020"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.046237,
+          36.863287
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-021",
+        "address": "Synthetic Belek parcel 021, Antalya",
+        "asset_value": 11904096.81,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1985,
+        "floors": 5,
+        "insurance_coverage": 4697158.62,
+        "ltv": 0.66,
+        "loan_id": "SYN-LN-021"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.094701,
+          36.924754
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-022",
+        "address": "Synthetic Serik parcel 022, Antalya",
+        "asset_value": 4492915.69,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1986,
+        "floors": 4,
+        "insurance_coverage": 1626583.24,
+        "ltv": 0.67,
+        "loan_id": "SYN-LN-022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.29923,
+          36.78269
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-023",
+        "address": "Synthetic Manavgat West parcel 023, Antalya",
+        "asset_value": 7333555.56,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1993,
+        "floors": 2,
+        "insurance_coverage": 2237480.3,
+        "ltv": 0.68,
+        "loan_id": "SYN-LN-023"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.70998,
+          36.882667
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-024",
+        "address": "Synthetic Kaleici parcel 024, Antalya",
+        "asset_value": 9465278.0,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2020,
+        "floors": 12,
+        "insurance_coverage": 7681902.2,
+        "ltv": 0.69,
+        "loan_id": "SYN-LN-024"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.713977,
+          36.893977
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-025",
+        "address": "Synthetic Muratpasa parcel 025, Antalya",
+        "asset_value": 3445643.16,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1989,
+        "floors": 3,
+        "insurance_coverage": 1462729.51,
+        "ltv": 0.7,
+        "loan_id": "SYN-LN-025"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.634101,
+          36.864915
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-026",
+        "address": "Synthetic Konyaalti parcel 026, Antalya",
+        "asset_value": 3317041.49,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2000,
+        "floors": 7,
+        "insurance_coverage": 2566208.52,
+        "ltv": 0.71,
+        "loan_id": "SYN-LN-026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.628566,
+          36.857027
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-027",
+        "address": "Synthetic Konyaalti Beach parcel 027, Antalya",
+        "asset_value": 12567917.23,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2012,
+        "floors": 10,
+        "insurance_coverage": 7017018.53,
+        "ltv": 0.72,
+        "loan_id": "SYN-LN-027"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.797183,
+          36.843695
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-028",
+        "address": "Synthetic Lara parcel 028, Antalya",
+        "asset_value": 4199104.66,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2012,
+        "floors": 12,
+        "insurance_coverage": 6274463.32,
+        "ltv": 0.73,
+        "loan_id": "SYN-LN-028"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.811499,
+          36.854289
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-029",
+        "address": "Synthetic Kundu parcel 029, Antalya",
+        "asset_value": 16389371.57,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2010,
+        "floors": 11,
+        "insurance_coverage": 7076215.79,
+        "ltv": 0.74,
+        "loan_id": "SYN-LN-029"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.725748,
+          36.928582
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-030",
+        "address": "Synthetic Kepez parcel 030, Antalya",
+        "asset_value": 3469606.71,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1996,
+        "floors": 11,
+        "insurance_coverage": 2118780.38,
+        "ltv": 0.75,
+        "loan_id": "SYN-LN-030"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.847661,
+          36.942534
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-031",
+        "address": "Synthetic Aksu parcel 031, Antalya",
+        "asset_value": 999490.9,
+        "building_type": "retail",
+        "use_class": "commercial",
+        "construction_year": 2015,
+        "floors": 2,
+        "insurance_coverage": 1161880.31,
+        "ltv": 0.76,
+        "loan_id": "SYN-LN-031"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.609991,
+          37.019173
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-032",
+        "address": "Synthetic Dosemealti parcel 032, Antalya",
+        "asset_value": 3354438.37,
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1994,
+        "floors": 2,
+        "insurance_coverage": 3547761.49,
+        "ltv": 0.77,
+        "loan_id": "SYN-LN-032"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.060774,
+          36.868816
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-033",
+        "address": "Synthetic Belek parcel 033, Antalya",
+        "asset_value": 16862425.06,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1999,
+        "floors": 13,
+        "insurance_coverage": 2529644.02,
+        "ltv": 0.78,
+        "loan_id": "SYN-LN-033"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.100922,
+          36.919178
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-034",
+        "address": "Synthetic Serik parcel 034, Antalya",
+        "asset_value": 3217045.55,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2003,
+        "floors": 7,
+        "insurance_coverage": 1572006.27,
+        "ltv": 0.79,
+        "loan_id": "SYN-LN-034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.296552,
+          36.792207
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-035",
+        "address": "Synthetic Manavgat West parcel 035, Antalya",
+        "asset_value": 15868035.16,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1986,
+        "floors": 12,
+        "insurance_coverage": 10667163.52,
+        "ltv": 0.8,
+        "loan_id": "SYN-LN-035"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.706238,
+          36.891493
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-036",
+        "address": "Synthetic Kaleici parcel 036, Antalya",
+        "asset_value": 17379829.15,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1998,
+        "floors": 11,
+        "insurance_coverage": 10706785.67,
+        "ltv": 0.81,
+        "loan_id": "SYN-LN-036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.713799,
+          36.887776
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-037",
+        "address": "Synthetic Muratpasa parcel 037, Antalya",
+        "asset_value": 2026681.46,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2010,
+        "floors": 13,
+        "insurance_coverage": 1180021.33,
+        "ltv": 0.82,
+        "loan_id": "SYN-LN-037"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.630693,
+          36.857855
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-038",
+        "address": "Synthetic Konyaalti parcel 038, Antalya",
+        "asset_value": 1701622.83,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2004,
+        "floors": 3,
+        "insurance_coverage": 901384.27,
+        "ltv": 0.83,
+        "loan_id": "SYN-LN-038"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.62437,
+          36.850797
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-039",
+        "address": "Synthetic Konyaalti Beach parcel 039, Antalya",
+        "asset_value": 6980964.07,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1999,
+        "floors": 11,
+        "insurance_coverage": 10459476.49,
+        "ltv": 0.84,
+        "loan_id": "SYN-LN-039"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.782388,
+          36.856284
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-040",
+        "address": "Synthetic Lara parcel 040, Antalya",
+        "asset_value": 15488653.09,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2012,
+        "floors": 6,
+        "insurance_coverage": 2751333.44,
+        "ltv": 0.45,
+        "loan_id": "SYN-LN-040"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.810097,
+          36.855716
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-041",
+        "address": "Synthetic Kundu parcel 041, Antalya",
+        "asset_value": 17669169.26,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2015,
+        "floors": 9,
+        "insurance_coverage": 7073526.33,
+        "ltv": 0.46,
+        "loan_id": "SYN-LN-041"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.719574,
+          36.925463
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-042",
+        "address": "Synthetic Kepez parcel 042, Antalya",
+        "asset_value": 2755863.52,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1996,
+        "floors": 8,
+        "insurance_coverage": 1922481.71,
+        "ltv": 0.47,
+        "loan_id": "SYN-LN-042"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.854065,
+          36.95197
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-043",
+        "address": "Synthetic Aksu parcel 043, Antalya",
+        "asset_value": 2516774.43,
+        "building_type": "retail",
+        "use_class": "commercial",
+        "construction_year": 2007,
+        "floors": 7,
+        "insurance_coverage": 1574688.23,
+        "ltv": 0.48,
+        "loan_id": "SYN-LN-043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.593933,
+          37.025663
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-044",
+        "address": "Synthetic Dosemealti parcel 044, Antalya",
+        "asset_value": 5281002.58,
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2012,
+        "floors": 2,
+        "insurance_coverage": 1279808.77,
+        "ltv": 0.49,
+        "loan_id": "SYN-LN-044"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.057845,
+          36.859708
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-045",
+        "address": "Synthetic Belek parcel 045, Antalya",
+        "asset_value": 8694497.53,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2008,
+        "floors": 6,
+        "insurance_coverage": 5622098.14,
+        "ltv": 0.5,
+        "loan_id": "SYN-LN-045"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.092956,
+          36.912012
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-046",
+        "address": "Synthetic Serik parcel 046, Antalya",
+        "asset_value": 1577289.76,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2001,
+        "floors": 3,
+        "insurance_coverage": 684638.98,
+        "ltv": 0.51,
+        "loan_id": "SYN-LN-046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.309859,
+          36.793837
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-047",
+        "address": "Synthetic Manavgat West parcel 047, Antalya",
+        "asset_value": 17329181.53,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1996,
+        "floors": 7,
+        "insurance_coverage": 2781560.67,
+        "ltv": 0.52,
+        "loan_id": "SYN-LN-047"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.709777,
+          36.883448
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-048",
+        "address": "Synthetic Kaleici parcel 048, Antalya",
+        "asset_value": 10164919.78,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2011,
+        "floors": 6,
+        "insurance_coverage": 5223025.23,
+        "ltv": 0.53,
+        "loan_id": "SYN-LN-048"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.713197,
+          36.892648
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-049",
+        "address": "Synthetic Muratpasa parcel 049, Antalya",
+        "asset_value": 3141541.31,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2011,
+        "floors": 7,
+        "insurance_coverage": 1959546.13,
+        "ltv": 0.54,
+        "loan_id": "SYN-LN-049"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.642316,
+          36.860923
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-050",
+        "address": "Synthetic Konyaalti parcel 050, Antalya",
+        "asset_value": 2403478.09,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1985,
+        "floors": 4,
+        "insurance_coverage": 600072.72,
+        "ltv": 0.55,
+        "loan_id": "SYN-LN-050"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.612854,
+          36.856257
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-051",
+        "address": "Synthetic Konyaalti Beach parcel 051, Antalya",
+        "asset_value": 11876975.49,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1990,
+        "floors": 13,
+        "insurance_coverage": 7181637.07,
+        "ltv": 0.56,
+        "loan_id": "SYN-LN-051"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.785654,
+          36.851857
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-052",
+        "address": "Synthetic Lara parcel 052, Antalya",
+        "asset_value": 11518269.16,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1989,
+        "floors": 8,
+        "insurance_coverage": 8431754.74,
+        "ltv": 0.57,
+        "loan_id": "SYN-LN-052"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.813539,
+          36.844145
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-053",
+        "address": "Synthetic Kundu parcel 053, Antalya",
+        "asset_value": 7292918.82,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2019,
+        "floors": 11,
+        "insurance_coverage": 6370116.4,
+        "ltv": 0.58,
+        "loan_id": "SYN-LN-053"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.713269,
+          36.920307
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-054",
+        "address": "Synthetic Kepez parcel 054, Antalya",
+        "asset_value": 1576136.54,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1991,
+        "floors": 6,
+        "insurance_coverage": 1169562.68,
+        "ltv": 0.59,
+        "loan_id": "SYN-LN-054"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.85393,
+          36.946538
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-055",
+        "address": "Synthetic Aksu parcel 055, Antalya",
+        "asset_value": 1643402.62,
+        "building_type": "retail",
+        "use_class": "commercial",
+        "construction_year": 1990,
+        "floors": 4,
+        "insurance_coverage": 894781.96,
+        "ltv": 0.6,
+        "loan_id": "SYN-LN-055"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.600091,
+          37.019708
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-056",
+        "address": "Synthetic Dosemealti parcel 056, Antalya",
+        "asset_value": 3513250.29,
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2007,
+        "floors": 6,
+        "insurance_coverage": 1923164.89,
+        "ltv": 0.61,
+        "loan_id": "SYN-LN-056"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.055292,
+          36.864186
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-057",
+        "address": "Synthetic Belek parcel 057, Antalya",
+        "asset_value": 12710114.57,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2001,
+        "floors": 9,
+        "insurance_coverage": 4904949.8,
+        "ltv": 0.62,
+        "loan_id": "SYN-LN-057"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.109992,
+          36.91485
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-058",
+        "address": "Synthetic Serik parcel 058, Antalya",
+        "asset_value": 2226723.82,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2018,
+        "floors": 4,
+        "insurance_coverage": 1266639.88,
+        "ltv": 0.63,
+        "loan_id": "SYN-LN-058"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.290863,
+          36.794273
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-059",
+        "address": "Synthetic Manavgat West parcel 059, Antalya",
+        "asset_value": 17720225.2,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2012,
+        "floors": 12,
+        "insurance_coverage": 4028951.03,
+        "ltv": 0.64,
+        "loan_id": "SYN-LN-059"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.714904,
+          36.88381
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-060",
+        "address": "Synthetic Kaleici parcel 060, Antalya",
+        "asset_value": 10490197.22,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2015,
+        "floors": 13,
+        "insurance_coverage": 10285159.21,
+        "ltv": 0.65,
+        "loan_id": "SYN-LN-060"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.708448,
+          36.89619
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-061",
+        "address": "Synthetic Muratpasa parcel 061, Antalya",
+        "asset_value": 3951964.06,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2002,
+        "floors": 3,
+        "insurance_coverage": 668121.2,
+        "ltv": 0.66,
+        "loan_id": "SYN-LN-061"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.633948,
+          36.866345
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-062",
+        "address": "Synthetic Konyaalti parcel 062, Antalya",
+        "asset_value": 3644261.94,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2005,
+        "floors": 12,
+        "insurance_coverage": 2264424.23,
+        "ltv": 0.67,
+        "loan_id": "SYN-LN-062"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.620135,
+          36.85918
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-063",
+        "address": "Synthetic Konyaalti Beach parcel 063, Antalya",
+        "asset_value": 14498741.73,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2005,
+        "floors": 5,
+        "insurance_coverage": 8393583.13,
+        "ltv": 0.68,
+        "loan_id": "SYN-LN-063"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.787768,
+          36.845209
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-064",
+        "address": "Synthetic Lara parcel 064, Antalya",
+        "asset_value": 5557342.31,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1994,
+        "floors": 3,
+        "insurance_coverage": 7163268.33,
+        "ltv": 0.69,
+        "loan_id": "SYN-LN-064"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.825558,
+          36.856045
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-065",
+        "address": "Synthetic Kundu parcel 065, Antalya",
+        "asset_value": 17964231.38,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1987,
+        "floors": 12,
+        "insurance_coverage": 5221553.07,
+        "ltv": 0.7,
+        "loan_id": "SYN-LN-065"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.721422,
+          36.925783
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-066",
+        "address": "Synthetic Kepez parcel 066, Antalya",
+        "asset_value": 2829226.14,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2015,
+        "floors": 9,
+        "insurance_coverage": 557694.88,
+        "ltv": 0.71,
+        "loan_id": "SYN-LN-066"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.853708,
+          36.944486
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-067",
+        "address": "Synthetic Aksu parcel 067, Antalya",
+        "asset_value": 1313338.5,
+        "building_type": "retail",
+        "use_class": "commercial",
+        "construction_year": 2000,
+        "floors": 9,
+        "insurance_coverage": 1376994.29,
+        "ltv": 0.72,
+        "loan_id": "SYN-LN-067"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.602147,
+          37.023304
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-068",
+        "address": "Synthetic Dosemealti parcel 068, Antalya",
+        "asset_value": 4580812.87,
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2020,
+        "floors": 3,
+        "insurance_coverage": 2485112.62,
+        "ltv": 0.73,
+        "loan_id": "SYN-LN-068"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.061157,
+          36.866786
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-069",
+        "address": "Synthetic Belek parcel 069, Antalya",
+        "asset_value": 15041991.68,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1987,
+        "floors": 12,
+        "insurance_coverage": 8840738.72,
+        "ltv": 0.74,
+        "loan_id": "SYN-LN-069"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.095533,
+          36.915711
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-070",
+        "address": "Synthetic Serik parcel 070, Antalya",
+        "asset_value": 2423683.24,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1990,
+        "floors": 7,
+        "insurance_coverage": 2252116.68,
+        "ltv": 0.75,
+        "loan_id": "SYN-LN-070"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.305631,
+          36.780101
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-071",
+        "address": "Synthetic Manavgat West parcel 071, Antalya",
+        "asset_value": 5012134.19,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2003,
+        "floors": 13,
+        "insurance_coverage": 9382152.66,
+        "ltv": 0.76,
+        "loan_id": "SYN-LN-071"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.702406,
+          36.878224
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-072",
+        "address": "Synthetic Kaleici parcel 072, Antalya",
+        "asset_value": 5480766.32,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1990,
+        "floors": 6,
+        "insurance_coverage": 10485586.0,
+        "ltv": 0.77,
+        "loan_id": "SYN-LN-072"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.719839,
+          36.886618
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-073",
+        "address": "Synthetic Muratpasa parcel 073, Antalya",
+        "asset_value": 1761765.37,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1989,
+        "floors": 7,
+        "insurance_coverage": 2377297.07,
+        "ltv": 0.78,
+        "loan_id": "SYN-LN-073"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.643375,
+          36.868376
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-074",
+        "address": "Synthetic Konyaalti parcel 074, Antalya",
+        "asset_value": 4109004.05,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1993,
+        "floors": 7,
+        "insurance_coverage": 1838102.36,
+        "ltv": 0.79,
+        "loan_id": "SYN-LN-074"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.625372,
+          36.860817
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-075",
+        "address": "Synthetic Konyaalti Beach parcel 075, Antalya",
+        "asset_value": 15966131.37,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2000,
+        "floors": 9,
+        "insurance_coverage": 3903338.24,
+        "ltv": 0.8,
+        "loan_id": "SYN-LN-075"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.782497,
+          36.852245
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-076",
+        "address": "Synthetic Lara parcel 076, Antalya",
+        "asset_value": 11866295.17,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1985,
+        "floors": 8,
+        "insurance_coverage": 2448932.83,
+        "ltv": 0.81,
+        "loan_id": "SYN-LN-076"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.818799,
+          36.848493
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-077",
+        "address": "Synthetic Kundu parcel 077, Antalya",
+        "asset_value": 11191932.94,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2019,
+        "floors": 3,
+        "insurance_coverage": 5812532.08,
+        "ltv": 0.82,
+        "loan_id": "SYN-LN-077"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.729413,
+          36.923309
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-078",
+        "address": "Synthetic Kepez parcel 078, Antalya",
+        "asset_value": 2263047.1,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1991,
+        "floors": 5,
+        "insurance_coverage": 2161064.12,
+        "ltv": 0.83,
+        "loan_id": "SYN-LN-078"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.854364,
+          36.947841
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-079",
+        "address": "Synthetic Aksu parcel 079, Antalya",
+        "asset_value": 1852869.97,
+        "building_type": "retail",
+        "use_class": "commercial",
+        "construction_year": 2004,
+        "floors": 4,
+        "insurance_coverage": 2052052.01,
+        "ltv": 0.84,
+        "loan_id": "SYN-LN-079"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.603889,
+          37.015929
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-080",
+        "address": "Synthetic Dosemealti parcel 080, Antalya",
+        "asset_value": 2391536.15,
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2019,
+        "floors": 8,
+        "insurance_coverage": 872704.74,
+        "ltv": 0.45,
+        "loan_id": "SYN-LN-080"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.045779,
+          36.861159
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-081",
+        "address": "Synthetic Belek parcel 081, Antalya",
+        "asset_value": 9996036.81,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2005,
+        "floors": 11,
+        "insurance_coverage": 2376136.76,
+        "ltv": 0.46,
+        "loan_id": "SYN-LN-081"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.103835,
+          36.910322
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-082",
+        "address": "Synthetic Serik parcel 082, Antalya",
+        "asset_value": 1190495.43,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1989,
+        "floors": 12,
+        "insurance_coverage": 1843336.03,
+        "ltv": 0.47,
+        "loan_id": "SYN-LN-082"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.303633,
+          36.794048
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-083",
+        "address": "Synthetic Manavgat West parcel 083, Antalya",
+        "asset_value": 17518435.56,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2010,
+        "floors": 12,
+        "insurance_coverage": 7318214.6,
+        "ltv": 0.48,
+        "loan_id": "SYN-LN-083"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.702997,
+          36.878256
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-084",
+        "address": "Synthetic Kaleici parcel 084, Antalya",
+        "asset_value": 5509592.37,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2016,
+        "floors": 8,
+        "insurance_coverage": 9771445.65,
+        "ltv": 0.49,
+        "loan_id": "SYN-LN-084"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.713283,
+          36.88415
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-085",
+        "address": "Synthetic Muratpasa parcel 085, Antalya",
+        "asset_value": 1197042.4,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2018,
+        "floors": 10,
+        "insurance_coverage": 2178159.24,
+        "ltv": 0.5,
+        "loan_id": "SYN-LN-085"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.629365,
+          36.858972
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-086",
+        "address": "Synthetic Konyaalti parcel 086, Antalya",
+        "asset_value": 1957026.64,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2012,
+        "floors": 13,
+        "insurance_coverage": 2697622.85,
+        "ltv": 0.51,
+        "loan_id": "SYN-LN-086"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.61799,
+          36.854233
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-087",
+        "address": "Synthetic Konyaalti Beach parcel 087, Antalya",
+        "asset_value": 10062089.9,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2015,
+        "floors": 12,
+        "insurance_coverage": 2821505.53,
+        "ltv": 0.52,
+        "loan_id": "SYN-LN-087"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.786729,
+          36.855881
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-088",
+        "address": "Synthetic Lara parcel 088, Antalya",
+        "asset_value": 15126951.79,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1997,
+        "floors": 13,
+        "insurance_coverage": 2503257.58,
+        "ltv": 0.53,
+        "loan_id": "SYN-LN-088"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.81615,
+          36.852164
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-089",
+        "address": "Synthetic Kundu parcel 089, Antalya",
+        "asset_value": 14484252.61,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1985,
+        "floors": 5,
+        "insurance_coverage": 6753819.96,
+        "ltv": 0.54,
+        "loan_id": "SYN-LN-089"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.718481,
+          36.930239
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-090",
+        "address": "Synthetic Kepez parcel 090, Antalya",
+        "asset_value": 3848784.3,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1985,
+        "floors": 11,
+        "insurance_coverage": 1383273.48,
+        "ltv": 0.55,
+        "loan_id": "SYN-LN-090"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.859243,
+          36.955577
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-091",
+        "address": "Synthetic Aksu parcel 091, Antalya",
+        "asset_value": 3096709.93,
+        "building_type": "retail",
+        "use_class": "commercial",
+        "construction_year": 1995,
+        "floors": 5,
+        "insurance_coverage": 940889.33,
+        "ltv": 0.56,
+        "loan_id": "SYN-LN-091"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.597835,
+          37.026229
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-092",
+        "address": "Synthetic Dosemealti parcel 092, Antalya",
+        "asset_value": 5448982.71,
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1986,
+        "floors": 3,
+        "insurance_coverage": 2208456.76,
+        "ltv": 0.57,
+        "loan_id": "SYN-LN-092"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.04512,
+          36.857553
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-093",
+        "address": "Synthetic Belek parcel 093, Antalya",
+        "asset_value": 6761933.99,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2017,
+        "floors": 13,
+        "insurance_coverage": 6946285.39,
+        "ltv": 0.58,
+        "loan_id": "SYN-LN-093"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.094177,
+          36.920854
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-094",
+        "address": "Synthetic Serik parcel 094, Antalya",
+        "asset_value": 3600580.43,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1986,
+        "floors": 6,
+        "insurance_coverage": 1598431.3,
+        "ltv": 0.59,
+        "loan_id": "SYN-LN-094"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.299104,
+          36.792322
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-095",
+        "address": "Synthetic Manavgat West parcel 095, Antalya",
+        "asset_value": 15970965.32,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2014,
+        "floors": 9,
+        "insurance_coverage": 2334780.67,
+        "ltv": 0.6,
+        "loan_id": "SYN-LN-095"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.714532,
+          36.879014
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-096",
+        "address": "Synthetic Kaleici parcel 096, Antalya",
+        "asset_value": 6188734.67,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 1993,
+        "floors": 4,
+        "insurance_coverage": 6366434.93,
+        "ltv": 0.61,
+        "loan_id": "SYN-LN-096"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.719354,
+          36.893257
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-097",
+        "address": "Synthetic Muratpasa parcel 097, Antalya",
+        "asset_value": 3280769.94,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 1997,
+        "floors": 6,
+        "insurance_coverage": 1297165.98,
+        "ltv": 0.62,
+        "loan_id": "SYN-LN-097"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.630907,
+          36.854474
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-098",
+        "address": "Synthetic Konyaalti parcel 098, Antalya",
+        "asset_value": 927959.02,
+        "building_type": "apartment",
+        "use_class": "residential",
+        "construction_year": 2008,
+        "floors": 2,
+        "insurance_coverage": 597614.84,
+        "ltv": 0.63,
+        "loan_id": "SYN-LN-098"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.622013,
+          36.84757
+        ]
+      },
+      "properties": {
+        "asset_id": "ANT-G-099",
+        "address": "Synthetic Konyaalti Beach parcel 099, Antalya",
+        "asset_value": 4087625.21,
+        "building_type": "hotel",
+        "use_class": "tourism",
+        "construction_year": 2020,
+        "floors": 8,
+        "insurance_coverage": 9540032.29,
+        "ltv": 0.64,
+        "loan_id": "SYN-LN-099"
+      }
+    }
+  ]
+}

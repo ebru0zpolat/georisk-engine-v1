@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "georisk-mcp"
+version = "0.1.0"
+description = "stdio MCP server for GeoRisk Engine (DeerFlow VC builder)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27.0",
+    "mcp==1.12.0",
+]
+
+[project.scripts]
+georisk-mcp = "georisk_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["georisk_mcp*"]
+
+[tool.setuptools.package-data]
+georisk_mcp = ["capability_registry.generated.json"]

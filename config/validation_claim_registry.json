@@ -1,0 +1,20 @@
+{
+  "nfip_claim_conditional_building_payment_v1": {
+    "population": "observed eligible NFIP claim records",
+    "outcome": "event-conditional amountPaidOnBuildingClaim",
+    "allowed_claims": [
+      "harvey_event_loss_method_validated",
+      "us_harvey_flood_hazard_verified"
+    ],
+    "prohibited_claims": [
+      "claim_frequency_validated",
+      "claim_filing_probability_validated",
+      "insured_portfolio_loss_ratio_validated",
+      "uninsured_loss_validated",
+      "annual_eal_validated",
+      "nl_flood_hazard_verified",
+      "nl_cre_loss_transferability_reviewed",
+      "model_validated_for_nl_cre_use_case"
+    ]
+  }
+}

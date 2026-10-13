@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #2ec990; text-decoration: none; }
+    a:hover { color: #5dcaa5; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border: 1px solid #22304a; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; white-space: nowrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .dt { margin: 0; font-size: 11.5px; color: #9aa8ba; text-transform: uppercase; letter-spacing: 0.04em; }
+    .dd { margin: 5px 0 0; font-size: 17px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .pick { cursor: pointer; font-family: inherit; background: transparent; }
+    .pick:focus-visible { outline: 2px solid #2ec990; outline-offset: 2px; }
+  </style>
+</helmet>
+
+<div style="width: 1360px; min-height: 1280px; background: radial-gradient(ellipse 80% 50% at 10% -10%, rgba(46,201,144,0.12), transparent), linear-gradient(180deg, #0d1a2e 0%, #0a1628 40%); color: #e6edf5; font-family: Inter, 'Segoe UI', sans-serif; padding: 0 0 40px; display: flex; flex-direction: column;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 32px; height: 56px; border-bottom: 1px solid #22304a;">
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <span style="font-weight: 600; letter-spacing: 0.02em; font-size: 16px;">GeoRisk Engine</span>
+      <div style="display: flex; gap: 18px; font-size: 13px; color: #9aa8ba;">
+        <span>Portfolios</span>
+        <span style="color: #e6edf5; border-bottom: 2px solid #2ec990; padding-bottom: 18px;">Assets</span>
+        <span>Evidence</span>
+        <span>Reports</span>
+      </div>
+    </div>
+    <span style="width: 28px; height: 28px; border-radius: 999px; background: rgba(46,201,144,0.18); border: 1px solid rgba(46,201,144,0.45); display: grid; place-items: center; font-size: 12px; color: #2ec990;">EÖ</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px; padding: 18px 32px 0;">
+
+    <div style="display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: #9aa8ba;">
+      <span>TSKB_CRE_2026Q1</span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9aa8ba" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+      <span style="color: #e6edf5;">TSKB-0034</span>
+    </div>
+
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; border-bottom: 1px solid #22304a; padding-bottom: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <h1 style="margin: 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 27px;">Antalya Kepez Logistics Depot</h1>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 13px; color: #9aa8ba;">
+          <span class="mono">TSKB-0034</span>
+          <span>Commercial &middot; warehouse</span>
+          <span class="mono">36.9081, 30.6956</span>
+          <span>Asset value <span class="mono" style="color: #e6edf5;">₺84,500,000</span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <span style="{{ bandStyle }}">{{ bandLabel }}</span>
+        <span class="chip" style="color: #ef9f27; border-color: rgba(239,159,39,0.6);">SYNTHETIC</span>
+      </div>
+    </div>
+
+    <!-- controls -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; border: 1px solid #22304a; border-radius: 10px; background: #131f33;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #9aa8ba;">Horizon</span>
+        <div style="display: flex; gap: 6px;">
+          <sc-for list="{{ horizons }}" as="h" hint-placeholder-count="3">
+            <button class="pick" style="{{ h.style }}" onClick="{{ h.pick }}">{{ h.label }}</button>
+          </sc-for>
+        </div>
+        <span class="chip" style="color: #9aa8ba; margin-left: 4px;">SSP2-4.5</span>
+      </div>
+      <button class="pick" style="{{ adaptToggleStyle }}" onClick="{{ toggleAdapt }}" aria-pressed="{{ adapt }}">
+        <span style="{{ adaptDotStyle }}"></span>{{ adaptLabel }}
+      </button>
+    </div>
+
+    <!-- waterfall -->
+    <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px 20px;">
+      <h2 style="margin: 0 0 4px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">How this number was reached</h2>
+      <p style="margin: 0 0 16px; color: #9aa8ba; font-size: 13.5px;">{{ waterfallLead }}</p>
+
+      <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px;">
+        <sc-for list="{{ layers }}" as="l" hint-placeholder-count="5">
+          <div style="{{ l.cardStyle }}">
+            <span class="dt">{{ l.step }}</span>
+            <span style="{{ l.valueStyle }}">{{ l.value }}</span>
+            <span style="font-size: 12px; color: #9aa8ba; line-height: 1.4;">{{ l.note }}</span>
+            <span class="chip" style="{{ l.chipStyle }}">{{ l.chip }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px;">
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px 20px;">
+          <h2 style="margin: 0 0 14px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">Horizon comparison</h2>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+            <sc-for list="{{ compare }}" as="c" hint-placeholder-count="3">
+              <button class="pick" style="{{ c.cardStyle }}" onClick="{{ c.pick }}">
+                <p class="dt" style="text-align: left;">{{ c.label }}</p>
+                <p class="dd" style="text-align: left;">{{ c.eal }}</p>
+                <p style="{{ c.deltaStyle }}">{{ c.delta }}</p>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-top: 14px; height: 8px;">
+            <sc-for list="{{ compare }}" as="c" hint-placeholder-count="3">
+              <span style="{{ c.barStyle }}"></span>
+            </sc-for>
+          </div>
+        </section>
+
+        <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px 20px;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+            <h2 style="margin: 0; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">Location context</h2>
+            <span class="chip" style="color: #ef9f27; border-color: rgba(239,159,39,0.28);">MODELLED</span>
+          </div>
+          <div style="margin-top: 12px; height: 220px; border-radius: 8px; border: 1px solid #22304a; background: linear-gradient(160deg, #0f1c30 0%, #132340 55%, #1a2c4d 100%); position: relative; overflow: hidden;">
+            <svg width="100%" height="100%" viewBox="0 0 720 220" preserveAspectRatio="none" style="position: absolute; inset: 0;">
+              <path d="M0 172 C 120 150, 210 186, 330 168 S 560 140, 720 158 L720 220 L0 220 Z" fill="#172c4a" opacity="0.9"></path>
+              <path d="M0 150 C 140 128, 240 160, 360 142 S 590 118, 720 132" fill="none" stroke="rgba(93,202,165,0.55)" stroke-width="1.2"></path>
+              <path d="M0 118 C 150 100, 260 132, 380 112 S 600 90, 720 104" fill="none" stroke="rgba(93,202,165,0.35)" stroke-width="1.2"></path>
+              <circle cx="352" cy="120" r="{{ haloR }}" fill="{{ haloFill }}"></circle>
+              <circle cx="352" cy="120" r="6" fill="{{ bandColor }}" stroke="#0a1628" stroke-width="1.5"></circle>
+            </svg>
+            <div style="position: absolute; left: 12px; bottom: 12px; display: flex; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 6px; background: rgba(15,20,25,0.82); border: 1px solid #22304a; font-size: 11.5px; color: #9aa8ba;">
+              <span style="display: inline-flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 10px; border-radius: 2px; background: #5dcaa5;"></span>Elevation band</span>
+              <span style="display: inline-flex; align-items: center; gap: 5px;"><span style="{{ legendDotStyle }}"></span>Asset &middot; {{ bandName }}</span>
+            </div>
+          </div>
+          <p style="margin: 11px 0 0; font-size: 12.5px; color: #9aa8ba; line-height: 1.5;">Elevation is shown as terrain context. It is <span style="color: #e6edf5;">not</span> a flood probability and <span style="color: #e6edf5;">not</span> a loss estimate.</p>
+        </section>
+
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <section style="background: #131f33; border: 1px solid rgba(93,202,165,0.35); border-radius: 12px; padding: 18px 20px 20px;">
+          <h2 style="margin: 0 0 12px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">Evidence</h2>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><span style="font-size: 12.5px; color: #9aa8ba;">audit_id</span><span class="mono" style="font-size: 12.5px;">aud_9f3c1ba7e204</span></div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><span style="font-size: 12.5px; color: #9aa8ba;">model_version</span><span class="mono" style="font-size: 12.5px;">risk-v0.9.2</span></div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><span style="font-size: 12.5px; color: #9aa8ba;">methodology</span><span class="mono" style="font-size: 12.5px;">v0.3.1</span></div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><span style="font-size: 12.5px; color: #9aa8ba;">scenario</span><span class="mono" style="font-size: 12.5px;">SSP2-4.5 &middot; {{ horizonKey }}</span></div>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 15px;">
+            <span style="border: 1px solid #2ec990; background: #2ec990; color: #04231a; border-radius: 8px; padding: 9px 13px; font-size: 12.5px; font-weight: 600;">Open evidence</span>
+            <span style="display: inline-flex; align-items: center; gap: 6px; border: 1px solid #22304a; border-radius: 8px; padding: 9px 13px; font-size: 12.5px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e6edf5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path><path d="M12 15V3"></path></svg>
+              JSON
+            </span>
+          </div>
+        </section>
+
+        <section style="background: #131f33; border: 1px solid #22304a; border-radius: 12px; padding: 18px 20px 20px;">
+          <h2 style="margin: 0 0 14px; font-family: Inter, 'Segoe UI', sans-serif; font-weight: 800; letter-spacing: -0.02em; font-size: 19px;">Risk drivers</h2>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <sc-for list="{{ drivers }}" as="d" hint-placeholder-count="5">
+              <div style="display: grid; grid-template-columns: 118px 1fr 48px; align-items: center; gap: 10px; font-size: 12.5px;">
+                <span style="color: #9aa8ba;">{{ d.label }}</span>
+                <span style="height: 7px; background: #101a2b; border-radius: 999px; overflow: hidden; display: block;"><span style="{{ d.fillStyle }}"></span></span>
+                <span class="mono" style="text-align: right;">{{ d.value }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin: 13px 0 0; font-size: 12px; color: #9aa8ba; line-height: 1.5;">Driver components are deterministic synthetic values (SHA-256 seeded). See <span style="color: #2ec990;">STUBS.md #3</span>.</p>
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{"$preview":{"width":1360,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const horizon = this.state.horizon ?? "today";
+    const adapt = this.state.adapt ?? false;
+
+    const BANDS = {
+      1: { name: "LOW", color: "#5dcaa5" },
+      2: { name: "MODERATE", color: "#2ec990" },
+      3: { name: "HIGH", color: "#e24b4a" },
+      4: { name: "SEVERE", color: "#b3352f" },
+    };
+
+    const H = {
+      today: { label: "Today", hazard: "0.62", eal: 1284400, ealPct: "1.52%", mdr: "0.148", band: 3, delta: "", drivers: [0.78, 0.54, 0.31, 0.19, 0.44] },
+      "2030": { label: "2030", hazard: "0.71", eal: 1613000, ealPct: "1.91%", mdr: "0.186", band: 3, delta: "+25.6% vs today", drivers: [0.86, 0.63, 0.37, 0.24, 0.52] },
+      "2050": { label: "2050", hazard: "0.84", eal: 2241000, ealPct: "2.65%", mdr: "0.258", band: 4, delta: "+74.5% vs today", drivers: [0.94, 0.79, 0.46, 0.33, 0.67] },
+    };
+
+    const cur = H[horizon];
+    const band = BANDS[cur.band];
+
+    const money = (n) => "₺" + Math.round(n).toLocaleString("en-US");
+    const AVOIDED_SHARE = 0.695;
+    const avoided = cur.eal * AVOIDED_SHARE;
+    const residual = cur.eal - avoided;
+    const shownEal = adapt ? residual : cur.eal;
+
+    const SYNTH = "color: #ef9f27; border-color: rgba(239,159,39,0.6);";
+    const LIVE = "color: #5dcaa5; border-color: rgba(93,202,165,0.6);";
+    const FIXTURE = "color: #ef9f27; border-color: rgba(239,159,39,0.28);";
+
+    const cardBase = "border-radius: 8px; padding: 13px; display: flex; flex-direction: column; gap: 8px;";
+    const cardPlain = cardBase + " border: 1px solid #22304a; background: #101a2b;";
+    const cardGold = cardBase + " border: 1px solid rgba(46,201,144,0.45); background: rgba(46,201,144,0.07);";
+    const cardGreen = cardBase + " border: 1px solid rgba(93,202,165,0.35); background: rgba(93,202,165,0.06);";
+    const cardDim = cardBase + " border: 1px solid #22304a; background: #101a2b; opacity: 0.5;";
+
+    const V = "margin: 5px 0 0; font-size: 17px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-variant-numeric: tabular-nums;";
+
+    const layers = [
+      { step: "1 · Hazard", value: cur.hazard, note: "Composite flood intensity, SSP2-4.5", chip: "LIVE", chipStyle: LIVE, cardStyle: cardPlain, valueStyle: V },
+      { step: "2 · Vulnerability", value: "MDR " + cur.mdr, note: "Warehouse curve, pack-tr", chip: "SYNTHETIC", chipStyle: SYNTH, cardStyle: cardPlain, valueStyle: V },
+      {
+        step: "3 · Expected loss",
+        value: money(shownEal),
+        note: adapt ? "Residual EAL after measure" : "EAL · " + cur.ealPct + " of asset value",
+        chip: "SYNTHETIC",
+        chipStyle: SYNTH,
+        cardStyle: cardGold,
+        valueStyle: V + " color: #2ec990;",
+      },
+      {
+        step: "4 · Adaptation",
+        value: "Perimeter barrier",
+        note: adapt ? "Applied · CAPEX ₺2,100,000 · life 25y" : "Proposed · CAPEX ₺2,100,000 · life 25y",
+        chip: "FIXTURE",
+        chipStyle: FIXTURE,
+        cardStyle: adapt ? cardPlain : cardDim,
+        valueStyle: "margin: 5px 0 0; font-size: 15px;",
+      },
+      {
+        step: "5 · Avoided loss",
+        value: adapt ? money(avoided) + "/yr" : "—",
+        note: adapt ? "Payback " + (2100000 / avoided).toFixed(1) + " yr" : "Turn the measure on to apply it",
+        chip: "SYNTHETIC",
+        chipStyle: SYNTH,
+        cardStyle: adapt ? cardGreen : cardDim,
+        valueStyle: adapt ? V + " color: #5dcaa5;" : V + " color: #9aa8ba;",
+      },
+    ];
+
+    const pillBase = "border-radius: 999px; padding: 6px 13px; font-size: 12.5px; font-family: inherit; cursor: pointer; background: transparent;";
+    const horizons = ["today", "2030", "2050"].map((k) => ({
+      label: H[k].label,
+      style:
+        pillBase +
+        (k === horizon
+          ? " border: 1px solid #2ec990; color: #e6edf5;"
+          : " border: 1px solid #22304a; color: #9aa8ba;"),
+      pick: () => this.setState({ horizon: k }),
+    }));
+
+    const maxEal = H["2050"].eal;
+    const compare = ["today", "2030", "2050"].map((k) => {
+      const active = k === horizon;
+      const c = BANDS[H[k].band].color;
+      return {
+        label: k === "today" ? "Today" : H[k].label + " · SSP2-4.5",
+        eal: money(H[k].eal),
+        delta: H[k].delta === "" ? H[k].ealPct + " of value" : H[k].delta,
+        deltaStyle:
+          "margin: 4px 0 0; font-size: 12px; color: " + (H[k].delta === "" ? "#9aa8ba" : k === "2050" ? "#e24b4a" : "#e24b4a") + ";",
+        cardStyle:
+          "border-radius: 8px; background: #101a2b; padding: 13px; text-align: left; cursor: pointer; font-family: inherit; color: #e6edf5; border: 1px solid " +
+          (active ? "#2ec990" : "#22304a") +
+          ";",
+        barStyle:
+          "height: 8px; border-radius: 999px; background: " +
+          c +
+          "; width: " +
+          Math.round((H[k].eal / maxEal) * 100) +
+          "%; opacity: " +
+          (active ? "1" : "0.42") +
+          ";",
+        pick: () => this.setState({ horizon: k }),
+      };
+    });
+
+    const DRIVER_LABELS = ["Pluvial flood", "Extreme heat", "Coastal surge", "Wildfire", "Water stress"];
+    const drivers = DRIVER_LABELS.map((label, i) => {
+      const v = cur.drivers[i];
+      const color = v >= 0.7 ? "#e24b4a" : v >= 0.4 ? "#ef9f27" : "#5dcaa5";
+      return {
+        label,
+        value: v.toFixed(2),
+        fillStyle: "display: block; height: 100%; border-radius: 999px; width: " + Math.round(v * 100) + "%; background: " + color + ";",
+      };
+    });
+
+    return {
+      horizons,
+      compare,
+      layers,
+      drivers,
+      horizonKey: horizon,
+      adapt,
+      bandName: band.name,
+      bandColor: band.color,
+      bandLabel: band.name + " · band " + cur.band + " of 4",
+      bandStyle:
+        "display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 13px; letter-spacing: 0.04em; color: #04231a; background: " +
+        band.color +
+        ";",
+      legendDotStyle: "width: 10px; height: 10px; border-radius: 999px; background: " + band.color + ";",
+      haloR: cur.band >= 4 ? 30 : cur.band >= 3 ? 22 : 15,
+      haloFill: band.color === "#b3352f" ? "rgba(179,53,47,0.20)" : "rgba(226,75,74,0.16)",
+      waterfallLead: adapt
+        ? "With the proposed measure applied. Every step still carries its own source label."
+        : "Every step carries its own source label. A step you cannot trace is a step you cannot cite.",
+      adaptLabel: adapt ? "Adaptation applied" : "Adaptation off",
+      adaptToggleStyle:
+        "display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-family: inherit; cursor: pointer; " +
+        (adapt
+          ? "border: 1px solid rgba(93,202,165,0.5); background: rgba(93,202,165,0.10); color: #5dcaa5;"
+          : "border: 1px solid #22304a; background: transparent; color: #9aa8ba;"),
+      adaptDotStyle:
+        "width: 8px; height: 8px; border-radius: 999px; background: " + (adapt ? "#5dcaa5" : "#9aa8ba") + ";",
+      toggleAdapt: () => this.setState({ adapt: !adapt }),
+    };
+  }
+}
+</script>
+</body>
+</html>

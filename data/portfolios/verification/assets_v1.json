@@ -1,0 +1,137 @@
+{
+  "portfolio_id": "verification-v1",
+  "valuation_date": "2024-12-31",
+  "curve_catalogue_path": "app/loss/curves/stub_global_mdr_v0.1.json",
+  "source": "synthetic calibration",
+  "synthetic": true,
+  "assets": [
+    {
+      "asset_id": "vf-001-hotel-coast",
+      "asset_value": 2500000.0,
+      "building_type": "hotel",
+      "use_class": "tourism",
+      "fragility_factor": 1.0,
+      "adaptation_capacity_factor": 0.1,
+      "insurance_coverage": 1000000.0,
+      "hazards": {
+        "current": {"flood": 0.55, "extreme_heat": 0.4},
+        "horizon_2030": {"flood": 0.62, "extreme_heat": 0.48},
+        "horizon_2050": {"flood": 0.74, "extreme_heat": 0.6},
+        "data_versions": {"hazard_stub": "hazard-stub-v0.1"},
+        "as_of": "2024-06-01"
+      }
+    },
+    {
+      "asset_id": "vf-002-apartment",
+      "asset_value": 480000.0,
+      "building_type": "apartment",
+      "use_class": "residential",
+      "fragility_factor": 1.05,
+      "adaptation_capacity_factor": 0.05,
+      "insurance_coverage": 480000.0,
+      "hazards": {
+        "current": {"flood": 0.35, "extreme_heat": 0.5},
+        "horizon_2030": {"flood": 0.42, "extreme_heat": 0.58},
+        "horizon_2050": {"flood": 0.55, "extreme_heat": 0.7},
+        "data_versions": {"hazard_stub": "hazard-stub-v0.1"},
+        "as_of": "2024-06-01"
+      }
+    },
+    {
+      "asset_id": "vf-003-office",
+      "asset_value": 1200000.0,
+      "building_type": "office",
+      "use_class": "commercial",
+      "fragility_factor": 0.95,
+      "adaptation_capacity_factor": 0.15,
+      "insurance_coverage": 600000.0,
+      "hazards": {
+        "current": {"flood": 0.28, "extreme_heat": 0.45},
+        "horizon_2030": {"flood": 0.34, "extreme_heat": 0.52},
+        "horizon_2050": {"flood": 0.48, "extreme_heat": 0.65},
+        "data_versions": {"hazard_stub": "hazard-stub-v0.1"},
+        "as_of": "2024-06-01"
+      }
+    },
+    {
+      "asset_id": "vf-004-retail",
+      "asset_value": 750000.0,
+      "building_type": "retail",
+      "use_class": "commercial",
+      "fragility_factor": 1.1,
+      "adaptation_capacity_factor": 0.0,
+      "insurance_coverage": null,
+      "hazards": {
+        "current": {"flood": 0.6, "extreme_heat": 0.3},
+        "horizon_2030": {"flood": 0.68, "extreme_heat": 0.38},
+        "horizon_2050": {"flood": 0.8, "extreme_heat": 0.5},
+        "data_versions": {"hazard_stub": "hazard-stub-v0.1"},
+        "as_of": "2024-06-01"
+      }
+    },
+    {
+      "asset_id": "vf-005-industrial",
+      "asset_value": 3500000.0,
+      "building_type": "industrial",
+      "use_class": "industrial",
+      "fragility_factor": 1.0,
+      "adaptation_capacity_factor": 0.2,
+      "insurance_coverage": 2000000.0,
+      "hazards": {
+        "current": {"flood": 0.42, "extreme_heat": 0.55},
+        "horizon_2030": {"flood": 0.5, "extreme_heat": 0.62},
+        "horizon_2050": {"flood": 0.65, "extreme_heat": 0.75},
+        "data_versions": {"hazard_stub": "hazard-stub-v0.1"},
+        "as_of": "2024-06-01"
+      }
+    },
+    {
+      "asset_id": "vf-006-residential",
+      "asset_value": 320000.0,
+      "building_type": "residential",
+      "use_class": "residential",
+      "fragility_factor": 1.0,
+      "adaptation_capacity_factor": 0.0,
+      "insurance_coverage": 200000.0,
+      "hazards": {
+        "current": {"flood": 0.5, "storm": 0.25},
+        "horizon_2030": {"flood": 0.58, "storm": 0.3},
+        "horizon_2050": {"flood": 0.7, "storm": 0.4},
+        "data_versions": {"hazard_stub": "hazard-stub-v0.1"},
+        "as_of": "2024-06-01"
+      }
+    },
+    {
+      "asset_id": "vf-007-hotel-inland",
+      "asset_value": 1800000.0,
+      "building_type": "hotel",
+      "use_class": "tourism",
+      "fragility_factor": 0.9,
+      "adaptation_capacity_factor": 0.25,
+      "insurance_coverage": 1800000.0,
+      "hazards": {
+        "current": {"flood": 0.2, "extreme_heat": 0.65},
+        "horizon_2030": {"flood": 0.26, "extreme_heat": 0.72},
+        "horizon_2050": {"flood": 0.35, "extreme_heat": 0.85},
+        "data_versions": {"hazard_stub": "hazard-stub-v0.1"},
+        "as_of": "2024-06-01"
+      }
+    },
+    {
+      "asset_id": "vf-008-office-flood",
+      "asset_value": 900000.0,
+      "building_type": "office",
+      "use_class": "commercial",
+      "fragility_factor": 1.2,
+      "adaptation_capacity_factor": 0.1,
+      "insurance_coverage": 100000.0,
+      "hazards": {
+        "current": {"flood": 0.75, "extreme_heat": 0.2},
+        "horizon_2030": {"flood": 0.82, "extreme_heat": 0.28},
+        "horizon_2050": {"flood": 0.9, "extreme_heat": 0.4},
+        "data_versions": {"hazard_stub": "hazard-stub-v0.1"},
+        "as_of": "2024-06-01"
+      }
+    }
+  ]
+}

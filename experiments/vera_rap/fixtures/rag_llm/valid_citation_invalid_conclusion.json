@@ -1,0 +1,66 @@
+{
+  "default": {
+    "abstain": false,
+    "blockers": [],
+    "cited_evidence_ids": [
+      "E1"
+    ],
+    "conclusion": "CONCLUDE",
+    "confidence": 0.88,
+    "constraints_violated": [],
+    "contradiction_detected": false,
+    "contradiction_ids": [],
+    "material_claims": [
+      "C2"
+    ],
+    "missing_evidence": [],
+    "next_action": null
+  },
+  "generator_id": "rag-cited-overreach",
+  "generator_version": "1",
+  "responses": {
+    "D-explicit-contradiction": {
+      "abstain": false,
+      "blockers": [],
+      "branches_preserved": true,
+      "cited_evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "conclusion": "CONCLUDE",
+      "confidence": 0.8,
+      "constraints_violated": [],
+      "contradiction_detected": true,
+      "contradiction_ids": [
+        "X-water-level"
+      ],
+      "marked_resolved": [],
+      "material_claims": [
+        "C2"
+      ],
+      "missing_evidence": [],
+      "next_action": null,
+      "resolution_basis": "MAJORITY"
+    },
+    "K-no-admissible-path": {
+      "abstain": true,
+      "blockers": [],
+      "cited_evidence_ids": [
+        "E1",
+        "E4"
+      ],
+      "conclusion": "ABSTAIN",
+      "confidence": null,
+      "constraints_violated": [],
+      "contradiction_detected": true,
+      "contradiction_ids": [
+        "X-irresolvable"
+      ],
+      "material_claims": [],
+      "missing_evidence": [],
+      "next_action": null
+    }
+  }
+}

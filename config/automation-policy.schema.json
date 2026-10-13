@@ -1,0 +1,323 @@
+{
+  "$defs": {
+    "workflow": {
+      "additionalProperties": false,
+      "properties": {
+        "action_class": {
+          "enum": [
+            "AUTO-PASS",
+            "AUTO-BLOCK",
+            "FOUNDER-DECISION"
+          ]
+        },
+        "allowed_resources": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "circuit_breaker_condition": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "concurrency_rule": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "depends_on": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "evidence_artifact": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "maximum_retries": {
+          "maximum": 3,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "notification_policy": {
+          "enum": [
+            "weekly_digest_only",
+            "weekly digest; urgent router only for enumerated conditions"
+          ]
+        },
+        "prohibited_actions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "required_checks": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "rollback_or_safe_stop": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "timeout_minutes": {
+          "maximum": 60,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "trigger": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "action_class",
+        "trigger",
+        "allowed_resources",
+        "required_checks",
+        "maximum_retries",
+        "timeout_minutes",
+        "concurrency_rule",
+        "rollback_or_safe_stop",
+        "evidence_artifact",
+        "notification_policy",
+        "prohibited_actions",
+        "circuit_breaker_condition",
+        "depends_on"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://georiskengine.com/schemas/automation-policy-1.0.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_retention_days": {
+      "maximum": 90,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "auto_merge": {
+      "type": "object"
+    },
+    "canonical_roadmap": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "defaults": {
+      "type": "object"
+    },
+    "digest_horizons": {
+      "additionalProperties": false,
+      "properties": {
+        "exception_expiry_days": {
+          "maximum": 90,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "external_deadline_days": {
+          "maximum": 90,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "external_deadline_days",
+        "exception_expiry_days"
+      ],
+      "type": "object"
+    },
+    "execution_classes": {
+      "const": [
+        "AUTO-PASS",
+        "AUTO-BLOCK",
+        "FOUNDER-DECISION"
+      ]
+    },
+    "founder_budget": {
+      "type": "object"
+    },
+    "limits": {
+      "type": "object"
+    },
+    "phase2": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_required": {
+          "const": true
+        },
+        "circuit_breaker_marker": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "dependency_policy": {
+          "additionalProperties": false,
+          "properties": {
+            "audit_evidence_required": {
+              "const": true
+            },
+            "exceptions_must_be_independently_approved_scoped_and_expiring": {
+              "const": true
+            },
+            "maximum_critical": {
+              "const": 0
+            },
+            "maximum_high": {
+              "const": 0
+            }
+          },
+          "required": [
+            "maximum_high",
+            "maximum_critical",
+            "audit_evidence_required",
+            "exceptions_must_be_independently_approved_scoped_and_expiring"
+          ],
+          "type": "object"
+        },
+        "digest_issue_marker": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "github_pagination": {
+          "additionalProperties": false,
+          "properties": {
+            "maximum_items": {
+              "const": 1000
+            },
+            "maximum_pages": {
+              "const": 10
+            },
+            "page_size": {
+              "const": 100
+            }
+          },
+          "required": [
+            "maximum_pages",
+            "maximum_items",
+            "page_size"
+          ],
+          "type": "object"
+        },
+        "istanbul_digest_cron": {
+          "const": "0 6 * * 5"
+        },
+        "required_pr_checks": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "trusted_automation_actors": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "trusted_issue_creators": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "trusted_issue_label": {
+          "const": "georisk-automation-state"
+        }
+      },
+      "required": [
+        "bootstrap_required",
+        "trusted_automation_actors",
+        "required_pr_checks",
+        "circuit_breaker_marker",
+        "digest_issue_marker",
+        "istanbul_digest_cron",
+        "dependency_policy",
+        "trusted_issue_creators",
+        "trusted_issue_label",
+        "github_pagination"
+      ],
+      "type": "object"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "protected_resources": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "status": {
+      "const": "documented_not_operational"
+    },
+    "urgent_notifications": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "valid_trigger_prefixes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "version": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "workflows": {
+      "items": {
+        "$ref": "#/$defs/workflow"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "status",
+    "execution_classes",
+    "defaults",
+    "founder_budget",
+    "urgent_notifications",
+    "digest_horizons",
+    "auto_merge",
+    "protected_resources",
+    "limits",
+    "workflows",
+    "artifact_retention_days",
+    "phase2"
+  ],
+  "title": "GeoRisk founder automation policy",
+  "type": "object"
+}

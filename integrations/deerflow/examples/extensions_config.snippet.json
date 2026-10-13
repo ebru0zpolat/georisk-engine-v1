@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "georisk-engine": {
+      "enabled": true,
+      "type": "stdio",
+      "command": "georisk-mcp",
+      "env": {
+        "GEORISK_BASE_URL": "http://127.0.0.1:8002"
+      }
+    }
+  }
+}

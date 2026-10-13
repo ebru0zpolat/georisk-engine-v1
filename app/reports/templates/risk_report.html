@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      color: #222;
+    }
+    h1 { font-size: 26px; margin-bottom: 10px; }
+    h2 { margin-top: 24px; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+    .score {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .box {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .flag {
+      color: #b00020;
+    }
+  </style>
+</head>
+<body>
+
+<h1>GeoRisk Engine Report</h1>
+
+<h2>Asset</h2>
+<p><b>{{ asset_name }}</b><br>
+Sector: {{ sector }}<br>
+Location: {{ latitude }}, {{ longitude }}<br>
+Radius: {{ radius_km }} km</p>
+
+<h2>Overall Risk</h2>
+<div class="score">{{ overall_score }}/100 ({{ risk_band }})</div>
+<p>Data mode: <b>{{ data_mode }}</b>{% if not production_eligible %} (not production-eligible){% endif %}</p>
+
+<h2>Component Scores</h2>
+<div class="grid">
+  <div class="box">Industrial: {{ components.industrial }}</div>
+  <div class="box">Pollution: {{ components.pollution }}</div>
+  <div class="box">Land: {{ components.land }}</div>
+  <div class="box">Ocean: {{ components.ocean }}</div>
+  <div class="box">Agriculture: {{ components.agriculture }}</div>
+  <div class="box">Sensitivity: {{ components.sensitivity }}</div>
+</div>
+
+<h2>GEE features (current window)</h2>
+<p><i>Versus default climatological baseline (30-year WMO 1991–2020 unless overridden in the request or via <code>CLIMATE_BASELINE_*</code>).</i></p>
+<div class="grid">
+  <div class="box">Night lights (mean): {{ gee_features.night_lights_mean }}</div>
+  <div class="box">NO₂ (mean): {{ gee_features.no2_mean }}</div>
+</div>
+
+{% if gee_features.ndvi_mean is not none or gee_features.soil_moisture_proxy is not none %}
+<h3>Agriculture surface proxies (current window)</h3>
+<div class="grid">
+  {% if gee_features.ndvi_mean is not none %}
+  <div class="box">NDVI mean: {{ gee_features.ndvi_mean }}</div>
+  {% endif %}
+  {% if gee_features.soil_moisture_proxy is not none %}
+  <div class="box">Soil moisture proxy: {{ gee_features.soil_moisture_proxy }}</div>
+  {% endif %}
+</div>
+<p><small><i>Stub or satellite-derived; not a regulatory soil survey.</i></small></p>
+{% endif %}
+
+{% if gee_baseline is not none %}
+<h2>GEE baseline comparison</h2>
+<p><i>Baseline is the configured multi-year climatological reference (default 30-year WMO 1991–2020).</i></p>
+<h3>Night lights (vs baseline)</h3>
+<div class="grid">
+  <div class="box">Current mean: {{ gee_baseline.night_lights.current_mean }}</div>
+  <div class="box">Baseline mean: {{ gee_baseline.night_lights.baseline_mean }}</div>
+  <div class="box">Absolute change: {{ gee_baseline.night_lights.absolute_change }}</div>
+  <div class="box">Percent change: {{ gee_baseline.night_lights.percent_change }}%</div>
+  <div class="box">z-score (placeholder): {{ gee_baseline.night_lights.z_score }}</div>
+</div>
+<h3>NO₂ (vs baseline)</h3>
+<div class="grid">
+  <div class="box">Current mean: {{ gee_baseline.no2.current_mean }}</div>
+  <div class="box">Baseline mean: {{ gee_baseline.no2.baseline_mean }}</div>
+  <div class="box">Absolute change: {{ gee_baseline.no2.absolute_change }}</div>
+  <div class="box">Percent change: {{ gee_baseline.no2.percent_change }}%</div>
+  <div class="box">z-score (placeholder): {{ gee_baseline.no2.z_score }}</div>
+</div>
+{% endif %}
+
+<h2>Key Flags</h2>
+<ul>
+{% for flag in flags %}
+  <li class="flag">{{ flag }}</li>
+{% else %}
+  <li>None</li>
+{% endfor %}
+</ul>
+
+<h2>Interpretation</h2>
+<p>{{ interpretation }}</p>
+
+{% if industrial_verification %}
+<h2>Industrial verification (same audit id)</h2>
+<p><b>Linked audit ID:</b> {{ industrial_verification.linked_audit_id }}<br>
+<b>Risk model version:</b> {{ industrial_verification.risk_model_version }}</p>
+{% if industrial_verification.nearest_primary_audit %}
+<p><b>Nearest Primary Audit AOI:</b> {{ industrial_verification.nearest_primary_audit.facility_name_tr }}
+(<code>{{ industrial_verification.nearest_primary_audit.facility_id }}</code>) at
+<b>{{ industrial_verification.nearest_primary_audit.distance_km }} km</b></p>
+{% else %}
+<p><i>No Primary Audit facility within configured match radius.</i></p>
+{% endif %}
+<h3>Operational pipelines (reference)</h3>
+<ul>
+{% for p in industrial_verification.pipelines %}
+  <li><code>{{ p.id }}</code> — {{ p.label_tr }}<br>
+    <small>{{ p.methodology_doc }} → {{ p.production_entrypoint }}</small></li>
+{% endfor %}
+</ul>
+<p><small><i>{{ industrial_verification.disclaimer_tr }}</i></small></p>
+{% endif %}
+
+<h2>Key Insights</h2>
+<ul>
+{% for insight in insights %}
+  <li>
+    <strong>{{ insight.category | replace("_", " ") | title }}:</strong>
+    {{ insight.message }}
+    <em>({{ insight.severity }})</em>
+  </li>
+{% else %}
+  <li>No insights generated.</li>
+{% endfor %}
+</ul>
+
+<h2>Audit</h2>
+<p>ID: {{ audit_id }}<br>
+Generated: {{ generated_at }}</p>
+
+</body>
+</html>

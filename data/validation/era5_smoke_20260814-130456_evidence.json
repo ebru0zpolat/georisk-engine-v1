@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "ERA5-SMOKE-20260814-130456",
+  "case_id": "cds_era5_retrieve_smoke",
+  "status": "passed",
+  "dataset": "reanalysis-era5-pressure-levels",
+  "request": {
+    "product_type": [
+      "reanalysis"
+    ],
+    "variable": [
+      "geopotential"
+    ],
+    "year": [
+      "2024"
+    ],
+    "month": [
+      "03"
+    ],
+    "day": [
+      "01"
+    ],
+    "time": [
+      "13:00"
+    ],
+    "pressure_level": [
+      "1000"
+    ],
+    "data_format": "grib"
+  },
+  "duration_s": 37.7,
+  "grib_size_bytes": 2076588,
+  "grib_sha256": "ed51d9b659ec29b1d75a2130c821693d4a29c0e98434a1dcf89d400070d41f98",
+  "grib_deleted": true,
+  "credential_handling": "key used raw, never printed; no Authorization header or raw exception text in output",
+  "evidence_classification": {
+    "operational_evidence": "passed",
+    "note": "does NOT close homogeneity / scaling-calibration / retention / asset-loss gates"
+  }
+}

@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact GeoRisk Engine</title>
+<meta name="description" content="Contact GeoRisk Engine for pilot requests, enterprise demos, data licensing, partnerships, research inquiries, and technical API access.">
+<link rel="canonical" href="https://georiskengine.com/contact">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #050608;
+    --deep: #090c10;
+    --surface: #0e1318;
+    --card: #121920;
+    --border: #1e2a35;
+    --border-bright: #2d3f50;
+    --text: #c8d8e8;
+    --muted: #5a7080;
+    --dim: #334455;
+    --accent: #00e5b4;
+    --grid: rgba(0,229,180,0.04);
+    --font-display: 'Syne', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --font-serif: 'Instrument Serif', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 64px;
+    background: rgba(5,6,8,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-mark { width: 32px; height: 32px; }
+  .logo-mark svg { width: 100%; height: 100%; }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-text span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta { display: flex; align-items: center; gap: 12px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--black);
+    font-weight: 500;
+  }
+
+  .btn-primary:hover { background: #00ffc8; transform: translateY(-1px); }
+
+  main {
+    position: relative;
+    z-index: 1;
+    padding: 120px 40px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 720px;
+    margin-bottom: 32px;
+  }
+
+  .enterprise-note {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    max-width: 820px;
+  }
+
+  .enterprise-note p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .enterprise-note p:last-child { margin-bottom: 0; }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .routes-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+
+  .routes-card h2 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .routes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .routes-table th,
+  .routes-table td {
+    text-align: left;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .routes-table th {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    width: 42%;
+  }
+
+  .routes-table a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .routes-table a:hover { text-decoration: underline; }
+
+  .locations {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.04em;
+  }
+
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--border-bright);
+    padding: 32px;
+  }
+
+  .form-card h2 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .form-card .form-intro {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-field { display: flex; flex-direction: column; gap: 8px; }
+  .form-field.full { grid-column: 1 / -1; }
+
+  .form-field label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-field label .req { color: var(--accent); }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    padding: 12px 14px;
+    outline: none;
+    width: 100%;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0,229,180,0.1);
+  }
+
+  .form-field textarea { min-height: 100px; resize: vertical; }
+
+  .consent {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .consent input { margin-top: 4px; flex-shrink: 0; }
+
+  .consent label { cursor: pointer; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .form-actions {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-hint {
+    font-size: 11px;
+    color: var(--dim);
+  }
+
+  .form-hint code {
+    font-size: 10px;
+    color: var(--muted);
+    background: var(--surface);
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+  }
+
+  .form-success {
+    display: none;
+    padding: 16px;
+    border: 1px solid rgba(0,229,180,0.3);
+    background: rgba(0,229,180,0.06);
+    color: var(--accent);
+    font-size: 13px;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    padding: 60px 40px 40px;
+  }
+
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 16px;
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col ul a,
+  .footer-contact a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover,
+  .footer-contact a:hover { color: var(--accent); }
+
+  .footer-contact p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  .footer-contact .footer-locations {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--dim);
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--dim);
+  }
+
+  .footer-legal { display: flex; gap: 24px; }
+
+  .footer-legal a {
+    color: var(--dim);
+    text-decoration: none;
+  }
+
+  .footer-legal a:hover { color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    main { padding: 100px 20px 60px; }
+  }
+
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="logo-mark">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="12" height="12" stroke="#00e5b4" stroke-width="1.5"/>
+        <rect x="18" y="18" width="12" height="12" stroke="#ff6b35" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="3" fill="#00e5b4"/>
+      </svg>
+    </div>
+    <span class="logo-text">GeoRisk<span>Engine</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#platform">Platform</a></li>
+    <li><a href="/#api">API</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#docs">Docs</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="/contact" class="btn btn-ghost">Contact</a>
+    <a href="/contact?inquiry=sales_demo&amp;source=homepage_header_cta#demo-request" class="btn btn-primary">Request Demo</a>
+  </div>
+</nav>
+
+<main>
+  <p class="page-label">Contact</p>
+  <h1>Contact GeoRisk Engine</h1>
+  <p class="lead">
+    For pilot requests, enterprise demos, data licensing, partnerships, research inquiries, or technical API access, contact the GeoRisk Engine team.
+  </p>
+
+  <div class="enterprise-note" role="note">
+    <p>
+      GeoRisk Engine is currently prioritizing pilot engagements for industrial site risk, steel-sector validation, packaging supply-chain risk, energy asset exposure, agricultural exposure, data licensing, API integrations, and climate-related financial disclosure workflows.
+    </p>
+  </div>
+
+  <div class="contact-layout">
+    <aside class="routes-card" aria-labelledby="contact-routes-heading">
+      <h2 id="contact-routes-heading">Contact routes</h2>
+      <table class="routes-table">
+        <tbody>
+          <tr>
+            <th scope="row">Sales</th>
+            <td><a href="mailto:info@georiskengine.com">info@georiskengine.com</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Enterprise / Data Licensing</th>
+            <td><a href="mailto:info@georiskengine.com">info@georiskengine.com</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Technical / API Support</th>
+            <td><a href="mailto:info@georiskengine.com">info@georiskengine.com</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Partnerships</th>
+            <td><a href="mailto:info@georiskengine.com">info@georiskengine.com</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Research / Press</th>
+            <td><a href="mailto:info@georiskengine.com">info@georiskengine.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="locations">Istanbul / London / Remote</p>
+    </aside>
+
+    <section class="form-card" id="demo-request">
+      <h2>Request an enterprise demo</h2>
+      <p class="form-intro">Tell us about your portfolio, use case, and timeline. Our team typically responds within two business days.</p>
+
+      <div class="form-success" id="formSuccess" role="status">
+        Thank you. Your request has been prepared — if your email client did not open, please send your details to <a href="mailto:info@georiskengine.com">info@georiskengine.com</a>.
+      </div>
+
+      <!-- Set data-lead-endpoint to a Formspree, API, or CRM URL to enable server-side submission later. -->
+      <form
+        id="demoForm"
+        class="lead-form"
+        name="demo-request"
+        action="mailto:info@georiskengine.com"
+        method="post"
+        enctype="text/plain"
+        data-lead-endpoint=""
+        data-lead-form-version="1"
+      >
+        <input type="hidden" name="lead_record_type" value="inbound_demo">
+        <input type="hidden" name="lead_form_version" id="lead_form_version" value="1">
+        <input type="hidden" name="lead_source" id="lead_source" value="contact_page_direct">
+        <input type="hidden" name="routing_team" id="routing_team" value="sales">
+
+        <fieldset class="form-grid" style="border:none;padding:0;margin:0;min-width:0">
+          <legend class="visually-hidden">Enterprise demo request</legend>
+
+          <div class="form-field full">
+            <label for="inquiry_category">Inquiry category <span class="req">*</span></label>
+            <select id="inquiry_category" name="inquiry_category" required>
+              <option value="" disabled selected>Select inquiry type</option>
+              <option value="sales_demo">Sales / demo</option>
+              <option value="enterprise_licensing">Enterprise / data licensing</option>
+              <option value="api_support">Technical / API support</option>
+              <option value="partnership">Partnerships</option>
+              <option value="research_press">Research / press</option>
+              <option value="general_inquiry">General inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="lead_timeline">Timeline <span class="req">*</span></label>
+            <select id="lead_timeline" name="lead_timeline" required>
+              <option value="" disabled selected>Select timeline</option>
+              <option value="exploring">Exploring / early evaluation</option>
+              <option value="pilot_planning">Pilot planning (1–3 months)</option>
+              <option value="active_pilot">Active pilot in progress</option>
+              <option value="production_rollout">Production rollout</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="engagement_stage">Engagement stage <span class="req">*</span></label>
+            <select id="engagement_stage" name="engagement_stage" required>
+              <option value="" disabled selected>Select stage</option>
+              <option value="evaluate">Evaluate</option>
+              <option value="pilot">Pilot</option>
+              <option value="scale">Scale</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="company_size_band">Company size <span class="req">*</span></label>
+            <select id="company_size_band" name="company_size_band" required>
+              <option value="" disabled selected>Select company size</option>
+              <option value="1_50">1–50 employees</option>
+              <option value="51_250">51–250 employees</option>
+              <option value="251_1000">251–1,000 employees</option>
+              <option value="1001_plus">1,001+ employees</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="asset_scale_band">Asset / location scale <span class="req">*</span></label>
+            <select id="asset_scale_band" name="asset_scale_band" required>
+              <option value="" disabled selected>Select scale band</option>
+              <option value="1_10">1–10</option>
+              <option value="11_100">11–100</option>
+              <option value="101_500">101–500</option>
+              <option value="501_2000">501–2,000</option>
+              <option value="2001_plus">2,001+</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="name">Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="email">Work email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="company">Company <span class="req">*</span></label>
+            <input type="text" id="company" name="company" required autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="role">Role <span class="req">*</span></label>
+            <input type="text" id="role" name="role" required autocomplete="organization-title">
+          </div>
+          <div class="form-field">
+            <label for="industry">Industry <span class="req">*</span></label>
+            <select id="industry" name="industry" required>
+              <option value="" disabled selected>Select industry</option>
+              <option value="steel_metals">Steel / metals</option>
+              <option value="packaging">Packaging</option>
+              <option value="energy">Energy</option>
+              <option value="logistics_ports">Logistics / ports</option>
+              <option value="real_estate">Real estate</option>
+              <option value="insurance">Insurance</option>
+              <option value="banking_credit">Banking / credit</option>
+              <option value="agriculture_food">Agriculture / food</option>
+              <option value="consulting">Consulting</option>
+              <option value="public_sector">Public sector</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="usecase">Use case <span class="req">*</span></label>
+            <select id="usecase" name="use_case" required>
+              <option value="" disabled selected>Select use case</option>
+              <option value="industrial_site_risk">Industrial site risk</option>
+              <option value="supply_chain_risk">Supply chain risk</option>
+              <option value="insurance_underwriting">Insurance underwriting</option>
+              <option value="esg_tcfd_csrd">ESG / TCFD / CSRD reporting</option>
+              <option value="data_licensing">Data licensing</option>
+              <option value="api_integration">API integration</option>
+              <option value="government_resilience">Government / resilience planning</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="assets">Number of assets / locations (detail) <span class="req">*</span></label>
+            <input type="text" id="assets" name="assets_locations" required placeholder="e.g. 12 sites, 500 locations">
+          </div>
+          <div class="form-field">
+            <label for="region">Country / region of interest <span class="req">*</span></label>
+            <input type="text" id="region" name="region" required placeholder="e.g. Turkey, EU, global">
+          </div>
+          <div class="form-field full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Optional context: timeline, data needs, integration requirements"></textarea>
+          </div>
+          <div class="form-field full">
+            <div class="consent">
+              <input type="checkbox" id="consent" name="consent" value="yes" required aria-describedby="consent-desc">
+              <label for="consent" id="consent-desc">
+                I agree that GeoRisk Engine may use the information submitted in this form to respond to my inquiry. Do not submit confidential, personal, or regulated information through this form.
+                <span class="req">*</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Submit demo request</button>
+          <p class="form-hint">Submit opens your email client with a pre-filled message routed by inquiry category. Homepage links may pass tracking-safe <code>inquiry</code> and <code>source</code> parameters (slug values only). You can also email us directly using the contact routes listed on this page.</p>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="nav-logo" href="/" style="text-decoration:none">
+          <div class="logo-mark">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="12" height="12" stroke="#00e5b4" stroke-width="1.5"/>
+              <rect x="18" y="18" width="12" height="12" stroke="#ff6b35" stroke-width="1.5"/>
+              <circle cx="16" cy="16" r="3" fill="#00e5b4"/>
+            </svg>
+          </div>
+          <span class="logo-text">GeoRisk<span>Engine</span></span>
+        </a>
+        <p>Location-based risk intelligence for enterprise pilots, portfolio assessments, and API integrations.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="/#platform">Risk Scoring</a></li>
+          <li><a href="/#api">API Reference</a></li>
+          <li><a href="/#data">Data Sources</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/#docs">Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>Sales: <a href="mailto:info@georiskengine.com">info@georiskengine.com</a></p>
+        <p>Support: <a href="mailto:info@georiskengine.com">info@georiskengine.com</a></p>
+        <p>Partnerships: <a href="mailto:info@georiskengine.com">info@georiskengine.com</a></p>
+        <p>Contact page: <a href="/contact">/contact</a></p>
+        <p class="footer-locations">Istanbul / London / Remote</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GeoRisk Engine. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="/">Privacy</a>
+        <a href="/">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var ALLOWED_INQUIRY = [
+      'sales_demo', 'enterprise_licensing', 'api_support',
+      'partnership', 'research_press', 'general_inquiry'
+    ];
+    var ALLOWED_SOURCE = [
+      'contact_page_direct', 'homepage_header', 'homepage_header_cta',
+      'homepage_hero', 'homepage_api', 'homepage_industry',
+      'homepage_pricing', 'homepage_get_started', 'homepage_footer',
+      'hizmetler_page'
+    ];
+    var ROUTING_EMAIL = {
+      sales_demo: 'info@georiskengine.com',
+      enterprise_licensing: 'info@georiskengine.com',
+      api_support: 'info@georiskengine.com',
+      partnership: 'info@georiskengine.com',
+      research_press: 'info@georiskengine.com',
+      general_inquiry: 'info@georiskengine.com'
+    };
+    var ROUTING_TEAM = {
+      sales_demo: 'sales',
+      enterprise_licensing: 'enterprise',
+      api_support: 'support',
+      partnership: 'partnerships',
+      research_press: 'research',
+      general_inquiry: 'sales'
+    };
+
+    function sanitizeToken(raw, allowed) {
+      var v = String(raw || '').trim().toLowerCase().replace(/[^a-z0-9_]/g, '');
+      return allowed.indexOf(v) >= 0 ? v : '';
+    }
+
+    function fieldValue(id) {
+      var el = document.getElementById(id);
+      return el ? String(el.value || '').trim() : '';
+    }
+
+    function applyTrackingParams() {
+      var params = new URLSearchParams(window.location.search);
+      var inquiry = sanitizeToken(params.get('inquiry'), ALLOWED_INQUIRY);
+      var source = sanitizeToken(params.get('source'), ALLOWED_SOURCE);
+      var inquiryEl = document.getElementById('inquiry_category');
+      var sourceEl = document.getElementById('lead_source');
+      var routingEl = document.getElementById('routing_team');
+
+      if (inquiry && inquiryEl) {
+        inquiryEl.value = inquiry;
+      }
+      if (source && sourceEl) {
+        sourceEl.value = source;
+      } else if (inquiry && sourceEl && sourceEl.value === 'contact_page_direct') {
+        sourceEl.value = 'contact_page_direct';
+      }
+      syncRoutingFields();
+    }
+
+    function syncRoutingFields() {
+      var inquiry = fieldValue('inquiry_category');
+      var routingEl = document.getElementById('routing_team');
+      if (routingEl && ROUTING_TEAM[inquiry]) {
+        routingEl.value = ROUTING_TEAM[inquiry];
+      }
+    }
+
+    var form = document.getElementById('demoForm');
+    if (!form) return;
+
+    applyTrackingParams();
+
+    var inquiryEl = document.getElementById('inquiry_category');
+    if (inquiryEl) {
+      inquiryEl.addEventListener('change', syncRoutingFields);
+    }
+
+    form.addEventListener('submit', function (e) {
+      var endpoint = (form.getAttribute('data-lead-endpoint') || '').trim();
+      if (endpoint) {
+        return;
+      }
+      if (!form.checkValidity()) return;
+      e.preventDefault();
+      syncRoutingFields();
+
+      var inquiry = fieldValue('inquiry_category');
+      var to = ROUTING_EMAIL[inquiry] || ROUTING_EMAIL.sales_demo;
+
+      var lines = [
+        'GeoRisk Engine — Inbound lead',
+        '',
+        'Inquiry category: ' + inquiry,
+        'Lead source: ' + fieldValue('lead_source'),
+        'Routing team: ' + fieldValue('routing_team'),
+        'Lead record type: inbound_demo',
+        'Form version: ' + fieldValue('lead_form_version'),
+        'Timeline: ' + fieldValue('lead_timeline'),
+        'Engagement stage: ' + fieldValue('engagement_stage'),
+        'Company size band: ' + fieldValue('company_size_band'),
+        'Asset scale band: ' + fieldValue('asset_scale_band'),
+        '',
+        'Name: ' + fieldValue('name'),
+        'Work email: ' + fieldValue('email'),
+        'Company: ' + fieldValue('company'),
+        'Role: ' + fieldValue('role'),
+        'Industry: ' + fieldValue('industry'),
+        'Use case: ' + fieldValue('usecase'),
+        'Assets / locations (detail): ' + fieldValue('assets'),
+        'Region: ' + fieldValue('region'),
+        'Message: ' + fieldValue('message'),
+        'Consent: yes'
+      ];
+      var subject = encodeURIComponent('[' + inquiry + '] GeoRisk lead — ' + (fieldValue('company') || 'Inbound'));
+      var body = encodeURIComponent(lines.join('\n'));
+      window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+      var success = document.getElementById('formSuccess');
+      if (success) {
+        success.innerHTML = 'Thank you. Your request has been prepared — if your email client did not open, please email <a href="mailto:' + to + '">' + to + '</a>.';
+        success.style.display = 'block';
+      }
+    });
+  })();
+</script>
+</body>
+</html>

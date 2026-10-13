@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "georisk-engine": {
+      "command": "georisk-mcp",
+      "env": {
+        "GEORISK_BASE_URL": "http://127.0.0.1:8002"
+      }
+    },
+    "headroom": {
+      "command": "headroom",
+      "args": ["mcp", "serve"]
+    }
+  }
+}

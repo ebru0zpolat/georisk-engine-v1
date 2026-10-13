@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">TSRS 2 compliant physical climate risk report mockup - GeoRisk Engine</title>
+  <desc id="desc">A sample report page showing facility exposure score, TSRS 2 mapping, KGK audit evidence, satellite indicators, and methodology notes.</desc>
+  <rect width="1200" height="760" fill="#07111f"/>
+  <rect x="48" y="44" width="1104" height="672" rx="28" fill="#0d1b2f" stroke="#2ec990" stroke-opacity="0.45" stroke-width="2"/>
+  <text x="88" y="104" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="34" font-weight="700">TSRS 2 Physical Climate Risk Report</text>
+  <text x="88" y="138" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="18">Sample page - GeoRisk Engine TSRS Compliance Turkey Services</text>
+  <rect x="88" y="172" width="300" height="150" rx="18" fill="#10243c" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="116" y="214" fill="#2ec990" font-family="Arial, sans-serif" font-size="16" font-weight="700">Facility risk score</text>
+  <text x="116" y="278" fill="#e24b4a" font-family="Arial, sans-serif" font-size="64" font-weight="700">78</text>
+  <text x="210" y="278" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="20">High physical risk</text>
+  <rect x="420" y="172" width="312" height="150" rx="18" fill="#10243c" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="448" y="214" fill="#2ec990" font-family="Arial, sans-serif" font-size="16" font-weight="700">TSRS 2 mapping</text>
+  <text x="448" y="248" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="18">Physical climate exposure</text>
+  <text x="448" y="278" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="16">IFRS S2 context + KGK audit evidence</text>
+  <rect x="764" y="172" width="300" height="150" rx="18" fill="#10243c" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="792" y="214" fill="#2ec990" font-family="Arial, sans-serif" font-size="16" font-weight="700">Satellite indicators</text>
+  <text x="792" y="248" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="18">Flood, heat, wildfire</text>
+  <text x="792" y="278" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="16">ESA / Copernicus reference layer</text>
+  <rect x="88" y="364" width="520" height="250" rx="18" fill="#10243c" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="118" y="408" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="22" font-weight="700">Exposure evidence table</text>
+  <line x1="118" y1="434" x2="576" y2="434" stroke="#ffffff" stroke-opacity="0.14"/>
+  <text x="118" y="472" fill="#2ec990" font-family="Arial, sans-serif" font-size="15">Requirement</text>
+  <text x="286" y="472" fill="#2ec990" font-family="Arial, sans-serif" font-size="15">Evidence</text>
+  <text x="446" y="472" fill="#2ec990" font-family="Arial, sans-serif" font-size="15">Status</text>
+  <text x="118" y="514" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="16">TSRS 2 physical risk</text>
+  <text x="286" y="514" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="16">Flood / heat score</text>
+  <text x="446" y="514" fill="#ef9f27" font-family="Arial, sans-serif" font-size="16">Review</text>
+  <text x="118" y="556" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="16">KGK audit evidence</text>
+  <text x="286" y="556" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="16">Method notes</text>
+  <text x="446" y="556" fill="#2ec990" font-family="Arial, sans-serif" font-size="16">Ready</text>
+  <rect x="640" y="364" width="424" height="250" rx="18" fill="#10243c" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="670" y="408" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="22" font-weight="700">Methodology notes</text>
+  <text x="670" y="450" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="17">- IPCC scenario framing</text>
+  <text x="670" y="486" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="17">- Public Oversight Authority of Turkey (KGK)</text>
+  <text x="670" y="522" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="17">- Turkish Sustainability Reporting Standards (TSRS)</text>
+  <text x="670" y="558" fill="#9fb4cc" font-family="Arial, sans-serif" font-size="17">- No legal certification or assurance claim</text>
+  <rect x="88" y="646" width="976" height="34" rx="17" fill="#2ec990" fill-opacity="0.16"/>
+  <text x="112" y="669" fill="#e8f2ff" font-family="Arial, sans-serif" font-size="15">Deliverable: one-page TSRS 2 physical risk summary, evidence table, and methodology notes for audit review.</text>
+</svg>

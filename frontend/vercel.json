@@ -1,0 +1,81 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/(robots.txt|sitemap.xml|_redirects)",
+      "destination": "/$1"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact"
+    },
+    {
+      "source": "/hizmetler",
+      "destination": "/hizmetler"
+    },
+    {
+      "source": "/konum-zekasi-platformu",
+      "destination": "/konum-zekasi-platformu"
+    },
+    {
+      "source": "/lokasyon-risk-analizi-araclari",
+      "destination": "/lokasyon-risk-analizi-araclari"
+    },
+    {
+      "source": "/georisk-engine-ozellikleri",
+      "destination": "/georisk-engine-ozellikleri"
+    },
+    {
+      "source": "/iklim-riski-fiyatlandirma",
+      "destination": "/iklim-riski-fiyatlandirma"
+    },
+    {
+      "source": "/konum-zekasi-cevresel-risk-yonetimi",
+      "destination": "/konum-zekasi-cevresel-risk-yonetimi"
+    },
+    {
+      "source": "/services",
+      "destination": "/services"
+    },
+    {
+      "source": "/services/tsrs-compliance",
+      "destination": "/services/tsrs-compliance"
+    },
+    {
+      "source": "/methodology",
+      "destination": "/methodology"
+    },
+    {
+      "source": "/blog/tsrs-compliance-guide",
+      "destination": "/blog/tsrs-compliance-guide"
+    },
+    {
+      "source": "/snapshot/:assetId*",
+      "destination": "/"
+    },
+    {
+      "source": "/tiles",
+      "destination": "/"
+    },
+    {
+      "source": "/demo",
+      "destination": "/"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/sustainability-reporting-standards-turkey-tsrs",
+      "destination": "/services/tsrs-compliance",
+      "permanent": true
+    }
+  ]
+}

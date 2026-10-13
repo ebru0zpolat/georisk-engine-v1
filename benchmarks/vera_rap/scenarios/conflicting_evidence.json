@@ -1,0 +1,537 @@
+[
+  {
+    "case": {
+      "case_id": "D-explicit-contradiction",
+      "description": "Three older sources agree while one newer source contradicts; majority and recency are both tempting.",
+      "expected_abstention": false,
+      "expected_blockers": [
+        "UNRESOLVED_CONTRADICTION"
+      ],
+      "expected_permissions": [
+        "EXPECTED_CONTRADICTION_PENDING",
+        "EXPECTED_BLOCK",
+        "EXPECTED_REPLAN"
+      ],
+      "expected_trace_properties": {
+        "required_events": [
+          "CONTRADICTION_DETECTED"
+        ]
+      },
+      "initial_artifacts": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "constraint_ids": [],
+            "contradicting_evidence_ids": [
+              "E4"
+            ],
+            "epistemic_state": "OBSERVED",
+            "parent_claim_ids": [],
+            "predicate": "observes",
+            "subject": "site-1",
+            "supporting_evidence_ids": [
+              "E1",
+              "E2",
+              "E3"
+            ],
+            "value": "water_level=1.8"
+          },
+          {
+            "claim_id": "C2",
+            "constraint_ids": [
+              "K1"
+            ],
+            "contradicting_evidence_ids": [],
+            "epistemic_state": "INFERRED",
+            "parent_claim_ids": [
+              "C1"
+            ],
+            "predicate": "abstracts",
+            "subject": "site-1",
+            "supporting_evidence_ids": [],
+            "value": "flood_condition"
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_id": "K1",
+            "constraint_type": "data_integrity",
+            "description": "integrity check",
+            "required": true,
+            "status": "SATISFIED"
+          }
+        ],
+        "contradictions": [
+          {
+            "claim_ids": [
+              "C1"
+            ],
+            "conflict_dimensions": [
+              "measurement.value"
+            ],
+            "contradiction_id": "X-water-level",
+            "contradiction_type": "DIRECT_VALUE_CONFLICT",
+            "evidence_ids": [
+              "E1",
+              "E4"
+            ],
+            "resolution_requirements": [
+              {
+                "mandatory": true,
+                "requirement_id": "req-independent",
+                "requirement_type": "INDEPENDENT_EVIDENCE_REQUIRED",
+                "subject_ids": [
+                  "E1",
+                  "E4"
+                ]
+              }
+            ]
+          }
+        ],
+        "evaluation_time": "2026-03-01T00:00:00Z",
+        "evidence": [
+          {
+            "content": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "content_hash": "14cf7a0863ac5b78726515e67c2f355def0d1786506db67fe90e4d316717305b",
+            "evidence_id": "E1",
+            "measurement": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "retrieval_mechanism": "benchmark-fixture",
+            "retrieved_at": "2026-01-01T00:00:00Z",
+            "source_id": "gauge-a",
+            "transformation_ids": [],
+            "upstream_evidence_ids": [],
+            "verification_status": "VERIFIED"
+          },
+          {
+            "content": {
+              "method": "gauge",
+              "property": "water_level",
+              "station": "b",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "content_hash": "e0269a03f609dfa3ee94414a5c6ca97dc74eebf0ffa20663b2cee94bdfbd3173",
+            "evidence_id": "E2",
+            "measurement": {
+              "method": "gauge",
+              "property": "water_level",
+              "station": "b",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "retrieval_mechanism": "benchmark-fixture",
+            "retrieved_at": "2026-01-01T00:00:00Z",
+            "source_id": "gauge-b",
+            "transformation_ids": [],
+            "upstream_evidence_ids": [],
+            "verification_status": "VERIFIED"
+          },
+          {
+            "content": {
+              "method": "gauge",
+              "property": "water_level",
+              "station": "c",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "content_hash": "ee0d90f6105aec3ee6ec0a0e35e187852e726f77c5219b961aa029cb48a57473",
+            "evidence_id": "E3",
+            "measurement": {
+              "method": "gauge",
+              "property": "water_level",
+              "station": "c",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "retrieval_mechanism": "benchmark-fixture",
+            "retrieved_at": "2026-01-01T00:00:00Z",
+            "source_id": "gauge-c",
+            "transformation_ids": [],
+            "upstream_evidence_ids": [],
+            "verification_status": "VERIFIED"
+          },
+          {
+            "content": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 3.4
+            },
+            "content_hash": "b2e6b025f3ef2d37845b1737561f6417984c56ab4cefb3e2201b18ccc08049f0",
+            "evidence_id": "E4",
+            "measurement": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 3.4
+            },
+            "retrieval_mechanism": "benchmark-fixture",
+            "retrieved_at": "2026-02-15T00:00:00Z",
+            "source_id": "gauge-d",
+            "transformation_ids": [],
+            "upstream_evidence_ids": [],
+            "verification_status": "VERIFIED"
+          }
+        ],
+        "transformations": [],
+        "transitions": [
+          {
+            "requirements": [
+              {
+                "mandatory": true,
+                "parameters": {},
+                "requirement_id": "R-support",
+                "requirement_type": "SUPPORT_COMPLETE",
+                "subject_id": "C2"
+              },
+              {
+                "mandatory": true,
+                "parameters": {},
+                "requirement_id": "R-contradiction",
+                "requirement_type": "NO_UNRESOLVED_CONTRADICTION",
+                "subject_id": "C1"
+              }
+            ],
+            "source_state": {
+              "claim_ids": [
+                "C1"
+              ],
+              "evidence_ids": [
+                "E1",
+                "E2",
+                "E3",
+                "E4"
+              ],
+              "level": 0,
+              "state_id": "T1-source",
+              "state_type": "OBSERVATION"
+            },
+            "target_state": {
+              "claim_ids": [
+                "C2"
+              ],
+              "evidence_ids": [],
+              "level": 1,
+              "state_id": "T1-target",
+              "state_type": "CONDITION"
+            },
+            "transition_id": "T1",
+            "transition_type": "benchmark_abstraction"
+          }
+        ],
+        "uncertainty": {
+          "rules": [],
+          "thresholds": []
+        }
+      },
+      "metadata": {
+        "majority_side_evidence_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "newest_evidence_id": "E4",
+        "perturbation": [
+          "majority_count_imbalance",
+          "newer_conflicting_evidence"
+        ]
+      },
+      "scenario_type": "CONFLICTING_EVIDENCE",
+      "target": {
+        "material_claim_id": "C2",
+        "target_type": "TRANSITION_PERMISSION",
+        "transition_id": "T1"
+      }
+    },
+    "reference": {
+      "admissible_evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "allowed_claim_ids": [],
+      "case_id": "D-explicit-contradiction",
+      "expected_contradiction_ids": [
+        "X-water-level"
+      ],
+      "expected_permission": "EXPECTED_CONTRADICTION_PENDING",
+      "forbidden_claim_ids": [
+        "C2",
+        "C1"
+      ],
+      "max_plans_before_progress": 1,
+      "progress_expected_after_execution": false,
+      "required_abstention": false,
+      "required_blocker_types": [
+        "UNRESOLVED_CONTRADICTION"
+      ],
+      "required_constraint_behavior": "NONE",
+      "required_evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "required_provenance_refs": [
+        "E1",
+        "E4"
+      ],
+      "required_replanning": true,
+      "required_trace_events": [
+        "EVIDENCE_REGISTERED",
+        "CLAIM_DECLARED",
+        "SUPPORT_EVALUATED",
+        "TRANSITION_EVALUATED",
+        "CONTRADICTION_DETECTED",
+        "PLAN_CREATED"
+      ],
+      "uncertainty_expectation": null
+    }
+  },
+  {
+    "case": {
+      "case_id": "K-no-admissible-path",
+      "description": "The contradiction has already been declared IRRESOLVABLE after exhausting its requirements; no admissible resolution path exists.",
+      "expected_abstention": true,
+      "expected_blockers": [
+        "NO_ADMISSIBLE_RESOLUTION_PATH"
+      ],
+      "expected_permissions": [
+        "EXPECTED_ABSTAIN"
+      ],
+      "expected_trace_properties": {
+        "required_events": [
+          "CONTRADICTION_DETECTED",
+          "PLANNER_ABSTAINED"
+        ]
+      },
+      "initial_artifacts": {
+        "claims": [
+          {
+            "claim_id": "C1",
+            "constraint_ids": [],
+            "contradicting_evidence_ids": [
+              "E4"
+            ],
+            "epistemic_state": "OBSERVED",
+            "parent_claim_ids": [],
+            "predicate": "observes",
+            "subject": "site-1",
+            "supporting_evidence_ids": [
+              "E1"
+            ],
+            "value": "water_level=1.8"
+          },
+          {
+            "claim_id": "C2",
+            "constraint_ids": [
+              "K1"
+            ],
+            "contradicting_evidence_ids": [],
+            "epistemic_state": "INFERRED",
+            "parent_claim_ids": [
+              "C1"
+            ],
+            "predicate": "abstracts",
+            "subject": "site-1",
+            "supporting_evidence_ids": [],
+            "value": "flood_condition"
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_id": "K1",
+            "constraint_type": "data_integrity",
+            "description": "integrity check",
+            "required": true,
+            "status": "SATISFIED"
+          }
+        ],
+        "contradictions": [
+          {
+            "claim_ids": [
+              "C1"
+            ],
+            "conflict_dimensions": [
+              "measurement.value"
+            ],
+            "contradiction_id": "X-irresolvable",
+            "contradiction_type": "DIRECT_VALUE_CONFLICT",
+            "evidence_ids": [
+              "E1",
+              "E4"
+            ],
+            "resolution": {
+              "resolution_basis": "review exhausted",
+              "target_status": "IRRESOLVABLE",
+              "unsatisfied_requirement_ids": [
+                "req-review"
+              ]
+            },
+            "resolution_requirements": [
+              {
+                "mandatory": true,
+                "requirement_id": "req-review",
+                "requirement_type": "HUMAN_REVIEW_REQUIRED",
+                "subject_ids": [
+                  "C1"
+                ]
+              }
+            ]
+          }
+        ],
+        "evaluation_time": "2026-03-01T00:00:00Z",
+        "evidence": [
+          {
+            "content": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "content_hash": "14cf7a0863ac5b78726515e67c2f355def0d1786506db67fe90e4d316717305b",
+            "evidence_id": "E1",
+            "measurement": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 1.8
+            },
+            "retrieval_mechanism": "benchmark-fixture",
+            "retrieved_at": "2026-01-01T00:00:00Z",
+            "source_id": "gauge-a",
+            "transformation_ids": [],
+            "upstream_evidence_ids": [],
+            "verification_status": "VERIFIED"
+          },
+          {
+            "content": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 3.4
+            },
+            "content_hash": "b2e6b025f3ef2d37845b1737561f6417984c56ab4cefb3e2201b18ccc08049f0",
+            "evidence_id": "E4",
+            "measurement": {
+              "method": "gauge",
+              "property": "water_level",
+              "subject": "site-1",
+              "value": 3.4
+            },
+            "retrieval_mechanism": "benchmark-fixture",
+            "retrieved_at": "2026-01-01T00:00:00Z",
+            "source_id": "gauge-d",
+            "transformation_ids": [],
+            "upstream_evidence_ids": [],
+            "verification_status": "VERIFIED"
+          }
+        ],
+        "transformations": [],
+        "transitions": [
+          {
+            "requirements": [
+              {
+                "mandatory": true,
+                "parameters": {},
+                "requirement_id": "R-support",
+                "requirement_type": "SUPPORT_COMPLETE",
+                "subject_id": "C2"
+              },
+              {
+                "mandatory": true,
+                "parameters": {},
+                "requirement_id": "R-contradiction",
+                "requirement_type": "NO_UNRESOLVED_CONTRADICTION",
+                "subject_id": "C1"
+              }
+            ],
+            "source_state": {
+              "claim_ids": [
+                "C1"
+              ],
+              "evidence_ids": [
+                "E1",
+                "E4"
+              ],
+              "level": 0,
+              "state_id": "T1-source",
+              "state_type": "OBSERVATION"
+            },
+            "target_state": {
+              "claim_ids": [
+                "C2"
+              ],
+              "evidence_ids": [],
+              "level": 1,
+              "state_id": "T1-target",
+              "state_type": "CONDITION"
+            },
+            "transition_id": "T1",
+            "transition_type": "benchmark_abstraction"
+          }
+        ],
+        "uncertainty": {
+          "rules": [],
+          "thresholds": []
+        }
+      },
+      "metadata": null,
+      "scenario_type": "CONFLICTING_EVIDENCE",
+      "target": {
+        "material_claim_id": "C2",
+        "target_type": "TRANSITION_PERMISSION",
+        "transition_id": "T1"
+      }
+    },
+    "reference": {
+      "admissible_evidence_ids": [
+        "E1",
+        "E4"
+      ],
+      "allowed_claim_ids": [],
+      "case_id": "K-no-admissible-path",
+      "expected_contradiction_ids": [
+        "X-irresolvable"
+      ],
+      "expected_permission": "EXPECTED_ABSTAIN",
+      "forbidden_claim_ids": [
+        "C2",
+        "C1"
+      ],
+      "max_plans_before_progress": 1,
+      "progress_expected_after_execution": false,
+      "required_abstention": true,
+      "required_blocker_types": [
+        "NO_ADMISSIBLE_RESOLUTION_PATH"
+      ],
+      "required_constraint_behavior": "NONE",
+      "required_evidence_ids": [
+        "E1",
+        "E4"
+      ],
+      "required_provenance_refs": [
+        "E1",
+        "E4"
+      ],
+      "required_replanning": false,
+      "required_trace_events": [
+        "CONTRADICTION_DETECTED",
+        "BLOCKERS_IDENTIFIED",
+        "PLANNER_ABSTAINED"
+      ],
+      "uncertainty_expectation": null
+    }
+  }
+]

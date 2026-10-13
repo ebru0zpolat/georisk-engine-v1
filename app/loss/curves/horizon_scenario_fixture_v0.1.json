@@ -1,0 +1,51 @@
+{
+ "catalogue_id": "horizon_scenario_fixture",
+ "version": "0.2",
+ "scenario": "FIXTURE-SSP2-4.5",
+ "source": "SYNTHETIC-FIXTURE — plausible uplift shape, NOT CMIP6/CORDEX/KNMI values. Offline tests/demos only.",
+ "synthetic": true,
+ "populated": true,
+ "methodology_note": "Labelled synthetic per-hazard uplift factors with the STRUCTURE of a scenario horizon catalogue (current x factor -> horizon intensity, clamped to 1.0). Replace with authentic CMIP6/CORDEX/KNMI'23 factors via scripts/vendor_horizon_scenarios.py. Never present these numbers as real climate-scenario projections. v0.2 adds wildfire (climate-driven uplift) and earthquake (factor 1.0 at both horizons: seismic hazard is stationary under a climate scenario and must never be uplifted).",
+ "uplifts": [
+  {
+   "hazard_id": "flood",
+   "horizon": "2030",
+   "factor": 1.08
+  },
+  {
+   "hazard_id": "flood",
+   "horizon": "2050",
+   "factor": 1.2
+  },
+  {
+   "hazard_id": "extreme_heat",
+   "horizon": "2030",
+   "factor": 1.15
+  },
+  {
+   "hazard_id": "extreme_heat",
+   "horizon": "2050",
+   "factor": 1.35
+  },
+  {
+   "hazard_id": "wildfire",
+   "horizon": "2030",
+   "factor": 1.2
+  },
+  {
+   "hazard_id": "wildfire",
+   "horizon": "2050",
+   "factor": 1.45
+  },
+  {
+   "hazard_id": "earthquake",
+   "horizon": "2030",
+   "factor": 1.0
+  },
+  {
+   "hazard_id": "earthquake",
+   "horizon": "2050",
+   "factor": 1.0
+  }
+ ]
+}

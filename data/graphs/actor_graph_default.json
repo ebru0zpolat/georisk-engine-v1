@@ -1,0 +1,69 @@
+{
+  "version": "1.0",
+  "default_origin_node_id": "production_capacity",
+  "nodes": [
+    {
+      "id": "production_capacity",
+      "label": "Production Capacity",
+      "sector": "industrial",
+      "baseline_score": 60
+    },
+    {
+      "id": "logistics_hub_istanbul",
+      "label": "Logistics Hub Istanbul",
+      "sector": "port",
+      "baseline_score": 55
+    },
+    {
+      "id": "logistics_hub_regional",
+      "label": "Logistics Hub Regional",
+      "sector": "port",
+      "baseline_score": 55
+    },
+    {
+      "id": "raw_material_sourcing",
+      "label": "Raw Material Sourcing",
+      "sector": "industrial",
+      "baseline_score": 58
+    },
+    {
+      "id": "energy_supplier",
+      "label": "Energy Supplier",
+      "sector": "energy",
+      "baseline_score": 52
+    },
+    {
+      "id": "port_gate_mersin",
+      "label": "Port Gate Mersin",
+      "sector": "port",
+      "baseline_score": 50
+    }
+  ],
+  "edges": [
+    {
+      "source": "production_capacity",
+      "target": "logistics_hub_istanbul",
+      "dependency_weight": 0.8
+    },
+    {
+      "source": "production_capacity",
+      "target": "logistics_hub_regional",
+      "dependency_weight": 0.65
+    },
+    {
+      "source": "production_capacity",
+      "target": "raw_material_sourcing",
+      "dependency_weight": 0.85
+    },
+    {
+      "source": "logistics_hub_istanbul",
+      "target": "port_gate_mersin",
+      "dependency_weight": 0.6
+    },
+    {
+      "source": "energy_supplier",
+      "target": "production_capacity",
+      "dependency_weight": 0.7
+    }
+  ]
+}

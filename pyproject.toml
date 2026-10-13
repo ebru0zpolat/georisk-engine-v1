@@ -1,0 +1,5 @@
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["app/geo"]
+ignore_missing_imports = true

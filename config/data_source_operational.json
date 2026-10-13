@@ -1,0 +1,5 @@
+{
+  "_comment": "Licence + retention records for the data_source_operational gate. Empty = no records on file, so every source fails closed until real licences land. Fill from data_source_operational.example.json when a commercial-use licence and a retention policy exist for a source. Licence/retention are legal facts — never fabricate them.",
+  "licences": [],
+  "retentions": []
+}

@@ -1,0 +1,504 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://georiskengine.com/schemas/regulatory-evidence-pack-v1.1.json",
+  "title": "RegulatoryEvidencePack",
+  "description": "Structured machine-readable evidence pack mapping Dutch/EU regulatory rules to per-asset regulatory screening states. This is decision-support screening evidence, NOT a compliance certification. The pack contains two separate checksums: artifact_sha256 (fingerprint of the retrieved official publication) and content_sha256 (fingerprint of this generated pack).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pack_id",
+    "schema_version",
+    "pack_version",
+    "regulatory_domain",
+    "jurisdiction",
+    "classification",
+    "source_registry",
+    "official_source_artifacts",
+    "threshold_provenance",
+    "regulatory_rules",
+    "asset_verifications",
+    "checksum",
+    "generated_at",
+    "generator_version"
+  ],
+  "properties": {
+    "pack_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-[A-Z]+-[A-Z]+-\\d{4}-V\\d+$",
+      "description": "GeoRisk internal versioned evidence pack identifier — NOT an official regulation code"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.1",
+      "default": "1.1"
+    },
+    "pack_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Incremented when rules, thresholds, or source references change"
+    },
+    "regulatory_domain": {
+      "type": "string",
+      "enum": [
+        "hemelwater",
+        "wateroverlast",
+        "overstroming",
+        "bodemdaling",
+        "hitte",
+        "wind",
+        "multihazard",
+        "esrs_disclosure",
+        "eu_taxonomy",
+        "other"
+      ]
+    },
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "name", "authority_ids"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["municipal", "provincial", "regional", "national", "eu"]
+        },
+        "name": {
+          "type": "string"
+        },
+        "authority_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "Bijv. ['gemeente-amsterdam', 'waterschap-agv']"
+        }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_class",
+        "customer_data_status",
+        "production_eligible"
+      ],
+      "properties": {
+        "evidence_class": {
+          "type": "string",
+          "enum": ["synthetic_reference", "bounded_pilot", "observed_production"]
+        },
+        "customer_data_status": {
+          "type": "string",
+          "enum": ["not_customer_data", "anonymised_pilot", "consented_customer"]
+        },
+        "production_eligible": {
+          "type": "boolean",
+          "default": false
+        },
+        "decision_use_approved": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "source_registry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "authority",
+          "title",
+          "reference_url",
+          "content_hash",
+          "status",
+          "effective_date"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "authority": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "reference_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "content_hash": {
+            "type": "string",
+            "description": "SHA-256 of the canonical source text or 'PLACEHOLDER_NOT_VERIFIED' until real artifact retrieved"
+          },
+          "source_checksums_verified": {
+            "type": "boolean",
+            "default": false,
+            "description": "False until an independent process has retrieved the publication and computed a real SHA-256"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["current", "superseded", "draft", "repealed"],
+            "description": "Draft/superseded/repealed sources are programmatically blocked"
+          },
+          "effective_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "publication_reference": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "official_source_artifacts": {
+      "type": "keyed_array",
+      "description": "Verified official publication artifacts. Each artifact establishes the provenance chain from raw publication bytes to threshold values. artifact_sha256 is the SHA-256 of the raw byte content (PDF/XML/JSON), NOT rendered HTML or copy-pasted text. Two checksums exist: artifact_sha256 (publication fingerprint) and the pack's content_sha256 (pack fingerprint).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "authority",
+          "official_publication_id",
+          "title",
+          "source_url",
+          "retrieved_at",
+          "effective_from",
+          "mime_type",
+          "byte_length",
+          "artifact_sha256",
+          "source_checksums_verified",
+          "status"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Must match an entry in source_registry"
+          },
+          "authority": {
+            "type": "string"
+          },
+          "official_publication_id": {
+            "type": "string",
+            "description": "The publication's own identifier (NOT a GeoRisk internal ID)"
+          },
+          "title": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "retrieved_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp of artifact retrieval; empty string if not yet retrieved"
+          },
+          "effective_from": {
+            "type": "string",
+            "format": "date"
+          },
+          "effective_until": {
+            "type": ["string", "null"],
+            "format": "date",
+            "description": "Null if currently in force"
+          },
+          "mime_type": {
+            "type": "string",
+            "description": "MIME type of the retrieved artifact"
+          },
+          "byte_length": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Byte length of the retrieved artifact"
+          },
+          "artifact_sha256": {
+            "type": "string",
+            "description": "SHA-256 of raw artifact bytes, or PLACEHOLDER_NOT_VERIFIED"
+          },
+          "source_checksums_verified": {
+            "type": "boolean",
+            "default": false,
+            "description": "True only after independent retrieval and hash computation"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["current", "superseded", "draft", "repealed"],
+            "description": "Draft/superseded/repealed artifacts fail verification"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "threshold_provenance": {
+      "type": "array",
+      "description": "Exact citation linking each rule to an official artifact. Each record must reference an official_source_artifacts entry. provenance_verified is True only after the full chain (artifact SHA256 → article/lid mapping) is independently checked.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "source_id",
+          "official_artifact_sha256",
+          "article_reference",
+          "paragraph_reference",
+          "provenance_verified"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "description": "Must match a rule_id in regulatory_rules"
+          },
+          "source_id": {
+            "type": "string",
+            "description": "Must match an official_source_artifacts entry"
+          },
+          "official_artifact_sha256": {
+            "type": "string",
+            "description": "Must match the referenced artifact's artifact_sha256"
+          },
+          "article_reference": {
+            "type": "string",
+            "description": "e.g. 'Artikel 4.116'"
+          },
+          "paragraph_reference": {
+            "type": "string",
+            "description": "e.g. 'Paragraaf 4.4.2'"
+          },
+          "lid_reference": {
+            "type": "string",
+            "description": "e.g. 'lid 1(a)'"
+          },
+          "page_reference": {
+            "type": "string"
+          },
+          "effective_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "provenance_verified": {
+            "type": "boolean",
+            "default": false,
+            "description": "True only after full artifact → article → rule chain verified"
+          }
+        }
+      }
+    },
+    "regulatory_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "source_id",
+          "rule_type",
+          "parameter_name",
+          "threshold_value",
+          "threshold_unit",
+          "comparison",
+          "applicability_filter"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9-]+$"
+          },
+          "source_id": {
+            "type": "string",
+            "description": "Reference into source_registry"
+          },
+          "rule_type": {
+            "type": "string",
+            "enum": [
+              "storage_requirement",
+              "discharge_limit",
+              "emptying_requirement",
+              "setback_distance",
+              "other"
+            ]
+          },
+          "parameter_name": {
+            "type": "string",
+            "description": "Engineered parameter this rule validates, e.g. 'storage_capacity_l_per_m2'"
+          },
+          "threshold_value": {
+            "type": "number",
+            "description": "Candidate threshold value attributed to the referenced publication. Threshold provenance remains unverified until the official source artifact is independently retrieved and checked."
+          },
+          "threshold_unit": {
+            "type": "string"
+          },
+          "comparison": {
+            "type": "string",
+            "enum": ["gte", "lte", "eq"],
+            "description": "gte = asset value must be >= threshold (e.g. storage); lte = asset value must be <= threshold (e.g. discharge)"
+          },
+          "applicability_filter": {
+            "type": "object",
+            "description": "Asset must match ALL filters for this rule to apply",
+            "properties": {
+              "municipality": { "type": "string" },
+              "use_class": { "type": "string" },
+              "water_authority": { "type": "string" },
+              "min_built_area_m2": { "type": "number" },
+              "max_built_area_m2": { "type": "number" }
+            }
+          },
+          "publication_section": {
+            "type": "string",
+            "description": "Exact section/paragraph of the official publication (indicative, to be verified against retrieved artifact)"
+          },
+          "publication_page": {
+            "type": "string",
+            "description": "Exact page reference (to be verified against retrieved artifact)"
+          },
+          "effective_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "threshold_source_verified": {
+            "type": "boolean",
+            "default": false,
+            "description": "False until independently verified against retrieved official text"
+          }
+        }
+      }
+    },
+    "asset_verifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_id",
+          "address",
+          "coordinates",
+          "built_area_m2",
+          "use_class",
+          "municipality",
+          "water_authority",
+          "asset_applicability_verified",
+          "rule_results",
+          "overall_status"
+        ],
+        "properties": {
+          "asset_id": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "coordinates": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["crs", "x", "y"],
+            "properties": {
+              "crs": {
+                "type": "string",
+                "enum": ["EPSG:28992", "EPSG:4326"]
+              },
+              "x": { "type": "number" },
+              "y": { "type": "number" }
+            }
+          },
+          "built_area_m2": {
+            "type": "number",
+            "minimum": 0
+          },
+          "use_class": {
+            "type": "string"
+          },
+          "municipality": {
+            "type": "string"
+          },
+          "water_authority": {
+            "type": "string"
+          },
+          "asset_applicability_verified": {
+            "type": "boolean",
+            "description": "Whether this asset's regulatory applicability has been independently verified"
+          },
+          "applicability_reason": {
+            "type": "string"
+          },
+          "rule_results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "rule_id",
+                "applicable",
+                "status",
+                "engineered_value",
+                "threshold_value",
+                "threshold_unit"
+              ],
+              "properties": {
+                "rule_id": { "type": "string" },
+                "applicable": { "type": "boolean" },
+            "status": {
+              "type": "string",
+              "enum": ["threshold_satisfied", "threshold_not_satisfied", "not_applicable", "insufficient_data", "applicability_unverified", "source_unverified"]
+            },
+                "engineered_value": {
+                  "type": ["number", "null"],
+                  "description": "Asset's computed/queried value; null when insufficient_data"
+                },
+                "threshold_value": { "type": "number", "description": "Candidate threshold value; provenance unverified until independently checked" },
+                "threshold_unit": { "type": "string" },
+                "evidence_note": { "type": "string" }
+              }
+            }
+          },
+          "overall_status": {
+            "type": "string",
+            "enum": ["threshold_satisfied", "threshold_not_satisfied", "partial", "not_applicable", "insufficient_data", "applicability_unverified", "source_unverified"]
+          }
+        }
+      }
+    },
+    "checksum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_sha256", "algorithm"],
+      "properties": {
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "SHA-256 of deterministic JSON serialization of everything EXCEPT this checksum, generated_at, and envelope_timestamp. This is a SEPARATE checksum from artifact_sha256 — this fingerprints the pack, artifact_sha256 fingerprints the source publication."
+        },
+        "algorithm": {
+          "type": "string",
+          "const": "SHA-256"
+        }
+      }
+    },
+    "envelope_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "NOT included in checksum content; separates content identity from run identity"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "NOT included in checksum content; volatile envelope field"
+    },
+    "generator_version": {
+      "type": "string"
+    },
+    "deterministic_seed": {
+      "type": "integer"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-text operational notes; must NOT contain compliance conclusions"
+    }
+  }
+}

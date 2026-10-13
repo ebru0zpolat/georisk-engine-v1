@@ -1,0 +1,2315 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "portfolio_id": "golden-rotterdam-port-v1",
+    "market": "NL-Rotterdam-port",
+    "currency": "EUR",
+    "synthetic": true,
+    "pack_note": "Same global stub MDR / stub hazard pipeline as Antalya — not pack-nl calibrated (pack loader is Phase B).",
+    "disclaimer": "Fictional port/logistics collateral on real Rotterdam geographies for demo/CI geographic-generalisation only. No real customer data.",
+    "valuation_date": "2021-07-01",
+    "asset_count": 100
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.019285,
+          51.955918
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-000",
+        "address": "Synthetic Maasvlakte parcel 000, Rotterdam",
+        "asset_value": 29199635.83,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 2018,
+        "floors": 6,
+        "insurance_coverage": 10460074.54,
+        "ltv": 0.4,
+        "loan_id": "SYN-RTM-LN-000"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.152707,
+          51.9164
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-001",
+        "address": "Synthetic Europoort parcel 001, Rotterdam",
+        "asset_value": 5813532.47,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2007,
+        "floors": 1,
+        "insurance_coverage": 3771429.07,
+        "ltv": 0.41,
+        "loan_id": "SYN-RTM-LN-001"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.284059,
+          51.875929
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-002",
+        "address": "Synthetic Botlek parcel 002, Rotterdam",
+        "asset_value": 5233134.34,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 2014,
+        "floors": 1,
+        "insurance_coverage": 4596176.34,
+        "ltv": 0.42,
+        "loan_id": "SYN-RTM-LN-002"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.378553,
+          51.889387
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-003",
+        "address": "Synthetic Pernis parcel 003, Rotterdam",
+        "asset_value": 24372130.94,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1998,
+        "floors": 6,
+        "insurance_coverage": 11790513.4,
+        "ltv": 0.43,
+        "loan_id": "SYN-RTM-LN-003"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.355245,
+          51.894431
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-004",
+        "address": "Synthetic Vondelingenplaat parcel 004, Rotterdam",
+        "asset_value": 14080390.39,
+        "currency": "EUR",
+        "building_type": "cold_storage",
+        "use_class": "logistics",
+        "construction_year": 1998,
+        "floors": 3,
+        "insurance_coverage": 2640956.63,
+        "ltv": 0.44,
+        "loan_id": "SYN-RTM-LN-004"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.458527,
+          51.880334
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-005",
+        "address": "Synthetic Waalhaven parcel 005, Rotterdam",
+        "asset_value": 4499596.24,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2015,
+        "floors": 2,
+        "insurance_coverage": 9383008.54,
+        "ltv": 0.45,
+        "loan_id": "SYN-RTM-LN-005"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.450978,
+          51.914342
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-006",
+        "address": "Synthetic Merwehaven parcel 006, Rotterdam",
+        "asset_value": 7839104.44,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1978,
+        "floors": 3,
+        "insurance_coverage": 4147939.16,
+        "ltv": 0.46,
+        "loan_id": "SYN-RTM-LN-006"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.246051,
+          51.901781
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-007",
+        "address": "Synthetic Rozenburg parcel 007, Rotterdam",
+        "asset_value": 9856779.45,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1982,
+        "floors": 3,
+        "insurance_coverage": 3637675.29,
+        "ltv": 0.47,
+        "loan_id": "SYN-RTM-LN-007"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.327619,
+          51.849866
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-008",
+        "address": "Synthetic Spijkenisse parcel 008, Rotterdam",
+        "asset_value": 10084490.35,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2005,
+        "floors": 3,
+        "insurance_coverage": 5377402.42,
+        "ltv": 0.48,
+        "loan_id": "SYN-RTM-LN-008"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.491425,
+          51.896944
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-009",
+        "address": "Synthetic Rijnhaven parcel 009, Rotterdam",
+        "asset_value": 3427830.22,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1996,
+        "floors": 5,
+        "insurance_coverage": 3193281.89,
+        "ltv": 0.49,
+        "loan_id": "SYN-RTM-LN-009"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.397317,
+          51.869746
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-010",
+        "address": "Synthetic Emshaven Corridor parcel 010, Rotterdam",
+        "asset_value": 25751851.77,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "industrial",
+        "construction_year": 2009,
+        "floors": 6,
+        "insurance_coverage": 23717173.83,
+        "ltv": 0.5,
+        "loan_id": "SYN-RTM-LN-010"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.696598,
+          51.81137
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-011",
+        "address": "Synthetic Dordrecht Hinterland parcel 011, Rotterdam",
+        "asset_value": 11938353.43,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2013,
+        "floors": 5,
+        "insurance_coverage": 3935406.21,
+        "ltv": 0.51,
+        "loan_id": "SYN-RTM-LN-011"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.017912,
+          51.956308
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-012",
+        "address": "Synthetic Maasvlakte parcel 012, Rotterdam",
+        "asset_value": 30347030.69,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 1980,
+        "floors": 5,
+        "insurance_coverage": 7465712.94,
+        "ltv": 0.52,
+        "loan_id": "SYN-RTM-LN-012"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.140114,
+          51.920316
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-013",
+        "address": "Synthetic Europoort parcel 013, Rotterdam",
+        "asset_value": 10639194.61,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2002,
+        "floors": 2,
+        "insurance_coverage": 5256868.73,
+        "ltv": 0.53,
+        "loan_id": "SYN-RTM-LN-013"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.272489,
+          51.875721
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-014",
+        "address": "Synthetic Botlek parcel 014, Rotterdam",
+        "asset_value": 4976226.59,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 2012,
+        "floors": 4,
+        "insurance_coverage": 2260612.51,
+        "ltv": 0.54,
+        "loan_id": "SYN-RTM-LN-014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.379121,
+          51.880777
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-015",
+        "address": "Synthetic Pernis parcel 015, Rotterdam",
+        "asset_value": 7941548.12,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 2004,
+        "floors": 6,
+        "insurance_coverage": 14910262.38,
+        "ltv": 0.55,
+        "loan_id": "SYN-RTM-LN-015"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.358382,
+          51.893284
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-016",
+        "address": "Synthetic Vondelingenplaat parcel 016, Rotterdam",
+        "asset_value": 12894979.22,
+        "currency": "EUR",
+        "building_type": "cold_storage",
+        "use_class": "logistics",
+        "construction_year": 1982,
+        "floors": 3,
+        "insurance_coverage": 7078064.39,
+        "ltv": 0.56,
+        "loan_id": "SYN-RTM-LN-016"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.451135,
+          51.888762
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-017",
+        "address": "Synthetic Waalhaven parcel 017, Rotterdam",
+        "asset_value": 14886673.23,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2012,
+        "floors": 5,
+        "insurance_coverage": 9007398.02,
+        "ltv": 0.57,
+        "loan_id": "SYN-RTM-LN-017"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.465689,
+          51.915941
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-018",
+        "address": "Synthetic Merwehaven parcel 018, Rotterdam",
+        "asset_value": 8793073.0,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1991,
+        "floors": 6,
+        "insurance_coverage": 2087052.78,
+        "ltv": 0.58,
+        "loan_id": "SYN-RTM-LN-018"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.240804,
+          51.910144
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-019",
+        "address": "Synthetic Rozenburg parcel 019, Rotterdam",
+        "asset_value": 25816521.93,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1981,
+        "floors": 1,
+        "insurance_coverage": 6109107.06,
+        "ltv": 0.59,
+        "loan_id": "SYN-RTM-LN-019"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.328468,
+          51.855082
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-020",
+        "address": "Synthetic Spijkenisse parcel 020, Rotterdam",
+        "asset_value": 16513996.03,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1994,
+        "floors": 1,
+        "insurance_coverage": 6547299.79,
+        "ltv": 0.6,
+        "loan_id": "SYN-RTM-LN-020"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.498303,
+          51.900018
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-021",
+        "address": "Synthetic Rijnhaven parcel 021, Rotterdam",
+        "asset_value": 5260540.11,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2003,
+        "floors": 4,
+        "insurance_coverage": 1083145.2,
+        "ltv": 0.61,
+        "loan_id": "SYN-RTM-LN-021"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.408297,
+          51.868829
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-022",
+        "address": "Synthetic Emshaven Corridor parcel 022, Rotterdam",
+        "asset_value": 23054519.19,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "industrial",
+        "construction_year": 2016,
+        "floors": 1,
+        "insurance_coverage": 11320429.86,
+        "ltv": 0.62,
+        "loan_id": "SYN-RTM-LN-022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.698834,
+          51.804589
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-023",
+        "address": "Synthetic Dordrecht Hinterland parcel 023, Rotterdam",
+        "asset_value": 3581005.78,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1995,
+        "floors": 1,
+        "insurance_coverage": 5933193.59,
+        "ltv": 0.63,
+        "loan_id": "SYN-RTM-LN-023"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.034208,
+          51.951194
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-024",
+        "address": "Synthetic Maasvlakte parcel 024, Rotterdam",
+        "asset_value": 15303446.41,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 2016,
+        "floors": 6,
+        "insurance_coverage": 5127225.0,
+        "ltv": 0.64,
+        "loan_id": "SYN-RTM-LN-024"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.155619,
+          51.918094
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-025",
+        "address": "Synthetic Europoort parcel 025, Rotterdam",
+        "asset_value": 7900295.89,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1984,
+        "floors": 5,
+        "insurance_coverage": 3490956.7,
+        "ltv": 0.65,
+        "loan_id": "SYN-RTM-LN-025"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.283618,
+          51.880578
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-026",
+        "address": "Synthetic Botlek parcel 026, Rotterdam",
+        "asset_value": 10962781.67,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 1984,
+        "floors": 5,
+        "insurance_coverage": 3835664.31,
+        "ltv": 0.66,
+        "loan_id": "SYN-RTM-LN-026"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.370282,
+          51.884078
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-027",
+        "address": "Synthetic Pernis parcel 027, Rotterdam",
+        "asset_value": 14239595.29,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 2011,
+        "floors": 3,
+        "insurance_coverage": 12378207.29,
+        "ltv": 0.67,
+        "loan_id": "SYN-RTM-LN-027"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.347533,
+          51.89578
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-028",
+        "address": "Synthetic Vondelingenplaat parcel 028, Rotterdam",
+        "asset_value": 15474736.12,
+        "currency": "EUR",
+        "building_type": "cold_storage",
+        "use_class": "logistics",
+        "construction_year": 2007,
+        "floors": 2,
+        "insurance_coverage": 2728014.61,
+        "ltv": 0.68,
+        "loan_id": "SYN-RTM-LN-028"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.45005,
+          51.883023
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-029",
+        "address": "Synthetic Waalhaven parcel 029, Rotterdam",
+        "asset_value": 7812962.6,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1985,
+        "floors": 3,
+        "insurance_coverage": 8000811.6,
+        "ltv": 0.69,
+        "loan_id": "SYN-RTM-LN-029"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.453954,
+          51.903847
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-030",
+        "address": "Synthetic Merwehaven parcel 030, Rotterdam",
+        "asset_value": 1580821.21,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1976,
+        "floors": 1,
+        "insurance_coverage": 1858943.09,
+        "ltv": 0.7,
+        "loan_id": "SYN-RTM-LN-030"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.24848,
+          51.898949
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-031",
+        "address": "Synthetic Rozenburg parcel 031, Rotterdam",
+        "asset_value": 4452313.67,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 2013,
+        "floors": 1,
+        "insurance_coverage": 4934862.15,
+        "ltv": 0.71,
+        "loan_id": "SYN-RTM-LN-031"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.339712,
+          51.852894
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-032",
+        "address": "Synthetic Spijkenisse parcel 032, Rotterdam",
+        "asset_value": 13816874.17,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1982,
+        "floors": 2,
+        "insurance_coverage": 3280833.58,
+        "ltv": 0.72,
+        "loan_id": "SYN-RTM-LN-032"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.500063,
+          51.895066
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-033",
+        "address": "Synthetic Rijnhaven parcel 033, Rotterdam",
+        "asset_value": 2307302.58,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1986,
+        "floors": 6,
+        "insurance_coverage": 1370588.37,
+        "ltv": 0.73,
+        "loan_id": "SYN-RTM-LN-033"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.39235,
+          51.87613
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-034",
+        "address": "Synthetic Emshaven Corridor parcel 034, Rotterdam",
+        "asset_value": 44533724.38,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "industrial",
+        "construction_year": 1995,
+        "floors": 6,
+        "insurance_coverage": 7786054.84,
+        "ltv": 0.74,
+        "loan_id": "SYN-RTM-LN-034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.692597,
+          51.805119
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-035",
+        "address": "Synthetic Dordrecht Hinterland parcel 035, Rotterdam",
+        "asset_value": 4234601.41,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2012,
+        "floors": 1,
+        "insurance_coverage": 6786571.73,
+        "ltv": 0.75,
+        "loan_id": "SYN-RTM-LN-035"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0316,
+          51.950328
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-036",
+        "address": "Synthetic Maasvlakte parcel 036, Rotterdam",
+        "asset_value": 12754671.07,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 1990,
+        "floors": 2,
+        "insurance_coverage": 15314756.99,
+        "ltv": 0.76,
+        "loan_id": "SYN-RTM-LN-036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.14702,
+          51.917911
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-037",
+        "address": "Synthetic Europoort parcel 037, Rotterdam",
+        "asset_value": 7675593.38,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2010,
+        "floors": 1,
+        "insurance_coverage": 8562322.86,
+        "ltv": 0.77,
+        "loan_id": "SYN-RTM-LN-037"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.275078,
+          51.878604
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-038",
+        "address": "Synthetic Botlek parcel 038, Rotterdam",
+        "asset_value": 8529221.07,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 2019,
+        "floors": 2,
+        "insurance_coverage": 2496809.62,
+        "ltv": 0.78,
+        "loan_id": "SYN-RTM-LN-038"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.370691,
+          51.884542
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-039",
+        "address": "Synthetic Pernis parcel 039, Rotterdam",
+        "asset_value": 15125223.15,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1982,
+        "floors": 1,
+        "insurance_coverage": 14081446.45,
+        "ltv": 0.79,
+        "loan_id": "SYN-RTM-LN-039"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.342551,
+          51.892978
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-040",
+        "address": "Synthetic Vondelingenplaat parcel 040, Rotterdam",
+        "asset_value": 12578590.03,
+        "currency": "EUR",
+        "building_type": "cold_storage",
+        "use_class": "logistics",
+        "construction_year": 2019,
+        "floors": 1,
+        "insurance_coverage": 3064326.93,
+        "ltv": 0.8,
+        "loan_id": "SYN-RTM-LN-040"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.455589,
+          51.888487
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-041",
+        "address": "Synthetic Waalhaven parcel 041, Rotterdam",
+        "asset_value": 14547524.11,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1980,
+        "floors": 3,
+        "insurance_coverage": 6910733.23,
+        "ltv": 0.81,
+        "loan_id": "SYN-RTM-LN-041"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.466813,
+          51.911456
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-042",
+        "address": "Synthetic Merwehaven parcel 042, Rotterdam",
+        "asset_value": 6118524.59,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2006,
+        "floors": 1,
+        "insurance_coverage": 1283141.02,
+        "ltv": 0.82,
+        "loan_id": "SYN-RTM-LN-042"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.252039,
+          51.906101
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-043",
+        "address": "Synthetic Rozenburg parcel 043, Rotterdam",
+        "asset_value": 18101775.81,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1989,
+        "floors": 1,
+        "insurance_coverage": 3623161.13,
+        "ltv": 0.83,
+        "loan_id": "SYN-RTM-LN-043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.33218,
+          51.847825
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-044",
+        "address": "Synthetic Spijkenisse parcel 044, Rotterdam",
+        "asset_value": 7569818.32,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1984,
+        "floors": 3,
+        "insurance_coverage": 2507520.66,
+        "ltv": 0.84,
+        "loan_id": "SYN-RTM-LN-044"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.495419,
+          51.901108
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-045",
+        "address": "Synthetic Rijnhaven parcel 045, Rotterdam",
+        "asset_value": 5910973.65,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2004,
+        "floors": 4,
+        "insurance_coverage": 4893427.19,
+        "ltv": 0.4,
+        "loan_id": "SYN-RTM-LN-045"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.401591,
+          51.871925
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-046",
+        "address": "Synthetic Emshaven Corridor parcel 046, Rotterdam",
+        "asset_value": 32163973.29,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "industrial",
+        "construction_year": 1999,
+        "floors": 6,
+        "insurance_coverage": 16346082.59,
+        "ltv": 0.41,
+        "loan_id": "SYN-RTM-LN-046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.682567,
+          51.81614
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-047",
+        "address": "Synthetic Dordrecht Hinterland parcel 047, Rotterdam",
+        "asset_value": 17817892.72,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1988,
+        "floors": 4,
+        "insurance_coverage": 7124687.55,
+        "ltv": 0.42,
+        "loan_id": "SYN-RTM-LN-047"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.028253,
+          51.9517
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-048",
+        "address": "Synthetic Maasvlakte parcel 048, Rotterdam",
+        "asset_value": 16791592.55,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 1988,
+        "floors": 6,
+        "insurance_coverage": 22432012.53,
+        "ltv": 0.43,
+        "loan_id": "SYN-RTM-LN-048"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.148797,
+          51.917602
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-049",
+        "address": "Synthetic Europoort parcel 049, Rotterdam",
+        "asset_value": 7294561.17,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1988,
+        "floors": 6,
+        "insurance_coverage": 5429029.12,
+        "ltv": 0.44,
+        "loan_id": "SYN-RTM-LN-049"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.281913,
+          51.883035
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-050",
+        "address": "Synthetic Botlek parcel 050, Rotterdam",
+        "asset_value": 13991069.55,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 2017,
+        "floors": 2,
+        "insurance_coverage": 9040140.46,
+        "ltv": 0.45,
+        "loan_id": "SYN-RTM-LN-050"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.376642,
+          51.880188
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-051",
+        "address": "Synthetic Pernis parcel 051, Rotterdam",
+        "asset_value": 6816297.79,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1991,
+        "floors": 2,
+        "insurance_coverage": 5853449.37,
+        "ltv": 0.46,
+        "loan_id": "SYN-RTM-LN-051"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.349108,
+          51.89049
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-052",
+        "address": "Synthetic Vondelingenplaat parcel 052, Rotterdam",
+        "asset_value": 10006442.39,
+        "currency": "EUR",
+        "building_type": "cold_storage",
+        "use_class": "logistics",
+        "construction_year": 2012,
+        "floors": 2,
+        "insurance_coverage": 2038758.21,
+        "ltv": 0.47,
+        "loan_id": "SYN-RTM-LN-052"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.449757,
+          51.883479
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-053",
+        "address": "Synthetic Waalhaven parcel 053, Rotterdam",
+        "asset_value": 8374810.49,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2009,
+        "floors": 6,
+        "insurance_coverage": 7430677.07,
+        "ltv": 0.48,
+        "loan_id": "SYN-RTM-LN-053"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.466536,
+          51.915756
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-054",
+        "address": "Synthetic Merwehaven parcel 054, Rotterdam",
+        "asset_value": 8682394.07,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2016,
+        "floors": 1,
+        "insurance_coverage": 4061734.23,
+        "ltv": 0.49,
+        "loan_id": "SYN-RTM-LN-054"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.256981,
+          51.901405
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-055",
+        "address": "Synthetic Rozenburg parcel 055, Rotterdam",
+        "asset_value": 9139171.76,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1994,
+        "floors": 2,
+        "insurance_coverage": 7160806.62,
+        "ltv": 0.5,
+        "loan_id": "SYN-RTM-LN-055"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.323014,
+          51.856245
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-056",
+        "address": "Synthetic Spijkenisse parcel 056, Rotterdam",
+        "asset_value": 17946434.83,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2006,
+        "floors": 3,
+        "insurance_coverage": 5725833.61,
+        "ltv": 0.51,
+        "loan_id": "SYN-RTM-LN-056"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.499646,
+          51.895005
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-057",
+        "address": "Synthetic Rijnhaven parcel 057, Rotterdam",
+        "asset_value": 2271156.16,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1992,
+        "floors": 2,
+        "insurance_coverage": 3418912.94,
+        "ltv": 0.52,
+        "loan_id": "SYN-RTM-LN-057"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.40631,
+          51.875455
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-058",
+        "address": "Synthetic Emshaven Corridor parcel 058, Rotterdam",
+        "asset_value": 42549295.54,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "industrial",
+        "construction_year": 1980,
+        "floors": 1,
+        "insurance_coverage": 15044700.12,
+        "ltv": 0.53,
+        "loan_id": "SYN-RTM-LN-058"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.692312,
+          51.812172
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-059",
+        "address": "Synthetic Dordrecht Hinterland parcel 059, Rotterdam",
+        "asset_value": 12926693.42,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1975,
+        "floors": 5,
+        "insurance_coverage": 7147334.34,
+        "ltv": 0.54,
+        "loan_id": "SYN-RTM-LN-059"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.021671,
+          51.960993
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-060",
+        "address": "Synthetic Maasvlakte parcel 060, Rotterdam",
+        "asset_value": 44131329.59,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 2013,
+        "floors": 1,
+        "insurance_coverage": 12113237.61,
+        "ltv": 0.55,
+        "loan_id": "SYN-RTM-LN-060"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.145887,
+          51.917391
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-061",
+        "address": "Synthetic Europoort parcel 061, Rotterdam",
+        "asset_value": 7033876.57,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2004,
+        "floors": 4,
+        "insurance_coverage": 5613496.85,
+        "ltv": 0.56,
+        "loan_id": "SYN-RTM-LN-061"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.287655,
+          51.873844
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-062",
+        "address": "Synthetic Botlek parcel 062, Rotterdam",
+        "asset_value": 2662770.44,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 2013,
+        "floors": 2,
+        "insurance_coverage": 8821104.04,
+        "ltv": 0.57,
+        "loan_id": "SYN-RTM-LN-062"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.383094,
+          51.886055
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-063",
+        "address": "Synthetic Pernis parcel 063, Rotterdam",
+        "asset_value": 18013080.1,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 2001,
+        "floors": 3,
+        "insurance_coverage": 3309282.53,
+        "ltv": 0.58,
+        "loan_id": "SYN-RTM-LN-063"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.355241,
+          51.887697
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-064",
+        "address": "Synthetic Vondelingenplaat parcel 064, Rotterdam",
+        "asset_value": 7119451.28,
+        "currency": "EUR",
+        "building_type": "cold_storage",
+        "use_class": "logistics",
+        "construction_year": 2003,
+        "floors": 4,
+        "insurance_coverage": 3482287.91,
+        "ltv": 0.59,
+        "loan_id": "SYN-RTM-LN-064"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.449453,
+          51.889899
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-065",
+        "address": "Synthetic Waalhaven parcel 065, Rotterdam",
+        "asset_value": 16287421.37,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1986,
+        "floors": 5,
+        "insurance_coverage": 8341676.79,
+        "ltv": 0.6,
+        "loan_id": "SYN-RTM-LN-065"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.462277,
+          51.913902
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-066",
+        "address": "Synthetic Merwehaven parcel 066, Rotterdam",
+        "asset_value": 7577155.08,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1991,
+        "floors": 6,
+        "insurance_coverage": 4684556.0,
+        "ltv": 0.61,
+        "loan_id": "SYN-RTM-LN-066"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.242372,
+          51.909693
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-067",
+        "address": "Synthetic Rozenburg parcel 067, Rotterdam",
+        "asset_value": 24955860.43,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 2011,
+        "floors": 5,
+        "insurance_coverage": 11777503.17,
+        "ltv": 0.62,
+        "loan_id": "SYN-RTM-LN-067"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.336808,
+          51.849242
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-068",
+        "address": "Synthetic Spijkenisse parcel 068, Rotterdam",
+        "asset_value": 9316177.64,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2006,
+        "floors": 5,
+        "insurance_coverage": 7309896.36,
+        "ltv": 0.63,
+        "loan_id": "SYN-RTM-LN-068"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.499032,
+          51.901164
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-069",
+        "address": "Synthetic Rijnhaven parcel 069, Rotterdam",
+        "asset_value": 5944128.36,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2008,
+        "floors": 5,
+        "insurance_coverage": 2541222.77,
+        "ltv": 0.64,
+        "loan_id": "SYN-RTM-LN-069"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.399273,
+          51.874224
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-070",
+        "address": "Synthetic Emshaven Corridor parcel 070, Rotterdam",
+        "asset_value": 38926778.18,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "industrial",
+        "construction_year": 1977,
+        "floors": 2,
+        "insurance_coverage": 18412997.73,
+        "ltv": 0.65,
+        "loan_id": "SYN-RTM-LN-070"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.682367,
+          51.807101
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-071",
+        "address": "Synthetic Dordrecht Hinterland parcel 071, Rotterdam",
+        "asset_value": 6677046.14,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1981,
+        "floors": 5,
+        "insurance_coverage": 7740579.59,
+        "ltv": 0.66,
+        "loan_id": "SYN-RTM-LN-071"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.019474,
+          51.954584
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-072",
+        "address": "Synthetic Maasvlakte parcel 072, Rotterdam",
+        "asset_value": 25276601.39,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 1980,
+        "floors": 3,
+        "insurance_coverage": 9093648.4,
+        "ltv": 0.67,
+        "loan_id": "SYN-RTM-LN-072"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.14715,
+          51.920085
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-073",
+        "address": "Synthetic Europoort parcel 073, Rotterdam",
+        "asset_value": 10354216.86,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1976,
+        "floors": 1,
+        "insurance_coverage": 6751925.17,
+        "ltv": 0.68,
+        "loan_id": "SYN-RTM-LN-073"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.287506,
+          51.878868
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-074",
+        "address": "Synthetic Botlek parcel 074, Rotterdam",
+        "asset_value": 8854236.86,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 1988,
+        "floors": 1,
+        "insurance_coverage": 2714723.67,
+        "ltv": 0.69,
+        "loan_id": "SYN-RTM-LN-074"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.387657,
+          51.881937
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-075",
+        "address": "Synthetic Pernis parcel 075, Rotterdam",
+        "asset_value": 10154625.37,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 2012,
+        "floors": 3,
+        "insurance_coverage": 12509639.52,
+        "ltv": 0.7,
+        "loan_id": "SYN-RTM-LN-075"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.352179,
+          51.889539
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-076",
+        "address": "Synthetic Vondelingenplaat parcel 076, Rotterdam",
+        "asset_value": 9023735.38,
+        "currency": "EUR",
+        "building_type": "cold_storage",
+        "use_class": "logistics",
+        "construction_year": 1993,
+        "floors": 2,
+        "insurance_coverage": 5271972.35,
+        "ltv": 0.71,
+        "loan_id": "SYN-RTM-LN-076"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.45749,
+          51.891169
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-077",
+        "address": "Synthetic Waalhaven parcel 077, Rotterdam",
+        "asset_value": 17852571.17,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1975,
+        "floors": 2,
+        "insurance_coverage": 7913479.44,
+        "ltv": 0.72,
+        "loan_id": "SYN-RTM-LN-077"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.452434,
+          51.904741
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-078",
+        "address": "Synthetic Merwehaven parcel 078, Rotterdam",
+        "asset_value": 2113561.93,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 2018,
+        "floors": 6,
+        "insurance_coverage": 1362621.24,
+        "ltv": 0.73,
+        "loan_id": "SYN-RTM-LN-078"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.242755,
+          51.899961
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-079",
+        "address": "Synthetic Rozenburg parcel 079, Rotterdam",
+        "asset_value": 6384230.41,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 2012,
+        "floors": 2,
+        "insurance_coverage": 8522942.27,
+        "ltv": 0.74,
+        "loan_id": "SYN-RTM-LN-079"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.325216,
+          51.849076
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-080",
+        "address": "Synthetic Spijkenisse parcel 080, Rotterdam",
+        "asset_value": 9111215.32,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2002,
+        "floors": 5,
+        "insurance_coverage": 3716907.56,
+        "ltv": 0.75,
+        "loan_id": "SYN-RTM-LN-080"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.490968,
+          51.90403
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-081",
+        "address": "Synthetic Rijnhaven parcel 081, Rotterdam",
+        "asset_value": 7653515.09,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1978,
+        "floors": 6,
+        "insurance_coverage": 942670.1,
+        "ltv": 0.76,
+        "loan_id": "SYN-RTM-LN-081"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.404704,
+          51.865488
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-082",
+        "address": "Synthetic Emshaven Corridor parcel 082, Rotterdam",
+        "asset_value": 13224861.95,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "industrial",
+        "construction_year": 1999,
+        "floors": 2,
+        "insurance_coverage": 15452116.06,
+        "ltv": 0.77,
+        "loan_id": "SYN-RTM-LN-082"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.700092,
+          51.807527
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-083",
+        "address": "Synthetic Dordrecht Hinterland parcel 083, Rotterdam",
+        "asset_value": 7202082.61,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2016,
+        "floors": 6,
+        "insurance_coverage": 2654365.23,
+        "ltv": 0.78,
+        "loan_id": "SYN-RTM-LN-083"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.023439,
+          51.954355
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-084",
+        "address": "Synthetic Maasvlakte parcel 084, Rotterdam",
+        "asset_value": 24601986.43,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 1982,
+        "floors": 3,
+        "insurance_coverage": 24613736.17,
+        "ltv": 0.79,
+        "loan_id": "SYN-RTM-LN-084"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.143921,
+          51.923583
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-085",
+        "address": "Synthetic Europoort parcel 085, Rotterdam",
+        "asset_value": 14665643.73,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 2019,
+        "floors": 3,
+        "insurance_coverage": 7898722.29,
+        "ltv": 0.8,
+        "loan_id": "SYN-RTM-LN-085"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.286994,
+          51.88618
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-086",
+        "address": "Synthetic Botlek parcel 086, Rotterdam",
+        "asset_value": 17866990.43,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 1982,
+        "floors": 4,
+        "insurance_coverage": 5915462.44,
+        "ltv": 0.81,
+        "loan_id": "SYN-RTM-LN-086"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.374101,
+          51.887702
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-087",
+        "address": "Synthetic Pernis parcel 087, Rotterdam",
+        "asset_value": 21156768.49,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1998,
+        "floors": 3,
+        "insurance_coverage": 10947229.9,
+        "ltv": 0.82,
+        "loan_id": "SYN-RTM-LN-087"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.355147,
+          51.885491
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-088",
+        "address": "Synthetic Vondelingenplaat parcel 088, Rotterdam",
+        "asset_value": 4838884.39,
+        "currency": "EUR",
+        "building_type": "cold_storage",
+        "use_class": "logistics",
+        "construction_year": 1996,
+        "floors": 5,
+        "insurance_coverage": 2591096.01,
+        "ltv": 0.83,
+        "loan_id": "SYN-RTM-LN-088"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.444825,
+          51.888014
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-089",
+        "address": "Synthetic Waalhaven parcel 089, Rotterdam",
+        "asset_value": 13964205.43,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1981,
+        "floors": 2,
+        "insurance_coverage": 6573115.65,
+        "ltv": 0.84,
+        "loan_id": "SYN-RTM-LN-089"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.456929,
+          51.908185
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-090",
+        "address": "Synthetic Merwehaven parcel 090, Rotterdam",
+        "asset_value": 4167472.61,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1979,
+        "floors": 1,
+        "insurance_coverage": 2184049.81,
+        "ltv": 0.4,
+        "loan_id": "SYN-RTM-LN-090"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.240318,
+          51.908681
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-091",
+        "address": "Synthetic Rozenburg parcel 091, Rotterdam",
+        "asset_value": 23024939.47,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 2007,
+        "floors": 6,
+        "insurance_coverage": 4435986.42,
+        "ltv": 0.41,
+        "loan_id": "SYN-RTM-LN-091"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.335508,
+          51.850491
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-092",
+        "address": "Synthetic Spijkenisse parcel 092, Rotterdam",
+        "asset_value": 10854756.24,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1996,
+        "floors": 2,
+        "insurance_coverage": 3844516.24,
+        "ltv": 0.42,
+        "loan_id": "SYN-RTM-LN-092"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.482148,
+          51.894651
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-093",
+        "address": "Synthetic Rijnhaven parcel 093, Rotterdam",
+        "asset_value": 2060016.14,
+        "currency": "EUR",
+        "building_type": "office",
+        "use_class": "commercial",
+        "construction_year": 1978,
+        "floors": 1,
+        "insurance_coverage": 4465598.69,
+        "ltv": 0.43,
+        "loan_id": "SYN-RTM-LN-093"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.408758,
+          51.867809
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-094",
+        "address": "Synthetic Emshaven Corridor parcel 094, Rotterdam",
+        "asset_value": 20053965.63,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "industrial",
+        "construction_year": 1991,
+        "floors": 2,
+        "insurance_coverage": 9292942.17,
+        "ltv": 0.44,
+        "loan_id": "SYN-RTM-LN-094"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.685336,
+          51.809544
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-095",
+        "address": "Synthetic Dordrecht Hinterland parcel 095, Rotterdam",
+        "asset_value": 9687711.46,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1986,
+        "floors": 2,
+        "insurance_coverage": 5392298.34,
+        "ltv": 0.45,
+        "loan_id": "SYN-RTM-LN-095"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.030098,
+          51.952662
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-096",
+        "address": "Synthetic Maasvlakte parcel 096, Rotterdam",
+        "asset_value": 19622770.39,
+        "currency": "EUR",
+        "building_type": "port_terminal",
+        "use_class": "logistics",
+        "construction_year": 1979,
+        "floors": 6,
+        "insurance_coverage": 21838520.82,
+        "ltv": 0.46,
+        "loan_id": "SYN-RTM-LN-096"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.154346,
+          51.92515
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-097",
+        "address": "Synthetic Europoort parcel 097, Rotterdam",
+        "asset_value": 16597144.28,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "logistics",
+        "construction_year": 1999,
+        "floors": 5,
+        "insurance_coverage": 7108123.63,
+        "ltv": 0.47,
+        "loan_id": "SYN-RTM-LN-097"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.277321,
+          51.875615
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-098",
+        "address": "Synthetic Botlek parcel 098, Rotterdam",
+        "asset_value": 4845676.57,
+        "currency": "EUR",
+        "building_type": "warehouse",
+        "use_class": "industrial",
+        "construction_year": 2001,
+        "floors": 6,
+        "insurance_coverage": 7332194.9,
+        "ltv": 0.48,
+        "loan_id": "SYN-RTM-LN-098"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.374589,
+          51.890749
+        ]
+      },
+      "properties": {
+        "asset_id": "RTM-G-099",
+        "address": "Synthetic Pernis parcel 099, Rotterdam",
+        "asset_value": 26971772.55,
+        "currency": "EUR",
+        "building_type": "logistics_park",
+        "use_class": "logistics",
+        "construction_year": 1979,
+        "floors": 1,
+        "insurance_coverage": 10239774.94,
+        "ltv": 0.49,
+        "loan_id": "SYN-RTM-LN-099"
+      }
+    }
+  ]
+}

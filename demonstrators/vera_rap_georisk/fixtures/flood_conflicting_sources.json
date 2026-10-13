@@ -1,0 +1,205 @@
+{
+  "asset": {
+    "asset_id": "asset-nl-001",
+    "asset_type": "industrial infrastructure",
+    "location": "Synthetic Rotterdam site",
+    "jurisdiction": "NL",
+    "coordinates": [
+      4.48,
+      51.92
+    ],
+    "elevation_reference": "NAP",
+    "criticality": "HIGH",
+    "metadata": {
+      "synthetic": true
+    }
+  },
+  "question": {
+    "question_id": "flood-materiality-001",
+    "asset_id": "asset-nl-001",
+    "hazard_type": "FLOOD",
+    "target_claim": "MATERIAL_FLOOD_EXPOSURE",
+    "evaluation_time": "2026-01-15T00:00:00Z",
+    "materiality_threshold": {
+      "depth": 0.3,
+      "unit": "m",
+      "scenario": "SSP2-4.5",
+      "return_period_years": 100,
+      "time_horizon": 2050,
+      "max_uncertainty": 0.15
+    },
+    "required_evidence_types": [
+      "ASSET_LOCATION",
+      "GROUND_ELEVATION",
+      "FLOOD_DEPTH",
+      "CRS_TRANSFORMATION"
+    ],
+    "constraints": {
+      "scenario": "SSP2-4.5",
+      "return_period_years": 100,
+      "time_horizon": 2050
+    },
+    "metadata": {}
+  },
+  "evidence": [
+    {
+      "evidence_id": "location",
+      "evidence_type": "ASSET_LOCATION",
+      "source_id": "synthetic-asset-registry",
+      "source_uri": "https://example.invalid/synthetic/location",
+      "retrieved_at": "2026-01-01T00:00:00Z",
+      "observed_at": "2025-12-15T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "content": {
+        "value": "POINT(4.48 51.92)"
+      },
+      "content_fingerprint": "72d06cb0d3f9e5552ff4817b75d8ca93ae5aaae3a0b9637dd1d21b4998b7e7cf",
+      "unit": null,
+      "jurisdiction": "NL",
+      "spatial_scope": {
+        "asset_id": "asset-nl-001",
+        "crs": "EPSG:28992"
+      },
+      "uncertainty": null,
+      "verification_status": "VERIFIED",
+      "provenance": {
+        "source_identifier": "synthetic-asset-registry",
+        "retrieval_mechanism": "local fixture",
+        "transformation_ids": [],
+        "upstream_evidence_ids": []
+      }
+    },
+    {
+      "evidence_id": "elevation",
+      "evidence_type": "GROUND_ELEVATION",
+      "source_id": "synthetic-ahn-style",
+      "source_uri": "https://example.invalid/synthetic/elevation",
+      "retrieved_at": "2026-01-01T00:00:00Z",
+      "observed_at": "2025-12-15T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "content": {
+        "value": 1.2
+      },
+      "content_fingerprint": "d9787ed53384d7da24d592559fadeee2f3edf0defed72aa26d47c775d3facc99",
+      "unit": "m",
+      "jurisdiction": "NL",
+      "spatial_scope": {
+        "asset_id": "asset-nl-001",
+        "crs": "EPSG:28992"
+      },
+      "uncertainty": {
+        "kind": "interval",
+        "lower": 1.15,
+        "upper": 1.25,
+        "confidence": 0.95,
+        "method": "synthetic fixture"
+      },
+      "verification_status": "VERIFIED",
+      "provenance": {
+        "source_identifier": "synthetic-ahn-style",
+        "retrieval_mechanism": "local fixture",
+        "transformation_ids": [],
+        "upstream_evidence_ids": []
+      }
+    },
+    {
+      "evidence_id": "depth",
+      "evidence_type": "FLOOD_DEPTH",
+      "source_id": "synthetic-flood-model",
+      "source_uri": "https://example.invalid/synthetic/depth",
+      "retrieved_at": "2026-01-01T00:00:00Z",
+      "observed_at": "2025-12-15T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "content": {
+        "value": 0.45,
+        "scenario": "SSP2-4.5",
+        "return_period_years": 100,
+        "time_horizon": 2050
+      },
+      "content_fingerprint": "c1029d6b7a1884dcc1e6e6d91c1c3cf34a69a01d635e4953a126df00db005443",
+      "unit": "m",
+      "jurisdiction": "NL",
+      "spatial_scope": {
+        "asset_id": "asset-nl-001",
+        "crs": "EPSG:28992"
+      },
+      "uncertainty": {
+        "kind": "interval",
+        "lower": 0.4,
+        "upper": 0.5,
+        "confidence": 0.95,
+        "method": "synthetic fixture"
+      },
+      "verification_status": "VERIFIED",
+      "provenance": {
+        "source_identifier": "synthetic-flood-model",
+        "retrieval_mechanism": "local fixture",
+        "transformation_ids": [],
+        "upstream_evidence_ids": []
+      }
+    },
+    {
+      "evidence_id": "crs",
+      "evidence_type": "CRS_TRANSFORMATION",
+      "source_id": "synthetic-transform-registry",
+      "source_uri": "https://example.invalid/synthetic/crs",
+      "retrieved_at": "2026-01-01T00:00:00Z",
+      "observed_at": "2025-12-15T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "content": {
+        "value": "EPSG:4326->EPSG:28992"
+      },
+      "content_fingerprint": "d52aeaf12db6dcc3d1a65b846cf483164b6f621adcc17e6c9d47ef2dc0e3c38d",
+      "unit": null,
+      "jurisdiction": "NL",
+      "spatial_scope": {
+        "asset_id": "asset-nl-001",
+        "crs": "EPSG:28992"
+      },
+      "uncertainty": null,
+      "verification_status": "VERIFIED",
+      "provenance": {
+        "source_identifier": "synthetic-transform-registry",
+        "retrieval_mechanism": "local fixture",
+        "transformation_ids": [],
+        "upstream_evidence_ids": []
+      }
+    },
+    {
+      "evidence_id": "depth-independent",
+      "evidence_type": "FLOOD_DEPTH",
+      "source_id": "synthetic-independent-model",
+      "source_uri": "https://example.invalid/synthetic/depth-independent",
+      "retrieved_at": "2026-01-01T00:00:00Z",
+      "observed_at": "2025-12-15T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "content": {
+        "value": 0.05,
+        "scenario": "SSP2-4.5",
+        "return_period_years": 100,
+        "time_horizon": 2050
+      },
+      "content_fingerprint": "ce81bb54c25a1615068fd81678726a2f9a5143ff99a2029a4deb3b62135cd20b",
+      "unit": "m",
+      "jurisdiction": "NL",
+      "spatial_scope": {
+        "asset_id": "asset-nl-001",
+        "crs": "EPSG:28992"
+      },
+      "uncertainty": {
+        "kind": "interval",
+        "lower": 0.0,
+        "upper": 0.1,
+        "confidence": 0.95,
+        "method": "synthetic fixture"
+      },
+      "verification_status": "VERIFIED",
+      "provenance": {
+        "source_identifier": "synthetic-independent-model",
+        "retrieval_mechanism": "local fixture",
+        "transformation_ids": [],
+        "upstream_evidence_ids": []
+      }
+    }
+  ]
+}
